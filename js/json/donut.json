@@ -1,0 +1,16 @@
+{
+  "donutName": "DONUT",
+  "quantity": "0",
+  "inInventory": false,
+  "flavor": [
+    {
+      "strawberry": "STRAWBERRY",
+    },
+    {
+      "chocolate": "CHOCOLATE",
+    },
+    {
+      "vanilla": "VANILLA",
+    }
+  ]
+}
