@@ -42,10 +42,10 @@ function talk() {
     sfx_blipmale.play();
     document.getElementById("dialog").innerHTML += speechtext.charAt(i);
     ++i;
-  } else if (i === speechtext.length || x === 0) {
+  } else if (i === speechtext.length && x === 0) {
     i = 0;
     document.getElementById("button").innerHTML += "<br>" + "<button onclick=\"next()\">" + button[0].text + "</button>";
-  } else if (i === speechtext.length || x === 1) {
+  } else if (i === speechtext.length && x === 1) {
     i = 0;
     document.getElementById("button").innerHTML += "<br>" + "<button onclick=\"next()\">" + button[1].text + "</button>" + "<button onclick=\"next()\">" + button[2].text + "</button>";
   }
