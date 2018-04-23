@@ -9,6 +9,7 @@
 
 <button onclick="talk()">talk</button>
   <div id="dialog"></div>
+  <div id="button"></div>
 
 </body>
 </html>
