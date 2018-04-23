@@ -52,8 +52,12 @@ function talk() {
 }
 
 function next() {
-  ++x;
   document.getElementById("dialog").innerHTML = "";
   document.getElementById("button").innerHTML = "";
   setTimeout(talk, 50);
+  if (x === 0) {
+    x =1;
+  } else if (x === 1) {
+    x = 0;
+  }
 }
