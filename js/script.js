@@ -1,3 +1,8 @@
+window.onload = setTimeout(function () {
+  document.getElementById("black_screen").style.opacity = "0";
+  document.getElementById("black_screen").style.zIndex = "-1";
+}, 2000);
+
 var sfx_blipmale = new Howl({
 src: ['../audio/sfx_blipmale.wav'],
 volume: 0.25,
@@ -79,7 +84,7 @@ var step = JSON.parse(talkJSON);
 
 function talk() {
   var dialog = step.dialogs[currentDialog];
-  document.getElementById("div_dialog").innerHTML = "";
+  document.getElementById("div_sentence").innerHTML = "";
   document.getElementById("div_button").innerHTML = "";
   margeTalk.classList.add('hidden');
   margeFake.classList.remove('hidden');
@@ -94,7 +99,7 @@ function talk() {
     sfx_blipfemale.stop();
   }
   speechtext = dialog.sentences[currentSentence].text;
-  new Typed('#div_dialog', {
+  new Typed('#div_sentence', {
     strings: [speechtext],
     typeSpeed: 0,
     showCursor: false,
