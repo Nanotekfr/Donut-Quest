@@ -2,7 +2,8 @@
 <html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8">
-  <title></title>
+  <title>Donut Quest</title>
+  <link rel="stylesheet" href="css/fa-svg-with-js.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -20,6 +21,7 @@
     </div>
   </section>
 
+  <script src="js/fontawesome-all.js"></script>
   <script src="js/howler.min.js"></script>
   <script src="js/typed.min.js"></script>
   <script src="js/script.js"></script>

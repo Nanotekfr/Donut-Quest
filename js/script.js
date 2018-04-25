@@ -66,9 +66,9 @@ var talkJSON = `{
   "sentences":[
     {"id":1,"text":"Anything else?"}],
   "actions":[
-    {"id":1,"text":"Homer","nextStep": 1},
-    {"id":2,"text":"Bart","nextStep": 4},
-    {"id":3,"text":"Nothing","nextStep": 5}]
+    {"id":1,"text":"HOMER","nextStep": 1},
+    {"id":2,"text":"BART","nextStep": 4},
+    {"id":3,"text":"NOTHING","nextStep": 5}]
   }
 ]
 }`;
@@ -98,16 +98,16 @@ function talk() {
     strings: [speechtext],
     typeSpeed: 0,
     showCursor: false,
-    onComplete: function talk() {
+    onComplete() {
       sfx_blipfemale.stop();
       if (currentSentence == (dialog.sentences.length-1)) {
-        for (var i=0;i < dialog.actions.length;i++) {
+        for (i=0;i < dialog.actions.length;i++) {
           document.getElementById("div_button").innerHTML += "<a class=\"dialog-button\" onclick=\"currentSentence=0; currentDialog=" + dialog.actions[i].nextStep + "; talk()\">" + dialog.actions[i].text + "</a>"
         }
       }
       else {
         currentSentence++;
-        document.getElementById("div_button").innerHTML += "<a class=\"dialog-button-arrow\" onclick=\"talk()\"> > </a>";
+        document.getElementById("div_button").innerHTML += "<i class=\"fas fa-caret-right dialog-button-arrow\" onclick=\"talk()\"></i>";
       }
     }
   });
