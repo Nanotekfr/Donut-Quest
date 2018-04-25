@@ -9,8 +9,8 @@
 <body>
 
   <section class="character-box">
-    <img id="margeTalk" class="character-image" onclick="talk()" src="img/ned_flanders.png" alt="Picture of Ned Flanders from The Simpsons">
-    <img id="margeFake" class="character-image fake hidden" src="img/ned_flanders.png" alt="Picture of Ned Flanders from The Simpsons">
+    <img id="margeTalk" class="character-image" onclick="talk()" src="img/marge_simpson.png" alt="Picture of Marge from The Simpsons">
+    <img id="margeFake" class="character-image fake hidden" src="img/marge_simpson.png" alt="Picture of Marge from The Simpsons">
   </section>
 
   <section id="dialogBox" class="dialog hidden">
