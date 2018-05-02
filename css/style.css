@@ -10,7 +10,7 @@ body {
   overflow: hidden;
   margin: 0;
 }
-#black_screen {
+#blackScreen {
   background-color: black;
   width: 100%;
   height: 100%;
@@ -25,13 +25,14 @@ body {
   z-index: 10;
 }
 .character-image {
+  transition: 0.5s;
   position: fixed;
   cursor: pointer;
   bottom: -100px;
   height: 100%;
-}
-.fake {
-  cursor: default;
+  z-index: -1;
+  opacity: 0;
+  pointer-events: none;
 }
 .dialog {
   justify-content: center;
