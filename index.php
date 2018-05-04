@@ -8,10 +8,12 @@
 </head>
 <body>
 
-  <div id="blackScreen"></div>
+  <section id="areaBox">
+    <img class="area-image" :src="areaURL">
+  </section>
 
-  <section class="character-box">
-    <img id="margeTalk" class="character-image" onclick="talkToMarge()" src="img/marge_simpson.png" alt="Picture of Marge from The Simpsons">
+  <section id="characterBox">
+    <img class="character-image" onclick="doTalk()" :src="characterURL">
   </section>
 
   <section id="dialogBox" class="dialog hidden">
@@ -24,6 +26,7 @@
 
   <script src="js/howler.min.js"></script>
   <script src="js/typed.min.js"></script>
+  <script src="js/vue.min.js"></script>
   <script src="js/script.js"></script>
 </body>
 </html>
