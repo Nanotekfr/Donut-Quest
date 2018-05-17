@@ -1,11 +1,13 @@
 var sfx_blipmale = new Howl({
   src: ['../audio/sfx_blipmale.wav'],
   volume: 0.25,
+  buffer: false,
   loop: true
   });
 var sfx_blipfemale = new Howl({
   src: ['../audio/sfx_blipfemale.wav'],
   volume: 0.25,
+  buffer: false,
   loop: true
   });
 

@@ -33,13 +33,13 @@
     </div>
   </section>
 
-  <!-- <script src="js/json/characters.json"></script>
-  <script src="js/json/dialogs.json"></script>
-  <script src="js/json/areas.json"></script> -->
-  <script src="js/howler.min.js"></script>
-  <script src="js/axios.min.js"></script>
-  <script src="js/typed.min.js"></script>
-  <script src="js/vue.min.js"></script>
-  <script src="js/script.js"></script>
+  <!-- <script src="/js/json/characters.json"></script>
+  <script src="/js/json/dialogs.json"></script>
+  <script src="/js/json/areas.json"></script> -->
+  <script src="/js/libraries/howler.min.js"></script>
+  <script src="/js/libraries/axios.min.js"></script>
+  <script src="/js/libraries/typed.min.js"></script>
+  <script src="/js/libraries/vue.min.js"></script>
+  <script src="/js/script.js"></script>
 </body>
 </html>
