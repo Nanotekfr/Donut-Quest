@@ -1,0 +1,124 @@
+@font-face {
+  src: url("../fonts/Ace-Attorney.ttf");
+  font-family: "attorney";
+}
+* {
+  font-family: "attorney";
+  color: white;
+}
+body {
+  background: black;
+  overflow: hidden;
+  margin: 0;
+}
+mark {
+  background: none;
+  color: #6fc1eb;
+}
+mark .bis {
+  color: #c05e3d;
+}
+#blackScreen {
+  pointer-events: none;
+  background: #000;
+  transition: 0.3s;
+  position: fixed;
+  height: 100%;
+  z-index: 99;
+  width: 100%;
+  opacity: 0;
+}
+#HUD {
+  position: fixed;
+  z-index: 90;
+}
+.area-image {
+  position: fixed;
+  transition: .5s;
+  height: auto;
+  width: 100%;
+  z-index: 1;
+}
+#characterBox {
+  justify-content: center;
+  display: flex;
+}
+.character-image {
+  transition: .5s;
+  position: fixed;
+  cursor: pointer;
+  bottom: -100px;
+  height: 100%;
+  z-index: 2;
+  opacity: 0;
+}
+.dialog {
+  justify-content: center;
+  position: relative;
+  font-size: 35px;
+  display: flex;
+  z-index: 99;
+}
+.dialog-character-name {
+  background: rgba(0, 0, 0, 0.5);
+  border: 3px solid #f1f1f1;
+  border-radius: 2px;
+  text-align: center;
+  position: fixed;
+  min-width: 10%;
+  padding: 0 5px;
+  color: #f1f1f1;
+  margin: 10px;
+  width: auto;
+}
+.dialog-box {
+  background: rgba(0, 0, 0, 0.5);
+  border: 3px solid #f1f1f1;
+  border-radius: 5px;
+  position: fixed;
+  height: 150px;
+  padding: 10px;
+  bottom: 10px;
+  color: white;
+  z-index: 99;
+  width: 60%;
+}
+.dialog-textarea {
+  height: 65%;
+  cursor: default;
+}
+.dialog-button-box {
+  align-items: flex-start;
+  display: flex;
+  width: 100%;
+  height: 15%;
+  bottom: 0;
+}
+.dialog-button, .dialog-button-arrow {
+  border: 2px solid #C86400;
+  background: #ffa500;
+  border-radius: 2px;
+  text-align: center;
+  min-width: 10%;
+  padding: 0 5px;
+  margin: 10px;
+  width: auto;
+  transition: 0.2s;
+  cursor: pointer;
+}
+.dialog-button-arrow {
+  margin-left: 87%;
+}
+.dialog-button:hover, .dialog-button-arrow:hover {
+  background: #963200;
+}
+.donutimg {
+  width: 20%;
+  right: 40%;
+  left: 40%;
+  position: relative;
+  z-index: 100;
+}
+.hidden {
+  display: none;
+}

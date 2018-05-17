@@ -1,0 +1,44 @@
+{
+  "areas":[
+    {
+      "id":1,
+      "name":"STREET",
+      "img":"../img/area-outside.png",
+      "canGoTo":[
+        {"id":1,"area":"KITCHEN","nextArea":1},
+        {"id":2,"area":"LIVING ROOM","nextArea":2},
+        {"id":3,"area":"GARDEN","nextArea":3}
+      ],
+      "presentCharacter":-1
+    },
+    {
+      "id":2,
+      "name":"KITCHEN",
+      "img":"../img/area-kitchen.png",
+      "canGoTo":[
+        {"id":1,"area":"LIVING ROOM","nextArea":2},
+        {"id":2,"area":"STREET","nextArea":0}
+      ],
+      "presentCharacter":-1
+    },
+    {
+      "id":3,
+      "name":"LIVING ROOM",
+      "img":"../img/area-living-room.png",
+      "canGoTo":[
+        {"id":1,"area":"KITCHEN","nextArea":1},
+        {"id":2,"area":"STREET","nextArea":0}
+      ],
+      "presentCharacter":-1
+    },
+    {
+      "id":4,
+      "name":"GARDEN",
+      "img":"../img/area-garden.png",
+      "canGoTo":[
+        {"id":2,"area":"STREET","nextArea":0}
+      ],
+      "presentCharacter":-1
+    }
+  ]
+}

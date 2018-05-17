@@ -1,0 +1,117 @@
+{
+  "dialogs":[
+    {
+      "id":1,
+      "sentences":[
+        {"id":1,"text":"<mark>What are you doing in the <mark class='bis'>KITCHEN</mark>? Let's go outside!</mark>"}
+      ],
+      "actions":[
+        {"id":1,"text":"OK","nextStep":1},
+        {"id":2,"text":"NOPE","stopTalk":true}
+      ]
+    },
+    {
+      "id":2,
+      "sentences":[
+        {"id":1,"text":"<mark>Great! Come on then!</mark>"},
+        {"id":2,"text":"<mark>Click on the map to go to another location.</mark>"}
+      ],
+      "actions":[
+        {"id":1,"text":"NEXT","stopTalk":true,"nextStage":1}
+      ]
+    },
+    {
+      "id":3,
+      "sentences":[
+        {"id":1,"text":"</mark><mark>Smell that fresh air? Don't you feel better?</mark>"},
+        {"id":2,"text":"</mark><mark>Wait, looks like someone is coming your way...</mark>"}
+      ],
+      "actions":[
+        {"id":1,"text":"NEXT","nextStep":3,"hideDialogBox":true,"pause":true,"changeCharacter":1,"time":3000}
+      ]
+    },
+    {
+      "id":4,
+      "sentences":[
+        {"id":1,"text":"<mark>Hey, that's <mark class='bis'>MARGE SIMPSON</mark>, your neighbor!</mark>"},
+        {"id":2,"text":"<mark>Why not introduce yourself?</mark>"},
+        {"id":3,"text":"<mark>Just click on her to start a conversation.</mark>"}
+      ],
+      "actions":[
+        {"id":1,"text":"OK","stopTalk":true,"changeCharacter":0,"nextStage":2}
+      ]
+    },
+    {
+      "id":5,
+      "sentences":[
+        {"id":1,"text":"Oh hi there neighbor, what can I do for you?"}
+      ],
+      "actions":[
+        {"id":1,"text":"HOMER","nextStep":5},
+        {"id":2,"text":"BART","nextStep":8},
+        {"id":3,"text":"NOTHING","nextStep":9}
+      ]
+    },
+    {
+      "id":6,
+      "sentences":[
+        {"id":1,"text":"<mark class='bis'>HOMER</mark>, he's been out all night... again!"},
+        {"id":2,"text":"By the way. I have this <mark class='bis'>BOX OF DONUTS</mark>."},
+        {"id":3,"text":"Could you give it to him? That way you two could meet each other!"}
+      ],
+      "actions":[
+        {"id":1,"text":"ACCEPT","nextStep":6},
+        {"id":2,"text":"REFUSE","nextStep":7}
+      ]
+    },
+    {
+      "id":7,
+      "sentences":[
+        {"id":1,"text":"Great, thank you!"},
+        {"id":2,"text":"He should be in the <mark class='bis'>KITCHEN</mark>, come in! The door's open."}
+      ],
+      "actions":[
+        {"id":1,"text":"END","stopTalk":true,"nextStage":3}
+      ]
+    },
+    {
+      "id":8,
+      "sentences":[
+        {"id":1,"text":"Oh alright, nevermind then."}
+      ],
+      "actions":[
+        {"id":1,"text":"NEXT","nextStep":10}
+      ]
+    },
+    {
+      "id":9,
+      "sentences":[
+        {"id":1,"text":"<mark class='bis'>BART</mark> lost his shorts last week, he said some guy ate them..."},
+        {"id":2,"text":"If someone did eat BART’s shorts they’d have a tummy-full of pocket garbage."}
+      ],
+      "actions":[
+        {"id":1,"text":"NEXT","nextStep":10}
+      ]
+    },
+    {
+      "id":10,
+      "sentences":[
+        {"id":1,"text":"Ok then, have a nice day!"}
+      ],
+      "actions":[
+        {"id":1,"text":"END","nextStep": -1}
+      ]
+    },
+    {
+      "id":11,
+      "sentences":[
+        {"id":1,"text":"Anything else?"}
+      ],
+      "actions":[
+        {"id":1,"text":"HOMER","nextStep": 5},
+        {"id":2,"text":"BART","nextStep": 8},
+        {"id":3,"text":"NOTHING","nextStep": 9}
+      ]
+    }
+  ]
+}

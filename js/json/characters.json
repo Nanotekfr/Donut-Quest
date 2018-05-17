@@ -1,0 +1,6 @@
+{
+  "characters":[
+    {"id":1,"name":"Homer Simpson","img":"homerSimpson"},
+    {"id":2,"name":"Marge Simpson","img":"margeSimpson"}
+  ]
+}
