@@ -15,7 +15,7 @@ mark {
   background: none;
   color: #6fc1eb;
 }
-mark .bis {
+.bis {
   color: #c05e3d;
 }
 #blackScreen {
@@ -39,15 +39,16 @@ mark .bis {
   width: 100%;
   z-index: 1;
 }
-#characterBox {
+#characterBox, #characterBox div {
   justify-content: center;
   display: flex;
 }
-.character-image {
+#characterBox img {
   transition: .5s;
   position: fixed;
   cursor: pointer;
   bottom: -100px;
+  display: none;
   height: 100%;
   z-index: 2;
   opacity: 0;

@@ -15,14 +15,13 @@
     <img class="area-image" :src="img">
   </section>
 
-
-<section id="HUD">
-  <button onclick="doSelectArea()">MAP</button>
-  <div id="map"></div>
-</section>
-
   <section id="characterBox">
-    <div id="characterPlace"></div>
+    <characters></characters>
+  </section>
+
+  <section id="HUD">
+    <button onclick="doSelectArea()">MAP</button>
+    <div id="map"></div>
   </section>
 
   <section id="dialogBox" class="dialog hidden">
@@ -33,13 +32,11 @@
     </div>
   </section>
 
-  <!-- <script src="/js/json/characters.json"></script>
-  <script src="/js/json/dialogs.json"></script>
-  <script src="/js/json/areas.json"></script> -->
   <script src="/js/libraries/howler.min.js"></script>
   <script src="/js/libraries/axios.min.js"></script>
   <script src="/js/libraries/typed.min.js"></script>
   <script src="/js/libraries/vue.min.js"></script>
+  <script src="/js/vue/characters.js"></script>
   <script src="/js/script.js"></script>
 </body>
 </html>

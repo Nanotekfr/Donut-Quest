@@ -27,7 +27,7 @@
         {"id":2,"text":"</mark><mark>Wait, looks like someone is coming your way...</mark>"}
       ],
       "actions":[
-        {"id":1,"text":"NEXT","nextStep":3,"hideDialogBox":true,"pause":true,"changeCharacter":1,"time":3000}
+        {"id":1,"text":"NEXT","nextStep":3,"hideDialogBox":true,"pause":true,"showCharacter":1,"time":3000}
       ]
     },
     {
@@ -38,7 +38,7 @@
         {"id":3,"text":"<mark>Just click on her to start a conversation.</mark>"}
       ],
       "actions":[
-        {"id":1,"text":"OK","stopTalk":true,"changeCharacter":0,"nextStage":2}
+        {"id":1,"text":"OK","stopTalk":true,"nextStage":2}
       ]
     },
     {
@@ -99,7 +99,7 @@
         {"id":1,"text":"Ok then, have a nice day!"}
       ],
       "actions":[
-        {"id":1,"text":"END","nextStep": -1}
+        {"id":1,"text":"END","stopTalk":true}
       ]
     },
     {
