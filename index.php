@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <title>Donut Quest</title>
-  <link rel="stylesheet" href="css/fontawesome-all.css">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="/css/fontawesome-all.css">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 <body onload="start()">
 
@@ -20,8 +20,7 @@
   </section>
 
   <section id="HUD">
-    <button onclick="doSelectArea()">MAP</button>
-    <div id="map"></div>
+    <hud></hud>
   </section>
 
   <section id="dialogBox" class="dialog hidden">
@@ -32,11 +31,12 @@
     </div>
   </section>
 
-  <script src="/js/libraries/howler.min.js"></script>
-  <script src="/js/libraries/axios.min.js"></script>
-  <script src="/js/libraries/typed.min.js"></script>
-  <script src="/js/libraries/vue.min.js"></script>
+  <script src="/js/libraries/howler.js"></script>
+  <script src="/js/libraries/typed.js"></script>
+  <script src="/js/libraries/vue.js"></script>
+  <script src="/js/vue/areas.js"></script>
   <script src="/js/vue/characters.js"></script>
+  <script src="/js/vue/hud.js"></script>
   <script src="/js/script.js"></script>
 </body>
 </html>

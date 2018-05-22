@@ -19,6 +19,13 @@ fetch('/js/json/dialogs.json')
   .then(function(dialogJSON) {
     talkStep = dialogJSON;
   });
+fetch('/js/json/inventory.json')
+  .then(function(inventory) {
+    return inventory.json();
+  })
+  .then(function(inventoryJSON) {
+    inventoryStep = inventoryJSON;
+  });
 
 var sfx_blipmale = new Howl({
   src: ['../audio/sfx_blipmale.wav'],
@@ -33,13 +40,6 @@ var sfx_blipfemale = new Howl({
   loop: true
   });
 
-var vueArea = new Vue({
-  el: '#areaBox',
-  data: {
-    img: '../img/area-kitchen.png',
-  }
-});
-
 var currentStage = 0;
 var currentArea = 1;
 var currentCharacter = 0;
@@ -52,6 +52,7 @@ function start() {
     doTalk();
   }, 2000);
 }
+
 function doTalk() {
   dialog = talkStep.dialogs[currentDialog];
   document.getElementById("divSentence").innerHTML = "";
@@ -105,6 +106,12 @@ function doAction(selectedAction) {
     currentCharacter=action.changeCharacter;
     doChangeCharacter();
   }
+  if (typeof(action.addItem) != "undefined") {
+    doAddItem();
+  }
+  if (typeof(action.removeItem) != "undefined") {
+    doremoveItem();
+  }
   if (typeof(action.hideDialogBox) != "undefined") {
     doHideDialogBox();
   }
@@ -118,19 +125,7 @@ function doAction(selectedAction) {
     doTalk();
   }
 }
-function doPause() {
-  setTimeout(doTalk, action.time);
-}
-function doStopTalk() {
-  currentDialog = 0;
-  currentSentence = 0;
-  document.getElementById('dialogBox').classList.add('hidden');
-  document.getElementById("HUD").classList.remove('hidden');
-  sfx_blipmale.stop();
-}
-function doHideDialogBox() {
-  document.getElementById('dialogBox').classList.add('hidden');
-}
+
 function doShowCharacter() {
   character = characterStep.characters[currentCharacter].img;
   document.getElementById(character).style.display = "block";
@@ -156,16 +151,6 @@ function doChangeCharacter() {
     document.getElementById(character).style.opacity = "1";
   }, 1500);
 }
-function doSelectArea() {
-  if (document.getElementById("map").innerHTML == "") {
-    for (i=0;i < areaStep.areas[currentArea].canGoTo.length;i++) {
-      document.getElementById("map").innerHTML += "<a class=\"dialog-button\" onclick=\"doChangeArea(" + i + ")\">" + areaStep.areas[currentArea].canGoTo[i].area + "</a>"
-    }
-  }
-  else {
-    document.getElementById("map").innerHTML = "";
-  }
-}
 function doChangeArea(selectedArea) {
   document.getElementById("map").innerHTML = "";
   document.getElementById('blackScreen').style.opacity = "1";
@@ -185,6 +170,59 @@ function doChangeArea(selectedArea) {
     document.getElementById('blackScreen').style.opacity = "0";
   }, 2000);
   doCheckStage();
+}
+function doAddItem() {
+  currentItem = action.addItem;
+  bag=inventoryStep.bag;
+  item=bag.item[currentItem].name;
+  document.getElementById('Inventory').innerHTML += "<div id='item" + currentItem + "' class='boxItem' onclick=\"selectedItem='" + currentItem + "', doShowDescription()\">"+ item + "</div>";
+}
+function doRemoveItem() {
+  currentItem = selectedItem;
+  var remove = document.getElementById('item' + currentItem + '');
+  remove.parentNode.removeChild(remove);
+}
+function doHideDialogBox() {
+  document.getElementById('dialogBox').classList.add('hidden');
+}
+function doPause() {
+  setTimeout(doTalk, action.time);
+}
+function doStopTalk() {
+  currentDialog = 0;
+  currentSentence = 0;
+  document.getElementById('dialogBox').classList.add('hidden');
+  document.getElementById("HUD").classList.remove('hidden');
+  sfx_blipmale.stop();
+}
+
+function doSelectArea() {
+  if (document.getElementById("map").innerHTML == "") {
+    for (i=0;i < areaStep.areas[currentArea].canGoTo.length;i++) {
+      document.getElementById("map").innerHTML += "<a class=\"dialog-button\" onclick=\"doChangeArea(" + i + ")\">" + areaStep.areas[currentArea].canGoTo[i].area + "</a>"
+    }
+  }
+  else {
+    document.getElementById("map").innerHTML = "";
+  }
+}
+function doOpenBag() {
+  if (document.getElementById('containerInventory').style.display == 'none') {
+    document.getElementById('bagIcon').innerHTML = '<img src="/img/donut3.png"/>';
+    document.getElementById('containerInventory').style.display = 'flex';
+  }
+  else {
+    document.getElementById('bagIcon').innerHTML = '<img src="/img/donut2.png"/>';
+    document.getElementById('containerInventory').style.display = 'none';
+    document.getElementById('containerDescription').innerHTML = "";
+    document.getElementById('containerDescription').style.display = 'none';
+  }
+}
+function doShowDescription() {
+  currentItem = selectedItem;
+  description=bag.item[currentItem].description;
+  document.getElementById('containerDescription').style.display = 'flex';
+  document.getElementById('containerDescription').innerHTML = "<div id='item" + currentItem + "'>"+ description + "</div>";
 }
 
 function doCheckStage() {

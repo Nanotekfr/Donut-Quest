@@ -11,15 +11,11 @@ body {
   overflow: hidden;
   margin: 0;
 }
-button {
-  font-size: 2vw;
-  color: #000;
-}
 mark {
   background: none;
   color: #6fc1eb;
 }
-.bis {
+mark .bis {
   color: #c05e3d;
 }
 #blackScreen {
@@ -36,10 +32,6 @@ mark {
   position: fixed;
   z-index: 90;
 }
-#HUD .HUD-box {
-  grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
-  display: grid;
-}
 .area-image {
   position: fixed;
   transition: .5s;
@@ -47,16 +39,15 @@ mark {
   width: 100%;
   z-index: 1;
 }
-#characterBox, #characterBox div {
+#characterBox {
   justify-content: center;
   display: flex;
 }
-#characterBox img {
+.character-image {
   transition: .5s;
   position: fixed;
   cursor: pointer;
   bottom: -100px;
-  display: none;
   height: 100%;
   z-index: 2;
   opacity: 0;
@@ -131,6 +122,7 @@ mark {
 .hidden {
   display: none;
 }
+
 #openedBag{
   display: none;
 }

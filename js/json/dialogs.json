@@ -23,8 +23,8 @@
     {
       "id":3,
       "sentences":[
-        {"id":1,"text":"</mark><mark>Smell that fresh air? Don't you feel better?</mark>"},
-        {"id":2,"text":"</mark><mark>Wait, looks like someone is coming your way...</mark>"}
+        {"id":1,"text":"<mark>Smell that fresh air? Don't you feel better?</mark>"},
+        {"id":2,"text":"<mark>Wait, looks like someone is coming your way...</mark>"}
       ],
       "actions":[
         {"id":1,"text":"NEXT","nextStep":3,"hideDialogBox":true,"pause":true,"showCharacter":1,"time":3000}
@@ -71,7 +71,7 @@
         {"id":2,"text":"He should be in the <mark class='bis'>KITCHEN</mark>, come in! The door's open."}
       ],
       "actions":[
-        {"id":1,"text":"END","stopTalk":true,"nextStage":3}
+        {"id":1,"text":"END","stopTalk":true,"nextStage":3,"addItem":0}
       ]
     },
     {
