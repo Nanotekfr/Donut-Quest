@@ -34,9 +34,7 @@
   <script src="/js/libraries/howler.js"></script>
   <script src="/js/libraries/typed.js"></script>
   <script src="/js/libraries/vue.js"></script>
-  <script src="/js/vue/areas.js"></script>
-  <script src="/js/vue/characters.js"></script>
-  <script src="/js/vue/hud.js"></script>
+  <script src="/js/vue/components.js"></script>
   <script src="/js/script.js"></script>
 </body>
 </html>

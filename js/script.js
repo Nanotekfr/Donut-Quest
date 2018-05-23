@@ -32,22 +32,23 @@ var sfx_blipmale = new Howl({
   volume: 0.25,
   buffer: false,
   loop: true
-  });
+});
 var sfx_blipfemale = new Howl({
   src: ['../audio/sfx_blipfemale.wav'],
   volume: 0.25,
   buffer: false,
   loop: true
-  });
+});
 
 var currentStage = 0;
-var currentArea = 1;
+var currentArea = localStorage.getItem('savedArea');
 var currentCharacter = 0;
 var currentDialog = 0;
 var currentSentence = 0;
 var selectedAction = 0;
 
 function start() {
+  localStorage.setItem('savedArea',1);
   setTimeout(function() {
     doTalk();
   }, 2000);
@@ -152,14 +153,17 @@ function doChangeCharacter() {
   }, 1500);
 }
 function doChangeArea(selectedArea) {
+  document.getElementById("map").style.display = "none";
   document.getElementById("map").innerHTML = "";
   document.getElementById('blackScreen').style.opacity = "1";
   currentArea=areaStep.areas[currentArea].canGoTo[selectedArea].nextArea;
   presentCharacter=areaStep.areas[currentArea].presentCharacter;
   setTimeout(function() {
+    document.getElementById('mapIcon').innerHTML = '<img src="/img/closed-map.png"/>';
     vueArea.img=areaStep.areas[currentArea].img;
     character=characterStep.characters[currentCharacter].img;
     document.getElementById(character).style.display = "none";
+    localStorage.setItem('savedArea',currentArea);
     if (presentCharacter != null) {
       currentCharacter=presentCharacter;
       document.getElementById(character).style.display = "block";
@@ -175,7 +179,7 @@ function doAddItem() {
   currentItem = action.addItem;
   bag=inventoryStep.bag;
   item=bag.item[currentItem].name;
-  document.getElementById('Inventory').innerHTML += "<div id='item" + currentItem + "' class='boxItem' onclick=\"selectedItem='" + currentItem + "', doShowDescription()\">"+ item + "</div>";
+  document.getElementById('items').innerHTML += "<div id='item" + currentItem + "' class='boxItem' onclick=\"selectedItem='" + currentItem + "', doShowDescription()\">"+ item + "</div>";
 }
 function doRemoveItem() {
   currentItem = selectedItem;
@@ -199,30 +203,37 @@ function doStopTalk() {
 function doSelectArea() {
   if (document.getElementById("map").innerHTML == "") {
     for (i=0;i < areaStep.areas[currentArea].canGoTo.length;i++) {
-      document.getElementById("map").innerHTML += "<a class=\"dialog-button\" onclick=\"doChangeArea(" + i + ")\">" + areaStep.areas[currentArea].canGoTo[i].area + "</a>"
+      document.getElementById("map").style.display = "flex";
+      document.getElementById("map").innerHTML += "<div class=\"dialog-button\" onclick=\"doChangeArea(" + i + ")\">" + areaStep.areas[currentArea].canGoTo[i].area + "</div>";
+      document.getElementById('mapIcon').innerHTML = '<img src="/img/opened-map.png"/>';
     }
   }
   else {
+    document.getElementById("map").style.display = "none";
     document.getElementById("map").innerHTML = "";
+    document.getElementById('mapIcon').innerHTML = '<img src="/img/closed-map.png"/>';
   }
 }
+var bagOpened=0;
 function doOpenBag() {
-  if (document.getElementById('containerInventory').style.display == 'none') {
-    document.getElementById('bagIcon').innerHTML = '<img src="/img/donut3.png"/>';
-    document.getElementById('containerInventory').style.display = 'flex';
+  if (bagOpened == 0) {
+    document.getElementById('inventory').style.display = 'flex';
+    document.getElementById('bagIcon').innerHTML = '<img src="/img/opened-bag.png"/>';
+    bagOpened=1;
   }
   else {
-    document.getElementById('bagIcon').innerHTML = '<img src="/img/donut2.png"/>';
-    document.getElementById('containerInventory').style.display = 'none';
-    document.getElementById('containerDescription').innerHTML = "";
-    document.getElementById('containerDescription').style.display = 'none';
+    document.getElementById('inventory').style.display = 'none';
+    document.getElementById('description').innerHTML = "";
+    document.getElementById('description').style.display = 'none';
+    document.getElementById('bagIcon').innerHTML = '<img src="/img/closed-bag.png"/>';
+    bagOpened=0;
   }
 }
 function doShowDescription() {
   currentItem = selectedItem;
   description=bag.item[currentItem].description;
-  document.getElementById('containerDescription').style.display = 'flex';
-  document.getElementById('containerDescription').innerHTML = "<div id='item" + currentItem + "'>"+ description + "</div>";
+  document.getElementById('description').style.display = 'flex';
+  document.getElementById('description').innerHTML = "<div id='item" + currentItem + "'>"+ description + "</div>";
 }
 
 function doCheckStage() {
