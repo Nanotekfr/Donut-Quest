@@ -80,6 +80,10 @@ function doContinue() {
     areaStep.areas[0].presentCharacter = 1;
     areaStep.areas[1].presentCharacter = 0;
   }
+  if (currentStage == 4) {
+    areaStep.areas[1].presentCharacter = 0;
+    areaStep.areas[2].presentCharacter = 3;
+  }
   setTimeout(function() {
     document.getElementById('blackScreen').style.opacity = "0";
   }, 1500);
@@ -124,10 +128,16 @@ function doAction(selectedAction) {
     if (action.nextStage == 2) {
       localStorage.setItem('savedStage',2);
       areaStep.areas[0].presentCharacter = 1;
+      areaStep.areas[1].presentCharacter = 0;
     }
     if (action.nextStage == 3) {
       localStorage.setItem('savedStage',3);
-      areaStep.areas[1].presentCharacter = 0;
+      areaStep.areas[1].presentCharacter = 2;
+    }
+    if (action.nextStage == 4) {
+      localStorage.setItem('savedStage',4);
+      areaStep.areas[2].presentCharacter = 3;
+      areaStep.areas[0].presentCharacter = 'null';
     }
     currentStage=action.nextStage;
   }
@@ -149,7 +159,7 @@ function doAction(selectedAction) {
     doAddItem();
   }
   if (typeof(action.removeItem) != "undefined") {
-    doremoveItem();
+    doRemoveItem();
   }
   if (typeof(action.hideDialogBox) != "undefined") {
     doHideDialogBox();
@@ -223,11 +233,12 @@ function doChangeArea(selectedArea) {
 function doAddItem() {
   bag=inventoryStep.bag;
   item=bag.item[currentItem].name;
-  document.getElementById('items').innerHTML += "<div id='item" + currentItem + "' class='boxItem' onclick=\"selectedItem='" + currentItem + "', doShowDescription()\">"+ item + "</div>";
+  document.getElementById('items').innerHTML += "<div id='item" + currentItem + "' class='boxItem' onclick=\"doShowDescription()\">"+ item + "</div>";
   localStorage.setItem(item, true);
 }
 function doRemoveItem() {
-  currentItem = selectedItem;
+  currentItem = action.removeItem;
+  console.log(currentItem);
   var remove = document.getElementById('item' + currentItem + '');
   remove.parentNode.removeChild(remove);
   localStorage.setItem(item, false);
