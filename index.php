@@ -6,8 +6,10 @@
   <link rel="stylesheet" href="/css/fontawesome-all.css">
   <link rel="stylesheet" href="/css/style.css">
 </head>
-<body onload="start()">
-
+<body>
+  <button class="game" onclick="doNewGame()">new game</button>
+  <button class="game" onclick="doContinue()">continue</button>
+  <button class="game" onclick="doQuit()">quit</button>
   <section id="blackScreen">
   </section>
 
@@ -19,7 +21,7 @@
     <characters></characters>
   </section>
 
-  <section id="HUD">
+  <section id="HUD" class="hidden">
     <hud></hud>
   </section>
 

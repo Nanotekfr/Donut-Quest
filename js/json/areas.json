@@ -9,7 +9,7 @@
         {"id":2,"area":"LIVING ROOM","nextArea":2},
         {"id":3,"area":"GARDEN","nextArea":3}
       ],
-      "presentCharacter":null
+      "presentCharacter":"null"
     },
     {
       "id":2,
@@ -19,7 +19,7 @@
         {"id":1,"area":"LIVING ROOM","nextArea":2},
         {"id":2,"area":"STREET","nextArea":0}
       ],
-      "presentCharacter":null
+      "presentCharacter":"null"
     },
     {
       "id":3,
@@ -29,7 +29,7 @@
         {"id":1,"area":"KITCHEN","nextArea":1},
         {"id":2,"area":"STREET","nextArea":0}
       ],
-      "presentCharacter":null
+      "presentCharacter":"null"
     },
     {
       "id":4,
@@ -38,7 +38,7 @@
       "canGoTo":[
         {"id":2,"area":"STREET","nextArea":0}
       ],
-      "presentCharacter":null
+      "presentCharacter":"null"
     }
   ]
 }

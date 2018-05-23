@@ -26,7 +26,7 @@ mark {
   height: 100%;
   z-index: 99;
   width: 100%;
-  opacity: 0;
+  opacity: 1;
 }
 #HUD {
   position: fixed;
@@ -165,4 +165,7 @@ mark {
   display: none;
   justify-content: center;
   align-items: center;
+}
+.game {
+  color: black;
 }

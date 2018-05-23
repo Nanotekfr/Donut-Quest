@@ -40,18 +40,52 @@ var sfx_blipfemale = new Howl({
   loop: true
 });
 
-var currentStage = 0;
+var currentStage = localStorage.getItem('savedStage');
 var currentArea = localStorage.getItem('savedArea');
-var currentCharacter = 0;
+var currentCharacter = localStorage.getItem('savedCharacter');
 var currentDialog = 0;
 var currentSentence = 0;
 var selectedAction = 0;
 
-function start() {
+
+function doNewGame() {
+  localStorage.setItem('savedStage',0);
   localStorage.setItem('savedArea',1);
+  localStorage.setItem('savedCharacter','null');
+  currentStage = localStorage.getItem('savedStage');
+  currentArea = localStorage.getItem('savedArea');
+  currentCharacter = localStorage.getItem('savedCharacter');
+  vueArea.img=areaStep.areas[currentArea].img;
+  document.getElementById("HUD").classList.remove('hidden');
+  setTimeout(function() {
+    document.getElementById('blackScreen').style.opacity = "0";
+  }, 1000);
   setTimeout(function() {
     doTalk();
   }, 2000);
+}
+function doContinue() {
+  currentStage = localStorage.getItem('savedStage');
+  currentArea = localStorage.getItem('savedArea');
+  currentCharacter = localStorage.getItem('savedCharacter');
+  vueArea.img=areaStep.areas[currentArea].img;
+  document.getElementById("HUD").classList.remove('hidden');
+  if (currentCharacter != 'null') {
+    doShowCharacter();
+  }
+  if (currentStage == 2) {
+    areaStep.areas[0].presentCharacter = 1;
+  }
+  if (currentStage == 3) {
+    areaStep.areas[0].presentCharacter = 1;
+    areaStep.areas[1].presentCharacter = 0;
+  }
+  setTimeout(function() {
+    document.getElementById('blackScreen').style.opacity = "0";
+  }, 1500);
+}
+function doQuit() {
+  location.reload();
 }
 
 function doTalk() {
@@ -85,11 +119,14 @@ function doAction(selectedAction) {
   action=dialog.actions[selectedAction];
   if (typeof(action.nextStage) != "undefined") {
     if (action.nextStage == 1) {
+      localStorage.setItem('savedStage',1);
     }
     if (action.nextStage == 2) {
+      localStorage.setItem('savedStage',2);
       areaStep.areas[0].presentCharacter = 1;
     }
     if (action.nextStage == 3) {
+      localStorage.setItem('savedStage',3);
       areaStep.areas[1].presentCharacter = 0;
     }
     currentStage=action.nextStage;
@@ -108,6 +145,7 @@ function doAction(selectedAction) {
     doChangeCharacter();
   }
   if (typeof(action.addItem) != "undefined") {
+    currentItem = action.addItem;
     doAddItem();
   }
   if (typeof(action.removeItem) != "undefined") {
@@ -161,13 +199,20 @@ function doChangeArea(selectedArea) {
   setTimeout(function() {
     document.getElementById('mapIcon').innerHTML = '<img src="/img/closed-map.png"/>';
     vueArea.img=areaStep.areas[currentArea].img;
-    character=characterStep.characters[currentCharacter].img;
-    document.getElementById(character).style.display = "none";
     localStorage.setItem('savedArea',currentArea);
-    if (presentCharacter != null) {
+    if (currentCharacter != 'null') {
+      character=characterStep.characters[currentCharacter].img;
+      document.getElementById(character).style.display = "none";
+    }
+    if (presentCharacter != 'null') {
       currentCharacter=presentCharacter;
+      character=characterStep.characters[currentCharacter].img;
       document.getElementById(character).style.display = "block";
       document.getElementById(character).style.opacity = "1";
+      localStorage.setItem('savedCharacter',currentCharacter);
+    }
+    else {
+      localStorage.setItem('savedCharacter','null');
     }
   }, 1000);
   setTimeout(function() {
@@ -176,15 +221,16 @@ function doChangeArea(selectedArea) {
   doCheckStage();
 }
 function doAddItem() {
-  currentItem = action.addItem;
   bag=inventoryStep.bag;
   item=bag.item[currentItem].name;
   document.getElementById('items').innerHTML += "<div id='item" + currentItem + "' class='boxItem' onclick=\"selectedItem='" + currentItem + "', doShowDescription()\">"+ item + "</div>";
+  localStorage.setItem(item, true);
 }
 function doRemoveItem() {
   currentItem = selectedItem;
   var remove = document.getElementById('item' + currentItem + '');
   remove.parentNode.removeChild(remove);
+  localStorage.setItem(item, false);
 }
 function doHideDialogBox() {
   document.getElementById('dialogBox').classList.add('hidden');

@@ -14,7 +14,6 @@ Vue.component('hud', {
     </div>
   </div>`
 });
-
 var vueHUD = new Vue({
   el: '#HUD'
 });
@@ -22,7 +21,7 @@ var vueHUD = new Vue({
 var vueArea = new Vue({
   el: '#areaBox',
   data: {
-    img: '/../img/area-kitchen.png',
+    img: '',
   }
 });
 
