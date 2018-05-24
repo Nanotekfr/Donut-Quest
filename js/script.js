@@ -75,6 +75,7 @@ function doContinue() {
   }
   if (currentStage == 2) {
     areaStep.areas[0].presentCharacter = 1;
+    areaStep.areas[1].presentCharacter = 0;
   }
   if (currentStage == 3) {
     areaStep.areas[0].presentCharacter = 1;
@@ -156,6 +157,7 @@ function doAction(selectedAction) {
 }
 
 function doShowCharacter() {
+  localStorage.setItem('savedCharacter',action.showCharacter);
   character = characterStep.characters[currentCharacter].img;
   document.getElementById(character).style.display = "block";
   setTimeout(function() {
@@ -272,21 +274,15 @@ function doShowDescription() {
 }
 
 function doNextStage() {
-  if (action.nextStage == 1) {
-    localStorage.setItem('savedStage',1);
-  }
+  localStorage.setItem('savedStage',action.nextStage);
   if (action.nextStage == 2) {
-    localStorage.setItem('savedStage',2);
-    localStorage.setItem('savedCharacter',1);
     areaStep.areas[0].presentCharacter = 1;
     areaStep.areas[1].presentCharacter = 0;
   }
   if (action.nextStage == 3) {
-    localStorage.setItem('savedStage',3);
     areaStep.areas[1].presentCharacter = 2;
   }
   if (action.nextStage == 4) {
-    localStorage.setItem('savedStage',4);
     areaStep.areas[2].presentCharacter = 3;
     areaStep.areas[0].presentCharacter = 'null';
   }
