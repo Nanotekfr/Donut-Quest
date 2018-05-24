@@ -124,10 +124,11 @@ function doAction(selectedAction) {
     if (action.nextStage == 2) {
       localStorage.setItem('savedStage',2);
       areaStep.areas[0].presentCharacter = 1;
+      areaStep.areas[1].presentCharacter = 0;
     }
     if (action.nextStage == 3) {
       localStorage.setItem('savedStage',3);
-      areaStep.areas[1].presentCharacter = 0;
+      areaStep.areas[1].presentCharacter = 2;
     }
     currentStage=action.nextStage;
   }
