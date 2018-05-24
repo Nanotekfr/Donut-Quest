@@ -43,6 +43,7 @@ var sfx_blipfemale = new Howl({
 var currentCharacter = localStorage.getItem('savedCharacter');
 var currentStage = localStorage.getItem('savedStage');
 var currentArea = localStorage.getItem('savedArea');
+var currentItem = 0;
 var currentSentence = 0;
 var selectedAction = 0;
 var currentDialog = 0;
@@ -52,6 +53,11 @@ function doNewGame() {
   localStorage.setItem('savedStage',0);
   localStorage.setItem('savedArea',1);
   localStorage.setItem('savedCharacter','null');
+  for (i=0;i < inventoryStep.bag.item.length;i++) {
+    bag=inventoryStep.bag;
+    item=bag.item[i].name;
+    localStorage.setItem(item,0);
+  }
   currentStage = localStorage.getItem('savedStage');
   currentArea = localStorage.getItem('savedArea');
   currentCharacter = localStorage.getItem('savedCharacter');
@@ -70,6 +76,14 @@ function doContinue() {
   currentCharacter = localStorage.getItem('savedCharacter');
   vueArea.img=areaStep.areas[currentArea].img;
   document.getElementById("HUD").classList.remove('hidden');
+  for (i=0;i < inventoryStep.bag.item.length;i++) {
+    bag=inventoryStep.bag;
+    item=bag.item[i].name;
+    savedItem = localStorage.getItem(item);
+    if(savedItem == 1){
+      document.getElementById('items').innerHTML += "<div id='item" + i + "' class='boxItem' onclick=\"selectedItem='" + i + "', doShowDescription()\">"+ item + "</div>";
+    }
+  }
   if (currentCharacter != 'null') {
     doShowCharacter();
   }
@@ -159,7 +173,9 @@ function doAction(selectedAction) {
 function doShowCharacter() {
   dialog=talkStep.dialogs[currentDialog];
   action=dialog.actions[selectedAction];
-  localStorage.setItem('savedCharacter',action.showCharacter);
+  if (typeof(action.showCharacter) != "undefined") {
+    localStorage.setItem('savedCharacter',action.showCharacter);
+  }
   character = characterStep.characters[currentCharacter].img;
   document.getElementById(character).style.display = "block";
   setTimeout(function() {
@@ -218,7 +234,7 @@ function doAddItem() {
   bag=inventoryStep.bag;
   item=bag.item[currentItem].name;
   document.getElementById('items').innerHTML += "<div id='item" + currentItem + "' class='boxItem' onclick=\"selectedItem='" + currentItem + "', doShowDescription()\">"+ item + "</div>";
-  localStorage.setItem(item, true);
+  localStorage.setItem(item,1);
 }
 function doRemoveItem() {
   currentItem = action.removeItem;
