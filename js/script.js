@@ -40,13 +40,13 @@ var sfx_blipfemale = new Howl({
   loop: true
 });
 
+var currentCharacter = localStorage.getItem('savedCharacter');
 var currentStage = localStorage.getItem('savedStage');
 var currentArea = localStorage.getItem('savedArea');
-var currentCharacter = localStorage.getItem('savedCharacter');
-var currentDialog = 0;
 var currentSentence = 0;
 var selectedAction = 0;
-
+var currentDialog = 0;
+var bagOpened=0;
 
 function doNewGame() {
   localStorage.setItem('savedStage',0);
@@ -117,23 +117,12 @@ function doTalk() {
 function doAction(selectedAction) {
   dialog=talkStep.dialogs[currentDialog];
   action=dialog.actions[selectedAction];
-  if (typeof(action.nextStage) != "undefined") {
-    if (action.nextStage == 1) {
-      localStorage.setItem('savedStage',1);
-    }
-    if (action.nextStage == 2) {
-      localStorage.setItem('savedStage',2);
-      areaStep.areas[0].presentCharacter = 1;
-      areaStep.areas[1].presentCharacter = 0;
-    }
-    if (action.nextStage == 3) {
-      localStorage.setItem('savedStage',3);
-      areaStep.areas[1].presentCharacter = 2;
-    }
-    currentStage=action.nextStage;
-  }
+  currentStage=action.nextStage;
   currentDialog=action.nextStep;
   currentSentence=0;
+  if (typeof(action.nextStage) != "undefined") {
+    doNextStage();
+  }
   if (typeof(action.showCharacter) != "undefined") {
     currentCharacter=action.showCharacter;
     doShowCharacter();
@@ -150,7 +139,7 @@ function doAction(selectedAction) {
     doAddItem();
   }
   if (typeof(action.removeItem) != "undefined") {
-    doremoveItem();
+    doRemoveItem();
   }
   if (typeof(action.hideDialogBox) != "undefined") {
     doHideDialogBox();
@@ -228,7 +217,7 @@ function doAddItem() {
   localStorage.setItem(item, true);
 }
 function doRemoveItem() {
-  currentItem = selectedItem;
+  currentItem = action.removeItem;
   var remove = document.getElementById('item' + currentItem + '');
   remove.parentNode.removeChild(remove);
   localStorage.setItem(item, false);
@@ -261,7 +250,6 @@ function doSelectArea() {
     document.getElementById('mapIcon').innerHTML = '<img src="/img/closed-map.png"/>';
   }
 }
-var bagOpened=0;
 function doOpenBag() {
   if (bagOpened == 0) {
     document.getElementById('inventory').style.display = 'flex';
@@ -283,6 +271,26 @@ function doShowDescription() {
   document.getElementById('description').innerHTML = "<div id='item" + currentItem + "'>"+ description + "</div>";
 }
 
+function doNextStage() {
+  if (action.nextStage == 1) {
+    localStorage.setItem('savedStage',1);
+  }
+  if (action.nextStage == 2) {
+    localStorage.setItem('savedStage',2);
+    localStorage.setItem('savedCharacter',1);
+    areaStep.areas[0].presentCharacter = 1;
+    areaStep.areas[1].presentCharacter = 0;
+  }
+  if (action.nextStage == 3) {
+    localStorage.setItem('savedStage',3);
+    areaStep.areas[1].presentCharacter = 2;
+  }
+  if (action.nextStage == 4) {
+    localStorage.setItem('savedStage',4);
+    areaStep.areas[2].presentCharacter = 3;
+    areaStep.areas[0].presentCharacter = 'null';
+  }
+}
 function doCheckStage() {
   if (currentStage == 1 && currentArea == 0) {
     setTimeout(function() {
