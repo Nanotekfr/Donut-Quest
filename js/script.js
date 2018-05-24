@@ -157,6 +157,8 @@ function doAction(selectedAction) {
 }
 
 function doShowCharacter() {
+  dialog=talkStep.dialogs[currentDialog];
+  action=dialog.actions[selectedAction];
   localStorage.setItem('savedCharacter',action.showCharacter);
   character = characterStep.characters[currentCharacter].img;
   document.getElementById(character).style.display = "block";
