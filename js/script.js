@@ -48,13 +48,13 @@ var currentSentence = 0;
 var selectedAction = 0;
 var currentDialog = 0;
 var bagOpened = 0;
-var bag = inventoryStep.bag;
 
 function doNewGame() {
   localStorage.setItem('savedStage',0);
   localStorage.setItem('savedArea',1);
   localStorage.setItem('savedCharacter','null');
-  for (i=0;i < inventoryStep.bag.item.length;i++) {
+  for (i=0;i<inventoryStep.bag.item.length;i++) {
+    bag=inventoryStep.bag;
     item=bag.item[i].name;
     localStorage.setItem(item,0);
   }
@@ -76,7 +76,8 @@ function doContinue() {
   currentCharacter = localStorage.getItem('savedCharacter');
   vueArea.img=areaStep.areas[currentArea].img;
   document.getElementById("HUD").classList.remove('hidden');
-  for (i=0;i < inventoryStep.bag.item.length;i++) {
+  for (i=0;i<inventoryStep.bag.item.length;i++) {
+    bag=inventoryStep.bag;
     item=bag.item[i].name;
     savedItem = localStorage.getItem(item);
     if(savedItem == 1){
@@ -117,7 +118,7 @@ function doTalk() {
     onComplete() {
       sfx_blipmale.stop();
       if (currentSentence == (dialog.sentences.length-1)) {
-        for (i=0;i < dialog.actions.length;i++) {
+        for (i=0;i<dialog.actions.length;i++) {
            document.getElementById("divButton").innerHTML += "<a class=\"dialog-button\" onclick=\"selectedAction=" + i + ", doAction(" + i + ")\">" + dialog.actions[i].text + "</a>"
         }
       }
@@ -170,11 +171,7 @@ function doAction(selectedAction) {
 }
 
 function doShowCharacter() {
-  dialog=talkStep.dialogs[currentDialog];
-  action=dialog.actions[selectedAction];
-  if (typeof(action.showCharacter) != "undefined") {
-    localStorage.setItem('savedCharacter',action.showCharacter);
-  }
+  localStorage.setItem('savedCharacter',currentCharacter);
   character = characterStep.characters[currentCharacter].img;
   document.getElementById(character).style.display = "block";
   setTimeout(function() {
@@ -230,6 +227,7 @@ function doChangeArea(selectedArea) {
   doCheckStage();
 }
 function doAddItem() {
+  bag=inventoryStep.bag;
   item=bag.item[currentItem].name;
   document.getElementById('items').innerHTML += "<div id='item" + currentItem + "' class='boxItem' onclick=\"selectedItem='" + currentItem + "', doShowDescription()\">"+ item + "</div>";
   localStorage.setItem(item,1);
@@ -256,7 +254,7 @@ function doStopTalk() {
 
 function doSelectArea() {
   if (document.getElementById("map").innerHTML == "") {
-    for (i=0;i < areaStep.areas[currentArea].canGoTo.length;i++) {
+    for (i=0;i<areaStep.areas[currentArea].canGoTo.length;i++) {
       document.getElementById("map").style.display = "flex";
       document.getElementById("map").innerHTML += "<div class=\"dialog-button\" onclick=\"doChangeArea(" + i + ")\">" + areaStep.areas[currentArea].canGoTo[i].area + "</div>";
       document.getElementById('mapIcon').innerHTML = '<img src="/img/opened-map.png"/>';
