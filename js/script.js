@@ -47,14 +47,14 @@ var currentItem = 0;
 var currentSentence = 0;
 var selectedAction = 0;
 var currentDialog = 0;
-var bagOpened=0;
+var bagOpened = 0;
+var bag = inventoryStep.bag;
 
 function doNewGame() {
   localStorage.setItem('savedStage',0);
   localStorage.setItem('savedArea',1);
   localStorage.setItem('savedCharacter','null');
   for (i=0;i < inventoryStep.bag.item.length;i++) {
-    bag=inventoryStep.bag;
     item=bag.item[i].name;
     localStorage.setItem(item,0);
   }
@@ -77,7 +77,6 @@ function doContinue() {
   vueArea.img=areaStep.areas[currentArea].img;
   document.getElementById("HUD").classList.remove('hidden');
   for (i=0;i < inventoryStep.bag.item.length;i++) {
-    bag=inventoryStep.bag;
     item=bag.item[i].name;
     savedItem = localStorage.getItem(item);
     if(savedItem == 1){
@@ -231,7 +230,6 @@ function doChangeArea(selectedArea) {
   doCheckStage();
 }
 function doAddItem() {
-  bag=inventoryStep.bag;
   item=bag.item[currentItem].name;
   document.getElementById('items').innerHTML += "<div id='item" + currentItem + "' class='boxItem' onclick=\"selectedItem='" + currentItem + "', doShowDescription()\">"+ item + "</div>";
   localStorage.setItem(item,1);
