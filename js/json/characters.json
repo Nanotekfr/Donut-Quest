@@ -1,6 +1,8 @@
 {
   "characters":[
     {"id":1,"name":"Homer Simpson","img":"homerSimpson"},
-    {"id":2,"name":"Marge Simpson","img":"margeSimpson"}
+    {"id":2,"name":"Marge Simpson","img":"margeSimpson"},
+    {"id":3,"name":"Homer Simpson","img":"homerSimpsonStage03"},
+    {"id":4,"name":"Bart Simpson","img":"bartSimpson"}
   ]
 }

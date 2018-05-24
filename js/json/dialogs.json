@@ -119,9 +119,74 @@
         {"id":1,"text":"Anything else?"}
       ],
       "actions":[
-        {"id":1,"text":"HOMER","nextStep": 5},
-        {"id":2,"text":"BART","nextStep": 8},
-        {"id":3,"text":"NOTHING","nextStep": 9}
+        {"id":1,"text":"HOMER","nextStep":5},
+        {"id":2,"text":"BART","nextStep":8},
+        {"id":3,"text":"NOTHING","nextStep":9}
+      ]
+    },
+    {
+      "id":12,
+      "who":"HOMER",
+      "sentences":[
+        {"id":1,"text":"Uuuugh, I'm so hungry..."}
+      ],
+      "actions":[
+        {"id":1,"text":"BART","nextStep":12},
+        {"id":2,"text":"NOTHING","stopTalk":true}
+      ]
+    },
+    {
+      "id":13,
+      "who":"HOMER",
+      "sentences":[
+        {"id":1,"text":"Bart is a son of a bitch and so are you!!!"}
+      ],
+      "actions":[
+        {"id":1,"text":"OK","nextStep":13}
+      ]
+    },
+    {
+      "id":14,
+      "who":"HOMER",
+      "sentences":[
+        {"id":1,"text":"WHERE IS MARGE!!!"}
+      ],
+      "actions":[
+        {"id":1,"text":"BART","nextStep":12},
+        {"id":2,"text":"NOTHING","stopTalk":true}
+      ]
+    },
+    {
+      "id":15,
+      "who":"HOMER",
+      "sentences":[
+        {"id":1,"text":"Is that a <mark class='bis'>BOX OF DONUTS</mark>?"}
+      ],
+      "actions":[
+        {"id":1,"text":"DONUT","nextStep":15},
+        {"id":2,"text":"BART","nextStep":12},
+        {"id":3,"text":"NOTHING","stopTalk":true}
+      ]
+    },
+    {
+      "id":16,
+      "who":"HOMER",
+      "sentences":[
+        {"id":1,"text":"Ooooh thanks!"}
+      ],
+      "actions":[
+        {"id":1,"text":"NEXT","nextStep":16,"removeItem":0,"nextStage":4}
+      ]
+    },
+    {
+      "id":17,
+      "who":"HOMER",
+      "sentences":[
+        {"id":1,"text":"What can are do for you son of a bitch?!"}
+      ],
+      "actions":[
+        {"id":1,"text":"BART","nextStep":12},
+        {"id":2,"text":"NOTHING","stopTalk":true}
       ]
     }
   ]
