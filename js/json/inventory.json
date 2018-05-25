@@ -5,7 +5,8 @@
       {
         "id":1,
         "name":"DONUTS",
-        "description":"This is a fucking Donuts.",
+        "icon":"<img id='item' src='/img/donut.png'/>",
+        "description":"<p>This is a fucking Donuts.</p>",
         "price":5,
         "weight":0.2
       },

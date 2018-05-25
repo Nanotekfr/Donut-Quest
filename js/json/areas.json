@@ -3,40 +3,40 @@
     {
       "id":1,
       "name":"STREET",
-      "img":"/../img/area-outside.png",
+      "img":"/img/area-street.png",
       "canGoTo":[
-        {"id":1,"area":"KITCHEN","nextArea":1},
-        {"id":2,"area":"LIVING ROOM","nextArea":2},
-        {"id":3,"area":"GARDEN","nextArea":3}
+        {"id":1,"area":"KITCHEN","img":"/img/area-kitchen.png","nextArea":1},
+        {"id":2,"area":"LIVING ROOM","img":"/img/area-living-room.png","nextArea":2},
+        {"id":3,"area":"GARDEN","img":"/img/area-garden.png","nextArea":3}
       ],
       "presentCharacter":"null"
     },
     {
       "id":2,
       "name":"KITCHEN",
-      "img":"/../img/area-kitchen.png",
+      "img":"/img/area-kitchen.png",
       "canGoTo":[
-        {"id":1,"area":"LIVING ROOM","nextArea":2},
-        {"id":2,"area":"STREET","nextArea":0}
+        {"id":1,"area":"LIVING ROOM","img":"/img/area-living-room.png","nextArea":2},
+        {"id":2,"area":"STREET","img":"/img/area-street.png","nextArea":0}
       ],
       "presentCharacter":"null"
     },
     {
       "id":3,
       "name":"LIVING ROOM",
-      "img":"/../img/area-living-room.png",
+      "img":"/img/area-living-room.png",
       "canGoTo":[
-        {"id":1,"area":"KITCHEN","nextArea":1},
-        {"id":2,"area":"STREET","nextArea":0}
+        {"id":1,"area":"KITCHEN","img":"/img/area-kitchen.png","nextArea":1},
+        {"id":2,"area":"STREET","img":"/img/area-street.png","nextArea":0}
       ],
       "presentCharacter":"null"
     },
     {
       "id":4,
       "name":"GARDEN",
-      "img":"/../img/area-garden.png",
+      "img":"/img/area-garden.png",
       "canGoTo":[
-        {"id":2,"area":"STREET","nextArea":0}
+        {"id":2,"area":"STREET","img":"/img/area-street.png","nextArea":0}
       ],
       "presentCharacter":"null"
     }

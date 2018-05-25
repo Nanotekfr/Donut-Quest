@@ -2,7 +2,7 @@
   "dialogs":[
     {
       "id":1,
-      "who":"VOICE",
+      "who":"VOICE-OVER",
       "sentences":[
         {"id":1,"text":"<mark>What are you doing in the <mark class='bis'>KITCHEN</mark>? Let's go outside!</mark>"}
       ],
@@ -13,7 +13,7 @@
     },
     {
       "id":2,
-      "who":"VOICE",
+      "who":"VOICE-OVER",
       "sentences":[
         {"id":1,"text":"<mark>Great! Come on then!</mark>"},
         {"id":2,"text":"<mark>Click on the map to go to another location.</mark>"}
@@ -24,18 +24,18 @@
     },
     {
       "id":3,
-      "who":"VOICE",
+      "who":"VOICE-OVER",
       "sentences":[
         {"id":1,"text":"<mark>Smell that fresh air? Don't you feel better?</mark>"},
         {"id":2,"text":"<mark>Wait, looks like someone is coming your way...</mark>"}
       ],
       "actions":[
-        {"id":1,"text":"NEXT","nextStep":3,"hideDialogBox":true,"pause":true,"showCharacter":1,"time":3000}
+        {"id":1,"text":"NEXT","nextStep":3,"hideDialogBox":true,"pause":true,"showCharacter":2,"time":3000}
       ]
     },
     {
       "id":4,
-      "who":"VOICE",
+      "who":"VOICE-OVER",
       "sentences":[
         {"id":1,"text":"<mark>Hey, that's <mark class='bis'>MARGE SIMPSON</mark>, your neighbor!</mark>"},
         {"id":2,"text":"<mark>Why not introduce yourself?</mark>"},
@@ -47,7 +47,7 @@
     },
     {
       "id":5,
-      "who":"MARGE",
+      "who":"MARGE SIMPSON",
       "sentences":[
         {"id":1,"text":"Oh hi there neighbor, what can I do for you?"}
       ],
@@ -59,7 +59,7 @@
     },
     {
       "id":6,
-      "who":"MARGE",
+      "who":"MARGE SIMPSON",
       "sentences":[
         {"id":1,"text":"<mark class='bis'>HOMER</mark>, he's been out all night... again!"},
         {"id":2,"text":"By the way. I have this <mark class='bis'>BOX OF DONUTS</mark>."},
@@ -72,7 +72,7 @@
     },
     {
       "id":7,
-      "who":"MARGE",
+      "who":"MARGE SIMPSON",
       "sentences":[
         {"id":1,"text":"Great, thank you!"},
         {"id":2,"text":"He should be in the <mark class='bis'>KITCHEN</mark>, come in! The door's open."}
@@ -83,7 +83,7 @@
     },
     {
       "id":8,
-      "who":"MARGE",
+      "who":"MARGE SIMPSON",
       "sentences":[
         {"id":1,"text":"Oh alright, nevermind then."}
       ],
@@ -93,7 +93,7 @@
     },
     {
       "id":9,
-      "who":"MARGE",
+      "who":"MARGE SIMPSON",
       "sentences":[
         {"id":1,"text":"<mark class='bis'>BART</mark> lost his shorts last week, he said some guy ate them..."},
         {"id":2,"text":"If someone did eat BART’s shorts they’d have a tummy-full of pocket garbage."}
@@ -104,7 +104,7 @@
     },
     {
       "id":10,
-      "who":"MARGE",
+      "who":"MARGE SIMPSON",
       "sentences":[
         {"id":1,"text":"Ok then, have a nice day!"}
       ],
@@ -114,7 +114,7 @@
     },
     {
       "id":11,
-      "who":"MARGE",
+      "who":"MARGE SIMPSON",
       "sentences":[
         {"id":1,"text":"Anything else?"}
       ],
@@ -126,7 +126,7 @@
     },
     {
       "id":12,
-      "who":"HOMER",
+      "who":"HOMER SIMPSON",
       "sentences":[
         {"id":1,"text":"Uuuugh, I'm so hungry..."}
       ],
@@ -137,7 +137,7 @@
     },
     {
       "id":13,
-      "who":"HOMER",
+      "who":"HOMER SIMPSON",
       "sentences":[
         {"id":1,"text":"Bart is a son of a bitch and so are you!!!"}
       ],
@@ -147,7 +147,7 @@
     },
     {
       "id":14,
-      "who":"HOMER",
+      "who":"HOMER SIMPSON",
       "sentences":[
         {"id":1,"text":"WHERE IS MARGE!!!"}
       ],
@@ -158,7 +158,7 @@
     },
     {
       "id":15,
-      "who":"HOMER",
+      "who":"HOMER SIMPSON",
       "sentences":[
         {"id":1,"text":"Is that a <mark class='bis'>BOX OF DONUTS</mark>?"}
       ],
@@ -170,7 +170,7 @@
     },
     {
       "id":16,
-      "who":"HOMER",
+      "who":"HOMER SIMPSON",
       "sentences":[
         {"id":1,"text":"Ooooh thanks!"}
       ],
@@ -180,7 +180,7 @@
     },
     {
       "id":17,
-      "who":"HOMER",
+      "who":"HOMER SIMPSON",
       "sentences":[
         {"id":1,"text":"What can are do for you son of a bitch?!"}
       ],

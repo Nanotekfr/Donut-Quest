@@ -43,11 +43,10 @@ var sfx_blipfemale = new Howl({
 var currentCharacter = localStorage.getItem('savedCharacter');
 var currentStage = localStorage.getItem('savedStage');
 var currentArea = localStorage.getItem('savedArea');
-var currentItem = 0;
 var currentSentence = 0;
 var selectedAction = 0;
 var currentDialog = 0;
-var bagOpened = 0;
+var currentItem = 0;
 
 function doNewGame() {
   localStorage.setItem('savedStage',0);
@@ -62,7 +61,7 @@ function doNewGame() {
   currentArea = localStorage.getItem('savedArea');
   currentCharacter = localStorage.getItem('savedCharacter');
   vueArea.img=areaStep.areas[currentArea].img;
-  document.getElementById("HUD").classList.remove('hidden');
+  document.getElementById("HUD").style.marginTop = "0";
   setTimeout(function() {
     document.getElementById('blackScreen').style.opacity = "0";
   }, 1000);
@@ -71,29 +70,30 @@ function doNewGame() {
   }, 2000);
 }
 function doContinue() {
+  currentCharacter = localStorage.getItem('savedCharacter');
   currentStage = localStorage.getItem('savedStage');
   currentArea = localStorage.getItem('savedArea');
-  currentCharacter = localStorage.getItem('savedCharacter');
   vueArea.img=areaStep.areas[currentArea].img;
-  document.getElementById("HUD").classList.remove('hidden');
+  document.getElementById("HUD").style.marginTop = "0";
   for (i=0;i<inventoryStep.bag.item.length;i++) {
     bag=inventoryStep.bag;
     item=bag.item[i].name;
+    icon=bag.item[i].icon;
     savedItem = localStorage.getItem(item);
     if(savedItem == 1){
-      document.getElementById('items').innerHTML += "<div id='item" + i + "' class='boxItem' onclick=\"selectedItem='" + i + "', doShowDescription()\">"+ item + "</div>";
+      document.getElementById('items').innerHTML += "<div id='item" + i + "' class='boxItem' onclick=\"selectedItem='" + i + "', doShowDescription()\">"+ icon + "</div>";
     }
   }
   if (currentCharacter != 'null') {
     doShowCharacter();
   }
   if (currentStage == 2) {
-    areaStep.areas[0].presentCharacter = 1;
+    areaStep.areas[0].presentCharacter = 2;
     areaStep.areas[1].presentCharacter = 0;
   }
   if (currentStage == 3) {
-    areaStep.areas[0].presentCharacter = 1;
-    areaStep.areas[1].presentCharacter = 0;
+    areaStep.areas[0].presentCharacter = 2;
+    areaStep.areas[1].presentCharacter = 1;
   }
   setTimeout(function() {
     document.getElementById('blackScreen').style.opacity = "0";
@@ -104,14 +104,26 @@ function doQuit() {
 }
 
 function doTalk() {
+  doCloseMap();
+  doCloseBag();
   dialog = talkStep.dialogs[currentDialog];
-  document.getElementById("divSentence").innerHTML = "";
-  document.getElementById("divButton").innerHTML = "";
-  document.getElementById("HUD").classList.add('hidden');
-  dialogBox.classList.remove('hidden');
+  document.getElementById("HUD").style.marginTop = "-100%";
+  document.getElementById("dialogSentence").innerHTML = "";
+  document.getElementById("dialogButton").innerHTML = "";
+  if (dialog.who != "VOICE-OVER") {
+    character = characterStep.characters[currentCharacter].img;
+    document.getElementById(character).style.transform = "translateX(50%)";
+    document.getElementById("dialogName").style.display = "block";
+    document.getElementById("dialogName").innerHTML = dialog.who;
+  }
+  else {
+    document.getElementById("dialogName").style.display = "none";
+    document.getElementById("dialogName").innerHTML = "";
+  }
+  document.getElementById("dialog").style.display = "block";
   sfx_blipmale.play();
   speechtext =  dialog.sentences[currentSentence].text;
-  new Typed('#divSentence', {
+  new Typed('#dialogSentence', {
     strings: [speechtext],
     typeSpeed: 0,
     showCursor: false,
@@ -119,12 +131,12 @@ function doTalk() {
       sfx_blipmale.stop();
       if (currentSentence == (dialog.sentences.length-1)) {
         for (i=0;i<dialog.actions.length;i++) {
-           document.getElementById("divButton").innerHTML += "<a class=\"dialog-button\" onclick=\"selectedAction=" + i + ", doAction(" + i + ")\">" + dialog.actions[i].text + "</a>"
+           document.getElementById("dialogButton").innerHTML += "<a id=\"button\" onclick=\"selectedAction=" + i + ", doAction(" + i + ")\">" + dialog.actions[i].text + "</a>"
         }
       }
       else {
         currentSentence++;
-        document.getElementById("divButton").innerHTML += "<i class=\"fas fa-caret-right dialog-button-arrow\" onclick=\"doTalk()\"></i>";
+        document.getElementById("dialogButton").innerHTML += "<i id=\"button\" class=\"fas fa-caret-right\" onclick=\"doTalk()\"></i>";
       }
     }
   });
@@ -197,13 +209,12 @@ function doChangeCharacter() {
   }, 1500);
 }
 function doChangeArea(selectedArea) {
-  document.getElementById("map").style.display = "none";
-  document.getElementById("map").innerHTML = "";
+  document.getElementById('mapWindow').style.left = "-100%";
   document.getElementById('blackScreen').style.opacity = "1";
   currentArea=areaStep.areas[currentArea].canGoTo[selectedArea].nextArea;
   presentCharacter=areaStep.areas[currentArea].presentCharacter;
   setTimeout(function() {
-    document.getElementById('mapIcon').innerHTML = '<img src="/img/closed-map.png"/>';
+    doCloseMap();
     vueArea.img=areaStep.areas[currentArea].img;
     localStorage.setItem('savedArea',currentArea);
     if (currentCharacter != 'null') {
@@ -229,7 +240,8 @@ function doChangeArea(selectedArea) {
 function doAddItem() {
   bag=inventoryStep.bag;
   item=bag.item[currentItem].name;
-  document.getElementById('items').innerHTML += "<div id='item" + currentItem + "' class='boxItem' onclick=\"selectedItem='" + currentItem + "', doShowDescription()\">"+ item + "</div>";
+  icon=bag.item[currentItem].icon;
+  document.getElementById('items').innerHTML += "<div id='item" + currentItem + "' onclick=\"selectedItem='" + currentItem + "', doShowDescription()\">"+ icon + "</div>";
   localStorage.setItem(item,1);
 }
 function doRemoveItem() {
@@ -239,7 +251,8 @@ function doRemoveItem() {
   localStorage.setItem(item, false);
 }
 function doHideDialogBox() {
-  document.getElementById('dialogBox').classList.add('hidden');
+  document.getElementById("dialog").style.display = "none";
+
 }
 function doPause() {
   setTimeout(doTalk, action.time);
@@ -247,54 +260,73 @@ function doPause() {
 function doStopTalk() {
   currentDialog = 0;
   currentSentence = 0;
-  document.getElementById('dialogBox').classList.add('hidden');
-  document.getElementById("HUD").classList.remove('hidden');
+  if (dialog.who != "VOICE-OVER") {
+    character = characterStep.characters[currentCharacter].img;
+    document.getElementById(character).style.transform = "translateX(0)";
+  }
+  document.getElementById("dialog").style.display = "none";
+  document.getElementById("HUD").style.marginTop = "0";
   sfx_blipmale.stop();
 }
 
-function doSelectArea() {
-  if (document.getElementById("map").innerHTML == "") {
+var bagOpened = 0;
+var mapOpened = 0;
+function doOpenMap() {
+  if (mapOpened == 0) {
+    document.getElementById('mapWindow').innerHTML = "";
     for (i=0;i<areaStep.areas[currentArea].canGoTo.length;i++) {
-      document.getElementById("map").style.display = "flex";
-      document.getElementById("map").innerHTML += "<div class=\"dialog-button\" onclick=\"doChangeArea(" + i + ")\">" + areaStep.areas[currentArea].canGoTo[i].area + "</div>";
+      doCloseBag();
+      document.getElementById('mapWindow').style.left = "0";
+      document.getElementById('mapWindow').innerHTML += "" + areaStep.areas[currentArea].canGoTo[i].area + "<img id='selectArea' onclick='doChangeArea(" + i + ")' src='" + areaStep.areas[currentArea].canGoTo[i].img + "'/>";
       document.getElementById('mapIcon').innerHTML = '<img src="/img/opened-map.png"/>';
+      mapOpened=1;
     }
   }
   else {
-    document.getElementById("map").style.display = "none";
-    document.getElementById("map").innerHTML = "";
-    document.getElementById('mapIcon').innerHTML = '<img src="/img/closed-map.png"/>';
+    doCloseMap();
   }
+}
+function doCloseMap() {
+  document.getElementById('mapWindow').style.left = "-100%";
+  document.getElementById('mapIcon').innerHTML = '<img src="/img/closed-map.png"/>';
+  mapOpened=0;
 }
 function doOpenBag() {
   if (bagOpened == 0) {
-    document.getElementById('inventory').style.display = 'flex';
+    doCloseMap();
+    document.getElementById('description').innerHTML = "";
+    document.getElementById('bagWindow').style.bottom = '0';
     document.getElementById('bagIcon').innerHTML = '<img src="/img/opened-bag.png"/>';
     bagOpened=1;
   }
   else {
-    document.getElementById('inventory').style.display = 'none';
-    document.getElementById('description').innerHTML = "";
-    document.getElementById('description').style.display = 'none';
-    document.getElementById('bagIcon').innerHTML = '<img src="/img/closed-bag.png"/>';
-    bagOpened=0;
+    doCloseBag();
   }
+}
+function doCloseBag() {
+  document.getElementById('bagWindow').style.bottom = '-100%';
+  document.getElementById('bagIcon').innerHTML = '<img src="/img/closed-bag.png"/>';
+  bagOpened=0;
 }
 function doShowDescription() {
   currentItem = selectedItem;
+  icon=bag.item[currentItem].icon;
   description=bag.item[currentItem].description;
-  document.getElementById('description').style.display = 'flex';
-  document.getElementById('description').innerHTML = "<div id='item" + currentItem + "'>"+ description + "</div>";
+  document.getElementById('description').innerHTML = icon + description;
+}
+function doCloseAll() {
+  doCloseMap();
+  doCloseBag();
 }
 
 function doNextStage() {
   localStorage.setItem('savedStage',action.nextStage);
   if (action.nextStage == 2) {
-    areaStep.areas[0].presentCharacter = 1;
+    areaStep.areas[0].presentCharacter = 2;
     areaStep.areas[1].presentCharacter = 0;
   }
   if (action.nextStage == 3) {
-    areaStep.areas[1].presentCharacter = 2;
+    areaStep.areas[1].presentCharacter = 1;
   }
   if (action.nextStage == 4) {
     areaStep.areas[2].presentCharacter = 3;

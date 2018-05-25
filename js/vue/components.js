@@ -14,26 +14,28 @@ Vue.component('hud', {
     </div>
   </div>`
 });
-var vueHUD = new Vue({
-  el: '#HUD'
-});
-
-var vueArea = new Vue({
-  el: '#areaBox',
-  data: {
-    img: '',
-  }
-});
-
 Vue.component('characters', {
   template:`
   <div>
-    <img id="homerSimpson" src="/img/character-homer.png" onclick="currentDialog=11,doTalk()"/>
-    <img id="margeSimpson" src="/img/character-marge.png" onclick="currentDialog=4,doTalk()"/>
-    <img id="homerSimpsonStage03" src="/img/character-homer.png" onclick="currentDialog=14,doTalk()"/>
-    <img id="bartSimpson" src="/img/character-bart.png" onclick="currentDialog=14,doTalk()"/>
+  <img id="homerSimpson" src="/img/character-homer.png" onclick="currentDialog=11,doTalk()"/>
+  <img id="margeSimpson" src="/img/character-marge.png" onclick="currentDialog=4,doTalk()"/>
+  <img id="homerSimpsonStage03" src="/img/character-homer.png" onclick="currentDialog=14,doTalk()"/>
+  <img id="bartSimpson" src="/img/character-bart.png" onclick="currentDialog=14,doTalk()"/>
   </div>`
 });
+
+var vueHUD = new Vue({
+  el: '#HUD'
+});
+var vueDialog = new Vue({
+  el: '#dialog'
+});
 var vueCharacter = new Vue({
-  el: '#characterBox'
+  el: '#character'
+});
+var vueArea = new Vue({
+  el: '#area',
+  data: {
+    img: '',
+  }
 });
