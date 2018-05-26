@@ -112,7 +112,7 @@ function doTalk() {
   document.getElementById("dialogButton").innerHTML = "";
   if (dialog.who != "VOICE-OVER") {
     character = characterStep.characters[currentCharacter].img;
-    document.getElementById(character).style.transform = "translateX(50%)";
+    document.getElementById(character).style.transform = "translateX(25%)";
     document.getElementById("dialogName").style.display = "block";
     document.getElementById("dialogName").innerHTML = dialog.who;
   }

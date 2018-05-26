@@ -73,14 +73,13 @@ mark {
   height: 100%;
   left: -100%;
   width: 15%;
-  top: 0;
 }
 #HUD #selectArea {
   border-radius: .5vw;
   transition: .25s;
   cursor: pointer;
-  width: 100%;
   opacity: .5;
+  width: 75%;
 }
 #HUD #selectArea:hover {
   opacity: 1;
