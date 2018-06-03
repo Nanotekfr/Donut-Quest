@@ -9,9 +9,8 @@
 </head>
 <body>
   <section id="buttonStart">
-    <button class="game" onclick="doNewGame()">new game</button>
-    <button class="game" onclick="doContinue()">continue</button>
-    <button class="game" onclick="doQuit()">quit</button>
+    <button onclick="doNewGame()">new game</button>
+    <button onclick="doContinue()">continue</button>
   </section>
 
   <section id="blackScreen"></section>
@@ -22,13 +21,20 @@
       <div id="icons">
         <div id="mapIcon" onclick="doOpenMap()"><img src="/img/closed-map.png"/></div>
         <div id="bagIcon" onclick="doOpenBag()"><img src="/img/closed-bag.png"/></div>
-        <div id="talismanIcon" onclick="doTeleport()"></div>
-        <div id="optionsIcon" onclick="doShowOptions()"></div>
+        <div id="talismanIcon" onclick="doOpenTalisman()"></div>
+        <div id="phoneIcon" onclick="doOpenPhone()"><img src="/img/closed-phone.png"/></div>
       </div>
       <div id="mapWindow"></div>
       <div id="bagWindow">
         <div id="items"></div>
         <div id="description"></div>
+      </div>
+      <div id="phoneWindow">
+        <div id="screen">
+          <a>EFFECTS VOLUME</a>
+          <a>MUSIC VOLUME</a>
+          <a onclick="doQuit()">QUIT GAME</a>
+        </div>
       </div>
   </section>
 

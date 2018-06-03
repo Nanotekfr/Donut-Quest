@@ -125,7 +125,7 @@ function doTalk() {
   speechtext =  dialog.sentences[currentSentence].text;
   new Typed('#dialogSentence', {
     strings: [speechtext],
-    typeSpeed: 0,
+    typeSpeed: 15,
     showCursor: false,
     onComplete() {
       sfx_blipmale.stop();
@@ -271,11 +271,13 @@ function doStopTalk() {
 
 var bagOpened = 0;
 var mapOpened = 0;
+var phoneOpened = 0;
 function doOpenMap() {
+  doCloseBag();
+  doClosePhone();
   if (mapOpened == 0) {
     document.getElementById('mapWindow').innerHTML = "";
     for (i=0;i<areaStep.areas[currentArea].canGoTo.length;i++) {
-      doCloseBag();
       document.getElementById('mapWindow').style.left = "0";
       document.getElementById('mapWindow').innerHTML += "" + areaStep.areas[currentArea].canGoTo[i].area + "<img id='selectArea' onclick='doChangeArea(" + i + ")' src='" + areaStep.areas[currentArea].canGoTo[i].img + "'/>";
       document.getElementById('mapIcon').innerHTML = '<img src="/img/opened-map.png"/>';
@@ -292,8 +294,9 @@ function doCloseMap() {
   mapOpened=0;
 }
 function doOpenBag() {
+  doCloseMap();
+  doClosePhone();
   if (bagOpened == 0) {
-    doCloseMap();
     document.getElementById('description').innerHTML = "";
     document.getElementById('bagWindow').style.bottom = '0';
     document.getElementById('bagIcon').innerHTML = '<img src="/img/opened-bag.png"/>';
@@ -308,6 +311,23 @@ function doCloseBag() {
   document.getElementById('bagIcon').innerHTML = '<img src="/img/closed-bag.png"/>';
   bagOpened=0;
 }
+function doOpenPhone() {
+  doCloseMap();
+  doCloseBag();
+  if (phoneOpened == 0) {
+    document.getElementById('phoneWindow').style.right = '1vw';
+    document.getElementById('phoneIcon').innerHTML = '<img src="/img/opened-phone.png"/>';
+    phoneOpened=1;
+  }
+  else {
+    doClosePhone();
+  }
+}
+function doClosePhone() {
+  document.getElementById('phoneWindow').style.right = '-100%';
+  document.getElementById('phoneIcon').innerHTML = '<img src="/img/closed-phone.png"/>';
+  phoneOpened=0;
+}
 function doShowDescription() {
   currentItem = selectedItem;
   icon=bag.item[currentItem].icon;
@@ -317,6 +337,7 @@ function doShowDescription() {
 function doCloseAll() {
   doCloseMap();
   doCloseBag();
+  doClosePhone();
 }
 
 function doNextStage() {

@@ -134,6 +134,34 @@ mark {
   color: #f1f1f1;
   margin: 0;
 }
+#HUD #phoneWindow {
+  background-image: url("../img/phone.png");
+  border-radius: .5vw .5vw .5vw .5vw;
+  background-repeat: no-repeat;
+  border: .25vw solid #312723;
+  background-size: contain;
+  text-align: center;
+  padding-top: 25%; /* (img-height / img-width) * width */
+  position: fixed;
+  transition: 1s;
+  right: -100%;
+  z-index: 30;
+  width: 15%;
+  height: 0;
+}
+#HUD #screen {
+  margin-top: -100%;
+}
+#HUD #screen a {
+  font-size: 1.75vw;
+  transition: 0.25s;
+  cursor: pointer;
+  display: block;
+  color: black;
+}
+#HUD #screen a:hover {
+  color: white;
+}
 
 #dialog {
   position: fixed;
