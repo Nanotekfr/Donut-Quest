@@ -118,7 +118,7 @@ mark {
   background-image: url("../img/denim.png");
   background-color: #261106;
   justify-content: center;
-  border-radius: 0.25vw;
+  border-radius: .25vw;
   align-items: center;
   text-align: center;
   width: 100%;
@@ -154,7 +154,7 @@ mark {
 }
 #HUD #screen a {
   font-size: 1.75vw;
-  transition: 0.25s;
+  transition: .25s;
   cursor: pointer;
   display: block;
   color: black;
@@ -214,6 +214,20 @@ mark {
 }
 #dialog #button:hover {
   background: #963200;
+}
+
+#mask {
+  pointer-events: none;
+  transition: .45s;
+  position: fixed;
+  height: 100%;
+  z-index: 15;
+  width: 100%;
+  opacity: 0;
+}
+#mask img {
+  height: 100%;
+  width: 100%;
 }
 
 #character * {

@@ -15,13 +15,14 @@
 
   <section id="blackScreen"></section>
 
+
   <section id="HUD">
     <!-- <hud></hud> -->
     <div class="vue">
       <div id="icons">
         <div id="mapIcon" onclick="doOpenMap()"><img src="/img/closed-map.png"/></div>
         <div id="bagIcon" onclick="doOpenBag()"><img src="/img/closed-bag.png"/></div>
-        <div id="talismanIcon" onclick="doOpenTalisman()"></div>
+        <div id="maskIcon" onclick="doOpenMask()"><img src="/img/closed-mask.png"/></div>
         <div id="phoneIcon" onclick="doOpenPhone()"><img src="/img/closed-phone.png"/></div>
       </div>
       <div id="mapWindow"></div>
@@ -50,6 +51,8 @@
       </div>
     </div>
   </section>
+
+  <section id="mask"><img src="/img/mask.png"></section>
 
   <section id="character">
     <!-- <characters></characters> -->

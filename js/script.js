@@ -29,13 +29,13 @@ fetch('/js/json/inventory.json')
 
 var sfx_blipmale = new Howl({
   src: ['../audio/sfx_blipmale.wav'],
-  volume: 0.25,
+  volume: .25,
   buffer: false,
   loop: true
 });
 var sfx_blipfemale = new Howl({
   src: ['../audio/sfx_blipfemale.wav'],
-  volume: 0.25,
+  volume: .25,
   buffer: false,
   loop: true
 });
@@ -187,7 +187,14 @@ function doShowCharacter() {
   character = characterStep.characters[currentCharacter].img;
   document.getElementById(character).style.display = "block";
   setTimeout(function() {
-    document.getElementById(character).style.opacity = "1";
+    if (characterStep.characters[currentCharacter].isGhost == 1) {
+      document.getElementById(character).style.pointerEvents = "none";
+      document.getElementById(character).style.opacity = ".025";
+    }
+    else {
+      document.getElementById(character).style.pointerEvents = "auto";
+      document.getElementById(character).style.opacity = "1";
+    }
   }, 1000);
 }
 function doHideCharacter() {
@@ -225,7 +232,20 @@ function doChangeArea(selectedArea) {
       currentCharacter=presentCharacter;
       character=characterStep.characters[currentCharacter].img;
       document.getElementById(character).style.display = "block";
-      document.getElementById(character).style.opacity = "1";
+      if (characterStep.characters[currentCharacter].isGhost == 1) {
+        if (maskOpened == 1) {
+          document.getElementById(character).style.pointerEvents = "auto";
+          document.getElementById(character).style.opacity = "1";
+        }
+        else {
+          document.getElementById(character).style.pointerEvents = "none";
+          document.getElementById(character).style.opacity = ".025";
+        }
+      }
+      else {
+        document.getElementById(character).style.pointerEvents = "auto";
+        document.getElementById(character).style.opacity = "1";
+      }
       localStorage.setItem('savedCharacter',currentCharacter);
     }
     else {
@@ -272,6 +292,7 @@ function doStopTalk() {
 var bagOpened = 0;
 var mapOpened = 0;
 var phoneOpened = 0;
+var maskOpened = 0;
 function doOpenMap() {
   doCloseBag();
   doClosePhone();
@@ -311,6 +332,12 @@ function doCloseBag() {
   document.getElementById('bagIcon').innerHTML = '<img src="/img/closed-bag.png"/>';
   bagOpened=0;
 }
+function doShowDescription() {
+  currentItem = selectedItem;
+  icon=bag.item[currentItem].icon;
+  description=bag.item[currentItem].description;
+  document.getElementById('description').innerHTML = icon + description;
+}
 function doOpenPhone() {
   doCloseMap();
   doCloseBag();
@@ -328,11 +355,42 @@ function doClosePhone() {
   document.getElementById('phoneIcon').innerHTML = '<img src="/img/closed-phone.png"/>';
   phoneOpened=0;
 }
-function doShowDescription() {
-  currentItem = selectedItem;
-  icon=bag.item[currentItem].icon;
-  description=bag.item[currentItem].description;
-  document.getElementById('description').innerHTML = icon + description;
+function doOpenMask() {
+  if (maskOpened == 0) {
+    document.getElementById('maskIcon').innerHTML = '<img src="/img/opened-mask.png"/>';
+    document.getElementById('blackScreen').style.opacity = "1";
+    setTimeout(function() {
+      document.getElementById('mask').style.opacity = "1";
+      character=characterStep.characters[currentCharacter].img;
+      if (characterStep.characters[currentCharacter].isGhost == 1) {
+        document.getElementById(character).style.pointerEvents = "auto";
+        document.getElementById(character).style.opacity = "1";
+      }
+    }, 325);
+    setTimeout(function() {
+      document.getElementById('blackScreen').style.opacity = "0";
+    }, 850);
+    maskOpened = 1;
+  }
+  else {
+    doCloseMask();
+  }
+}
+function doCloseMask() {
+  document.getElementById('maskIcon').innerHTML = '<img src="/img/closed-mask.png"/>';
+  document.getElementById('blackScreen').style.opacity = "1";
+  setTimeout(function() {
+    document.getElementById('mask').style.opacity = "0";
+    character=characterStep.characters[currentCharacter].img;
+    if (characterStep.characters[currentCharacter].isGhost == 1) {
+      document.getElementById(character).style.pointerEvents = "none";
+      document.getElementById(character).style.opacity = ".025";
+    }
+  }, 325);
+  setTimeout(function() {
+    document.getElementById('blackScreen').style.opacity = "0";
+  }, 850);
+  maskOpened = 0;
 }
 function doCloseAll() {
   doCloseMap();
