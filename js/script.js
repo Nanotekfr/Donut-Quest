@@ -49,6 +49,10 @@ var sfx_locked_door=new Howl({
   src:['../audio/sfx_locked_door.wav'],
   volume:1
 });
+var sfx_footsteps=new Howl({
+  src:['../audio/sfx_footsteps.wav'],
+  volume:.25
+});
 
 var currentCharacter=localStorage.getItem('savedCharacter');
 var currentStage=localStorage.getItem('savedStage');
@@ -62,6 +66,10 @@ function doNewGame(){
   localStorage.setItem('savedStage',0);
   localStorage.setItem('savedArea',10);
   localStorage.setItem('savedCharacter','null');
+  localStorage.setItem('gotMap','false');
+  localStorage.setItem('gotBag','false');
+  localStorage.setItem('gotMask','false');
+  localStorage.setItem('gotPhone','false');
   for(i=0;i<inventoryStep.bag.item.length;i++){
     bag=inventoryStep.bag;
     item=bag.item[i].name;
@@ -79,10 +87,21 @@ function doNewGame(){
   },5000);
 }
 function doContinue(){
-  currentCharacter=localStorage.getItem('savedCharacter');
   currentStage=localStorage.getItem('savedStage');
   currentArea=localStorage.getItem('savedArea');
   vueArea.img=areaStep.areas[currentArea].img;
+  if(localStorage.getItem('gotMap')=='true'){
+    document.getElementById('mapIcon').innerHTML='<img src="/img/closed-map.png"/>';
+  }
+  if(localStorage.getItem('gotBag')=='true'){
+    document.getElementById('bagIcon').innerHTML='<img src="/img/closed-bag.png"/>';
+  }
+  if(localStorage.getItem('gotMask')=='true'){
+    document.getElementById('maskIcon').innerHTML='<img src="/img/closed-mask.png"/>';
+  }
+  if(localStorage.getItem('gotPhone')=='true'){
+    document.getElementById('phoneIcon').innerHTML='<img src="/img/closed-phone.png"/>';
+  }
   document.getElementById("HUD").style.marginTop="0";
   for(i=0;i<inventoryStep.bag.item.length;i++){
     bag=inventoryStep.bag;
@@ -93,19 +112,20 @@ function doContinue(){
       document.getElementById('items').innerHTML += "<div id='item" + i + "' class='boxItem' onclick=\"selectedItem='" + i + "',doShowDescription()\">"+ icon + "</div>";
     }
   }
-  if(currentCharacter!='null'){
-    doShowCharacter();
-  }
   if(currentStage>=2){
-    areaStep.areas[1].locked=true;
-    areaStep.areas[2].locked=true;
-    areaStep.areas[3].locked=true;
+    areaStep.areas[1].locked='true';
+    areaStep.areas[2].locked='true';
+    areaStep.areas[3].locked='true';
   }
   if(currentStage==3){
     currentStage=2;
   }
   if(currentStage>=4){
-    areaStep.areas[3].locked=false;
+    areaStep.areas[3].locked='false';
+  }
+  if(currentCharacter!='null'){
+    currentCharacter=localStorage.getItem('savedCharacter');
+    doShowCharacter();
   }
   setTimeout(function(){
     document.getElementById('blackScreen').style.opacity="0";
@@ -122,13 +142,13 @@ function doTalk(){
   document.getElementById("HUD").style.marginTop="-100%";
   document.getElementById("dialogSentence").innerHTML="";
   document.getElementById("dialogButton").innerHTML="";
-  if(dialog.tag==true){
+  if(dialog.tag=='true'){
     currentCharacter=dialog.whoID;
     character=characterStep.characters[currentCharacter];
     document.getElementById(character.img).style.pointerEvents="none";
     document.getElementById(character.img).style.transform="translateX(25%)";
     document.getElementById("dialogName").style.display="block";
-    if(dialog.showName==true){
+    if(dialog.showName=='true'){
       document.getElementById("dialogName").innerHTML=dialog.who;
     }
     else{
@@ -244,6 +264,7 @@ function doChangeCharacter(){
   },1500);
 }
 function doChangeArea(selectedArea){
+  sfx_footsteps.play();
   document.getElementById("blackScreen").style.transition=".5s";
   document.getElementById('mapWindow').style.left="-100%";
   document.getElementById('blackScreen').style.opacity="1";
@@ -297,7 +318,7 @@ function doRemoveItem(){
   currentItem=action.removeItem;
   var remove=document.getElementById('item' + currentItem + '');
   remove.parentNode.removeChild(remove);
-  localStorage.setItem(item,false);
+  localStorage.setItem(item,'false');
 }
 function doHideDialogBox(){
   document.getElementById("dialog").style.display="none";
@@ -309,7 +330,7 @@ function doPause(){
 function doStopTalk(){
   currentDialog=0;
   currentSentence=0;
-  if(dialog.tag==true){
+  if(dialog.tag=='true'){
     character=characterStep.characters[currentCharacter];
     document.getElementById(character.img).style.transform="translateX(0)";
     document.getElementById(character.img).style.pointerEvents="auto";
@@ -331,17 +352,17 @@ function doOpenMap(){
     document.getElementById('mapWindow').innerHTML="";
     document.getElementById('mapWindow').style.left="0";
     for(i=0;i<areaStep.areas[currentArea].canGoTo.length;i++){
-      if(areaStep.areas[areaStep.areas[currentArea].canGoTo[i].nextArea].locked==false){
+      if(areaStep.areas[areaStep.areas[currentArea].canGoTo[i].nextArea].locked=='false'){
         document.getElementById('mapWindow').innerHTML += "" + areaStep.areas[currentArea].canGoTo[i].area + "<img id='selectArea' onclick='doChangeArea(" + i + ")' src='" + areaStep.areas[currentArea].canGoTo[i].img + "'/>";
         document.getElementById('mapIcon').innerHTML='<img src="/img/opened-map.png"/>';
       }
       else{
         document.getElementById('mapIcon').innerHTML='<img src="/img/opened-map.png"/>';
-        if(areaStep.areas[areaStep.areas[currentArea].canGoTo[i].nextArea].check==true){
+        if(areaStep.areas[areaStep.areas[currentArea].canGoTo[i].nextArea].check=='true'){
           document.getElementById('mapWindow').innerHTML += "" + areaStep.areas[currentArea].canGoTo[i].area + "<img id='selectArea' onclick='sfx_locked_door.play(),currentDialog=1,setTimeout(function(){doTalk()},2000)' src='" + areaStep.areas[currentArea].canGoTo[i].img + "'/>";
         }
         else{
-          document.getElementById('mapWindow').innerHTML += "" + areaStep.areas[currentArea].canGoTo[i].area + "<img id='selectArea' onclick='sfx_locked_door.play(),currentDialog=0,setTimeout(function(){doTalk()},2000)' src='" + areaStep.areas[currentArea].canGoTo[i].img + "'/>";
+          document.getElementById('mapWindow').innerHTML += "" + areaStep.areas[currentArea].canGoTo[i].area + "<img id='selectArea' onclick='sfx_locked_door.play(),currentDialog=0,setTimeout(function(){doTalk()},1000)' src='" + areaStep.areas[currentArea].canGoTo[i].img + "'/>";
         }
       }
     }
@@ -353,7 +374,10 @@ function doOpenMap(){
 }
 function doCloseMap(){
   document.getElementById('mapWindow').style.left="-100%";
-  document.getElementById('mapIcon').innerHTML='<img src="/img/closed-map.png"/>';
+  hasMap=localStorage.getItem('gotMap');
+  if(hasMap=='true'){
+    document.getElementById('mapIcon').innerHTML='<img src="/img/closed-map.png"/>';
+  }
   mapOpened=0;
 }
 function doOpenBag(){
@@ -371,7 +395,10 @@ function doOpenBag(){
 }
 function doCloseBag(){
   document.getElementById('bagWindow').style.bottom='-100%';
-  document.getElementById('bagIcon').innerHTML='<img src="/img/closed-bag.png"/>';
+  hasBag=localStorage.getItem('gotBag');
+  if(hasBag=='true'){
+    document.getElementById('bagIcon').innerHTML='<img src="/img/closed-bag.png"/>';
+  }
   bagOpened=0;
 }
 function doShowDescription(){
@@ -394,7 +421,10 @@ function doOpenPhone(){
 }
 function doClosePhone(){
   document.getElementById('phoneWindow').style.right='-100%';
-  document.getElementById('phoneIcon').innerHTML='<img src="/img/closed-phone.png"/>';
+  hasPhone=localStorage.getItem('gotPhone');
+  if(hasPhone=='true'){
+    document.getElementById('phoneIcon').innerHTML='<img src="/img/closed-phone.png"/>';
+  }
   phoneOpened=0;
 }
 function doOpenMask(){
@@ -404,7 +434,7 @@ function doOpenMask(){
     document.getElementById('blackScreen').style.opacity="1";
     setTimeout(function(){
       document.getElementById('mask').style.opacity="1";
-      if(areaStep.areas[currentArea].presentCharacter!="null"){
+      if(areaStep.areas[currentArea].presentCharacter!='null'){
         character=characterStep.characters[currentCharacter];
         if(characterStep.characters[currentCharacter].isGhost==1){
           document.getElementById(character.img).style.pointerEvents="auto";
@@ -423,11 +453,14 @@ function doOpenMask(){
 }
 function doCloseMask(){
   document.getElementById("blackScreen").style.transition=".15s";
-  document.getElementById('maskIcon').innerHTML='<img src="/img/closed-mask.png"/>';
+  hasMask=localStorage.getItem('gotMask');
+  if(hasMask=='true'){
+    document.getElementById('maskIcon').innerHTML='<img src="/img/closed-mask.png"/>';
+  }
   document.getElementById('blackScreen').style.opacity="1";
   setTimeout(function(){
     document.getElementById('mask').style.opacity="0";
-    if(areaStep.areas[currentArea].presentCharacter!="null"){
+    if(areaStep.areas[currentArea].presentCharacter!='null'){
       character=characterStep.characters[currentCharacter];
       if(characterStep.characters[currentCharacter].isGhost==1){
         document.getElementById(character.img).style.pointerEvents="none";
@@ -448,13 +481,18 @@ function doCloseAll(){
 
 function doNextStage(){
   localStorage.setItem('savedStage',action.nextStage);
+  if(action.nextStage==1){
+    localStorage.setItem('gotMap','true');
+    document.getElementById('mapIcon').innerHTML='<img src="/img/closed-map.png"/>'
+  }
   if(action.nextStage==2){
-    areaStep.areas[1].locked=true;
-    areaStep.areas[2].locked=true;
-    areaStep.areas[3].locked=true;
+    areaStep.areas[1].locked='true';
+    areaStep.areas[2].locked='true';
+    areaStep.areas[3].locked='true';
   }
   if(action.nextStage==4){
-    areaStep.areas[3].locked=false;
+    localStorage.setItem('savedCharacter','null');
+    areaStep.areas[3].locked='false';
   }
 }
 function doCheckStage(){
@@ -469,6 +507,7 @@ function doCheckStage(){
     },5000);
   }
   if(currentStage==3 && currentArea==12){
+    localStorage.setItem('savedCharacter','null');
     setTimeout(function(){
       currentDialog=6;
       doTalk();

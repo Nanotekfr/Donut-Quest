@@ -20,10 +20,10 @@
     <!-- <hud></hud> -->
     <div class="vue">
       <div id="icons">
-        <div id="mapIcon" onclick="doOpenMap()"><img src="/img/closed-map.png"/></div>
-        <div id="bagIcon" onclick="doOpenBag()"><img src="/img/closed-bag.png"/></div>
-        <div id="maskIcon" onclick="doOpenMask()"><img src="/img/closed-mask.png"/></div>
-        <div id="phoneIcon" onclick="doOpenPhone()"><img src="/img/closed-phone.png"/></div>
+        <div id="mapIcon" onclick="doOpenMap()"></div>
+        <div id="bagIcon" onclick="doOpenBag()"></div>
+        <div id="maskIcon" onclick="doOpenMask()"></div>
+        <div id="phoneIcon" onclick="doOpenPhone()"></div>
       </div>
       <div id="mapWindow"></div>
       <div id="bagWindow">
@@ -60,7 +60,7 @@
       <div></div>
       <div id="characterBox">
         <img id="tomStageXX" src="/img/character-homer.png" onclick="currentDialog=14,doTalk()"/>
-        <img id="terrilStage03" src="/img/character-homer.png" onclick="currentDialog=11,doTalk()"/>
+        <img id="terrilStage03" src="/img/terril.png" onclick="currentDialog=11,doTalk()"/>
         <img id="djarStageXX" src="/img/character-marge.png" onclick="currentDialog=4,doTalk()"/>
       </div>
     </div>

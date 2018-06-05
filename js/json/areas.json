@@ -10,7 +10,7 @@
         {"id":3,"area":"CORRIDOR2","img":"/img/a2.png","nextArea":1}
       ],
       "presentCharacter":"null",
-      "locked":false
+      "locked":"false"
     },
     {
       "id":2,
@@ -23,7 +23,7 @@
         {"id":2,"area":"CORRIDOR3","img":"/img/a3.png","nextArea":2}
       ],
       "presentCharacter":"null",
-      "locked":false
+      "locked":"false"
     },
     {
       "id":3,
@@ -35,7 +35,7 @@
         {"id":2,"area":"CORRIDOR2","img":"/img/a2.png","nextArea":1}
       ],
       "presentCharacter":"null",
-      "locked":false
+      "locked":"false"
     },
     {
       "id":4,
@@ -45,7 +45,7 @@
         {"id":1,"area":"CORRIDOR1","img":"/img/a1.png","nextArea":0}
       ],
       "presentCharacter":"null",
-      "locked":false
+      "locked":"false"
     },
     {
       "id":5,
@@ -55,7 +55,7 @@
         {"id":1,"area":"CORRIDOR1","img":"/img/a1.png","nextArea":0}
       ],
       "presentCharacter":"null",
-      "locked":false
+      "locked":"false"
     },
     {
       "id":6,
@@ -65,7 +65,7 @@
         {"id":1,"area":"CORRIDOR2","img":"/img/a2.png","nextArea":1}
       ],
       "presentCharacter":"null",
-      "locked":false
+      "locked":"false"
     },
     {
       "id":7,
@@ -75,7 +75,7 @@
         {"id":1,"area":"CORRIDOR2","img":"/img/a2.png","nextArea":1}
       ],
       "presentCharacter":"null",
-      "locked":false
+      "locked":"false"
     },
     {
       "id":8,
@@ -85,7 +85,7 @@
         {"id":1,"area":"CORRIDOR3","img":"/img/a3.png","nextArea":2}
       ],
       "presentCharacter":"null",
-      "locked":false
+      "locked":"false"
     },
     {
       "id":9,
@@ -95,7 +95,7 @@
         {"id":1,"area":"CORRIDOR3","img":"/img/a3.png","nextArea":2}
       ],
       "presentCharacter":"null",
-      "locked":false
+      "locked":"false"
     },
     {
       "id":10,
@@ -106,7 +106,7 @@
         {"id":1,"area":"CORRIDOR1FAKE","img":"/img/a1.png","nextArea":12}
       ],
       "presentCharacter":"null",
-      "locked":false
+      "locked":"false"
     },
     {
       "id":11,
@@ -116,14 +116,14 @@
         {"id":1,"area":"CORRIDOR2FAKE","img":"/img/a2.png","nextArea":9}
       ],
       "presentCharacter":"null",
-      "locked":false
+      "locked":"false"
     },
     {
       "id":12,
       "name":"EXIT",
       "img":"/img/a3.png",
-      "locked":true,
-      "check":true
+      "locked":"true",
+      "check":"true"
     },
     {
       "id":13,
@@ -135,7 +135,7 @@
         {"id":1,"area":"CORRIDOR2","img":"/img/a2.png","nextArea":1}
       ],
       "presentCharacter":"null",
-      "locked":false
+      "locked":"false"
     }
   ]
 }
