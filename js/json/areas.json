@@ -2,43 +2,140 @@
   "areas":[
     {
       "id":1,
-      "name":"STREET",
-      "img":"/img/area-street.png",
+      "name":"CORRIDOR1",
+      "img":"/img/a1.png",
       "canGoTo":[
-        {"id":1,"area":"KITCHEN","img":"/img/area-kitchen.png","nextArea":1},
-        {"id":2,"area":"LIVING ROOM","img":"/img/area-living-room.png","nextArea":2},
-        {"id":3,"area":"GARDEN","img":"/img/area-garden.png","nextArea":3}
+        {"id":1,"area":"ROOM4","img":"/img/a4.png","nextArea":3},
+        {"id":2,"area":"ROOM5","img":"/img/a5.png","nextArea":4},
+        {"id":3,"area":"CORRIDOR2","img":"/img/a2.png","nextArea":1}
       ],
-      "presentCharacter":"null"
+      "presentCharacter":"null",
+      "locked":false
     },
     {
       "id":2,
-      "name":"KITCHEN",
-      "img":"/img/area-kitchen.png",
+      "name":"CORRIDOR2",
+      "img":"/img/a2.png",
       "canGoTo":[
-        {"id":1,"area":"LIVING ROOM","img":"/img/area-living-room.png","nextArea":2},
-        {"id":2,"area":"STREET","img":"/img/area-street.png","nextArea":0}
+        {"id":1,"area":"ROOM6","img":"/img/a6.png","nextArea":5},
+        {"id":2,"area":"CORRIDOR3","img":"/img/a3.png","nextArea":2},
+        {"id":3,"area":"ROOM7","img":"/img/a7.png","nextArea":6},
+        {"id":4,"area":"CORRIDOR1","img":"/img/a1.png","nextArea":0}
       ],
-      "presentCharacter":"null"
+      "presentCharacter":"null",
+      "locked":false
     },
     {
       "id":3,
-      "name":"LIVING ROOM",
-      "img":"/img/area-living-room.png",
+      "name":"CORRIDOR3",
+      "img":"/img/a3.png",
       "canGoTo":[
-        {"id":1,"area":"KITCHEN","img":"/img/area-kitchen.png","nextArea":1},
-        {"id":2,"area":"STREET","img":"/img/area-street.png","nextArea":0}
+        {"id":1,"area":"ROOM8","img":"/img/a8.png","nextArea":7},
+        {"id":2,"area":"ROOM9","img":"/img/a9.png","nextArea":8},
+        {"id":2,"area":"CORRIDOR2","img":"/img/a2.png","nextArea":1}
       ],
-      "presentCharacter":"null"
+      "presentCharacter":"null",
+      "locked":false
     },
     {
       "id":4,
-      "name":"GARDEN",
-      "img":"/img/area-garden.png",
+      "name":"ROOM4",
+      "img":"/img/a4.png",
       "canGoTo":[
-        {"id":2,"area":"STREET","img":"/img/area-street.png","nextArea":0}
+        {"id":1,"area":"CORRIDOR1","img":"/img/a1.png","nextArea":0}
       ],
-      "presentCharacter":"null"
+      "presentCharacter":"null",
+      "locked":false
+    },
+    {
+      "id":5,
+      "name":"ROOM5",
+      "img":"/img/a5.png",
+      "canGoTo":[
+        {"id":1,"area":"CORRIDOR1","img":"/img/a1.png","nextArea":0}
+      ],
+      "presentCharacter":"null",
+      "locked":false
+    },
+    {
+      "id":6,
+      "name":"ROOM6",
+      "img":"/img/a6.png",
+      "canGoTo":[
+        {"id":1,"area":"CORRIDOR2","img":"/img/a2.png","nextArea":1}
+      ],
+      "presentCharacter":"null",
+      "locked":false
+    },
+    {
+      "id":7,
+      "name":"ROOM7",
+      "img":"/img/a7.png",
+      "canGoTo":[
+        {"id":1,"area":"CORRIDOR2","img":"/img/a2.png","nextArea":1}
+      ],
+      "presentCharacter":"null",
+      "locked":false
+    },
+    {
+      "id":8,
+      "name":"ROOM8",
+      "img":"/img/a8.png",
+      "canGoTo":[
+        {"id":1,"area":"CORRIDOR3","img":"/img/a3.png","nextArea":2}
+      ],
+      "presentCharacter":"null",
+      "locked":false
+    },
+    {
+      "id":9,
+      "name":"ROOM9",
+      "img":"/img/a9.png",
+      "canGoTo":[
+        {"id":1,"area":"CORRIDOR3","img":"/img/a3.png","nextArea":2}
+      ],
+      "presentCharacter":"null",
+      "locked":false
+    },
+    {
+      "id":10,
+      "name":"CORRIDOR2FAKE",
+      "img":"/img/a2.png",
+      "canGoTo":[
+        {"id":1,"area":"CORRIDOR1FAKE","img":"/img/a1.png","nextArea":12},
+        {"id":1,"area":"CORRIDOR3","img":"/img/a3.png","nextArea":2}
+      ],
+      "presentCharacter":"null",
+      "locked":false
+    },
+    {
+      "id":11,
+      "name":"CORRIDOR3FAKE",
+      "img":"/img/a3.png",
+      "canGoTo":[
+        {"id":1,"area":"CORRIDOR2FAKE","img":"/img/a2.png","nextArea":9}
+      ],
+      "presentCharacter":"null",
+      "locked":false
+    },
+    {
+      "id":12,
+      "name":"EXIT",
+      "img":"/img/a3.png",
+      "locked":true,
+      "check":true
+    },
+    {
+      "id":13,
+      "name":"CORRIDOR1FAKE",
+      "img":"/img/a1.png",
+      "canGoTo":[
+        {"id":1,"area":"CORRIDOR2","img":"/img/a2.png","nextArea":1},
+        {"id":1,"area":"ROOM4","img":"/img/a4.png","nextArea":3},
+        {"id":4,"area":"EXIT","img":"/img/a3.png","nextArea":11}
+      ],
+      "presentCharacter":"null",
+      "locked":false
     }
   ]
 }

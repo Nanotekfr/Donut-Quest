@@ -50,7 +50,7 @@ var currentItem = 0;
 
 function doNewGame() {
   localStorage.setItem('savedStage',0);
-  localStorage.setItem('savedArea',1);
+  localStorage.setItem('savedArea',10);
   localStorage.setItem('savedCharacter','null');
   for (i=0;i<inventoryStep.bag.item.length;i++) {
     bag=inventoryStep.bag;
@@ -62,9 +62,6 @@ function doNewGame() {
   currentCharacter = localStorage.getItem('savedCharacter');
   vueArea.img=areaStep.areas[currentArea].img;
   document.getElementById("HUD").style.marginTop = "0";
-  setTimeout(function() {
-    document.getElementById('blackScreen').style.opacity = "0";
-  }, 1000);
   setTimeout(function() {
     doTalk();
   }, 2000);
@@ -110,11 +107,17 @@ function doTalk() {
   document.getElementById("HUD").style.marginTop = "-100%";
   document.getElementById("dialogSentence").innerHTML = "";
   document.getElementById("dialogButton").innerHTML = "";
-  if (dialog.who != "VOICE-OVER") {
-    character = characterStep.characters[currentCharacter].img;
-    document.getElementById(character).style.transform = "translateX(25%)";
+  if (dialog.tag == true) {
+    currentCharacter = dialog.whoID;
+    character = characterStep.characters[currentCharacter];
+    document.getElementById(character.img).style.transform = "translateX(25%)";
     document.getElementById("dialogName").style.display = "block";
-    document.getElementById("dialogName").innerHTML = dialog.who;
+    if (dialog.showName == true) {
+      document.getElementById("dialogName").innerHTML = dialog.who;
+    }
+    else {
+      document.getElementById("dialogName").innerHTML = "???";
+    }
   }
   else {
     document.getElementById("dialogName").style.display = "none";
@@ -150,6 +153,9 @@ function doAction(selectedAction) {
   if (typeof(action.nextStage) != "undefined") {
     doNextStage();
   }
+  if (typeof(action.fade) != "undefined") {
+    doFade();
+  }
   if (typeof(action.showCharacter) != "undefined") {
     currentCharacter=action.showCharacter;
     doShowCharacter();
@@ -182,40 +188,49 @@ function doAction(selectedAction) {
   }
 }
 
+function doFade() {
+  document.getElementById("blackScreen").style.transition = "1s";
+  if (action.fade == "in"){
+    setTimeout(function(){
+      document.getElementById("blackScreen").style.opacity = "0";
+    },action.fadeTime);
+  }
+}
 function doShowCharacter() {
   localStorage.setItem('savedCharacter',currentCharacter);
-  character = characterStep.characters[currentCharacter].img;
-  document.getElementById(character).style.display = "block";
+  character = characterStep.characters[currentCharacter];
+  document.getElementById(character.img).style.display = "block";
   setTimeout(function() {
     if (characterStep.characters[currentCharacter].isGhost == 1) {
-      document.getElementById(character).style.pointerEvents = "none";
-      document.getElementById(character).style.opacity = ".025";
+      document.getElementById(character.img).style.pointerEvents = "none";
+      document.getElementById(character.img).style.opacity = ".025";
     }
     else {
-      document.getElementById(character).style.pointerEvents = "auto";
-      document.getElementById(character).style.opacity = "1";
+      document.getElementById(character.img).style.pointerEvents = "auto";
+      document.getElementById(character.img).style.opacity = "1";
     }
   }, 1000);
 }
 function doHideCharacter() {
-  character = characterStep.characters[currentCharacter].img;
-  document.getElementById(character).style.opacity = "0";
+  character = characterStep.characters[currentCharacter];
+  document.getElementById(character.img).style.opacity = "0";
   setTimeout(function() {
-    document.getElementById(character).style.display = "none";
+    document.getElementById(character.img).style.display = "none";
   }, 1000);
 }
 function doChangeCharacter() {
-  document.getElementById(character).style.opacity = "0";
+  document.getElementById(character.img).style.opacity = "0";
   setTimeout(function() {
-    document.getElementById(character).style.display = "none";
-    character = characterStep.characters[currentCharacter].img;
-    document.getElementById(character).style.display = "block";
+    document.getElementById(character.img).style.display = "none";
+    character = characterStep.characters[currentCharacter];
+    document.getElementById(character.img).style.display = "block";
   }, 1000);
   setTimeout(function() {
-    document.getElementById(character).style.opacity = "1";
+    document.getElementById(character.img).style.opacity = "1";
   }, 1500);
 }
 function doChangeArea(selectedArea) {
+  document.getElementById("blackScreen").style.transition = ".5s";
   document.getElementById('mapWindow').style.left = "-100%";
   document.getElementById('blackScreen').style.opacity = "1";
   currentArea=areaStep.areas[currentArea].canGoTo[selectedArea].nextArea;
@@ -225,26 +240,26 @@ function doChangeArea(selectedArea) {
     vueArea.img=areaStep.areas[currentArea].img;
     localStorage.setItem('savedArea',currentArea);
     if (currentCharacter != 'null') {
-      character=characterStep.characters[currentCharacter].img;
-      document.getElementById(character).style.display = "none";
+      character=characterStep.characters[currentCharacter];
+      document.getElementById(character.img).style.display = "none";
     }
     if (presentCharacter != 'null') {
       currentCharacter=presentCharacter;
-      character=characterStep.characters[currentCharacter].img;
-      document.getElementById(character).style.display = "block";
+      character=characterStep.characters[currentCharacter];
+      document.getElementById(character.img).style.display = "block";
       if (characterStep.characters[currentCharacter].isGhost == 1) {
         if (maskOpened == 1) {
-          document.getElementById(character).style.pointerEvents = "auto";
-          document.getElementById(character).style.opacity = "1";
+          document.getElementById(character.img).style.pointerEvents = "auto";
+          document.getElementById(character.img).style.opacity = "1";
         }
         else {
-          document.getElementById(character).style.pointerEvents = "none";
-          document.getElementById(character).style.opacity = ".025";
+          document.getElementById(character.img).style.pointerEvents = "none";
+          document.getElementById(character.img).style.opacity = ".025";
         }
       }
       else {
-        document.getElementById(character).style.pointerEvents = "auto";
-        document.getElementById(character).style.opacity = "1";
+        document.getElementById(character.img).style.pointerEvents = "auto";
+        document.getElementById(character.img).style.opacity = "1";
       }
       localStorage.setItem('savedCharacter',currentCharacter);
     }
@@ -275,18 +290,19 @@ function doHideDialogBox() {
 
 }
 function doPause() {
-  setTimeout(doTalk, action.time);
+  setTimeout(doTalk, action.pauseTime);
 }
 function doStopTalk() {
   currentDialog = 0;
   currentSentence = 0;
-  if (dialog.who != "VOICE-OVER") {
-    character = characterStep.characters[currentCharacter].img;
-    document.getElementById(character).style.transform = "translateX(0)";
+  if (dialog.who != "VOICE-OVER" && dialog.who != "SPEAKER") {
+    character = characterStep.characters[currentCharacter];
+    document.getElementById(character.img).style.transform = "translateX(0)";
   }
   document.getElementById("dialog").style.display = "none";
   document.getElementById("HUD").style.marginTop = "0";
   sfx_blipmale.stop();
+  doCheckStage();
 }
 
 var bagOpened = 0;
@@ -298,12 +314,23 @@ function doOpenMap() {
   doClosePhone();
   if (mapOpened == 0) {
     document.getElementById('mapWindow').innerHTML = "";
+    document.getElementById('mapWindow').style.left = "0";
     for (i=0;i<areaStep.areas[currentArea].canGoTo.length;i++) {
-      document.getElementById('mapWindow').style.left = "0";
-      document.getElementById('mapWindow').innerHTML += "" + areaStep.areas[currentArea].canGoTo[i].area + "<img id='selectArea' onclick='doChangeArea(" + i + ")' src='" + areaStep.areas[currentArea].canGoTo[i].img + "'/>";
-      document.getElementById('mapIcon').innerHTML = '<img src="/img/opened-map.png"/>';
-      mapOpened=1;
+      if(areaStep.areas[areaStep.areas[currentArea].canGoTo[i].nextArea].locked == false){
+        document.getElementById('mapWindow').innerHTML += "" + areaStep.areas[currentArea].canGoTo[i].area + "<img id='selectArea' onclick='doChangeArea(" + i + ")' src='" + areaStep.areas[currentArea].canGoTo[i].img + "'/>";
+        document.getElementById('mapIcon').innerHTML = '<img src="/img/opened-map.png"/>';
+      }
+      else{
+        document.getElementById('mapIcon').innerHTML = '<img src="/img/opened-map.png"/>';
+        if(areaStep.areas[areaStep.areas[currentArea].canGoTo[i].nextArea].check == true) {
+          document.getElementById('mapWindow').innerHTML += "" + areaStep.areas[currentArea].canGoTo[i].area + "<img id='selectArea' onclick='currentDialog=10, doTalk()' src='" + areaStep.areas[currentArea].canGoTo[i].img + "'/>";
+        }
+        else {
+          document.getElementById('mapWindow').innerHTML += "" + areaStep.areas[currentArea].canGoTo[i].area + "<img id='selectArea' onclick='currentDialog=9, doTalk()' src='" + areaStep.areas[currentArea].canGoTo[i].img + "'/>";
+        }
+      }
     }
+    mapOpened=1;
   }
   else {
     doCloseMap();
@@ -357,19 +384,20 @@ function doClosePhone() {
 }
 function doOpenMask() {
   if (maskOpened == 0) {
+    document.getElementById("blackScreen").style.transition = ".15s";
     document.getElementById('maskIcon').innerHTML = '<img src="/img/opened-mask.png"/>';
     document.getElementById('blackScreen').style.opacity = "1";
     setTimeout(function() {
       document.getElementById('mask').style.opacity = "1";
-      character=characterStep.characters[currentCharacter].img;
+      character=characterStep.characters[currentCharacter];
       if (characterStep.characters[currentCharacter].isGhost == 1) {
-        document.getElementById(character).style.pointerEvents = "auto";
-        document.getElementById(character).style.opacity = "1";
+        document.getElementById(character.img).style.pointerEvents = "auto";
+        document.getElementById(character.img).style.opacity = "1";
       }
-    }, 325);
+    }, 175);
     setTimeout(function() {
       document.getElementById('blackScreen').style.opacity = "0";
-    }, 850);
+    }, 700);
     maskOpened = 1;
   }
   else {
@@ -377,19 +405,20 @@ function doOpenMask() {
   }
 }
 function doCloseMask() {
+  document.getElementById("blackScreen").style.transition = ".15s";
   document.getElementById('maskIcon').innerHTML = '<img src="/img/closed-mask.png"/>';
   document.getElementById('blackScreen').style.opacity = "1";
   setTimeout(function() {
     document.getElementById('mask').style.opacity = "0";
-    character=characterStep.characters[currentCharacter].img;
+    character=characterStep.characters[currentCharacter];
     if (characterStep.characters[currentCharacter].isGhost == 1) {
-      document.getElementById(character).style.pointerEvents = "none";
-      document.getElementById(character).style.opacity = ".025";
+      document.getElementById(character.img).style.pointerEvents = "none";
+      document.getElementById(character.img).style.opacity = ".025";
     }
-  }, 325);
+  }, 175);
   setTimeout(function() {
     document.getElementById('blackScreen').style.opacity = "0";
-  }, 850);
+  }, 700);
   maskOpened = 0;
 }
 function doCloseAll() {
@@ -401,22 +430,29 @@ function doCloseAll() {
 function doNextStage() {
   localStorage.setItem('savedStage',action.nextStage);
   if (action.nextStage == 2) {
-    areaStep.areas[0].presentCharacter = 2;
-    areaStep.areas[1].presentCharacter = 0;
+    areaStep.areas[1].locked = true;
+    areaStep.areas[2].locked = true;
+    areaStep.areas[3].locked = true;
   }
-  if (action.nextStage == 3) {
-    areaStep.areas[1].presentCharacter = 1;
-  }
-  if (action.nextStage == 4) {
-    areaStep.areas[2].presentCharacter = 3;
-    areaStep.areas[0].presentCharacter = 'null';
-  }
+  // if (action.nextStage == 3) {
+  //   areaStep.areas[1].presentCharacter = 1;
+  // }
+  // if (action.nextStage == 4) {
+  //   areaStep.areas[2].presentCharacter = 3;
+  //   areaStep.areas[0].presentCharacter = 'null';
+  // }
 }
 function doCheckStage() {
-  if (currentStage == 1 && currentArea == 0) {
+  if (currentStage == 1 && currentArea == 9) {
     setTimeout(function() {
-      currentDialog=2;
+      currentDialog=3;
       doTalk();
-    }, 4000);
+    }, 3000);
+  }
+  if (currentStage == 3 && currentArea == 12) {
+    setTimeout(function() {
+      currentDialog=4;
+      doTalk();
+    }, 1500);
   }
 }

@@ -2,72 +2,73 @@
   "dialogs":[
     {
       "id":1,
-      "who":"VOICE-OVER",
+      "tag":false,
+      "who":"SPEAKER",
       "sentences":[
-        {"id":1,"text":"<mark>What are you doing in the <mark class='bis'>KITCHEN</mark>? Let's go outside!</mark>"}
+        {"id":1,"text":"Your attention please..."}
       ],
       "actions":[
-        {"id":1,"text":"OK","nextStep":1},
-        {"id":2,"text":"NOPE","stopTalk":true}
+        {"id":1,"text":"NEXT","nextStep":1,"hideDialogBox":true,"pause":true,"pauseTime":3000,"fade":"in","fadeTime":1500}
       ]
     },
     {
       "id":2,
-      "who":"VOICE-OVER",
+      "tag":false,
+      "who":"SPEAKER",
       "sentences":[
-        {"id":1,"text":"<mark>Great! Come on then!</mark>"},
-        {"id":2,"text":"<mark>Click on the map to go to another location.</mark>"}
+        {"id":1,"text":"...the <mark class='bis'>MUSEUM</mark> is about to close its doors."},
+        {"id":2,"text":"Please, proceed to the nearest <mark class='bis'>EXIT</mark>."}
       ],
       "actions":[
-        {"id":1,"text":"NEXT","stopTalk":true,"nextStage":1}
+        {"id":1,"text":"NEXT","nextStep":2,"hideDialogBox":true,"pause":true,"pauseTime":1000}
       ]
     },
     {
       "id":3,
+      "tag":false,
       "who":"VOICE-OVER",
       "sentences":[
-        {"id":1,"text":"<mark>Smell that fresh air? Don't you feel better?</mark>"},
-        {"id":2,"text":"<mark>Wait, looks like someone is coming your way...</mark>"}
+        {"id":1,"text":"<mark>Well, better hurry...</mark>"},
+        {"id":2,"text":"<mark>I should check the <mark class='bis'>MAP</mark> to find my way.</mark>"}
       ],
       "actions":[
-        {"id":1,"text":"NEXT","nextStep":3,"hideDialogBox":true,"pause":true,"showCharacter":2,"time":3000}
+        {"id":1,"text":"END","stopTalk":true,"nextStage":1}
       ]
     },
     {
       "id":4,
+      "tag":false,
       "who":"VOICE-OVER",
       "sentences":[
-        {"id":1,"text":"<mark>Hey, that's <mark class='bis'>MARGE SIMPSON</mark>, your neighbor!</mark>"},
-        {"id":2,"text":"<mark>Why not introduce yourself?</mark>"},
-        {"id":3,"text":"<mark>Just click on her to start a conversation.</mark>"}
+        {"id":1,"text":"<mark>La personne pense que c'est calme...</mark>"}
       ],
       "actions":[
-        {"id":1,"text":"OK","stopTalk":true,"nextStage":2}
+        {"id":1,"text":"END","stopTalk":true,"nextStage":2}
       ]
     },
     {
       "id":5,
-      "who":"MARGE SIMPSON",
+      "tag":true,
+      "showName":false,
+      "who":"TERRIL",
+      "whoID":0,
       "sentences":[
-        {"id":1,"text":"Oh hi there neighbor, what can I do for you?"}
+        {"id":1,"text":"Hey ! Wait !..."},
+        {"id":2,"text":"Behind you..."}
       ],
       "actions":[
-        {"id":1,"text":"HOMER","nextStep":5},
-        {"id":2,"text":"BART","nextStep":8},
-        {"id":3,"text":"NOTHING","nextStep":9}
+        {"id":1,"text":"NEXT","nextStep":5,"hideDialogBox":true,"pause":true,"pauseTime":2000}
       ]
     },
     {
       "id":6,
-      "who":"MARGE SIMPSON",
+      "who":"TERRIL",
+      "whoID":0,
       "sentences":[
-        {"id":1,"text":"<mark class='bis'>HOMER</mark>, he's been out all night... again!"},
-        {"id":2,"text":"By the way. I have this <mark class='bis'>BOX OF DONUTS</mark>."},
-        {"id":3,"text":"Could you give it to him? That way you two could meet each other!"}
+        {"id":1,"text":"Look at the floor !..."}
       ],
       "actions":[
-        {"id":1,"text":"ACCEPT","nextStep":6},
-        {"id":2,"text":"REFUSE","nextStep":7}
+        {"id":1,"text":"END","stopTalk":true}
       ]
     },
     {
@@ -104,9 +105,10 @@
     },
     {
       "id":10,
-      "who":"MARGE SIMPSON",
+      "tag":false,
+      "who":"VOICE-OVER",
       "sentences":[
-        {"id":1,"text":"Ok then, have a nice day!"}
+        {"id":1,"text":"It's locked."}
       ],
       "actions":[
         {"id":1,"text":"END","stopTalk":true}
@@ -114,14 +116,12 @@
     },
     {
       "id":11,
-      "who":"MARGE SIMPSON",
+      "who":"VOICE-OVER",
       "sentences":[
-        {"id":1,"text":"Anything else?"}
+        {"id":1,"text":"It's locked."}
       ],
       "actions":[
-        {"id":1,"text":"HOMER","nextStep":5},
-        {"id":2,"text":"BART","nextStep":8},
-        {"id":3,"text":"NOTHING","nextStep":9}
+        {"id":1,"text":"END","stopTalk":true,"nextStage":3}
       ]
     },
     {

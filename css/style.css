@@ -168,7 +168,7 @@ mark {
   font-size: 3vw;
   display: none;
   bottom: .5vw;
-  z-index: 20;
+  z-index: 60;
   width: 100%;
 }
 #dialog #dialogName {
@@ -221,7 +221,7 @@ mark {
   transition: .45s;
   position: fixed;
   height: 100%;
-  z-index: 15;
+  z-index: 20;
   width: 100%;
   opacity: 0;
 }
