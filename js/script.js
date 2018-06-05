@@ -30,14 +30,24 @@ fetch('/js/json/inventory.json')
 var sfx_blipmale=new Howl({
   src:['../audio/sfx_blipmale.wav'],
   volume:.25,
-  buffer:false,
   loop:true
 });
 var sfx_blipfemale=new Howl({
   src:['../audio/sfx_blipfemale.wav'],
   volume:.25,
-  buffer:false,
   loop:true
+});
+var sfx_ambient_museum=new Howl({
+  src:['../audio/sfx_ambient_museum.wav'],
+  volume:0,
+  loop:true,
+  onplay:function(){
+    sfx_ambient_museum.fade(0,1,1000);
+  }
+});
+var sfx_locked_door=new Howl({
+  src:['../audio/sfx_locked_door.wav'],
+  volume:1
 });
 
 var currentCharacter=localStorage.getItem('savedCharacter');
@@ -62,9 +72,11 @@ function doNewGame(){
   currentCharacter=localStorage.getItem('savedCharacter');
   vueArea.img=areaStep.areas[currentArea].img;
   document.getElementById("HUD").style.marginTop="0";
+  sfx_ambient_museum.play();
   setTimeout(function(){
+    currentDialog=2;
     doTalk();
-  }, 2000);
+  },5000);
 }
 function doContinue(){
   currentCharacter=localStorage.getItem('savedCharacter');
@@ -78,23 +90,26 @@ function doContinue(){
     icon=bag.item[i].icon;
     savedItem=localStorage.getItem(item);
     if(savedItem==1){
-      document.getElementById('items').innerHTML += "<div id='item" + i + "' class='boxItem' onclick=\"selectedItem='" + i + "', doShowDescription()\">"+ icon + "</div>";
+      document.getElementById('items').innerHTML += "<div id='item" + i + "' class='boxItem' onclick=\"selectedItem='" + i + "',doShowDescription()\">"+ icon + "</div>";
     }
   }
   if(currentCharacter!='null'){
     doShowCharacter();
   }
-  if(currentStage==2){
-    areaStep.areas[0].presentCharacter=2;
-    areaStep.areas[1].presentCharacter=0;
+  if(currentStage>=2){
+    areaStep.areas[1].locked=true;
+    areaStep.areas[2].locked=true;
+    areaStep.areas[3].locked=true;
   }
   if(currentStage==3){
-    areaStep.areas[0].presentCharacter=2;
-    areaStep.areas[1].presentCharacter=1;
+    currentStage=2;
+  }
+  if(currentStage>=4){
+    areaStep.areas[3].locked=false;
   }
   setTimeout(function(){
     document.getElementById('blackScreen').style.opacity="0";
-  }, 1500);
+  },1500);
 }
 function doQuit(){
   location.reload();
@@ -127,7 +142,7 @@ function doTalk(){
   document.getElementById("dialog").style.display="block";
   sfx_blipmale.play();
   speechtext= dialog.sentences[currentSentence].text;
-  new Typed('#dialogSentence', {
+  new Typed('#dialogSentence',{
     strings:[speechtext],
     typeSpeed:15,
     showCursor:false,
@@ -135,7 +150,7 @@ function doTalk(){
       sfx_blipmale.stop();
       if(currentSentence==(dialog.sentences.length-1)){
         for(i=0;i<dialog.actions.length;i++){
-           document.getElementById("dialogButton").innerHTML += "<a id=\"button\" onclick=\"selectedAction=" + i + ", doAction(" + i + ")\">" + dialog.actions[i].text + "</a>"
+           document.getElementById("dialogButton").innerHTML += "<a id=\"button\" onclick=\"selectedAction=" + i + ",doAction(" + i + ")\">" + dialog.actions[i].text + "</a>"
         }
       }
       else{
@@ -208,14 +223,14 @@ function doShowCharacter(){
     else{
       document.getElementById(character.img).style.opacity="1";
     }
-  }, 1000);
+  },1000);
 }
 function doHideCharacter(){
   character=characterStep.characters[currentCharacter];
   document.getElementById(character.img).style.opacity="0";
   setTimeout(function(){
     document.getElementById(character.img).style.pointerEvents="none";
-  }, 1000);
+  },1000);
 }
 function doChangeCharacter(){
   document.getElementById(character.img).style.opacity="0";
@@ -223,10 +238,10 @@ function doChangeCharacter(){
     document.getElementById(character.img).style.display="none";
     character=characterStep.characters[currentCharacter];
     document.getElementById(character.img).style.display="block";
-  }, 1000);
+  },1000);
   setTimeout(function(){
     document.getElementById(character.img).style.opacity="1";
-  }, 1500);
+  },1500);
 }
 function doChangeArea(selectedArea){
   document.getElementById("blackScreen").style.transition=".5s";
@@ -265,31 +280,31 @@ function doChangeArea(selectedArea){
     else{
       localStorage.setItem('savedCharacter','null');
     }
-  }, 1000);
+  },1000);
   setTimeout(function(){
     document.getElementById('blackScreen').style.opacity="0";
-  }, 2000);
+  },2000);
   doCheckStage();
 }
 function doAddItem(){
   bag=inventoryStep.bag;
   item=bag.item[currentItem].name;
   icon=bag.item[currentItem].icon;
-  document.getElementById('items').innerHTML += "<div id='item" + currentItem + "' onclick=\"selectedItem='" + currentItem + "', doShowDescription()\">"+ icon + "</div>";
+  document.getElementById('items').innerHTML += "<div id='item" + currentItem + "' onclick=\"selectedItem='" + currentItem + "',doShowDescription()\">"+ icon + "</div>";
   localStorage.setItem(item,1);
 }
 function doRemoveItem(){
   currentItem=action.removeItem;
   var remove=document.getElementById('item' + currentItem + '');
   remove.parentNode.removeChild(remove);
-  localStorage.setItem(item, false);
+  localStorage.setItem(item,false);
 }
 function doHideDialogBox(){
   document.getElementById("dialog").style.display="none";
 
 }
 function doPause(){
-  setTimeout(doTalk, action.pauseTime);
+  setTimeout(doTalk,action.pauseTime);
 }
 function doStopTalk(){
   currentDialog=0;
@@ -323,10 +338,10 @@ function doOpenMap(){
       else{
         document.getElementById('mapIcon').innerHTML='<img src="/img/opened-map.png"/>';
         if(areaStep.areas[areaStep.areas[currentArea].canGoTo[i].nextArea].check==true){
-          document.getElementById('mapWindow').innerHTML += "" + areaStep.areas[currentArea].canGoTo[i].area + "<img id='selectArea' onclick='currentDialog=10, doTalk()' src='" + areaStep.areas[currentArea].canGoTo[i].img + "'/>";
+          document.getElementById('mapWindow').innerHTML += "" + areaStep.areas[currentArea].canGoTo[i].area + "<img id='selectArea' onclick='sfx_locked_door.play(),currentDialog=1,setTimeout(function(){doTalk()},2000)' src='" + areaStep.areas[currentArea].canGoTo[i].img + "'/>";
         }
         else{
-          document.getElementById('mapWindow').innerHTML += "" + areaStep.areas[currentArea].canGoTo[i].area + "<img id='selectArea' onclick='currentDialog=9, doTalk()' src='" + areaStep.areas[currentArea].canGoTo[i].img + "'/>";
+          document.getElementById('mapWindow').innerHTML += "" + areaStep.areas[currentArea].canGoTo[i].area + "<img id='selectArea' onclick='sfx_locked_door.play(),currentDialog=0,setTimeout(function(){doTalk()},2000)' src='" + areaStep.areas[currentArea].canGoTo[i].img + "'/>";
         }
       }
     }
@@ -396,10 +411,10 @@ function doOpenMask(){
           document.getElementById(character.img).style.opacity="1";
         }
       }
-    }, 175);
+    },175);
     setTimeout(function(){
       document.getElementById('blackScreen').style.opacity="0";
-    }, 700);
+    },700);
     maskOpened=1;
   }
   else{
@@ -419,10 +434,10 @@ function doCloseMask(){
         document.getElementById(character.img).style.opacity=".025";
       }
     }
-  }, 175);
+  },175);
   setTimeout(function(){
     document.getElementById('blackScreen').style.opacity="0";
-  }, 700);
+  },700);
   maskOpened=0;
 }
 function doCloseAll(){
@@ -433,33 +448,30 @@ function doCloseAll(){
 
 function doNextStage(){
   localStorage.setItem('savedStage',action.nextStage);
-  if(action.nextStage==1){
-    areaStep.areas[9].presentCharacter=3;
-  }
   if(action.nextStage==2){
     areaStep.areas[1].locked=true;
     areaStep.areas[2].locked=true;
     areaStep.areas[3].locked=true;
   }
-  // if(action.nextStage==3){
-  //   areaStep.areas[1].presentCharacter=1;
-  // }
-  // if(action.nextStage==4){
-  //   areaStep.areas[2].presentCharacter=3;
-  //   areaStep.areas[0].presentCharacter='null';
-  // }
+  if(action.nextStage==4){
+    areaStep.areas[3].locked=false;
+  }
 }
 function doCheckStage(){
   if(currentStage==1 && currentArea==9){
     setTimeout(function(){
-      currentDialog=3;
+      sfx_ambient_museum.fade(1,0,1000);
+    },2000);
+    setTimeout(function(){
+      sfx_ambient_museum.stop();
+      currentDialog=5;
       doTalk();
-    }, 3000);
+    },5000);
   }
   if(currentStage==3 && currentArea==12){
     setTimeout(function(){
-      currentDialog=4;
+      currentDialog=6;
       doTalk();
-    }, 1500);
+    },1500);
   }
 }

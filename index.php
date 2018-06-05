@@ -59,10 +59,9 @@
     <div class="vue">
       <div></div>
       <div id="characterBox">
-        <img id="homerSimpsonStage02" src="/img/character-homer.png" onclick="currentDialog=11,doTalk()"/>
-        <img id="homerSimpsonStage03" src="/img/character-homer.png" onclick="currentDialog=14,doTalk()"/>
-        <img id="margeSimpsonStage02" src="/img/character-marge.png" onclick="currentDialog=4,doTalk()"/>
-        <img id="bartSimpsonStage04" src="/img/character-bart.png" onclick="currentDialog=14,doTalk()"/>
+        <img id="tomStageXX" src="/img/character-homer.png" onclick="currentDialog=14,doTalk()"/>
+        <img id="terrilStage03" src="/img/character-homer.png" onclick="currentDialog=11,doTalk()"/>
+        <img id="djarStageXX" src="/img/character-marge.png" onclick="currentDialog=4,doTalk()"/>
       </div>
     </div>
   </section>

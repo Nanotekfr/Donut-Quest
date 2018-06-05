@@ -3,30 +3,51 @@
     {
       "id":1,
       "tag":false,
-      "who":"SPEAKER",
+      "who":"VOICE",
       "sentences":[
-        {"id":1,"text":"Your attention please..."}
+        {"id":1,"text":"It's locked. I can't go there..."}
       ],
       "actions":[
-        {"id":1,"text":"NEXT","nextStep":1,"hideDialogBox":true,"pause":true,"pauseTime":3000,"fade":"in","fadeTime":1500}
+        {"id":1,"text":"END","stopTalk":true}
       ]
     },
     {
       "id":2,
-      "tag":false,
-      "who":"SPEAKER",
+      "who":"VOICE",
       "sentences":[
-        {"id":1,"text":"...the <mark class='bis'>MUSEUM</mark> is about to close its doors."},
-        {"id":2,"text":"Please, proceed to the nearest <mark class='bis'>EXIT</mark>."}
+        {"id":1,"text":"<mark>Hmm... It's locked.</mark>"}
       ],
       "actions":[
-        {"id":1,"text":"NEXT","nextStep":2,"hideDialogBox":true,"pause":true,"pauseTime":1000}
+        {"id":1,"text":"END","stopTalk":true,"nextStage":3}
       ]
     },
     {
       "id":3,
       "tag":false,
-      "who":"VOICE-OVER",
+      "who":"SPEAKER",
+      "sentences":[
+        {"id":1,"text":"Your attention please..."}
+      ],
+      "actions":[
+        {"id":1,"text":"NEXT","nextStep":3,"hideDialogBox":true,"pause":true,"pauseTime":3000,"fade":"in","fadeTime":1500}
+      ]
+    },
+    {
+      "id":4,
+      "tag":false,
+      "who":"SPEAKER",
+      "sentences":[
+        {"id":1,"text":"The <mark class='bis'>MUSEUM</mark> is about to close its doors."},
+        {"id":2,"text":"Please, proceed to the nearest <mark class='bis'>EXIT</mark>."}
+      ],
+      "actions":[
+        {"id":1,"text":"NEXT","nextStep":4,"hideDialogBox":true,"pause":true,"pauseTime":2000}
+      ]
+    },
+    {
+      "id":5,
+      "tag":false,
+      "who":"VOICE",
       "sentences":[
         {"id":1,"text":"<mark>Well, better hurry...</mark>"},
         {"id":2,"text":"<mark>I should check the <mark class='bis'>MAP</mark> to find my way.</mark>"}
@@ -36,159 +57,55 @@
       ]
     },
     {
-      "id":4,
+      "id":6,
       "tag":false,
-      "who":"VOICE-OVER",
+      "who":"VOICE",
       "sentences":[
-        {"id":1,"text":"<mark>La personne pense que c'est calme...</mark>"}
+        {"id":1,"text":"<mark>Weird, it's quiet all of a sudden...</mark>"}
       ],
       "actions":[
         {"id":1,"text":"END","stopTalk":true,"nextStage":2}
       ]
     },
     {
-      "id":5,
+      "id":7,
       "tag":true,
       "showName":false,
       "who":"TERRIL",
-      "whoID":0,
+      "whoID":1,
       "sentences":[
-        {"id":1,"text":"Hey ! Wait !..."},
+        {"id":1,"text":"Hey there! Wait!"},
         {"id":2,"text":"Behind you..."}
       ],
       "actions":[
-        {"id":1,"text":"NEXT","nextStep":5,"hideDialogBox":true,"pause":true,"pauseTime":2000}
-      ]
-    },
-    {
-      "id":6,
-      "tag":true,
-      "who":"TERRIL",
-      "whoID":0,
-      "sentences":[
-        {"id":1,"text":"Look at the floor !..."}
-      ],
-      "actions":[
-        {"id":1,"text":"END","nextStep":6,"hideDialogBox":true,"pause":true,"pauseTime":2000,"showCharacter":0}
-      ]
-    },
-    {
-      "id":7,
-      "tag":true,
-      "who":"TERRIL",
-      "whoID":0,
-      "sentences":[
-        {"id":1,"text":"Great, thank you!"}
-      ],
-      "actions":[
-        {"id":1,"text":"END","stopTalk":true,"nextStage":4}
+        {"id":1,"text":"NEXT","nextStep":7,"hideDialogBox":true,"pause":true,"pauseTime":2000}
       ]
     },
     {
       "id":8,
-      "who":"MARGE SIMPSON",
+      "tag":true,
+      "who":"TERRIL",
+      "whoID":1,
       "sentences":[
-        {"id":1,"text":"Oh alright, nevermind then."}
+        {"id":1,"text":"..."},
+        {"id":2,"text":"Look at your feet!"}
       ],
       "actions":[
-        {"id":1,"text":"NEXT","nextStep":10}
+        {"id":1,"text":"END","nextStep":8,"hideDialogBox":true,"pause":true,"pauseTime":2000,"showCharacter":1}
       ]
     },
     {
       "id":9,
-      "who":"MARGE SIMPSON",
+      "tag":true,
+      "who":"TERRIL",
+      "whoID":1,
       "sentences":[
-        {"id":1,"text":"<mark class='bis'>BART</mark> lost his shorts last week, he said some guy ate them..."},
-        {"id":2,"text":"If someone did eat BART’s shorts they’d have a tummy-full of pocket garbage."}
+        {"id":1,"text":"Yea, I know what you're gonna say: \"A talking mouse! Bla bla bla...\""},
+        {"id":2,"text":"Look, I don't time have to explain, just do as I say ok?"},
+        {"id":2,"text":"Follow me to the next room, let's go!"}
       ],
       "actions":[
-        {"id":1,"text":"NEXT","nextStep":10}
-      ]
-    },
-    {
-      "id":10,
-      "tag":false,
-      "who":"VOICE-OVER",
-      "sentences":[
-        {"id":1,"text":"It's locked."}
-      ],
-      "actions":[
-        {"id":1,"text":"END","stopTalk":true}
-      ]
-    },
-    {
-      "id":11,
-      "who":"VOICE-OVER",
-      "sentences":[
-        {"id":1,"text":"It's locked."}
-      ],
-      "actions":[
-        {"id":1,"text":"END","stopTalk":true,"nextStage":3}
-      ]
-    },
-    {
-      "id":12,
-      "who":"HOMER SIMPSON",
-      "sentences":[
-        {"id":1,"text":"Uuuugh, I'm so hungry..."}
-      ],
-      "actions":[
-        {"id":1,"text":"BART","nextStep":12},
-        {"id":2,"text":"NOTHING","stopTalk":true}
-      ]
-    },
-    {
-      "id":13,
-      "who":"HOMER SIMPSON",
-      "sentences":[
-        {"id":1,"text":"Bart is a son of a bitch and so are you!!!"}
-      ],
-      "actions":[
-        {"id":1,"text":"OK","nextStep":13}
-      ]
-    },
-    {
-      "id":14,
-      "who":"HOMER SIMPSON",
-      "sentences":[
-        {"id":1,"text":"WHERE IS MARGE!!!"}
-      ],
-      "actions":[
-        {"id":1,"text":"BART","nextStep":12},
-        {"id":2,"text":"NOTHING","stopTalk":true}
-      ]
-    },
-    {
-      "id":15,
-      "who":"HOMER SIMPSON",
-      "sentences":[
-        {"id":1,"text":"Is that a <mark class='bis'>BOX OF DONUTS</mark>?"}
-      ],
-      "actions":[
-        {"id":1,"text":"DONUT","nextStep":15},
-        {"id":2,"text":"BART","nextStep":12},
-        {"id":3,"text":"NOTHING","stopTalk":true}
-      ]
-    },
-    {
-      "id":16,
-      "who":"HOMER SIMPSON",
-      "sentences":[
-        {"id":1,"text":"Ooooh thanks!"}
-      ],
-      "actions":[
-        {"id":1,"text":"NEXT","nextStep":16,"removeItem":0,"nextStage":4}
-      ]
-    },
-    {
-      "id":17,
-      "who":"HOMER SIMPSON",
-      "sentences":[
-        {"id":1,"text":"What can are do for you son of a bitch?!"}
-      ],
-      "actions":[
-        {"id":1,"text":"BART","nextStep":12},
-        {"id":2,"text":"NOTHING","stopTalk":true}
+        {"id":1,"text":"END","stopTalk":true,"nextStage":4,"hideCharacter":1}
       ]
     }
   ]
