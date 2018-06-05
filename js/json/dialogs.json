@@ -62,24 +62,26 @@
     },
     {
       "id":6,
+      "tag":true,
       "who":"TERRIL",
       "whoID":0,
       "sentences":[
         {"id":1,"text":"Look at the floor !..."}
       ],
       "actions":[
-        {"id":1,"text":"END","stopTalk":true}
+        {"id":1,"text":"END","nextStep":6,"hideDialogBox":true,"pause":true,"pauseTime":2000,"showCharacter":0}
       ]
     },
     {
       "id":7,
-      "who":"MARGE SIMPSON",
+      "tag":true,
+      "who":"TERRIL",
+      "whoID":0,
       "sentences":[
-        {"id":1,"text":"Great, thank you!"},
-        {"id":2,"text":"He should be in the <mark class='bis'>KITCHEN</mark>, come in! The door's open."}
+        {"id":1,"text":"Great, thank you!"}
       ],
       "actions":[
-        {"id":1,"text":"END","stopTalk":true,"nextStage":3,"addItem":0}
+        {"id":1,"text":"END","stopTalk":true,"nextStage":4}
       ]
     },
     {

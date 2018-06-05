@@ -110,6 +110,7 @@ function doTalk() {
   if (dialog.tag==true) {
     currentCharacter=dialog.whoID;
     character=characterStep.characters[currentCharacter];
+    document.getElementById(character.img).style.pointerEvents="none";
     document.getElementById(character.img).style.transform="translateX(25%)";
     document.getElementById("dialogName").style.display="block";
     if (dialog.showName==true) {
@@ -199,14 +200,12 @@ function doFade() {
 function doShowCharacter() {
   localStorage.setItem('savedCharacter',currentCharacter);
   character=characterStep.characters[currentCharacter];
-  document.getElementById(character.img).style.display="block";
   setTimeout(function() {
-    if (characterStep.characters[currentCharacter].isGhost==1) {
+    if (character.isGhost==1) {
       document.getElementById(character.img).style.pointerEvents="none";
       document.getElementById(character.img).style.opacity=".025";
     }
     else {
-      document.getElementById(character.img).style.pointerEvents="auto";
       document.getElementById(character.img).style.opacity="1";
     }
   }, 1000);
@@ -215,7 +214,7 @@ function doHideCharacter() {
   character=characterStep.characters[currentCharacter];
   document.getElementById(character.img).style.opacity="0";
   setTimeout(function() {
-    document.getElementById(character.img).style.display="none";
+    document.getElementById(character.img).style.pointerEvents="none";
   }, 1000);
 }
 function doChangeCharacter() {
@@ -295,9 +294,10 @@ function doPause() {
 function doStopTalk() {
   currentDialog=0;
   currentSentence=0;
-  if (dialog.who!="VOICE-OVER" && dialog.who!="SPEAKER") {
+  if (dialog.tag==true) {
     character=characterStep.characters[currentCharacter];
     document.getElementById(character.img).style.transform="translateX(0)";
+    document.getElementById(character.img).style.pointerEvents="auto";
   }
   document.getElementById("dialog").style.display="none";
   document.getElementById("HUD").style.marginTop="0";
@@ -309,6 +309,7 @@ var bagOpened=0;
 var mapOpened=0;
 var phoneOpened=0;
 var maskOpened=0;
+var wearMask=0;
 function doOpenMap() {
   doCloseBag();
   doClosePhone();
@@ -429,6 +430,9 @@ function doCloseAll() {
 
 function doNextStage() {
   localStorage.setItem('savedStage',action.nextStage);
+  if (action.nextStage==1) {
+    areaStep.areas[9].presentCharacter=3;
+  }
   if (action.nextStage==2) {
     areaStep.areas[1].locked=true;
     areaStep.areas[2].locked=true;

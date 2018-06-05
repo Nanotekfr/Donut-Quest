@@ -241,9 +241,9 @@ mark {
 }
 #character img {
   transition: opacity .5s, transform 1s;
+  pointer-events: none;
   position: fixed;
   cursor: pointer;
-  display: none;
   height: 100%;
   bottom: -15%;
   opacity: 0;

@@ -3,6 +3,6 @@
     {"id":1,"name":"Terril","img":"homerSimpsonStage02","isGhost":0},
     {"id":2,"name":"Homer Simpson","img":"homerSimpsonStage03","isGhost":0},
     {"id":3,"name":"Marge Simpson","img":"margeSimpsonStage02","isGhost":0},
-    {"id":4,"name":"Bart Simpson","img":"bartSimpsonStage04","isGhost":0}
+    {"id":4,"name":"Bart Simpson","img":"bartSimpsonStage04","isGhost":1}
   ]
 }
