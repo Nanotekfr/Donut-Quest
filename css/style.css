@@ -22,6 +22,7 @@ mark{
 .bis{
   color:#c05e3d;
 }
+/* BLACK SCREEN */
 #blackScreen{
   pointer-events:none;
   background:#000;
@@ -31,6 +32,7 @@ mark{
   z-index:40;
   width:100%;
 }
+/* HUD */
 #HUD{
   margin-top:-100%;
   position:fixed;
@@ -162,7 +164,7 @@ mark{
 #HUD #screen a:hover{
   color:white;
 }
-
+/* DIALOG */
 #dialog{
   position:fixed;
   font-size:3vw;
@@ -215,7 +217,7 @@ mark{
 #dialog #button:hover{
   background:#963200;
 }
-
+/* MASK */
 #mask{
   pointer-events:none;
   transition:.45s;
@@ -229,7 +231,7 @@ mark{
   height:100%;
   width:100%;
 }
-
+/* CHARACTER */
 #character *{
   z-index:10;
 }
@@ -248,11 +250,11 @@ mark{
   bottom:-15%;
   opacity:0;
 }
-
+/* AREA */
 #area img{
   min-height:100%;
-  position:fixed;
   min-width:100%;
+  position:fixed;
   overflow:auto;
   margin:auto;
   z-index:0;
