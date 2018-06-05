@@ -18,9 +18,9 @@
       "img":"/img/a2.png",
       "canGoTo":[
         {"id":1,"area":"ROOM6","img":"/img/a6.png","nextArea":5},
-        {"id":2,"area":"CORRIDOR3","img":"/img/a3.png","nextArea":2},
         {"id":3,"area":"ROOM7","img":"/img/a7.png","nextArea":6},
-        {"id":4,"area":"CORRIDOR1","img":"/img/a1.png","nextArea":0}
+        {"id":4,"area":"CORRIDOR1","img":"/img/a1.png","nextArea":0},
+        {"id":2,"area":"CORRIDOR3","img":"/img/a3.png","nextArea":2}
       ],
       "presentCharacter":"null",
       "locked":false
@@ -102,8 +102,8 @@
       "name":"CORRIDOR2FAKE",
       "img":"/img/a2.png",
       "canGoTo":[
-        {"id":1,"area":"CORRIDOR1FAKE","img":"/img/a1.png","nextArea":12},
-        {"id":1,"area":"CORRIDOR3","img":"/img/a3.png","nextArea":2}
+        {"id":1,"area":"CORRIDOR3","img":"/img/a3.png","nextArea":2},
+        {"id":1,"area":"CORRIDOR1FAKE","img":"/img/a1.png","nextArea":12}
       ],
       "presentCharacter":"null",
       "locked":false
@@ -130,9 +130,9 @@
       "name":"CORRIDOR1FAKE",
       "img":"/img/a1.png",
       "canGoTo":[
-        {"id":1,"area":"CORRIDOR2","img":"/img/a2.png","nextArea":1},
+        {"id":4,"area":"EXIT","img":"/img/a3.png","nextArea":11},
         {"id":1,"area":"ROOM4","img":"/img/a4.png","nextArea":3},
-        {"id":4,"area":"EXIT","img":"/img/a3.png","nextArea":11}
+        {"id":1,"area":"CORRIDOR2","img":"/img/a2.png","nextArea":1}
       ],
       "presentCharacter":"null",
       "locked":false
