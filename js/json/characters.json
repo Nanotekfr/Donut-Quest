@@ -2,6 +2,7 @@
   "characters":[
     {"id":1,"name":"Tom","img":"tomStageXX","isGhost":0},
     {"id":2,"name":"Terril","img":"terrilStage03","isGhost":0},
-    {"id":3,"name":"Djar","img":"djarStageXX","isGhost":0}
+    {"id":3,"name":"Djar","img":"djarStageXX","isGhost":0},
+    {"id":4,"name":"Sphynx","img":"terrilStage03","isGhost":0}
   ]
 }
