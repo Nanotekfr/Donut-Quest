@@ -121,6 +121,7 @@ function doContinue(){
     currentStage=2;
   }
   if(currentStage>=4){
+    areaStep.areas[3].presentCharacter=3;
     areaStep.areas[3].locked='false';
   }
   if(currentCharacter!='null'){
@@ -246,6 +247,7 @@ function doShowCharacter(){
   },1000);
 }
 function doHideCharacter(){
+  localStorage.setItem('savedCharacter','null');
   character=characterStep.characters[currentCharacter];
   document.getElementById(character.img).style.opacity="0";
   setTimeout(function(){
@@ -491,7 +493,7 @@ function doNextStage(){
     areaStep.areas[3].locked='true';
   }
   if(action.nextStage==4){
-    localStorage.setItem('savedCharacter','null');
+    areaStep.areas[3].presentCharacter=3;
     areaStep.areas[3].locked='false';
   }
 }
@@ -514,7 +516,6 @@ function doCheckStage(){
     },1500);
   }
   if(currentStage==4 && currentArea==3){
-    areaStep.areas[3].presentCharacter=3;
     setTimeout(function(){
       currentDialog=9;
       doTalk();

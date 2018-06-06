@@ -47,9 +47,11 @@
         <div id="dialogName"></div>
         <div id="dialogText">
           <div id="dialogSentence"></div>
-          <div id="dialogButton"></div>
         </div>
       </div>
+      <div></div>
+      <div></div>
+      <div id="dialogButton"></div>
     </div>
   </section>
 
