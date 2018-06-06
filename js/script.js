@@ -142,6 +142,7 @@ function doTalk(){
   dialog=talkStep.dialogs[currentDialog];
   document.getElementById("HUD").style.marginTop="-100%";
   document.getElementById("dialogSentence").innerHTML="";
+  document.getElementById("dialogButtonBox").innerHTML="";
   document.getElementById("buttonBox").style.display="none";
   document.getElementById("buttonBox").innerHTML="";
   if(dialog.tag=='true'){
@@ -172,15 +173,20 @@ function doTalk(){
     onTypingResumed(){sfx_blipmale.play();},
     onComplete(){
       sfx_blipmale.stop();
-      document.getElementById("buttonBox").style.display="block";
       if(currentSentence==(dialog.sentences.length-1)){
         for(i=0;i<dialog.actions.length;i++){
-           document.getElementById("buttonBox").innerHTML += "<a id=\"button\" onclick=\"selectedAction=" + i + ",doAction(" + i + ")\">" + dialog.actions[i].text + "</a>"
+          if(talkStep.dialogs[currentDialog].actions[i].choice=="true"){
+            document.getElementById("buttonBox").style.display="block";
+            document.getElementById("buttonBox").innerHTML += "<a id=\"button\" onclick=\"selectedAction=" + i + ",doAction(" + i + ")\">" + dialog.actions[i].text + "</a>";
+          }
+          else{
+            document.getElementById("dialogButtonBox").innerHTML += "<i id=\"nextButton\" class=\"fas fa-caret-right\" onclick=\"selectedAction=" + i + ",doAction(" + i + ")\"></i>";
+          }
         }
       }
       else{
         currentSentence++;
-        document.getElementById("buttonBox").innerHTML += "<i id=\"button\" class=\"fas fa-caret-right\" onclick=\"doTalk()\"></i>";
+        document.getElementById("dialogButtonBox").innerHTML += "<i id=\"nextButton\" class=\"fas fa-caret-right\" onclick=\"doTalk()\"></i>";
       }
     }
   });

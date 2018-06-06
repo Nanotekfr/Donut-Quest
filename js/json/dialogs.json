@@ -8,17 +8,17 @@
         {"id":1,"text":"It's locked. I can't go there..."}
       ],
       "actions":[
-        {"id":1,"text":"END","stopTalk":"true"}
+        {"id":1,"choice":"false","text":"END","stopTalk":"true"}
       ]
     },
     {
       "id":2,
       "who":"VOICE",
       "sentences":[
-        {"id":1,"text":"<mark>Hmm... It's locked.</mark>"}
+        {"id":1,"text":"<mark>Hmm... ^1000 <br>It's locked.</mark>"}
       ],
       "actions":[
-        {"id":1,"text":"END","stopTalk":"true","nextStage":3}
+        {"id":1,"choice":"false","text":"END","stopTalk":"true","nextStage":3}
       ]
     },
     {
@@ -26,10 +26,11 @@
       "tag":"false",
       "who":"SPEAKER",
       "sentences":[
-        {"id":1,"text":"Your attention please..."}
+        {"id":1,"text":"Your attention please..."},
+        {"id":2,"text":"Test line..."}
       ],
       "actions":[
-        {"id":1,"text":"NEXT","nextStep":3,"hideDialogBox":"true","pause":"true","pauseTime":3000,"fade":"in","fadeTime":1500}
+        {"id":1,"choice":"false","text":"NEXT","nextStep":3,"hideDialogBox":"true","pause":"true","pauseTime":3000,"fade":"in","fadeTime":1500}
       ]
     },
     {
@@ -40,7 +41,7 @@
         {"id":1,"text":"The <mark class='bis'>MUSEUM</mark> is about to close its doors. ^500 <br>Please, proceed to the nearest <mark class='bis'>EXIT</mark>."}
       ],
       "actions":[
-        {"id":1,"text":"NEXT","nextStep":4,"hideDialogBox":"true","pause":"true","pauseTime":2000}
+        {"id":1,"choice":"false","text":"NEXT","nextStep":4,"hideDialogBox":"true","pause":"true","pauseTime":2000}
       ]
     },
     {
@@ -51,7 +52,7 @@
         {"id":1,"text":"<mark>Well, ^500 better hurry... ^1000 <br>I should check the <mark class='bis'>MAP</mark> to find my way.</mark>"}
       ],
       "actions":[
-        {"id":1,"text":"END","stopTalk":"true","nextStage":1}
+        {"id":1,"choice":"false","text":"END","stopTalk":"true","nextStage":1}
       ]
     },
     {
@@ -62,7 +63,7 @@
         {"id":1,"text":"<mark>Weird, it's quiet all of a sudden...</mark>"}
       ],
       "actions":[
-        {"id":1,"text":"END","stopTalk":"true","nextStage":2}
+        {"id":1,"choice":"false","text":"END","stopTalk":"true","nextStage":2}
       ]
     },
     {
@@ -76,7 +77,7 @@
         {"id":2,"text":"Behind you..."}
       ],
       "actions":[
-        {"id":1,"text":"NEXT","nextStep":7,"hideDialogBox":"true","pause":"true","pauseTime":2000}
+        {"id":1,"choice":"false","text":"NEXT","nextStep":7,"hideDialogBox":"true","pause":"true","pauseTime":2000}
       ]
     },
     {
@@ -89,7 +90,7 @@
         {"id":2,"text":"Look at your feet!"}
       ],
       "actions":[
-        {"id":1,"text":"END","nextStep":8,"hideDialogBox":"true","pause":"true","pauseTime":2000,"showCharacter":1}
+        {"id":1,"choice":"false","text":"END","nextStep":8,"hideDialogBox":"true","pause":"true","pauseTime":2000,"showCharacter":1}
       ]
     },
     {
@@ -103,7 +104,7 @@
         {"id":2,"text":"Follow me to the next room, let's go!"}
       ],
       "actions":[
-        {"id":1,"text":"END","stopTalk":"true","nextStage":4,"hideCharacter":1}
+        {"id":1,"choice":"false","text":"END","stopTalk":"true","nextStage":4,"hideCharacter":1}
       ]
     },
     {
@@ -115,7 +116,7 @@
         {"id":1,"text":"Le spynx parle"}
       ],
       "actions":[
-        {"id":1,"text":"END","stopTalk":"true"}
+        {"id":1,"choice":"false","text":"END","stopTalk":"true"}
       ]
     }
   ]
