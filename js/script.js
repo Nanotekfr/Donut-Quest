@@ -62,8 +62,18 @@ var selectedAction=0;
 var currentDialog=0;
 var currentItem=0;
 
+function doLoad(){
+  document.getElementById('homeScreen').style.opacity='1';
+  if(localStorage.getItem('canContinue')=='true'){
+    document.getElementById('continue').style.opacity='1';
+    document.getElementById('continue').style.pointerEvents='auto';
+  }
+}
 function doNewGame(){
+  document.getElementById('homeScreen').style.opacity='0';
+  document.getElementById('homeScreen').style.pointerEvents='none';
   sfx_ambient_museum.play();
+  localStorage.setItem('canContinue','true');
   localStorage.setItem('savedStage',0);
   localStorage.setItem('savedArea',10);
   localStorage.setItem('savedCharacter','null');
@@ -87,6 +97,8 @@ function doNewGame(){
   },5000);
 }
 function doContinue(){
+  document.getElementById('homeScreen').style.opacity='0';
+  document.getElementById('homeScreen').style.pointerEvents='none';
   currentStage=localStorage.getItem('savedStage');
   currentArea=localStorage.getItem('savedArea');
   vueArea.img=areaStep.areas[currentArea].img;

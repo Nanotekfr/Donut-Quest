@@ -8,7 +8,8 @@
   <link rel="stylesheet" href="/css/style.css">
   <title>Donut-Quest</title>
 </head>
-<body onload="document.getElementById('buttonStart').style.display='block'">
+<body onload="doLoad()">
+
   <section id="load">
     <div class="vue">
       <audio src="/audio/sfx_ambient_museum.wav"/>
@@ -41,9 +42,14 @@
     </div>
   </section>
 
+  <section id="homeScreen">
+    <button id="newGame" onclick="doNewGame()">NEW GAME</button>
+    <button id="continue" onclick="doContinue()">CONTINUE</button>
+  </section>
+
   <section id="buttonStart">
-    <button onclick="doNewGame()">new game</button>
-    <button onclick="doContinue()">continue</button>
+    <button onclick="doNewGame()">NEW GAME</button>
+    <button onclick="doContinue()">CONTINUE</button>
   </section>
 
   <section id="blackScreen"></section>

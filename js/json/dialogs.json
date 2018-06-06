@@ -26,7 +26,7 @@
       "tag":"false",
       "who":"SPEAKER",
       "sentences":[
-        {"id":1,"text":"Dear visitors... ^1000 <br>The <mark class='bis'>MUSEUM</mark> will close very soon."}
+        {"id":1,"text":"Dear visitors... ^500 <br>The <mark class='bis'>MUSEUM</mark> will close very soon."}
       ],
       "actions":[
         {"id":1,"choice":"false","text":"NEXT","nextStep":3,"hideDialogBox":"true","pause":"true","pauseTime":3000,"fade":"in","fadeTime":1500}
@@ -37,7 +37,7 @@
       "tag":"false",
       "who":"SPEAKER",
       "sentences":[
-        {"id":1,"text":"Please, proceed to the nearest <mark class='bis'>EXIT</mark>."}
+        {"id":1,"text":"Please, ^250 proceed to the nearest <mark class='bis'>EXIT</mark>."}
       ],
       "actions":[
         {"id":1,"choice":"false","text":"NEXT","nextStep":4,"hideDialogBox":"true","pause":"true","pauseTime":2000}
@@ -48,7 +48,7 @@
       "tag":"false",
       "who":"VOICE",
       "sentences":[
-        {"id":1,"text":"<mark>Well, ^500 better hurry... ^1000 <br>I should check the <mark class='bis'>MAP</mark> to find my way.</mark>"}
+        {"id":1,"text":"<mark>Well, ^250 better hurry... ^500 <br>I should check the <mark class='bis'>MAP</mark> to find my way.</mark>"}
       ],
       "actions":[
         {"id":1,"choice":"false","text":"END","stopTalk":"true","nextStage":1}
@@ -59,7 +59,7 @@
       "tag":"false",
       "who":"VOICE",
       "sentences":[
-        {"id":1,"text":"<mark>Weird, it's quiet all of a sudden...</mark>"}
+        {"id":1,"text":"<mark>Weird, ^500 it's quiet all of a sudden...</mark>"}
       ],
       "actions":[
         {"id":1,"choice":"false","text":"END","stopTalk":"true","nextStage":2}
