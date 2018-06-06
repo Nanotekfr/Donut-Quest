@@ -51,7 +51,8 @@
       </div>
       <div></div>
       <div></div>
-      <div id="dialogButton"></div>
+      <div id="buttonBox">
+      </div>
     </div>
   </section>
 
@@ -62,9 +63,9 @@
     <div class="vue">
       <div></div>
       <div id="characterBox">
-        <img id="tomStageXX" src="/img/character-homer.png" onclick="currentDialog=14,doTalk()"/>
+        <img id="tomStageXX" src="" onclick="currentDialog=14,doTalk()"/>
         <img id="terrilStage03" src="/img/terril.png" onclick="currentDialog=11,doTalk()"/>
-        <img id="djarStageXX" src="/img/character-marge.png" onclick="currentDialog=4,doTalk()"/>
+        <img id="djarStageXX" src="" onclick="currentDialog=4,doTalk()"/>
       </div>
     </div>
   </section>

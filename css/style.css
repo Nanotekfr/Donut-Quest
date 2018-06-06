@@ -192,6 +192,7 @@ mark{
   border-radius:0 .5vw .5vw .5vw;
   background:rgba(21,21,21,.75);
   border:.25vw solid #f1f1f1;
+  transition: 2s;
   height:12.5vw;
   color:#f1f1f1;
   padding:.5vw;
@@ -200,19 +201,40 @@ mark{
 }
 #dialog #dialogSentence{
   cursor:default;
-  height:66%;
+  height: 66%;
+}
+#dialog #nextButton{
+  border-radius:.25vw;
+  background:#ffa500;
+  text-align: center;
+  min-width: 10%;
+  margin:0 .5vw;
+  transition:.2s;
+  cursor:pointer;
+  font-size:2.5vw;
+  padding:.5vw;
+  height: 33%;
+}
+#dialog #buttonBox{
+  border-radius:.5vw .5vw .5vw .5vw;
+  background:rgba(21,21,21,.75);
+  border:.25vw solid #f1f1f1;
+  margin:.5vw 25% 0;
+  display: none;
+  color:#f1f1f1;
+  padding:.5vw;
+  width: 50%;
 }
 #dialog #button{
   border-radius:.25vw;
   background:#ffa500;
-  text-align:center;
-  font-size:2.5vw;
+  max-height:12.5%;
+  margin:.5vw .5vw;
   transition:.2s;
   cursor:pointer;
-  min-width:10%;
-  margin:0 .5vw;
+  display:block;
+  font-size:2vw;
   padding:.5vw;
-  height:33%;
 }
 #dialog #button:hover{
   background:#963200;

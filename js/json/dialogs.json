@@ -37,8 +37,7 @@
       "tag":"false",
       "who":"SPEAKER",
       "sentences":[
-        {"id":1,"text":"The <mark class='bis'>MUSEUM</mark> is about to close its doors."},
-        {"id":2,"text":"Please, proceed to the nearest <mark class='bis'>EXIT</mark>."}
+        {"id":1,"text":"The <mark class='bis'>MUSEUM</mark> is about to close its doors. ^500 <br>Please, proceed to the nearest <mark class='bis'>EXIT</mark>."}
       ],
       "actions":[
         {"id":1,"text":"NEXT","nextStep":4,"hideDialogBox":"true","pause":"true","pauseTime":2000}
@@ -49,8 +48,7 @@
       "tag":"false",
       "who":"VOICE",
       "sentences":[
-        {"id":1,"text":"<mark>Well, better hurry...</mark>"},
-        {"id":2,"text":"<mark>I should check the <mark class='bis'>MAP</mark> to find my way.</mark>"}
+        {"id":1,"text":"<mark>Well, ^500 better hurry... ^1000 <br>I should check the <mark class='bis'>MAP</mark> to find my way.</mark>"}
       ],
       "actions":[
         {"id":1,"text":"END","stopTalk":"true","nextStage":1}

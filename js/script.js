@@ -142,7 +142,8 @@ function doTalk(){
   dialog=talkStep.dialogs[currentDialog];
   document.getElementById("HUD").style.marginTop="-100%";
   document.getElementById("dialogSentence").innerHTML="";
-  document.getElementById("dialogButton").innerHTML="";
+  document.getElementById("buttonBox").style.display="none";
+  document.getElementById("buttonBox").innerHTML="";
   if(dialog.tag=='true'){
     currentCharacter=dialog.whoID;
     character=characterStep.characters[currentCharacter];
@@ -167,16 +168,19 @@ function doTalk(){
     strings:[speechtext],
     typeSpeed:15,
     showCursor:false,
+    onTypingPaused(){sfx_blipmale.stop();},
+    onTypingResumed(){sfx_blipmale.play();},
     onComplete(){
       sfx_blipmale.stop();
+      document.getElementById("buttonBox").style.display="block";
       if(currentSentence==(dialog.sentences.length-1)){
         for(i=0;i<dialog.actions.length;i++){
-           document.getElementById("dialogButton").innerHTML += "<a id=\"button\" onclick=\"selectedAction=" + i + ",doAction(" + i + ")\">" + dialog.actions[i].text + "</a>"
+           document.getElementById("buttonBox").innerHTML += "<a id=\"button\" onclick=\"selectedAction=" + i + ",doAction(" + i + ")\">" + dialog.actions[i].text + "</a>"
         }
       }
       else{
         currentSentence++;
-        document.getElementById("dialogButton").innerHTML += "<i id=\"button\" class=\"fas fa-caret-right\" onclick=\"doTalk()\"></i>";
+        document.getElementById("buttonBox").innerHTML += "<i id=\"button\" class=\"fas fa-caret-right\" onclick=\"doTalk()\"></i>";
       }
     }
   });
