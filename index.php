@@ -8,7 +8,39 @@
   <link rel="stylesheet" href="/css/style.css">
   <title>Donut-Quest</title>
 </head>
-<body>
+<body onload="document.getElementById('buttonStart').style.display='block'">
+  <section id="load">
+    <div class="vue">
+      <audio src="/audio/sfx_ambient_museum.wav"/>
+      <audio src="/audio/sfx_blipfemale.wav"/>
+      <audio src="/audio/sfx_blipmale.wav"/>
+      <audio src="/audio/sfx_footsteps.wav"/>
+      <audio src="/audio/sfx_locked_door.wav"/>
+      <img src="/img/a1.png"alt="fileToLoad"/>
+      <img src="/img/a2.png"alt="fileToLoad"/>
+      <img src="/img/a3.png"alt="fileToLoad"/>
+      <img src="/img/a4.png"alt="fileToLoad"/>
+      <img src="/img/a5.png"alt="fileToLoad"/>
+      <img src="/img/a6.png"alt="fileToLoad"/>
+      <img src="/img/a7.png"alt="fileToLoad"/>
+      <img src="/img/a8.png"alt="fileToLoad"/>
+      <img src="/img/a9.png"alt="fileToLoad"/>
+      <img src="/img/closed-bag.png"alt="fileToLoad"/>
+      <img src="/img/closed-map.png"alt="fileToLoad"/>
+      <img src="/img/closed-mask.png"alt="fileToLoad"/>
+      <img src="/img/closed-phone.png"alt="fileToLoad"/>
+      <img src="/img/denim.png"alt="fileToLoad"/>
+      <img src="/img/mask.png"alt="fileToLoad"/>
+      <img src="/img/opened-bag.png"alt="fileToLoad"/>
+      <img src="/img/opened-map.png"alt="fileToLoad"/>
+      <img src="/img/opened-mask.png"alt="fileToLoad"/>
+      <img src="/img/opened-phone.png"alt="fileToLoad"/>
+      <img src="/img/phone.png"alt="fileToLoad"/>
+      <img src="/img/template.png"alt="fileToLoad"/>
+      <img src="/img/terril.png"alt="fileToLoad"/>
+    </div>
+  </section>
+
   <section id="buttonStart">
     <button onclick="doNewGame()">new game</button>
     <button onclick="doContinue()">continue</button>
@@ -74,6 +106,7 @@
   <section id="area" onclick="doCloseAll()">
     <img :src="img">
   </section>
+
 
   <script src="/js/libraries/howler.js"></script>
   <script src="/js/libraries/typed.js"></script>

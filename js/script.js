@@ -63,6 +63,7 @@ var currentDialog=0;
 var currentItem=0;
 
 function doNewGame(){
+  sfx_ambient_museum.play();
   localStorage.setItem('savedStage',0);
   localStorage.setItem('savedArea',10);
   localStorage.setItem('savedCharacter','null');
@@ -80,7 +81,6 @@ function doNewGame(){
   currentCharacter=localStorage.getItem('savedCharacter');
   vueArea.img=areaStep.areas[currentArea].img;
   document.getElementById("HUD").style.marginTop="0";
-  sfx_ambient_museum.play();
   setTimeout(function(){
     currentDialog=2;
     doTalk();

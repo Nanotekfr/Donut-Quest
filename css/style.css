@@ -284,9 +284,13 @@ mark{
   left:0;
   top:0;
 }
-
+/* LOAD */
+#load{
+  display: none;
+}
 #buttonStart{
   position:fixed;
+  display: none;
   z-index:100;
   top:0;
 }

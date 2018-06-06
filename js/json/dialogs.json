@@ -26,8 +26,7 @@
       "tag":"false",
       "who":"SPEAKER",
       "sentences":[
-        {"id":1,"text":"Your attention please..."},
-        {"id":2,"text":"Test line..."}
+        {"id":1,"text":"Dear visitors... ^1000 <br>The <mark class='bis'>MUSEUM</mark> will close very soon."}
       ],
       "actions":[
         {"id":1,"choice":"false","text":"NEXT","nextStep":3,"hideDialogBox":"true","pause":"true","pauseTime":3000,"fade":"in","fadeTime":1500}
@@ -38,7 +37,7 @@
       "tag":"false",
       "who":"SPEAKER",
       "sentences":[
-        {"id":1,"text":"The <mark class='bis'>MUSEUM</mark> is about to close its doors. ^500 <br>Please, proceed to the nearest <mark class='bis'>EXIT</mark>."}
+        {"id":1,"text":"Please, proceed to the nearest <mark class='bis'>EXIT</mark>."}
       ],
       "actions":[
         {"id":1,"choice":"false","text":"NEXT","nextStep":4,"hideDialogBox":"true","pause":"true","pauseTime":2000}
