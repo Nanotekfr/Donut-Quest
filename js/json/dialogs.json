@@ -107,6 +107,18 @@
       "actions":[
         {"id":1,"text":"END","stopTalk":"true","nextStage":4,"hideCharacter":1}
       ]
+    },
+    {
+      "id":10,
+      "tag":"true",
+      "who":"SPHYNX",
+      "whoID":1,
+      "sentences":[
+        {"id":1,"text":"Le spynx parle"}
+      ],
+      "actions":[
+        {"id":1,"text":"END","stopTalk":"true"}
+      ]
     }
   ]
 }
