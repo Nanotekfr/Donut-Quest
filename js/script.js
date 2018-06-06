@@ -513,4 +513,11 @@ function doCheckStage(){
       doTalk();
     },1500);
   }
+  if(currentStage==4 && currentArea==3){
+    areaStep.areas[3].presentCharacter=3;
+    setTimeout(function(){
+      currentDialog=9;
+      doTalk();
+    },3000);
+  }
 }
