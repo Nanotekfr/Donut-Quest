@@ -3,9 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'/>
-  <meta name="mobile-web-app-capable" content="no">
   <link rel="stylesheet" href="/css/fontawesome-all.css">
-  <link rel="stylesheet" href="/css/font-awesome-animation.css">
   <link rel="stylesheet" href="/css/style.css">
   <title>Donut-Quest</title>
 </head>

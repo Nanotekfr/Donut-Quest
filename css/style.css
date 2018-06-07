@@ -6,6 +6,66 @@
   src:url("../fonts/Sketchy.ttf");
   font-family:"sketchy";
 }
+@-webkit-keyframes horizontal{
+  0%{
+    -webkit-transform:translate(0,0);
+    transform:translate(0,0);
+  }
+  6%{
+    -webkit-transform:translate(5px,0);
+    transform:translate(5px,0);
+  }
+  12%{
+    -webkit-transform:translate(0,0);
+    transform:translate(0,0);
+  }
+  18%{
+    -webkit-transform:translate(5px,0);
+    transform:translate(5px,0);
+  }
+  24%{
+    -webkit-transform:translate(0,0);
+    transform:translate(0,0);
+  }
+  30%{
+    -webkit-transform:translate(5px,0);
+    transform:translate(5px,0);
+  }
+  36%, 100%{
+    -webkit-transform:translate(0,0);
+    transform:translate(0,0);
+  }
+}
+@keyframes horizontal{
+  0%{
+    -webkit-transform:translate(0,0);
+    transform:translate(0,0);
+  }
+  6%{
+    -webkit-transform:translate(5px,0);
+    transform:translate(5px,0);
+  }
+  12%{
+    -webkit-transform:translate(0,0);
+    transform:translate(0,0);
+  }
+  18%{
+    -webkit-transform:translate(5px,0);
+    transform:translate(5px,0);
+  }
+  24%{
+    -webkit-transform:translate(0,0);
+    transform:translate(0,0);
+  }
+  30%{
+    -webkit-transform:translate(5px,0);
+    transform:translate(5px,0);
+  }
+  36%, 100%{
+    -webkit-transform:translate(0,0);
+    transform:translate(0,0);
+  }
+}
 *{
   font-family:"attorney";
   color:#f1f1f1;
@@ -24,27 +84,27 @@ mark{
 }
 /* HOME SCREEN */
 #homeScreen{
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  background: #9e0e10;
-  transition: .5s;
-  position: fixed;
-  display: flex;
-  height: 100%;
-  color: black;
-  z-index: 50;
-  width: 100%;
-  opacity: 0;
+  justify-content:center;
+  flex-direction:column;
+  align-items:center;
+  background:#9e0e10;
+  transition:.5s;
+  position:fixed;
+  display:flex;
+  height:100%;
+  color:black;
+  z-index:50;
+  width:100%;
+  opacity:0;
 }
 #homeScreen button{
   font-size:2.5vw;
-  color: black;
-  width: 15%;
+  color:black;
+  width:15%;
 }
 #homeScreen #continue{
-  pointer-events: none;
-  opacity: 0;
+  pointer-events:none;
+  opacity:0;
 }
 /* BLACK SCREEN */
 #blackScreen{
@@ -216,7 +276,7 @@ mark{
   border-radius:0 .5vw .5vw .5vw;
   background:rgba(21,21,21,.75);
   border:.25vw solid #f1f1f1;
-  transition: 2s;
+  transition:2s;
   height:12.5vw;
   color:#f1f1f1;
   padding:.5vw;
@@ -225,11 +285,14 @@ mark{
 }
 #dialog #dialogSentence{
   cursor:default;
-  height: 66%;
+  height:66%;
 }
 #dialog #nextButton{
-  text-align: right;
-  display: block;
+  -webkit-animation:horizontal 2s ease infinite;
+  animation:horizontal 2s ease infinite;
+  pointer-events: fill;
+  text-align:right;
+  display:block;
   cursor:pointer;
   font-size:5vw;
 }
@@ -238,10 +301,10 @@ mark{
   background:rgba(21,21,21,.75);
   border:.25vw solid #f1f1f1;
   margin:.5vw 25% 0;
-  display: none;
+  display:none;
   color:#f1f1f1;
   padding:.5vw;
-  width: 50%;
+  width:50%;
 }
 #dialog #button{
   border-radius:.25vw;

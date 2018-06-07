@@ -199,37 +199,17 @@ function doTalk(){
             document.getElementById("buttonBox").innerHTML += "<a id=\"button\" onclick=\"selectedAction=" + i + ",doAction(" + i + ")\">" + dialog.actions[i].text + "</a>";
           }
           else{
-            document.getElementById("dialogButtonBox").innerHTML += "<i id=\"nextButton\" class=\"fas fa-caret-right faa-horizontal animated\"onclick=\"selectedAction=" + i + ",doAction(" + i + ")\"></i>";
+            document.getElementById("dialogButtonBox").innerHTML += "<i id=\"nextButton\" class=\"fas fa-caret-right\"onclick=\"selectedAction=" + i + ",doAction(" + i + ")\"></i>";
           }
         }
       }
       else{
         currentSentence++;
-        document.getElementById("dialogButtonBox").innerHTML += "<i id=\"nextButton\" class=\"fas fa-caret-right faa-horizontal animated\" onclick=\"doTalk()\"></i>";
+        document.getElementById("dialogButtonBox").innerHTML += "<i id=\"nextButton\" class=\"fas fa-caret-right\" onclick=\"doTalk()\"></i>";
       }
     }
   });
 }
-document.body.addEventListener('keyup', function(e) {
-  if(e.keyCode==69){
-    document.getElementById("nextButton").click();
-  }
-  if(e.keyCode==77){
-    doOpenMap();
-  }
-  if(e.keyCode==66){
-    doOpenBag();
-  }
-  if(e.keyCode==70){
-    doOpenMask();
-  }
-  if(e.keyCode==27){
-    doOpenPhone();
-  }
-  // if(e.keyCode==123){
-  //   location.href = 'https://youtu.be/dQw4w9WgXcQ';
-  // }
-});
 function doAction(selectedAction){
   dialog=talkStep.dialogs[currentDialog];
   action=dialog.actions[selectedAction];
@@ -573,3 +553,24 @@ function doCheckStage(){
     },3000);
   }
 }
+
+document.body.addEventListener('keyup', function(e) {
+  if(e.keyCode==69||e.keyCode==39){
+    document.getElementById("nextButton").click();
+  }
+  if(e.keyCode==77){
+    doOpenMap();
+  }
+  if(e.keyCode==66){
+    doOpenBag();
+  }
+  if(e.keyCode==70){
+    doOpenMask();
+  }
+  if(e.keyCode==27){
+    doOpenPhone();
+  }
+  // if(e.keyCode==123){
+  //   location.href = 'https://youtu.be/dQw4w9WgXcQ';
+  // }
+});
