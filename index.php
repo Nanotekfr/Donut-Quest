@@ -10,6 +10,9 @@
 <body onload="doLoad()">
 
   <section id="homeScreen">
+    <h1>DONUT-QUEST</h1>
+    <h2>GAME UNDER DEVELOPMENT - ALPHA VERSION</h2>
+    <iframe id="fbFrame" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FMuseeLouvreLens%2F&tabs=timeline&width=340&height=500px&small_header=true&adapt_container_width=false&hide_cover=false&show_facepile=true&appId" width="340" height="500px" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
     <button id="newGame" onclick="doNewGame()">NEW GAME</button>
     <button id="continue" onclick="doContinue()">CONTINUE</button>
   </section>

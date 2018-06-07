@@ -30,13 +30,13 @@ fetch('/js/json/inventory.json')
 var sfx_blipmale=new Howl({
   src:['../audio/sfx_blipmale.wav'],
   preload:true,
-  volume:.25,
+  volume:.1,
   loop:true
 });
 var sfx_blipfemale=new Howl({
   src:['../audio/sfx_blipfemale.wav'],
   preload:true,
-  volume:.25,
+  volume:.1,
   loop:true
 });
 var sfx_ambient_museum=new Howl({
@@ -69,6 +69,7 @@ var currentItem=0;
 
 function doLoad(){
   document.getElementById('homeScreen').style.opacity='1';
+  document.getElementById('fbFrame').style.bottom='0';
   if(localStorage.getItem('canContinue')=='true'){
     document.getElementById('continue').style.opacity='1';
     document.getElementById('continue').style.pointerEvents='auto';
@@ -200,7 +201,7 @@ function doTalk(){
         for(i=0;i<dialog.actions.length;i++){
           if(talkStep.dialogs[currentDialog].actions[i].choice=="true"){
             document.getElementById("buttonBox").style.display="block";
-            document.getElementById("buttonBox").innerHTML += "<a id=\"button\" onclick=\"selectedAction=" + i + ",doAction(" + i + ")\">" + dialog.actions[i].text + "</a>";
+            document.getElementById("buttonBox").innerHTML += "<button id=\"button\" onclick=\"selectedAction=" + i + ",doAction(" + i + ")\">" + dialog.actions[i].text + "</button>";
           }
           else{
             document.getElementById("dialogButtonBox").innerHTML += "<i id=\"nextButton\" class=\"fas fa-caret-right\"onclick=\"selectedAction=" + i + ",doAction(" + i + ")\"></i>";

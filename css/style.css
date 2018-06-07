@@ -97,10 +97,39 @@ mark{
   width:100%;
   opacity:0;
 }
-#homeScreen button{
+#homeScreen h1{
   font-size:2.5vw;
-  color:black;
+}
+#homeScreen h2{
+  font-size:1.5vw;
+  position:fixed;
+  bottom:.5vw;
+  left:1vw;
+}
+#homeScreen #fbFrame{
+  transition: ease-in-out 5s;
+  position:fixed;
+  bottom:-100%;
+  right:0;
+}
+#homeScreen button{
+  justify-content:center;
+  border-radius:.5vw;
+  align-items:center;
+  font-size:1.75vw;
+  background:#333;
+  transition:.1s;
+  cursor:pointer;
+  color:#f1f1f1;
+  display:flex;
+  height:2.5vw;
+  margin:.25vw;
+  border:none;
   width:15%;
+}
+#homeScreen button:hover{
+  font-size:2vw;
+  background:#000;
 }
 #homeScreen #continue{
   pointer-events:none;
@@ -139,7 +168,7 @@ mark{
   width:33%;
 }
 #HUD #icons div{
-  pointer-events: none;
+  pointer-events:none;
 }
 #HUD #icons img{
   cursor:pointer;
@@ -293,7 +322,7 @@ mark{
 #dialog #nextButton{
   -webkit-animation:horizontal 2s ease infinite;
   animation:horizontal 2s ease infinite;
-  pointer-events: fill;
+  pointer-events:fill;
   text-align:right;
   display:block;
   cursor:pointer;
@@ -319,6 +348,7 @@ mark{
   display:block;
   font-size:2vw;
   padding:.5vw;
+  border:none;
 }
 #dialog #button:hover{
   background:#963200;
