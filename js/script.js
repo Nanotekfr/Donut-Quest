@@ -29,16 +29,19 @@ fetch('/js/json/inventory.json')
 
 var sfx_blipmale=new Howl({
   src:['../audio/sfx_blipmale.wav'],
+  preload:true,
   volume:.25,
   loop:true
 });
 var sfx_blipfemale=new Howl({
   src:['../audio/sfx_blipfemale.wav'],
+  preload:true,
   volume:.25,
   loop:true
 });
 var sfx_ambient_museum=new Howl({
   src:['../audio/sfx_ambient_museum.wav'],
+  preload:true,
   volume:0,
   loop:true,
   onplay:function(){
@@ -47,10 +50,12 @@ var sfx_ambient_museum=new Howl({
 });
 var sfx_locked_door=new Howl({
   src:['../audio/sfx_locked_door.wav'],
+  preload:true,
   volume:1
 });
 var sfx_footsteps=new Howl({
   src:['../audio/sfx_footsteps.wav'],
+  preload:true,
   volume:.25
 });
 
@@ -162,6 +167,7 @@ function doTalk(){
     character=characterStep.characters[currentCharacter];
     document.getElementById(character.img).style.pointerEvents="none";
     document.getElementById(character.img).style.transform="translateX(25%)";
+    document.getElementById("dialogText").style.borderRadius="0 .5vw .5vw .5vw";
     document.getElementById("dialogName").style.display="block";
     if(dialog.showName=='true'){
       document.getElementById("dialogName").innerHTML=dialog.who;
@@ -171,6 +177,7 @@ function doTalk(){
     }
   }
   else{
+    document.getElementById("dialogText").style.borderRadius=".5vw .5vw .5vw .5vw";
     document.getElementById("dialogName").style.display="none";
     document.getElementById("dialogName").innerHTML="";
   }
@@ -192,17 +199,37 @@ function doTalk(){
             document.getElementById("buttonBox").innerHTML += "<a id=\"button\" onclick=\"selectedAction=" + i + ",doAction(" + i + ")\">" + dialog.actions[i].text + "</a>";
           }
           else{
-            document.getElementById("dialogButtonBox").innerHTML += "<i id=\"nextButton\" class=\"fas fa-caret-right\" onclick=\"selectedAction=" + i + ",doAction(" + i + ")\"></i>";
+            document.getElementById("dialogButtonBox").innerHTML += "<i id=\"nextButton\" class=\"fas fa-caret-right faa-horizontal animated\"onclick=\"selectedAction=" + i + ",doAction(" + i + ")\"></i>";
           }
         }
       }
       else{
         currentSentence++;
-        document.getElementById("dialogButtonBox").innerHTML += "<i id=\"nextButton\" class=\"fas fa-caret-right\" onclick=\"doTalk()\"></i>";
+        document.getElementById("dialogButtonBox").innerHTML += "<i id=\"nextButton\" class=\"fas fa-caret-right faa-horizontal animated\" onclick=\"doTalk()\"></i>";
       }
     }
   });
 }
+document.body.addEventListener('keyup', function(e) {
+  if(e.keyCode==69){
+    document.getElementById("nextButton").click();
+  }
+  if(e.keyCode==77){
+    doOpenMap();
+  }
+  if(e.keyCode==66){
+    doOpenBag();
+  }
+  if(e.keyCode==70){
+    doOpenMask();
+  }
+  if(e.keyCode==27){
+    doOpenPhone();
+  }
+  // if(e.keyCode==123){
+  //   location.href = 'https://youtu.be/dQw4w9WgXcQ';
+  // }
+});
 function doAction(selectedAction){
   dialog=talkStep.dialogs[currentDialog];
   action=dialog.actions[selectedAction];
@@ -507,7 +534,9 @@ function doNextStage(){
   localStorage.setItem('savedStage',action.nextStage);
   if(action.nextStage==1){
     localStorage.setItem('gotMap','true');
+    localStorage.setItem('gotPhone','true');
     document.getElementById('mapIcon').innerHTML='<img src="/img/closed-map.png"/>'
+    document.getElementById('phoneIcon').innerHTML='<img src="/img/closed-phone.png"/>'
   }
   if(action.nextStage==2){
     areaStep.areas[1].locked='true';
