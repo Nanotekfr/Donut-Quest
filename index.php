@@ -64,9 +64,10 @@
     <div class="vue">
       <div></div>
       <div id="characterBox">
-        <img id="tomStageXX" src="" onclick="currentDialog=14,doTalk()"/>
+        <img id="tomStageXX" src="/img/template.png" onclick=""/>
         <img id="terrilStage03" src="/img/terril.png" onclick="currentDialog=11,doTalk()"/>
-        <img id="djarStageXX" src="" onclick="currentDialog=4,doTalk()"/>
+        <img id="djarStageXX" src="/img/template.png" onclick=""/>
+        <img id="sphynxStageXX" src="/img/template.png" onclick=""/>
       </div>
     </div>
   </section>
@@ -74,7 +75,6 @@
   <section id="area" onclick="doCloseAll()">
     <img :src="img">
   </section>
-
 
   <script src="/js/libraries/howler.js"></script>
   <script src="/js/libraries/typed.js"></script>

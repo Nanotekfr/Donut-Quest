@@ -108,15 +108,19 @@ function doContinue(){
   currentArea=localStorage.getItem('savedArea');
   vueArea.img=areaStep.areas[currentArea].img;
   if(localStorage.getItem('gotMap')=='true'){
+    document.getElementById('mapIcon').style.pointerEvents='auto';
     document.getElementById('mapIcon').innerHTML='<img src="/img/closed-map.png"/>';
   }
   if(localStorage.getItem('gotBag')=='true'){
+    document.getElementById('bagIcon').style.pointerEvents='auto';
     document.getElementById('bagIcon').innerHTML='<img src="/img/closed-bag.png"/>';
   }
   if(localStorage.getItem('gotMask')=='true'){
+    document.getElementById('maskIcon').style.pointerEvents='auto';
     document.getElementById('maskIcon').innerHTML='<img src="/img/closed-mask.png"/>';
   }
   if(localStorage.getItem('gotPhone')=='true'){
+    document.getElementById('phoneIcon').style.pointerEvents='auto';
     document.getElementById('phoneIcon').innerHTML='<img src="/img/closed-phone.png"/>';
   }
   document.getElementById("HUD").style.marginTop="0";
@@ -186,7 +190,7 @@ function doTalk(){
   speechtext= dialog.sentences[currentSentence].text;
   new Typed('#dialogSentence',{
     strings:[speechtext],
-    typeSpeed:15,
+    typeSpeed:dialog.sentences[currentSentence].speed,
     showCursor:false,
     onTypingPaused(){sfx_blipmale.stop();},
     onTypingResumed(){sfx_blipmale.play();},
@@ -204,8 +208,16 @@ function doTalk(){
         }
       }
       else{
-        currentSentence++;
         document.getElementById("dialogButtonBox").innerHTML += "<i id=\"nextButton\" class=\"fas fa-caret-right\" onclick=\"doTalk()\"></i>";
+      }
+      if(dialog.sentences[currentSentence].skip=="true"){
+        setTimeout(function(){
+          currentSentence++;
+          document.getElementById("nextButton").click();
+        },250);
+      }
+      else{
+        currentSentence++;
       }
     }
   });
@@ -214,7 +226,7 @@ function doAction(selectedAction){
   dialog=talkStep.dialogs[currentDialog];
   action=dialog.actions[selectedAction];
   currentStage=action.nextStage;
-  currentDialog=action.nextStep;
+  currentDialog=action.nextDialog;
   currentSentence=0;
   if(typeof(action.nextStage)!="undefined"){
     doNextStage();
@@ -389,12 +401,7 @@ function doOpenMap(){
       }
       else{
         document.getElementById('mapIcon').innerHTML='<img src="/img/opened-map.png"/>';
-        if(areaStep.areas[areaStep.areas[currentArea].canGoTo[i].nextArea].check=='true'){
-          document.getElementById('mapWindow').innerHTML += "" + areaStep.areas[currentArea].canGoTo[i].area + "<img id='selectArea' onclick='sfx_locked_door.play(),currentDialog=1,setTimeout(function(){doTalk()},2000)' src='" + areaStep.areas[currentArea].canGoTo[i].img + "'/>";
-        }
-        else{
-          document.getElementById('mapWindow').innerHTML += "" + areaStep.areas[currentArea].canGoTo[i].area + "<img id='selectArea' onclick='sfx_locked_door.play(),currentDialog=0,setTimeout(function(){doTalk()},1000)' src='" + areaStep.areas[currentArea].canGoTo[i].img + "'/>";
-        }
+        document.getElementById('mapWindow').innerHTML += "" + areaStep.areas[currentArea].canGoTo[i].area + "<img id='selectArea' onclick='sfx_locked_door.play(),currentDialog=" + areaStep.areas[currentArea].canGoTo[i].trigger + ",setTimeout(function(){doTalk()},2000)' src='" + areaStep.areas[currentArea].canGoTo[i].img + "'/>";
       }
     }
     mapOpened=1;
@@ -515,8 +522,10 @@ function doNextStage(){
   if(action.nextStage==1){
     localStorage.setItem('gotMap','true');
     localStorage.setItem('gotPhone','true');
-    document.getElementById('mapIcon').innerHTML='<img src="/img/closed-map.png"/>'
-    document.getElementById('phoneIcon').innerHTML='<img src="/img/closed-phone.png"/>'
+    document.getElementById('mapIcon').style.pointerEvents='auto';
+    document.getElementById('phoneIcon').style.pointerEvents='auto';
+    document.getElementById('mapIcon').innerHTML='<img src="/img/closed-map.png"/>';
+    document.getElementById('phoneIcon').innerHTML='<img src="/img/closed-phone.png"/>';
   }
   if(action.nextStage==2){
     areaStep.areas[1].locked='true';

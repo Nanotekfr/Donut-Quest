@@ -138,6 +138,9 @@ mark{
   height:6.5vw;
   width:33%;
 }
+#HUD #icons div{
+  pointer-events: none;
+}
 #HUD #icons img{
   cursor:pointer;
   width:75%;
