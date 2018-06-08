@@ -2,7 +2,7 @@
   "id":1,
   "nextDialog":null,
   "nextStage":null,
-  "choice":null",
+  "choice":null,
   "fadeIn":null,
   "fadeOut":null,
   "showCharacter":null,

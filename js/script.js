@@ -12,7 +12,7 @@ fetch('/js/json/characters.json')
   .then(function(characterJSON){
     characterStep=characterJSON;
   });
-fetch('/js/json/dialogs.json')
+fetch('/js/json/dialogsBACKUP.json')
   .then(function(dialogs){
     return dialogs.json();
   })
@@ -65,10 +65,9 @@ var sfx_footsteps=new Howl({
   preload:true,
   volume:.25
 });
-
-var currentCharacter=localStorage.getItem('savedCharacter');
-var currentStage=localStorage.getItem('savedStage');
-var currentArea=localStorage.getItem('savedArea');
+var currentCharacter=JSON.parse(localStorage.getItem('savedCharacter'));
+var currentStage=JSON.parse(localStorage.getItem('savedStage'));
+var currentArea=JSON.parse(localStorage.getItem('savedArea'));
 var currentSentence=0;
 var selectedAction=0;
 var currentDialog=0;
@@ -76,7 +75,7 @@ var currentItem=0;
 
 function doLoad(){
   document.getElementById('homeScreen').style.opacity='1';
-  if(localStorage.getItem('canContinue')==1){
+  if(JSON.parse(localStorage.getItem('canContinue'))==true){
     document.getElementById('continue').style.opacity='1';
     document.getElementById('continue').style.pointerEvents='auto';
   }
@@ -85,22 +84,22 @@ function doNewGame(){
   document.getElementById('homeScreen').style.opacity='0';
   document.getElementById('homeScreen').style.pointerEvents='none';
   sfx_ambient_museum.play();
-  localStorage.setItem('canContinue',1);
+  localStorage.setItem('canContinue',true);
   localStorage.setItem('savedStage',0);
   localStorage.setItem('savedArea',10);
   localStorage.setItem('savedCharacter',null);
-  localStorage.setItem('gotMap',true);
-  localStorage.setItem('gotBag',true);
-  localStorage.setItem('gotMask',true);
-  localStorage.setItem('gotPhone',true);
+  localStorage.setItem('gotMap',false);
+  localStorage.setItem('gotBag',false);
+  localStorage.setItem('gotMask',false);
+  localStorage.setItem('gotPhone',false);
   for(i=0;i<inventoryStep.bag.item.length;i++){
     bag=inventoryStep.bag;
     item=bag.item[i].name;
-    localStorage.setItem(item,0);
+    localStorage.setItem(item,false);
   }
-  currentStage=localStorage.getItem('savedStage');
-  currentArea=localStorage.getItem('savedArea');
-  currentCharacter=localStorage.getItem('savedCharacter');
+  currentStage=JSON.parse(localStorage.getItem('savedStage'));
+  currentArea=JSON.parse(localStorage.getItem('savedArea'));
+  currentCharacter=JSON.parse(localStorage.getItem('savedCharacter'));
   vueArea.img=areaStep.areas[currentArea].img;
   document.getElementById("HUD").style.marginTop="0";
   setTimeout(function(){
@@ -111,22 +110,22 @@ function doNewGame(){
 function doContinue(){
   document.getElementById('homeScreen').style.opacity='0';
   document.getElementById('homeScreen').style.pointerEvents='none';
-  currentStage=localStorage.getItem('savedStage');
-  currentArea=localStorage.getItem('savedArea');
+  currentStage=JSON.parse(localStorage.getItem('savedStage'));
+  currentArea=JSON.parse(localStorage.getItem('savedArea'));
   vueArea.img=areaStep.areas[currentArea].img;
-  if(localStorage.getItem('gotMap')==true){
+  if(JSON.parse(localStorage.getItem('gotMap'))==true){
     document.getElementById('mapIcon').style.pointerEvents='auto';
     document.getElementById('mapIcon').innerHTML='<img src="/img/closed-map.png"/>';
   }
-  if(localStorage.getItem('gotBag')==true){
+  if(JSON.parse(localStorage.getItem('gotBag'))==true){
     document.getElementById('bagIcon').style.pointerEvents='auto';
     document.getElementById('bagIcon').innerHTML='<img src="/img/closed-bag.png"/>';
   }
-  if(localStorage.getItem('gotMask')==true){
+  if(JSON.parse(localStorage.getItem('gotMask'))==true){
     document.getElementById('maskIcon').style.pointerEvents='auto';
     document.getElementById('maskIcon').innerHTML='<img src="/img/closed-mask.png"/>';
   }
-  if(localStorage.getItem('gotPhone')==true){
+  if(JSON.parse(localStorage.getItem('gotPhone'))==true){
     document.getElementById('phoneIcon').style.pointerEvents='auto';
     document.getElementById('phoneIcon').innerHTML='<img src="/img/closed-phone.png"/>';
   }
@@ -135,8 +134,8 @@ function doContinue(){
     bag=inventoryStep.bag;
     item=bag.item[i].name;
     icon=bag.item[i].icon;
-    savedItem=localStorage.getItem(item);
-    if(savedItem==1){
+    savedItem=JSON.parse(localStorage.getItem(item));
+    if(savedItem==true){
       document.getElementById('items').innerHTML += "<div id='item" + i + "' class='boxItem' onclick=\"selectedItem='" + i + "',doShowDescription()\">"+ icon + "</div>";
     }
   }
@@ -155,8 +154,8 @@ function doContinue(){
     areaStep.areas[3].presentCharacter=3;
     areaStep.areas[3].locked=true;
   }
-  if(currentCharacter!=null){
-    currentCharacter=localStorage.getItem('savedCharacter');
+  if(currentCharacter!=-1){
+    currentCharacter=JSON.parse(localStorage.getItem('savedCharacter'));
     doShowCharacter();
   }
   setTimeout(function(){
@@ -298,7 +297,7 @@ function doShowCharacter(){
   localStorage.setItem('savedCharacter',currentCharacter);
   character=characterStep.characters[currentCharacter];
   setTimeout(function(){
-    if(character.isGhost==1){
+    if(character.isGhost==true){
       document.getElementById(character.img).style.pointerEvents="none";
       document.getElementById(character.img).style.opacity=".025";
     }
@@ -366,7 +365,7 @@ function doChangeArea(selectedArea){
       currentCharacter=presentCharacter;
       character=characterStep.characters[currentCharacter];
       document.getElementById(character.img).style.display="block";
-      if(characterStep.characters[currentCharacter].isGhost==1){
+      if(characterStep.characters[currentCharacter].isGhost==true){
         if(maskOpened==1){
           document.getElementById(character.img).style.pointerEvents="auto";
           document.getElementById(character.img).style.opacity="1";
@@ -402,7 +401,7 @@ function doRemoveItem(){
   currentItem=action.removeItem;
   var remove=document.getElementById('item' + currentItem + '');
   remove.parentNode.removeChild(remove);
-  localStorage.setItem(item,true);
+  localStorage.setItem(item,1);
 }
 function doPause(){
   document.getElementById("dialog").style.display="none";
@@ -433,7 +432,7 @@ function doOpenMap(){
     document.getElementById('mapWindow').innerHTML="";
     document.getElementById('mapWindow').style.left="0";
     for(i=0;i<areaStep.areas[currentArea].canGoTo.length;i++){
-      if(areaStep.areas[areaStep.areas[currentArea].canGoTo[i].nextArea].locked==true){
+      if(areaStep.areas[areaStep.areas[currentArea].canGoTo[i].nextArea].locked==false){
         document.getElementById('mapWindow').innerHTML += "" + areaStep.areas[currentArea].canGoTo[i].area + "<img id='selectArea' onclick='doChangeArea(" + i + ")' src='" + areaStep.areas[currentArea].canGoTo[i].img + "'/>";
         document.getElementById('mapIcon').innerHTML='<img src="/img/opened-map.png"/>';
       }
@@ -450,7 +449,7 @@ function doOpenMap(){
 }
 function doCloseMap(){
   document.getElementById('mapWindow').style.left="-100%";
-  hasMap=localStorage.getItem('gotMap');
+  hasMap=JSON.parse(localStorage.getItem('gotMap'));
   if(hasMap==true){
     document.getElementById('mapIcon').innerHTML='<img src="/img/closed-map.png"/>';
   }
@@ -471,7 +470,7 @@ function doOpenBag(){
 }
 function doCloseBag(){
   document.getElementById('bagWindow').style.bottom='-100%';
-  hasBag=localStorage.getItem('gotBag');
+  hasBag=JSON.parse(localStorage.getItem('gotBag'));
   if(hasBag==true){
     document.getElementById('bagIcon').innerHTML='<img src="/img/closed-bag.png"/>';
   }
@@ -483,26 +482,6 @@ function doShowDescription(){
   description=bag.item[currentItem].description;
   document.getElementById('description').innerHTML=icon + description;
 }
-function doOpenPhone(){
-  doCloseMap();
-  doCloseBag();
-  if(phoneOpened==0){
-    document.getElementById('phoneWindow').style.right='1vw';
-    document.getElementById('phoneIcon').innerHTML='<img src="/img/opened-phone.png"/>';
-    phoneOpened=1;
-  }
-  else{
-    doClosePhone();
-  }
-}
-function doClosePhone(){
-  document.getElementById('phoneWindow').style.right='-100%';
-  hasPhone=localStorage.getItem('gotPhone');
-  if(hasPhone==true){
-    document.getElementById('phoneIcon').innerHTML='<img src="/img/closed-phone.png"/>';
-  }
-  phoneOpened=0;
-}
 function doOpenMask(){
   if(maskOpened==0){
     document.getElementById("blackScreen").style.transition=".15s";
@@ -512,7 +491,7 @@ function doOpenMask(){
       document.getElementById('mask').style.opacity="1";
       if(areaStep.areas[currentArea].presentCharacter!=null){
         character=characterStep.characters[currentCharacter];
-        if(characterStep.characters[currentCharacter].isGhost==1){
+        if(characterStep.characters[currentCharacter].isGhost==true){
           document.getElementById(character.img).style.pointerEvents="auto";
           document.getElementById(character.img).style.opacity="1";
         }
@@ -529,8 +508,8 @@ function doOpenMask(){
 }
 function doCloseMask(){
   document.getElementById("blackScreen").style.transition=".15s";
-  hasMask=localStorage.getItem('gotMask');
-  if(hasMask==true){
+  hasMask=JSON.parse(localStorage.getItem('gotMask'));
+  if(hasMask==1){
     document.getElementById('maskIcon').innerHTML='<img src="/img/closed-mask.png"/>';
   }
   document.getElementById('blackScreen').style.opacity="1";
@@ -538,7 +517,7 @@ function doCloseMask(){
     document.getElementById('mask').style.opacity="0";
     if(areaStep.areas[currentArea].presentCharacter!=null){
       character=characterStep.characters[currentCharacter];
-      if(characterStep.characters[currentCharacter].isGhost==1){
+      if(characterStep.characters[currentCharacter].isGhost==true){
         document.getElementById(character.img).style.pointerEvents="none";
         document.getElementById(character.img).style.opacity=".025";
       }
@@ -548,6 +527,26 @@ function doCloseMask(){
     document.getElementById('blackScreen').style.opacity="0";
   },700);
   maskOpened=0;
+}
+function doOpenPhone(){
+  doCloseMap();
+  doCloseBag();
+  if(phoneOpened==0){
+    document.getElementById('phoneWindow').style.right='1vw';
+    document.getElementById('phoneIcon').innerHTML='<img src="/img/opened-phone.png"/>';
+    phoneOpened=1;
+  }
+  else{
+    doClosePhone();
+  }
+}
+function doClosePhone(){
+  document.getElementById('phoneWindow').style.right='-100%';
+  hasPhone=JSON.parse(localStorage.getItem('gotPhone'));
+  if(hasPhone==true){
+    document.getElementById('phoneIcon').innerHTML='<img src="/img/closed-phone.png"/>';
+  }
+  phoneOpened=0;
 }
 function doCloseAll(){
   doCloseMap();
