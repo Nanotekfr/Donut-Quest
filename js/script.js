@@ -77,7 +77,9 @@ function doLoad(){
   document.getElementById('homeScreen').style.opacity='1';
   if(JSON.parse(localStorage.getItem('canContinue'))==true){
     document.getElementById('continue').style.opacity='1';
-    document.getElementById('continue').style.pointerEvents='auto';
+  }
+  else{
+    document.getElementById('continue').style.pointerEvents='none';
   }
 }
 function doNewGame(){
@@ -219,6 +221,7 @@ function doTalk(){
       else{
         document.getElementById("dialogButtonBox").innerHTML += "<i id=\"nextButton\" class=\"fas fa-caret-right\" onclick=\"doTalk()\"></i>";
       }
+      document.getElementById("nextButton").style.pointerEvents="none";
       if(dialog.sentences[currentSentence].skip!=null){
         setTimeout(function(){
           currentSentence++;
@@ -227,6 +230,7 @@ function doTalk(){
       }
       else{
         currentSentence++;
+        document.getElementById("nextButton").style.pointerEvents="auto";
       }
     }
   });
@@ -250,7 +254,7 @@ function doAction(selectedAction){
     currentCharacter=action.showCharacter;
     doShowCharacter();
   }
-  if(action.hideCharacter!=null){
+  if(action.hideCharacter!=false){
     doHideCharacter();
   }
   if(action.changeCharacter!=null){
@@ -307,12 +311,12 @@ function doShowCharacter(){
   },1000);
 }
 function doHideCharacter(){
-  localStorage.setItem('savedCharacter',null);
   character=characterStep.characters[currentCharacter];
-  document.getElementById(character.img).style.opacity="0";
   setTimeout(function(){
+    document.getElementById(character.img).style.opacity="0";
     document.getElementById(character.img).style.pointerEvents="none";
   },1000);
+  localStorage.setItem('savedCharacter',null);
 }
 function doChangeCharacter(){
   document.getElementById(character.img).style.opacity="0";
@@ -609,8 +613,10 @@ function doCheckStage(){
 }
 
 document.body.addEventListener('keyup', function(e) {
-  if(e.keyCode==69||e.keyCode==39){
-    document.getElementById("nextButton").click();
+  if(document.getElementById("nextButton")!=null){
+    if(e.keyCode==69||e.keyCode==39){
+      document.getElementById("nextButton").click();
+    }
   }
   if(e.keyCode==77){
     doOpenMap();

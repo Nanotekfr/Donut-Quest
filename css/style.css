@@ -130,7 +130,6 @@ mark{
   font-size:1.75vw;
 }
 #homeScreen #continue{
-  pointer-events:none;
   opacity:0;
 }
 /* BLACK SCREEN */
