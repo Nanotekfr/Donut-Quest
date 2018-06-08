@@ -2,205 +2,205 @@
   "dialogs":[
     {
       "id":1,
-      "tag":"false",
+      "tag":false,
       "who":"PLAYER",
-      "whoID":"null",
+      "whoID":null,
       "sentences":[
-        {"id":1,"text":"It's locked. I can't go there...","speed":15,"skip":"null"}
+        {"id":1,"text":"It's locked. I can't go there...","speed":15,"skip":null}
       ],
       "actions":[
         {
           "id":1,
-          "nextDialog":"null",
-          "nextStage":"null",
-          "choice":"null",
-          "fadeIn":"null",
-          "fadeOut":"null",
-          "showCharacter":"null",
-          "hideCharacter":"null",
-          "changeCharacter":"null",
-          "showScenery":"null",
-          "hideScenery":"null",
-          "addItem":"null",
-          "removeItem":"null",
-          "pause":"null",
-          "stopTalk":"true"
+          "nextDialog":null,
+          "nextStage":null,
+          "choice":null,
+          "fadeIn":null,
+          "fadeOut":null,
+          "showCharacter":null,
+          "hideCharacter":null,
+          "changeCharacter":null,
+          "showScenery":null,
+          "hideScenery":null,
+          "addItem":null,
+          "removeItem":null,
+          "pause":null,
+          "stopTalk":true
         }
       ]
     },
     {
       "id":2,
-      "tag":"false",
+      "tag":false,
       "who":"PLAYER",
-      "whoID":"null",
+      "whoID":null,
       "sentences":[
-        {"id":1,"text":"<mark>Hmm... ^1000 <br>It's locked.</mark>","speed":15,"skip":"null"}
+        {"id":1,"text":"<mark>Hmm... ^1000 <br>It's locked.</mark>","speed":15,"skip":null}
       ],
       "actions":[
         {
           "id":1,
-          "nextDialog":"null",
+          "nextDialog":null,
           "nextStage":3,
-          "choice":"null",
-          "fadeIn":"null",
-          "fadeOut":"null",
-          "showCharacter":"null",
-          "hideCharacter":"null",
-          "changeCharacter":"null",
-          "showScenery":"null",
-          "hideScenery":"null",
-          "addItem":"null",
-          "removeItem":"null",
-          "pause":"null",
-          "stopTalk":"true"
+          "choice":null,
+          "fadeIn":null,
+          "fadeOut":null,
+          "showCharacter":null,
+          "hideCharacter":null,
+          "changeCharacter":null,
+          "showScenery":null,
+          "hideScenery":null,
+          "addItem":null,
+          "removeItem":null,
+          "pause":null,
+          "stopTalk":true
         }
       ]
     },
     {
       "id":3,
-      "tag":"false",
+      "tag":false,
       "who":"SPEAKER",
-      "whoID":"null",
+      "whoID":null,
       "sentences":[
-        {"id":1,"text":"Dear visitors... ^500 <br>The <mark class='bis'>MUSEUM</mark> will close very soon.","speed":15,"skip":"null"}
+        {"id":1,"text":"Dear visitors... ^500 <br>The <mark class='bis'>MUSEUM</mark> will close very soon.","speed":15,"skip":null}
       ],
       "actions":[
         {
           "id":1,
           "nextDialog":3,
-          "nextStage":"null",
-          "choice":"null",
-          "fadeIn":"null",
+          "nextStage":null,
+          "choice":null,
+          "fadeIn":null,
           "fadeOut":1500,
-          "showCharacter":"null",
-          "hideCharacter":"null",
-          "changeCharacter":"null",
-          "showScenery":"null",
-          "hideScenery":"null",
-          "addItem":"null",
-          "removeItem":"null",
+          "showCharacter":null,
+          "hideCharacter":null,
+          "changeCharacter":null,
+          "showScenery":null,
+          "hideScenery":null,
+          "addItem":null,
+          "removeItem":null,
           "pause":3000,
-          "stopTalk":"false"
+          "stopTalk":false
         }
       ]
     },
     {
       "id":4,
-      "tag":"false",
+      "tag":false,
       "who":"SPEAKER",
-      "whoID":"null",
+      "whoID":null,
       "sentences":[
-        {"id":1,"text":"Please, ^250 proceed to the nearest <mark class='bis'>EXIT</mark>.","speed":15,"skip":"null"}
+        {"id":1,"text":"Please, ^250 proceed to the nearest <mark class='bis'>EXIT</mark>.","speed":15,"skip":null}
       ],
       "actions":[
         {
           "id":1,
           "nextDialog":4,
-          "nextStage":"null",
-          "choice":"null",
-          "fadeIn":"null",
-          "fadeOut":"null",
-          "showCharacter":"null",
-          "hideCharacter":"null",
-          "changeCharacter":"null",
-          "showScenery":"null",
-          "hideScenery":"null",
-          "addItem":"null",
-          "removeItem":"null",
+          "nextStage":null,
+          "choice":null,
+          "fadeIn":null,
+          "fadeOut":null,
+          "showCharacter":null,
+          "hideCharacter":null,
+          "changeCharacter":null,
+          "showScenery":null,
+          "hideScenery":null,
+          "addItem":null,
+          "removeItem":null,
           "pause":2000,
-          "stopTalk":"false"
+          "stopTalk":false
         }
       ]
     },
     {
       "id":5,
-      "tag":"false",
+      "tag":false,
       "who":"PLAYER",
-      "whoID":"null",
+      "whoID":null,
       "sentences":[
-        {"id":1,"text":"<mark>Well, ^250 better hurry... ^500 <br>I should check the <mark class='bis'>MAP</mark> to find my way.</mark>","speed":15,"skip":"null"}
+        {"id":1,"text":"<mark>Well, ^250 better hurry... ^500 <br>I should check the <mark class='bis'>MAP</mark> to find my way.</mark>","speed":15,"skip":null}
       ],
       "actions":[
         {
           "id":1,
-          "nextDialog":"null",
+          "nextDialog":null,
           "nextStage":1,
-          "choice":"null",
-          "fadeIn":"null",
-          "fadeOut":"null",
-          "showCharacter":"null",
-          "hideCharacter":"null",
-          "changeCharacter":"null",
-          "showScenery":"null",
-          "hideScenery":"null",
-          "addItem":"null",
-          "removeItem":"null",
-          "pause":"null",
-          "stopTalk":"true"
+          "choice":null,
+          "fadeIn":null,
+          "fadeOut":null,
+          "showCharacter":null,
+          "hideCharacter":null,
+          "changeCharacter":null,
+          "showScenery":null,
+          "hideScenery":null,
+          "addItem":null,
+          "removeItem":null,
+          "pause":null,
+          "stopTalk":true
         }
       ]
     },
     {
       "id":6,
-      "tag":"false",
+      "tag":false,
       "who":"PLAYER",
-      "whoID":"null",
+      "whoID":null,
       "sentences":[
-        {"id":1,"text":"<mark>Weird, ^500 it's quiet all of a sudden...</mark>","speed":15,"skip":"null"}
+        {"id":1,"text":"<mark>Weird, ^500 it's quiet all of a sudden...</mark>","speed":15,"skip":null}
       ],
       "actions":[
         {
           "id":1,
-          "nextDialog":"null",
+          "nextDialog":null,
           "nextStage":2,
-          "choice":"null",
-          "fadeIn":"null",
-          "fadeOut":"null",
-          "showCharacter":"null",
-          "hideCharacter":"null",
-          "changeCharacter":"null",
-          "showScenery":"null",
-          "hideScenery":"null",
-          "addItem":"null",
-          "removeItem":"null",
-          "pause":"null",
-          "stopTalk":"true"
+          "choice":null,
+          "fadeIn":null,
+          "fadeOut":null,
+          "showCharacter":null,
+          "hideCharacter":null,
+          "changeCharacter":null,
+          "showScenery":null,
+          "hideScenery":null,
+          "addItem":null,
+          "removeItem":null,
+          "pause":null,
+          "stopTalk":true
         }
       ]
     },
     {
       "id":7,
-      "tag":"true",
-      "showName":"false",
+      "tag":true,
+      "showName":false,
       "who":"TERRIL",
       "whoID":1,
       "sentences":[
         {"id":1,"text":"Hey there! ^250 Wait!","speed":15,"skip":500},
-        {"id":2,"text":"Behind you...","speed":15,"skip":"null"}
+        {"id":2,"text":"Behind you...","speed":15,"skip":null}
       ],
       "actions":[
         {
           "id":1,
           "nextDialog":7,
-          "nextStage":"null",
-          "choice":"null",
-          "fadeIn":"null",
-          "fadeOut":"null",
-          "showCharacter":"null",
-          "hideCharacter":"null",
-          "changeCharacter":"null",
-          "showScenery":"null",
-          "hideScenery":"true",
-          "addItem":"null",
-          "removeItem":"null",
+          "nextStage":null,
+          "choice":null,
+          "fadeIn":null,
+          "fadeOut":null,
+          "showCharacter":null,
+          "hideCharacter":null,
+          "changeCharacter":null,
+          "showScenery":null,
+          "hideScenery":true,
+          "addItem":null,
+          "removeItem":null,
           "pause":2000,
-          "stopTalk":"false"
+          "stopTalk":false
         }
       ]
     },
     {
       "id":8,
-      "tag":"true",
+      "tag":true,
       "who":"TERRIL",
       "whoID":1,
       "sentences":[
@@ -211,25 +211,25 @@
         {
           "id":1,
           "nextDialog":8,
-          "nextStage":"null",
-          "choice":"null",
-          "fadeIn":"null",
-          "fadeOut":"null",
+          "nextStage":null,
+          "choice":null,
+          "fadeIn":null,
+          "fadeOut":null,
           "showCharacter":1,
-          "hideCharacter":"null",
-          "changeCharacter":"null",
-          "showScenery":"null",
-          "hideScenery":"null",
-          "addItem":"null",
-          "removeItem":"null",
+          "hideCharacter":null,
+          "changeCharacter":null,
+          "showScenery":null,
+          "hideScenery":null,
+          "addItem":null,
+          "removeItem":null,
           "pause":2000,
-          "stopTalk":"false"
+          "stopTalk":false
         }
       ]
     },
     {
       "id":9,
-      "tag":"true",
+      "tag":true,
       "who":"TERRIL",
       "whoID":1,
       "sentences":[
@@ -241,47 +241,47 @@
         {
           "id":1,
           "nextDialog":9,
-          "nextStage":"null",
-          "choice":"null",
-          "fadeIn":"null",
-          "fadeOut":"null",
-          "showCharacter":"null",
+          "nextStage":null,
+          "choice":null,
+          "fadeIn":null,
+          "fadeOut":null,
+          "showCharacter":null,
           "hideCharacter":1,
-          "changeCharacter":"null",
-          "showScenery":"null",
-          "hideScenery":"null",
-          "addItem":"null",
-          "removeItem":"null",
+          "changeCharacter":null,
+          "showScenery":null,
+          "hideScenery":null,
+          "addItem":null,
+          "removeItem":null,
           "pause":2000,
-          "stopTalk":"false"
+          "stopTalk":false
         }
       ]
     },
     {
       "id":10,
-      "tag":"false",
+      "tag":false,
       "who":"PLAYER",
-      "whoID":"null",
+      "whoID":null,
       "sentences":[
-        {"id":1,"text":"<mark>Ok... ^500 C'etait quoi ça?</mark>","speed":30,"skip":"null"}
+        {"id":1,"text":"<mark>Ok... ^500 C'etait quoi ça?</mark>","speed":30,"skip":null}
       ],
       "actions":[
         {
           "id":1,
-          "nextDialog":"null",
+          "nextDialog":null,
           "nextStage":4,
-          "choice":"null",
-          "fadeIn":"null",
-          "fadeOut":"null",
-          "showCharacter":"null",
-          "hideCharacter":"null",
-          "changeCharacter":"null",
-          "showScenery":"null",
-          "hideScenery":"null",
-          "addItem":"null",
-          "removeItem":"null",
-          "pause":"null",
-          "stopTalk":"true"
+          "choice":null,
+          "fadeIn":null,
+          "fadeOut":null,
+          "showCharacter":null,
+          "hideCharacter":null,
+          "changeCharacter":null,
+          "showScenery":null,
+          "hideScenery":null,
+          "addItem":null,
+          "removeItem":null,
+          "pause":null,
+          "stopTalk":true
         }
       ]
     }

@@ -12,7 +12,7 @@ fetch('/js/json/characters.json')
   .then(function(characterJSON){
     characterStep=characterJSON;
   });
-fetch('/js/json/dialogs.json')
+fetch('/js/json/dialogsBACKUP.json')
   .then(function(dialogs){
     return dialogs.json();
   })
@@ -76,7 +76,7 @@ var currentItem=0;
 
 function doLoad(){
   document.getElementById('homeScreen').style.opacity='1';
-  if(localStorage.getItem('canContinue')=='true'){
+  if(localStorage.getItem('canContinue')==true){
     document.getElementById('continue').style.opacity='1';
     document.getElementById('continue').style.pointerEvents='auto';
   }
@@ -85,14 +85,14 @@ function doNewGame(){
   document.getElementById('homeScreen').style.opacity='0';
   document.getElementById('homeScreen').style.pointerEvents='none';
   sfx_ambient_museum.play();
-  localStorage.setItem('canContinue','true');
+  localStorage.setItem('canContinue',true);
   localStorage.setItem('savedStage',0);
   localStorage.setItem('savedArea',10);
-  localStorage.setItem('savedCharacter','null');
-  localStorage.setItem('gotMap','false');
-  localStorage.setItem('gotBag','false');
-  localStorage.setItem('gotMask','false');
-  localStorage.setItem('gotPhone','false');
+  localStorage.setItem('savedCharacter',null);
+  localStorage.setItem('gotMap',true);
+  localStorage.setItem('gotBag',true);
+  localStorage.setItem('gotMask',true);
+  localStorage.setItem('gotPhone',true);
   for(i=0;i<inventoryStep.bag.item.length;i++){
     bag=inventoryStep.bag;
     item=bag.item[i].name;
@@ -114,19 +114,19 @@ function doContinue(){
   currentStage=localStorage.getItem('savedStage');
   currentArea=localStorage.getItem('savedArea');
   vueArea.img=areaStep.areas[currentArea].img;
-  if(localStorage.getItem('gotMap')=='true'){
+  if(localStorage.getItem('gotMap')==true){
     document.getElementById('mapIcon').style.pointerEvents='auto';
     document.getElementById('mapIcon').innerHTML='<img src="/img/closed-map.png"/>';
   }
-  if(localStorage.getItem('gotBag')=='true'){
+  if(localStorage.getItem('gotBag')==true){
     document.getElementById('bagIcon').style.pointerEvents='auto';
     document.getElementById('bagIcon').innerHTML='<img src="/img/closed-bag.png"/>';
   }
-  if(localStorage.getItem('gotMask')=='true'){
+  if(localStorage.getItem('gotMask')==true){
     document.getElementById('maskIcon').style.pointerEvents='auto';
     document.getElementById('maskIcon').innerHTML='<img src="/img/closed-mask.png"/>';
   }
-  if(localStorage.getItem('gotPhone')=='true'){
+  if(localStorage.getItem('gotPhone')==true){
     document.getElementById('phoneIcon').style.pointerEvents='auto';
     document.getElementById('phoneIcon').innerHTML='<img src="/img/closed-phone.png"/>';
   }
@@ -141,21 +141,21 @@ function doContinue(){
     }
   }
   if(currentStage>=2){
-    areaStep.areas[1].locked='true';
-    areaStep.areas[2].locked='true';
-    areaStep.areas[3].locked='true';
+    areaStep.areas[1].locked=true;
+    areaStep.areas[2].locked=true;
+    areaStep.areas[3].locked=true;
   }
   if(currentStage==3){
     document.getElementById("scenery").style.opacity="1";
     vueScenery.url=sceneryStep.sceneries[0].url;
-    localStorage.setItem('savedCharacter','null');
+    localStorage.setItem('savedCharacter',null);
     currentStage=2;
   }
   if(currentStage>=4){
     areaStep.areas[3].presentCharacter=3;
-    areaStep.areas[3].locked='false';
+    areaStep.areas[3].locked=true;
   }
-  if(currentCharacter!='null'){
+  if(currentCharacter!=null){
     currentCharacter=localStorage.getItem('savedCharacter');
     doShowCharacter();
   }
@@ -176,14 +176,14 @@ function doTalk(){
   document.getElementById("dialogButtonBox").innerHTML="";
   document.getElementById("buttonBox").style.display="none";
   document.getElementById("buttonBox").innerHTML="";
-  if(dialog.tag=='true'){
+  if(dialog.tag==true){
     currentCharacter=dialog.whoID;
     character=characterStep.characters[currentCharacter];
     document.getElementById(character.img).style.pointerEvents="none";
     document.getElementById(character.img).style.transform="translateX(25%)";
     document.getElementById("dialogText").style.borderRadius="0 .5vw .5vw .5vw";
     document.getElementById("dialogName").style.display="block";
-    if(dialog.showName=='true'){
+    if(dialog.showName==true){
       document.getElementById("dialogName").innerHTML=dialog.who;
     }
     else{
@@ -208,7 +208,7 @@ function doTalk(){
       sfx_blipmale.stop();
       if(currentSentence==(dialog.sentences.length-1)){
         for(i=0;i<dialog.actions.length;i++){
-          if(talkStep.dialogs[currentDialog].actions[i].choice!="null"){
+          if(talkStep.dialogs[currentDialog].actions[i].choice!=null){
             document.getElementById("buttonBox").style.display="block";
             document.getElementById("buttonBox").innerHTML += "<button id=\"button\" onclick=\"selectedAction=" + i + ",doAction(" + i + ")\">" + dialog.actions[i].choice + "</button>";
           }
@@ -220,7 +220,7 @@ function doTalk(){
       else{
         document.getElementById("dialogButtonBox").innerHTML += "<i id=\"nextButton\" class=\"fas fa-caret-right\" onclick=\"doTalk()\"></i>";
       }
-      if(dialog.sentences[currentSentence].skip!="null"){
+      if(dialog.sentences[currentSentence].skip!=null){
         setTimeout(function(){
           currentSentence++;
           document.getElementById("nextButton").click();
@@ -238,43 +238,43 @@ function doAction(selectedAction){
   currentStage=action.nextStage;
   currentDialog=action.nextDialog;
   currentSentence=0;
-  if(typeof(action.nextStage)!="undefined"){
+  if(action.nextStage!=null){
     doNextStage();
   }
-  if(typeof(action.fadeIn)!="undefined"){
+  if(action.fadeIn!=null){
     doFadeIn();
   }
-  if(typeof(action.fadeOut)!="undefined"){
+  if(action.fadeOut!=null){
     doFadeOut();
   }
-  if(typeof(action.showCharacter)!="undefined"){
+  if(action.showCharacter!=null){
     currentCharacter=action.showCharacter;
     doShowCharacter();
   }
-  if(typeof(action.hideCharacter)!="undefined"){
+  if(action.hideCharacter!=null){
     doHideCharacter();
   }
-  if(typeof(action.changeCharacter)!="undefined"){
+  if(action.changeCharacter!=null){
     currentCharacter=action.changeCharacter;
     doChangeCharacter();
   }
-  if(typeof(action.showScenery)!="undefined"){
+  if(action.showScenery!=null){
     doShowScenery();
   }
-  if(typeof(action.hideScenery)!="undefined"){
+  if(action.hideScenery!=null){
     doHideScenery();
   }
-  if(typeof(action.addItem)!="undefined"){
+  if(action.addItem!=null){
     currentItem=action.addItem;
     doAddItem();
   }
-  if(typeof(action.removeItem)!="undefined"){
+  if(action.removeItem!=null){
     doRemoveItem();
   }
-  if(typeof(action.pause)!="undefined"){
+  if(action.pause!=null){
     doPause();
   }
-  else if(typeof(action.stopTalk)!="undefined"){
+  else if(action.stopTalk!=false){
     doStopTalk();
   }
   else{
@@ -308,7 +308,7 @@ function doShowCharacter(){
   },1000);
 }
 function doHideCharacter(){
-  localStorage.setItem('savedCharacter','null');
+  localStorage.setItem('savedCharacter',null);
   character=characterStep.characters[currentCharacter];
   document.getElementById(character.img).style.opacity="0";
   setTimeout(function(){
@@ -358,11 +358,11 @@ function doChangeArea(selectedArea){
     doCloseMap();
     vueArea.img=areaStep.areas[currentArea].img;
     localStorage.setItem('savedArea',currentArea);
-    if(currentCharacter!='null'){
+    if(currentCharacter!=null){
       character=characterStep.characters[currentCharacter];
       document.getElementById(character.img).style.display="none";
     }
-    if(presentCharacter!='null'){
+    if(presentCharacter!=null){
       currentCharacter=presentCharacter;
       character=characterStep.characters[currentCharacter];
       document.getElementById(character.img).style.display="block";
@@ -383,7 +383,7 @@ function doChangeArea(selectedArea){
       localStorage.setItem('savedCharacter',currentCharacter);
     }
     else{
-      localStorage.setItem('savedCharacter','null');
+      localStorage.setItem('savedCharacter',null);
     }
   },1000);
   setTimeout(function(){
@@ -402,7 +402,7 @@ function doRemoveItem(){
   currentItem=action.removeItem;
   var remove=document.getElementById('item' + currentItem + '');
   remove.parentNode.removeChild(remove);
-  localStorage.setItem(item,'false');
+  localStorage.setItem(item,true);
 }
 function doPause(){
   document.getElementById("dialog").style.display="none";
@@ -411,7 +411,7 @@ function doPause(){
 function doStopTalk(){
   currentDialog=0;
   currentSentence=0;
-  if(dialog.tag=='true'){
+  if(dialog.tag==true){
     character=characterStep.characters[currentCharacter];
     document.getElementById(character.img).style.transform="translateX(0)";
     document.getElementById(character.img).style.pointerEvents="auto";
@@ -433,7 +433,7 @@ function doOpenMap(){
     document.getElementById('mapWindow').innerHTML="";
     document.getElementById('mapWindow').style.left="0";
     for(i=0;i<areaStep.areas[currentArea].canGoTo.length;i++){
-      if(areaStep.areas[areaStep.areas[currentArea].canGoTo[i].nextArea].locked=='false'){
+      if(areaStep.areas[areaStep.areas[currentArea].canGoTo[i].nextArea].locked==true){
         document.getElementById('mapWindow').innerHTML += "" + areaStep.areas[currentArea].canGoTo[i].area + "<img id='selectArea' onclick='doChangeArea(" + i + ")' src='" + areaStep.areas[currentArea].canGoTo[i].img + "'/>";
         document.getElementById('mapIcon').innerHTML='<img src="/img/opened-map.png"/>';
       }
@@ -451,7 +451,7 @@ function doOpenMap(){
 function doCloseMap(){
   document.getElementById('mapWindow').style.left="-100%";
   hasMap=localStorage.getItem('gotMap');
-  if(hasMap=='true'){
+  if(hasMap==true){
     document.getElementById('mapIcon').innerHTML='<img src="/img/closed-map.png"/>';
   }
   mapOpened=0;
@@ -472,7 +472,7 @@ function doOpenBag(){
 function doCloseBag(){
   document.getElementById('bagWindow').style.bottom='-100%';
   hasBag=localStorage.getItem('gotBag');
-  if(hasBag=='true'){
+  if(hasBag==true){
     document.getElementById('bagIcon').innerHTML='<img src="/img/closed-bag.png"/>';
   }
   bagOpened=0;
@@ -498,7 +498,7 @@ function doOpenPhone(){
 function doClosePhone(){
   document.getElementById('phoneWindow').style.right='-100%';
   hasPhone=localStorage.getItem('gotPhone');
-  if(hasPhone=='true'){
+  if(hasPhone==true){
     document.getElementById('phoneIcon').innerHTML='<img src="/img/closed-phone.png"/>';
   }
   phoneOpened=0;
@@ -510,7 +510,7 @@ function doOpenMask(){
     document.getElementById('blackScreen').style.opacity="1";
     setTimeout(function(){
       document.getElementById('mask').style.opacity="1";
-      if(areaStep.areas[currentArea].presentCharacter!='null'){
+      if(areaStep.areas[currentArea].presentCharacter!=null){
         character=characterStep.characters[currentCharacter];
         if(characterStep.characters[currentCharacter].isGhost==1){
           document.getElementById(character.img).style.pointerEvents="auto";
@@ -530,13 +530,13 @@ function doOpenMask(){
 function doCloseMask(){
   document.getElementById("blackScreen").style.transition=".15s";
   hasMask=localStorage.getItem('gotMask');
-  if(hasMask=='true'){
+  if(hasMask==true){
     document.getElementById('maskIcon').innerHTML='<img src="/img/closed-mask.png"/>';
   }
   document.getElementById('blackScreen').style.opacity="1";
   setTimeout(function(){
     document.getElementById('mask').style.opacity="0";
-    if(areaStep.areas[currentArea].presentCharacter!='null'){
+    if(areaStep.areas[currentArea].presentCharacter!=null){
       character=characterStep.characters[currentCharacter];
       if(characterStep.characters[currentCharacter].isGhost==1){
         document.getElementById(character.img).style.pointerEvents="none";
@@ -558,21 +558,21 @@ function doCloseAll(){
 function doNextStage(){
   localStorage.setItem('savedStage',action.nextStage);
   if(action.nextStage==1){
-    localStorage.setItem('gotMap','true');
-    localStorage.setItem('gotPhone','true');
+    localStorage.setItem('gotMap',true);
+    localStorage.setItem('gotPhone',true);
     document.getElementById('mapIcon').style.pointerEvents='auto';
     document.getElementById('phoneIcon').style.pointerEvents='auto';
     document.getElementById('mapIcon').innerHTML='<img src="/img/closed-map.png"/>';
     document.getElementById('phoneIcon').innerHTML='<img src="/img/closed-phone.png"/>';
   }
   if(action.nextStage==2){
-    areaStep.areas[1].locked='true';
-    areaStep.areas[2].locked='true';
-    areaStep.areas[3].locked='true';
+    areaStep.areas[1].locked=true;
+    areaStep.areas[2].locked=true;
+    areaStep.areas[3].locked=true;
   }
   if(action.nextStage==4){
     areaStep.areas[3].presentCharacter=3;
-    areaStep.areas[3].locked='false';
+    areaStep.areas[3].locked=true;
   }
 }
 function doCheckStage(){
@@ -593,7 +593,7 @@ function doCheckStage(){
     },550);
   }
   if(currentStage==3 && currentArea==12){
-    localStorage.setItem('savedCharacter','null');
+    localStorage.setItem('savedCharacter',null);
     setTimeout(function(){
       currentDialog=6;
       doTalk();
