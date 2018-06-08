@@ -208,9 +208,9 @@ function doTalk(){
       sfx_blipmale.stop();
       if(currentSentence==(dialog.sentences.length-1)){
         for(i=0;i<dialog.actions.length;i++){
-          if(talkStep.dialogs[currentDialog].actions[i].choice=="true"){
+          if(talkStep.dialogs[currentDialog].actions[i].choice!="null"){
             document.getElementById("buttonBox").style.display="block";
-            document.getElementById("buttonBox").innerHTML += "<button id=\"button\" onclick=\"selectedAction=" + i + ",doAction(" + i + ")\">" + dialog.actions[i].text + "</button>";
+            document.getElementById("buttonBox").innerHTML += "<button id=\"button\" onclick=\"selectedAction=" + i + ",doAction(" + i + ")\">" + dialog.actions[i].choice + "</button>";
           }
           else{
             document.getElementById("dialogButtonBox").innerHTML += "<i id=\"nextButton\" class=\"fas fa-caret-right\"onclick=\"selectedAction=" + i + ",doAction(" + i + ")\"></i>";
@@ -220,11 +220,11 @@ function doTalk(){
       else{
         document.getElementById("dialogButtonBox").innerHTML += "<i id=\"nextButton\" class=\"fas fa-caret-right\" onclick=\"doTalk()\"></i>";
       }
-      if(dialog.sentences[currentSentence].skip=="true"){
+      if(dialog.sentences[currentSentence].skip!="null"){
         setTimeout(function(){
           currentSentence++;
           document.getElementById("nextButton").click();
-        },250);
+        },dialog.sentences[currentSentence].skip);
       }
       else{
         currentSentence++;
@@ -241,8 +241,11 @@ function doAction(selectedAction){
   if(typeof(action.nextStage)!="undefined"){
     doNextStage();
   }
-  if(typeof(action.fade)!="undefined"){
-    doFade();
+  if(typeof(action.fadeIn)!="undefined"){
+    doFadeIn();
+  }
+  if(typeof(action.fadeOut)!="undefined"){
+    doFadeOut();
   }
   if(typeof(action.showCharacter)!="undefined"){
     currentCharacter=action.showCharacter;
@@ -268,9 +271,6 @@ function doAction(selectedAction){
   if(typeof(action.removeItem)!="undefined"){
     doRemoveItem();
   }
-  if(typeof(action.hideDialogBox)!="undefined"){
-    doHideDialogBox();
-  }
   if(typeof(action.pause)!="undefined"){
     doPause();
   }
@@ -282,13 +282,17 @@ function doAction(selectedAction){
   }
 }
 
-function doFade(){
+function doFadeIn(){
   document.getElementById("blackScreen").style.transition="1s";
-  if(action.fade=="in"){
-    setTimeout(function(){
-      document.getElementById("blackScreen").style.opacity="0";
-    },action.fadeTime);
-  }
+  setTimeout(function(){
+    document.getElementById("blackScreen").style.opacity="1";
+  },action.fadeIn);
+}
+function doFadeOut(){
+  document.getElementById("blackScreen").style.transition="1s";
+  setTimeout(function(){
+    document.getElementById("blackScreen").style.opacity="0";
+  },action.fadeOut);
 }
 function doShowCharacter(){
   localStorage.setItem('savedCharacter',currentCharacter);
@@ -400,12 +404,9 @@ function doRemoveItem(){
   remove.parentNode.removeChild(remove);
   localStorage.setItem(item,'false');
 }
-function doHideDialogBox(){
-  document.getElementById("dialog").style.display="none";
-
-}
 function doPause(){
-  setTimeout(doTalk,action.pauseTime);
+  document.getElementById("dialog").style.display="none";
+  setTimeout(doTalk,action.pause);
 }
 function doStopTalk(){
   currentDialog=0;
@@ -600,7 +601,7 @@ function doCheckStage(){
   }
   if(currentStage==4 && currentArea==3){
     setTimeout(function(){
-      currentDialog=9;
+      currentDialog=10;
       doTalk();
     },3000);
   }
