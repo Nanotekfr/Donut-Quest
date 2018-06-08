@@ -12,7 +12,7 @@ fetch('/js/json/characters.json')
   .then(function(characterJSON){
     characterStep=characterJSON;
   });
-fetch('/js/json/dialogsBACKUP.json')
+fetch('/js/json/dialogs.json')
   .then(function(dialogs){
     return dialogs.json();
   })
@@ -76,7 +76,7 @@ var currentItem=0;
 
 function doLoad(){
   document.getElementById('homeScreen').style.opacity='1';
-  if(localStorage.getItem('canContinue')==true){
+  if(localStorage.getItem('canContinue')==1){
     document.getElementById('continue').style.opacity='1';
     document.getElementById('continue').style.pointerEvents='auto';
   }
@@ -85,7 +85,7 @@ function doNewGame(){
   document.getElementById('homeScreen').style.opacity='0';
   document.getElementById('homeScreen').style.pointerEvents='none';
   sfx_ambient_museum.play();
-  localStorage.setItem('canContinue',true);
+  localStorage.setItem('canContinue',1);
   localStorage.setItem('savedStage',0);
   localStorage.setItem('savedArea',10);
   localStorage.setItem('savedCharacter',null);
