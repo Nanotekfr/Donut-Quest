@@ -152,7 +152,7 @@ function doContinue(){
   }
   if(currentStage>=4){
     areaStep.areas[3].presentCharacter=3;
-    areaStep.areas[3].locked=true;
+    areaStep.areas[3].locked=false;
   }
   if(currentCharacter!=-1){
     currentCharacter=JSON.parse(localStorage.getItem('savedCharacter'));
@@ -395,13 +395,13 @@ function doAddItem(){
   item=bag.item[currentItem].name;
   icon=bag.item[currentItem].icon;
   document.getElementById('items').innerHTML += "<div id='item" + currentItem + "' onclick=\"selectedItem='" + currentItem + "',doShowDescription()\">"+ icon + "</div>";
-  localStorage.setItem(item,1);
+  localStorage.setItem(item,true);
 }
 function doRemoveItem(){
   currentItem=action.removeItem;
   var remove=document.getElementById('item' + currentItem + '');
   remove.parentNode.removeChild(remove);
-  localStorage.setItem(item,1);
+  localStorage.setItem(item,true);
 }
 function doPause(){
   document.getElementById("dialog").style.display="none";
@@ -571,7 +571,7 @@ function doNextStage(){
   }
   if(action.nextStage==4){
     areaStep.areas[3].presentCharacter=3;
-    areaStep.areas[3].locked=true;
+    areaStep.areas[3].locked=false;
   }
 }
 function doCheckStage(){
