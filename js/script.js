@@ -154,7 +154,7 @@ function doContinue(){
     areaStep.areas[3].presentCharacter=3;
     areaStep.areas[3].locked=false;
   }
-  if(currentCharacter!=-1){
+  if(currentCharacter!=null){
     currentCharacter=JSON.parse(localStorage.getItem('savedCharacter'));
     doShowCharacter();
   }
