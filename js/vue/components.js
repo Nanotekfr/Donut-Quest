@@ -47,3 +47,9 @@ var vueArea = new Vue({
     img: '',
   }
 });
+var vueScenery = new Vue({
+  el: '#scenery',
+  data: {
+    url: '',
+  }
+});

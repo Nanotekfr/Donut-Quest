@@ -72,11 +72,11 @@
       "who":"TERRIL",
       "whoID":1,
       "sentences":[
-        {"id":1,"text":"Hey there! Wait!","speed":15,"skip":"true"},
-        {"id":2,"text":"Behind you...","speed":15,"skip":"true"}
+        {"id":1,"text":"Hey there! ^250 Wait!","speed":15,"skip":"true"},
+        {"id":2,"text":"Behind you...","speed":15,"skip":"false"}
       ],
       "actions":[
-        {"id":1,"choice":"false","text":"NEXT","nextDialog":7,"hideDialogBox":"true","pause":"true","pauseTime":2000}
+        {"id":1,"choice":"false","text":"NEXT","nextDialog":7,"hideDialogBox":"true","pause":"true","pauseTime":2000,"hideScenery":"true"}
       ]
     },
     {
@@ -98,9 +98,9 @@
       "who":"TERRIL",
       "whoID":1,
       "sentences":[
-        {"id":1,"text":"Yea, I know what you're gonna say: \"A talking mouse! Bla bla bla...\"","speed":15,"skip":"true"},
-        {"id":2,"text":"Look, I don't time have to explain, just do as I say ok?","speed":15,"skip":"true"},
-        {"id":2,"text":"Follow me to the next room, let's go!","speed":15,"skip":"true"}
+        {"id":1,"text":"Yea, ^250 I know what you're gonna say: \"A talking mouse! Bla bla bla...\"","speed":15,"skip":"true"},
+        {"id":2,"text":"Look, ^250 I don't time have to explain, ^250 just do as I say ok?","speed":15,"skip":"true"},
+        {"id":2,"text":"Follow me to the next room, ^250 let's go!","speed":15,"skip":"true"}
       ],
       "actions":[
         {"id":1,"choice":"false","text":"END","stopTalk":"true","nextStage":4,"hideCharacter":1}

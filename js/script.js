@@ -26,6 +26,13 @@ fetch('/js/json/inventory.json')
   .then(function(inventoryJSON){
     inventoryStep=inventoryJSON;
   });
+fetch('/js/json/scenery.json')
+  .then(function(scenery){
+    return scenery.json();
+  })
+  .then(function(sceneryJSON){
+    sceneryStep=sceneryJSON;
+  });
 
 var sfx_blipmale=new Howl({
   src:['../audio/sfx_blipmale.wav'],
@@ -69,7 +76,6 @@ var currentItem=0;
 
 function doLoad(){
   document.getElementById('homeScreen').style.opacity='1';
-  document.getElementById('fbFrame').style.bottom='0';
   if(localStorage.getItem('canContinue')=='true'){
     document.getElementById('continue').style.opacity='1';
     document.getElementById('continue').style.pointerEvents='auto';
@@ -140,6 +146,9 @@ function doContinue(){
     areaStep.areas[3].locked='true';
   }
   if(currentStage==3){
+    document.getElementById("scenery").style.opacity="1";
+    vueScenery.url=sceneryStep.sceneries[0].url;
+    localStorage.setItem('savedCharacter','null');
     currentStage=2;
   }
   if(currentStage>=4){
@@ -246,6 +255,12 @@ function doAction(selectedAction){
     currentCharacter=action.changeCharacter;
     doChangeCharacter();
   }
+  if(typeof(action.showScenery)!="undefined"){
+    doShowScenery();
+  }
+  if(typeof(action.hideScenery)!="undefined"){
+    doHideScenery();
+  }
   if(typeof(action.addItem)!="undefined"){
     currentItem=action.addItem;
     doAddItem();
@@ -307,10 +322,31 @@ function doChangeCharacter(){
     document.getElementById(character.img).style.opacity="1";
   },1500);
 }
+function doShowScenery(){
+  document.getElementById("blackScreen").style.transition=".5s";
+  document.getElementById("blackScreen").style.opacity="1";
+  setTimeout(function(){
+    document.getElementById("scenery").style.opacity="1";
+    vueScenery.url=sceneryStep.sceneries[action.showScenery].url;
+  },525);
+  setTimeout(function(){
+    document.getElementById('blackScreen').style.opacity="0";
+  },550);
+}
+function doHideScenery(){
+  document.getElementById("blackScreen").style.transition=".5s";
+  document.getElementById("blackScreen").style.opacity="1";
+  setTimeout(function(){
+    document.getElementById("scenery").style.opacity="0";
+  },525);
+  setTimeout(function(){
+    document.getElementById('blackScreen').style.opacity="0";
+  },550);
+}
 function doChangeArea(selectedArea){
   sfx_footsteps.play();
-  document.getElementById("blackScreen").style.transition=".5s";
   document.getElementById('mapWindow').style.left="-100%";
+  document.getElementById("blackScreen").style.transition=".5s";
   document.getElementById('blackScreen').style.opacity="1";
   currentArea=areaStep.areas[currentArea].canGoTo[selectedArea].nextArea;
   presentCharacter=areaStep.areas[currentArea].presentCharacter;
@@ -548,6 +584,12 @@ function doCheckStage(){
       currentDialog=5;
       doTalk();
     },5000);
+  }
+  if(currentStage==2 && currentArea==12){
+    setTimeout(function(){
+      document.getElementById("scenery").style.opacity="1";
+      vueScenery.url=sceneryStep.sceneries[0].url;
+    },550);
   }
   if(currentStage==3 && currentArea==12){
     localStorage.setItem('savedCharacter','null');

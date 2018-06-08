@@ -93,33 +93,29 @@ mark{
   display:flex;
   height:100%;
   color:black;
-  z-index:50;
+  z-index:70;
   width:100%;
   opacity:0;
 }
 #homeScreen h1{
   font-size:2.5vw;
+  cursor:default;
 }
 #homeScreen h2{
   font-size:1.5vw;
   position:fixed;
+  cursor:default;
   bottom:.5vw;
   left:1vw;
-}
-#homeScreen #fbFrame{
-  transition: ease-in-out 5s;
-  position:fixed;
-  bottom:-100%;
-  right:0;
 }
 #homeScreen button{
   justify-content:center;
   border-radius:.5vw;
   align-items:center;
-  font-size:1.75vw;
   background:#333;
   transition:.1s;
   cursor:pointer;
+  font-size:2vw;
   color:#f1f1f1;
   display:flex;
   height:2.5vw;
@@ -128,8 +124,10 @@ mark{
   width:15%;
 }
 #homeScreen button:hover{
-  font-size:2vw;
   background:#000;
+}
+#homeScreen button:active{
+  font-size:1.75vw;
 }
 #homeScreen #continue{
   pointer-events:none;
@@ -142,7 +140,7 @@ mark{
   transition:.3s;
   position:fixed;
   height:100%;
-  z-index:40;
+  z-index:50;
   width:100%;
 }
 /* HUD */
@@ -152,7 +150,7 @@ mark{
   transition:1s;
   display:block;
   width:100%;
-  z-index:30;
+  z-index:40;
 }
 #HUD #icons{
   border-bottom-right-radius:1.25vw 6.25vw;
@@ -216,7 +214,7 @@ mark{
   padding:.5vw;
   display:grid;
   bottom:-100%;
-  z-index:30;
+  z-index:40;
   height:30%;
   width:75%;
 }
@@ -263,7 +261,7 @@ mark{
   position:fixed;
   transition:1s;
   right:-100%;
-  z-index:30;
+  z-index:40;
   width:15%;
   height:0;
 }
@@ -353,19 +351,38 @@ mark{
 #dialog #button:hover{
   background:#963200;
 }
+#dialog #button:active{
+  font-size:1.75vw;
+}
 /* MASK */
 #mask{
   pointer-events:none;
   transition:.45s;
   position:fixed;
   height:100%;
-  z-index:20;
+  z-index:30;
   width:100%;
   opacity:0;
 }
 #mask img{
   height:100%;
   width:100%;
+}
+/* SCENERY */
+#scenery{
+  opacity:0;
+}
+#scenery img{
+  position:fixed;
+  overflow:auto;
+  margin:auto;
+  width:100%;
+  z-index:20;
+
+  bottom:0;
+  right:0;
+  left:0;
+  top:0;
 }
 /* CHARACTER */
 #character *{
