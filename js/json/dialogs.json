@@ -2,93 +2,206 @@
   "dialogs":[
     {
       "id":1,
-      "tag":"false",
+      "tag":false,
       "who":"PLAYER",
-      "whoID":"null",
+      "whoID":null,
       "sentences":[
-        {"id":1,"text":"It's locked. I can't go there...","speed":15,"skip":"null"}
+        {"id":1,"text":"It's locked. I can't go there...","speed":15,"skip":null}
       ],
       "actions":[
-        {"id":1,"choice":"null","stopTalk":"true"}
+        {
+          "id":1,
+          "nextDialog":null,
+          "nextStage":null,
+          "choice":null,
+          "fadeIn":null,
+          "fadeOut":null,
+          "showCharacter":null,
+          "hideCharacter":null,
+          "changeCharacter":null,
+          "showScenery":null,
+          "hideScenery":false,
+          "addItem":null,
+          "removeItem":null,
+          "pause":null,
+          "stopTalk":true
+        }
       ]
     },
     {
       "id":2,
-      "tag":"false",
+      "tag":false,
       "who":"PLAYER",
-      "whoID":"null",
+      "whoID":null,
       "sentences":[
-        {"id":1,"text":"<mark>Hmm... ^1000 <br>It's locked.</mark>","speed":15,"skip":"null"}
+        {"id":1,"text":"<mark>Hmm... ^1000 <br>It's locked.</mark>","speed":15,"skip":null}
       ],
       "actions":[
-        {"id":1,"choice":"null","stopTalk":"true","nextStage":3}
+        {
+          "id":1,
+          "nextDialog":null,
+          "nextStage":3,
+          "choice":null,
+          "fadeIn":null,
+          "fadeOut":null,
+          "showCharacter":null,
+          "hideCharacter":null,
+          "changeCharacter":null,
+          "showScenery":null,
+          "hideScenery":false,
+          "addItem":null,
+          "removeItem":null,
+          "pause":null,
+          "stopTalk":true
+        }
       ]
     },
     {
       "id":3,
-      "tag":"false",
+      "tag":false,
       "who":"SPEAKER",
-      "whoID":"null",
+      "whoID":null,
       "sentences":[
-        {"id":1,"text":"Dear visitors... ^500 <br>The <mark class='bis'>MUSEUM</mark> will close very soon.","speed":15,"skip":"null"}
+        {"id":1,"text":"Dear visitors... ^500 <br>The <mark class='bis'>MUSEUM</mark> will close very soon.","speed":15,"skip":null}
       ],
       "actions":[
-        {"id":1,"choice":"null","nextDialog":3,"pause":3000,"fadeOut":1500}
+        {
+          "id":1,
+          "nextDialog":3,
+          "nextStage":null,
+          "choice":null,
+          "fadeIn":null,
+          "fadeOut":1500,
+          "showCharacter":null,
+          "hideCharacter":null,
+          "changeCharacter":null,
+          "showScenery":null,
+          "hideScenery":false,
+          "addItem":null,
+          "removeItem":null,
+          "pause":3000,
+          "stopTalk":false
+        }
       ]
     },
     {
       "id":4,
-      "tag":"false",
+      "tag":false,
       "who":"SPEAKER",
-      "whoID":"null",
+      "whoID":null,
       "sentences":[
-        {"id":1,"text":"Please, ^250 proceed to the nearest <mark class='bis'>EXIT</mark>.","speed":15,"skip":"null"}
+        {"id":1,"text":"Please, ^250 proceed to the nearest <mark class='bis'>EXIT</mark>.","speed":15,"skip":null}
       ],
       "actions":[
-        {"id":1,"choice":"null","nextDialog":4,"pause":2000}
+        {
+          "id":1,
+          "nextDialog":4,
+          "nextStage":null,
+          "choice":null,
+          "fadeIn":null,
+          "fadeOut":null,
+          "showCharacter":null,
+          "hideCharacter":null,
+          "changeCharacter":null,
+          "showScenery":null,
+          "hideScenery":false,
+          "addItem":null,
+          "removeItem":null,
+          "pause":2000,
+          "stopTalk":false
+        }
       ]
     },
     {
       "id":5,
-      "tag":"false",
+      "tag":false,
       "who":"PLAYER",
-      "whoID":"null",
+      "whoID":null,
       "sentences":[
-        {"id":1,"text":"<mark>Well, ^250 better hurry... ^500 <br>I should check the <mark class='bis'>MAP</mark> to find my way.</mark>","speed":15,"skip":"null"}
+        {"id":1,"text":"<mark>Well, ^250 better hurry... ^500 <br>I should check the <mark class='bis'>MAP</mark> to find my way.</mark>","speed":15,"skip":null}
       ],
       "actions":[
-        {"id":1,"choice":"null","stopTalk":"true","nextStage":1}
+        {
+          "id":1,
+          "nextDialog":null,
+          "nextStage":1,
+          "choice":null,
+          "fadeIn":null,
+          "fadeOut":null,
+          "showCharacter":null,
+          "hideCharacter":null,
+          "changeCharacter":null,
+          "showScenery":null,
+          "hideScenery":false,
+          "addItem":null,
+          "removeItem":null,
+          "pause":null,
+          "stopTalk":true
+        }
       ]
     },
     {
       "id":6,
-      "tag":"false",
+      "tag":false,
       "who":"PLAYER",
-      "whoID":"null",
+      "whoID":null,
       "sentences":[
-        {"id":1,"text":"<mark>Weird, ^500 it's quiet all of a sudden...</mark>","speed":15,"skip":"null"}
+        {"id":1,"text":"<mark>Weird, ^500 it's quiet all of a sudden...</mark>","speed":15,"skip":null}
       ],
       "actions":[
-        {"id":1,"choice":"null","stopTalk":"true","nextStage":2}
+        {
+          "id":1,
+          "nextDialog":null,
+          "nextStage":2,
+          "choice":null,
+          "fadeIn":null,
+          "fadeOut":null,
+          "showCharacter":null,
+          "hideCharacter":null,
+          "changeCharacter":null,
+          "showScenery":null,
+          "hideScenery":false,
+          "addItem":null,
+          "removeItem":null,
+          "pause":null,
+          "stopTalk":true
+        }
       ]
     },
     {
       "id":7,
-      "tag":"true",
-      "showName":"false",
+      "tag":true,
+      "showName":false,
       "who":"TERRIL",
       "whoID":1,
       "sentences":[
         {"id":1,"text":"Hey there! ^250 Wait!","speed":15,"skip":500},
-        {"id":2,"text":"Behind you...","speed":15,"skip":"null"}
+        {"id":2,"text":"Behind you...","speed":15,"skip":null}
       ],
       "actions":[
-        {"id":1,"choice":"null","nextDialog":7,"pause":2000,"hideScenery":"true"}
+        {
+          "id":1,
+          "nextDialog":7,
+          "nextStage":null,
+          "choice":null,
+          "fadeIn":null,
+          "fadeOut":null,
+          "showCharacter":null,
+          "hideCharacter":null,
+          "changeCharacter":null,
+          "showScenery":null,
+          "hideScenery":true,
+          "addItem":null,
+          "removeItem":null,
+          "pause":2000,
+          "stopTalk":false
+        }
       ]
     },
     {
       "id":8,
-      "tag":"true",
+      "tag":true,
+      "showName":false,
       "who":"TERRIL",
       "whoID":1,
       "sentences":[
@@ -96,12 +209,29 @@
         {"id":2,"text":"Look at your feet!","speed":15,"skip":500}
       ],
       "actions":[
-        {"id":1,"choice":"null","nextDialog":8,"pause":2000,"showCharacter":1}
+        {
+          "id":1,
+          "nextDialog":8,
+          "nextStage":null,
+          "choice":null,
+          "fadeIn":null,
+          "fadeOut":null,
+          "showCharacter":1,
+          "hideCharacter":null,
+          "changeCharacter":null,
+          "showScenery":null,
+          "hideScenery":false,
+          "addItem":null,
+          "removeItem":null,
+          "pause":2000,
+          "stopTalk":false
+        }
       ]
     },
     {
       "id":9,
-      "tag":"true",
+      "tag":true,
+      "showName":false,
       "who":"TERRIL",
       "whoID":1,
       "sentences":[
@@ -110,31 +240,505 @@
         {"id":2,"text":"Follow me to the next room, ^500 let's go!","speed":20,"skip":500}
       ],
       "actions":[
-        {"id":1,"choice":"null","hideCharacter":1,"pause":2000,"nextDialog":9}
+        {
+          "id":1,
+          "nextDialog":9,
+          "nextStage":null,
+          "choice":null,
+          "fadeIn":null,
+          "fadeOut":null,
+          "showCharacter":null,
+          "hideCharacter":1,
+          "changeCharacter":null,
+          "showScenery":null,
+          "hideScenery":false,
+          "addItem":null,
+          "removeItem":null,
+          "pause":2000,
+          "stopTalk":false
+        }
       ]
     },
     {
       "id":10,
-      "tag":"false",
+      "tag":false,
       "who":"PLAYER",
-      "whoID":"null",
+      "whoID":null,
       "sentences":[
-        {"id":1,"text":"<mark>Ok... ^500 C'etait quoi ça?</mark>","speed":30,"skip":"null"}
+        {"id":1,"text":"<mark>Ok... ^500 C'etait quoi ça?</mark>","speed":30,"skip":null}
       ],
       "actions":[
-        {"id":1,"choice":"null","stopTalk":"true","nextStage":4}
+        {
+          "id":1,
+          "nextDialog":null,
+          "nextStage":4,
+          "choice":null,
+          "fadeIn":null,
+          "fadeOut":null,
+          "showCharacter":null,
+          "hideCharacter":null,
+          "changeCharacter":null,
+          "showScenery":null,
+          "hideScenery":false,
+          "addItem":null,
+          "removeItem":null,
+          "pause":null,
+          "stopTalk":true
+        }
       ]
     },
     {
       "id":11,
-      "tag":"false",
-      "who":"SPHYNX",
+      "tag":true,
+      "showName":false,
+      "who":"SPHINX",
       "whoID":3,
       "sentences":[
-        {"id":1,"text":"Qui ose entrer dans ma demeure ?...","speed":40,"skip":"null"}
+        {"id":1,"text":"Qui ose entrer dans ma demeure ?...","speed":40,"skip":null}
       ],
       "actions":[
-        {"id":1,"choice":"null","changeCharacter":1}
+        {
+          "id":1,
+          "nextDialog":11,
+          "nextStage":null,
+          "choice":null,
+          "fadeIn":null,
+          "fadeOut":null,
+          "showCharacter":null,
+          "hideCharacter":null,
+          "changeCharacter":1,
+          "showScenery":null,
+          "hideScenery":false,
+          "addItem":null,
+          "removeItem":null,
+          "pause":2500,
+          "stopTalk":false
+        }
+      ]
+    },
+    {
+      "id":12,
+      "tag":true,
+      "showName":false,
+      "who":"TERRIL",
+      "whoID":1,
+      "sentences":[
+        {"id":1,"text":"Oh c'est bon... Tu vas pas recommencer !","speed":15,"skip":null}
+      ],
+      "actions":[
+        {
+          "id":1,
+          "nextDialog":12,
+          "nextStage":null,
+          "choice":null,
+          "fadeIn":null,
+          "fadeOut":null,
+          "showCharacter":null,
+          "hideCharacter":null,
+          "changeCharacter":3,
+          "showScenery":null,
+          "hideScenery":false,
+          "addItem":null,
+          "removeItem":null,
+          "pause":2500,
+          "stopTalk":false
+        }
+      ]
+    },
+    {
+      "id":13,
+      "tag":true,
+      "showName":false,
+      "who":"SPHINX",
+      "whoID":3,
+      "sentences":[
+        {"id":1,"text":"Je suis le <mark class='bis'>SPHINX</mark>...","speed":40,"skip":null}
+      ],
+      "actions":[
+        {
+          "id":1,
+          "nextDialog":13,
+          "nextStage":null,
+          "choice":null,
+          "fadeIn":null,
+          "fadeOut":null,
+          "showCharacter":null,
+          "hideCharacter":null,
+          "changeCharacter":1,
+          "showScenery":null,
+          "hideScenery":false,
+          "addItem":null,
+          "removeItem":null,
+          "pause":2500,
+          "stopTalk":false
+        }
+      ]
+    },
+    {
+      "id":14,
+      "tag":true,
+      "showName":false,
+      "who":"TERRIL",
+      "whoID":1,
+      "sentences":[
+        {"id":1,"text":"Bon... La seule solution pour passer c'est de répondre aux éngimes... ","speed":15,"skip":null}
+      ],
+      "actions":[
+        {
+          "id":1,
+          "nextDialog":14,
+          "nextStage":null,
+          "choice":null,
+          "fadeIn":null,
+          "fadeOut":null,
+          "showCharacter":null,
+          "hideCharacter":null,
+          "changeCharacter":3,
+          "showScenery":null,
+          "hideScenery":false,
+          "addItem":null,
+          "removeItem":null,
+          "pause":2500,
+          "stopTalk":false
+        }
+      ]
+    },
+    {
+      "id":15,
+      "tag":true,
+      "showName":true,
+      "who":"SPHINX",
+      "whoID":3,
+      "sentences":[
+        {"id":1,"text":"Résous mes énigmes... Et tu auras accès à cette pièce...  ","speed":40,"skip":null},
+        {"id":2,"text":"Commençons...","speed":40,"skip":null},
+        {"id":3,"text":"\"Quel est l'être qui marche sur quatre pattes au ma-\"","speed":40,"skip":250}
+      ],
+      "actions":[
+        {
+          "id":1,
+          "nextDialog":15,
+          "nextStage":null,
+          "choice":null,
+          "fadeIn":null,
+          "fadeOut":null,
+          "showCharacter":null,
+          "hideCharacter":null,
+          "changeCharacter":null,
+          "showScenery":null,
+          "hideScenery":false,
+          "addItem":null,
+          "removeItem":null,
+          "pause":null,
+          "stopTalk":false
+        }
+      ]
+    },
+    {
+      "id":16,
+      "tag":true,
+      "showName":false,
+      "who":"TERRIL",
+      "whoID":1,
+      "sentences":[
+        {"id":1,"text":"Ah ! ^500 Je connais la réponse ! ^500 C'est \"REPONSE BIDON\"","speed":15,"skip":500}
+      ],
+      "actions":[
+        {
+          "id":1,
+          "nextDialog":16,
+          "nextStage":null,
+          "choice":null,
+          "fadeIn":null,
+          "fadeOut":null,
+          "showCharacter":null,
+          "hideCharacter":null,
+          "changeCharacter":null,
+          "showScenery":null,
+          "hideScenery":false,
+          "addItem":null,
+          "removeItem":null,
+          "pause":null,
+          "stopTalk":false
+        }
+      ]
+    },
+    {
+      "id":17,
+      "tag":true,
+      "showName":true,
+      "who":"SPHINX",
+      "whoID":3,
+      "sentences":[
+        {"id":1,"text":"...  ^1000 Je repète.","speed":40,"skip":null},
+        {"id":2,"text":"\"Quel est l'être qui marche sur quatre pattes au matin, sur deux à midi et sur trois le soir ?\"","speed":40,"skip":null}
+
+      ],
+      "actions":[
+        {
+          "id":1,
+          "nextDialog":20,
+          "nextStage":null,
+          "choice":" L'HYDRE",
+          "fadeIn":null,
+          "fadeOut":null,
+          "showCharacter":null,
+          "hideCharacter":null,
+          "changeCharacter":null,
+          "showScenery":null,
+          "hideScenery":false,
+          "addItem":null,
+          "removeItem":null,
+          "pause":null,
+          "stopTalk":false
+        },
+        {
+          "id":2,
+          "nextDialog":21,
+          "nextStage":null,
+          "choice":" L'HOMME",
+          "fadeIn":null,
+          "fadeOut":null,
+          "showCharacter":null,
+          "hideCharacter":null,
+          "changeCharacter":null,
+          "showScenery":null,
+          "hideScenery":false,
+          "addItem":null,
+          "removeItem":null,
+          "pause":null,
+          "stopTalk":false
+        },
+        {
+          "id":3,
+          "nextDialog":17,
+          "nextStage":null,
+          "choice":"REPONSE BIDON",
+          "fadeIn":null,
+          "fadeOut":null,
+          "showCharacter":null,
+          "hideCharacter":null,
+          "changeCharacter":null,
+          "showScenery":null,
+          "hideScenery":false,
+          "addItem":null,
+          "removeItem":null,
+          "pause":null,
+          "stopTalk":false
+        },
+        {
+          "id":4,
+          "nextDialog":20,
+          "nextStage":null,
+          "choice":"LEZARD",
+          "fadeIn":null,
+          "fadeOut":null,
+          "showCharacter":null,
+          "hideCharacter":null,
+          "changeCharacter":null,
+          "showScenery":null,
+          "hideScenery":false,
+          "addItem":null,
+          "removeItem":null,
+          "pause":null,
+          "stopTalk":false
+        }
+      ]
+    },
+    {
+      "id":18,
+      "tag":true,
+      "showName":true,
+      "who":"SPHINX",
+      "whoID":3,
+      "sentences":[
+        {"id":1,"text":"Ce n'est pas la bonne réponse...","speed":40,"skip":null}
+      ],
+      "actions":[
+        {
+          "id":1,
+          "nextDialog":18,
+          "nextStage":null,
+          "choice":null,
+          "fadeIn":null,
+          "fadeOut":null,
+          "showCharacter":null,
+          "hideCharacter":null,
+          "changeCharacter":1,
+          "showScenery":null,
+          "hideScenery":false,
+          "addItem":null,
+          "removeItem":null,
+          "pause":2500,
+          "stopTalk":false
+        }
+      ]
+    },
+    {
+      "id":19,
+      "tag":true,
+      "showName":false,
+      "who":"TERRIL",
+      "whoID":1,
+      "sentences":[
+        {"id":1,"text":"Tu croyais vraiment que c'etait la bonne réponse?... ^500 <br>Quel idiot... ","speed":15,"skip":null}
+      ],
+      "actions":[
+        {
+          "id":1,
+          "nextDialog":19,
+          "nextStage":null,
+          "choice":null,
+          "fadeIn":null,
+          "fadeOut":null,
+          "showCharacter":null,
+          "hideCharacter":null,
+          "changeCharacter":3,
+          "showScenery":null,
+          "hideScenery":false,
+          "addItem":null,
+          "removeItem":null,
+          "pause":2500,
+          "stopTalk":false
+        }
+      ]
+    },
+    {
+      "id":20,
+      "tag":true,
+      "showName":true,
+      "who":"SPHINX",
+      "whoID":3,
+      "sentences":[
+        {"id":1,"text":"\"Quel est l'être qui marche sur quatre pattes au matin, sur deux à midi et sur trois le soir ?\"  ","speed":40,"skip":null}
+      ],
+      "actions":[
+        {
+          "id":1,
+          "nextDialog":20,
+          "nextStage":null,
+          "choice":" L'HYDRE",
+          "fadeIn":null,
+          "fadeOut":null,
+          "showCharacter":null,
+          "hideCharacter":null,
+          "changeCharacter":null,
+          "showScenery":null,
+          "hideScenery":false,
+          "addItem":null,
+          "removeItem":null,
+          "pause":null,
+          "stopTalk":false
+        },
+        {
+          "id":2,
+          "nextDialog":21,
+          "nextStage":null,
+          "choice":" L'HOMME",
+          "fadeIn":null,
+          "fadeOut":null,
+          "showCharacter":null,
+          "hideCharacter":null,
+          "changeCharacter":null,
+          "showScenery":null,
+          "hideScenery":false,
+          "addItem":null,
+          "removeItem":null,
+          "pause":null,
+          "stopTalk":false
+        },
+        {
+          "id":3,
+          "nextDialog":20,
+          "nextStage":null,
+          "choice":"REPONSE BIDON",
+          "fadeIn":null,
+          "fadeOut":null,
+          "showCharacter":null,
+          "hideCharacter":null,
+          "changeCharacter":null,
+          "showScenery":null,
+          "hideScenery":false,
+          "addItem":null,
+          "removeItem":null,
+          "pause":null,
+          "stopTalk":false
+        },
+        {
+          "id":4,
+          "nextDialog":20,
+          "nextStage":null,
+          "choice":"LEZARD",
+          "fadeIn":null,
+          "fadeOut":null,
+          "showCharacter":null,
+          "hideCharacter":null,
+          "changeCharacter":null,
+          "showScenery":null,
+          "hideScenery":false,
+          "addItem":null,
+          "removeItem":null,
+          "pause":null,
+          "stopTalk":false
+        }
+      ]
+    },
+    {
+      "id":21,
+      "tag":true,
+      "showName":true,
+      "who":"SPHINX",
+      "whoID":3,
+      "sentences":[
+        {"id":1,"text":"Ce n'est pas la bonne réponse...","speed":40,"skip":null}
+      ],
+      "actions":[
+        {
+          "id":1,
+          "nextDialog":17,
+          "nextStage":null,
+          "choice":null,
+          "fadeIn":null,
+          "fadeOut":null,
+          "showCharacter":null,
+          "hideCharacter":null,
+          "changeCharacter":null,
+          "showScenery":null,
+          "hideScenery":false,
+          "addItem":null,
+          "removeItem":null,
+          "pause":null,
+          "stopTalk":false
+        },
+        {
+          "id":22,
+          "tag":true,
+          "showName":true,
+          "who":"SPHINX",
+          "whoID":3,
+          "sentences":[
+            {"id":1,"text":"Tu as trouvé la bonne réponse...","speed":40,"skip":null}
+          ],
+          "actions":[
+            {
+              "id":1,
+              "nextDialog":17,
+              "nextStage":null,
+              "choice":null,
+              "fadeIn":null,
+              "fadeOut":null,
+              "showCharacter":null,
+              "hideCharacter":null,
+              "changeCharacter":null,
+              "showScenery":null,
+              "hideScenery":false,
+              "addItem":null,
+              "removeItem":null,
+              "pause":null,
+              "stopTalk":false
+            }
+          ]
+        }
       ]
     }
   ]

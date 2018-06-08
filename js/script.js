@@ -12,7 +12,7 @@ fetch('/js/json/characters.json')
   .then(function(characterJSON){
     characterStep=characterJSON;
   });
-fetch('/js/json/dialogsBACKUP.json')
+fetch('/js/json/dialogs.json')
   .then(function(dialogs){
     return dialogs.json();
   })
@@ -318,12 +318,14 @@ function doChangeCharacter(){
   document.getElementById(character.img).style.opacity="0";
   setTimeout(function(){
     document.getElementById(character.img).style.display="none";
+    document.getElementById(character.img).style.transform="translateX(0)";
     character=characterStep.characters[currentCharacter];
+    document.getElementById(character.img).style.transform="translateX(25%)";
     document.getElementById(character.img).style.display="block";
-  },1000);
+  },525);
   setTimeout(function(){
     document.getElementById(character.img).style.opacity="1";
-  },1500);
+  },1550);
 }
 function doShowScenery(){
   document.getElementById("blackScreen").style.transition=".5s";

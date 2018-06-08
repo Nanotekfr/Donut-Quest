@@ -73,7 +73,7 @@
         <img id="tomStageXX" src="/img/template.png" onclick=""/>
         <img id="terrilStage03" src="/img/terril.png" onclick="currentDialog=11,doTalk()"/>
         <img id="djarStageXX" src="/img/template.png" onclick=""/>
-        <img id="sphynxStageXX" src="/img/template.png" onclick=""/>
+        <img id="sphinxStageXX" src="/img/template.png" onclick=""/>
       </div>
     </div>
   </section>

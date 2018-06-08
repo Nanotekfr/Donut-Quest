@@ -3,6 +3,6 @@
     {"id":1,"name":"Tom","img":"tomStageXX","isGhost":false},
     {"id":2,"name":"Terril","img":"terrilStage03","isGhost":false},
     {"id":3,"name":"Djar","img":"djarStageXX","isGhost":false},
-    {"id":4,"name":"Sphynx","img":"sphynxStageXX","isGhost":false}
+    {"id":4,"name":"Sphynx","img":"sphinxStageXX","isGhost":false}
   ]
 }
