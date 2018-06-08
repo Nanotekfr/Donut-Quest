@@ -261,7 +261,7 @@ function doAction(selectedAction){
   if(action.showScenery!=null){
     doShowScenery();
   }
-  if(action.hideScenery!=null){
+  if(action.hideScenery!=false){
     doHideScenery();
   }
   if(action.addItem!=null){
