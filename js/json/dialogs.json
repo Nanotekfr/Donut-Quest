@@ -265,7 +265,7 @@
       "who":"PLAYER",
       "whoID":null,
       "sentences":[
-        {"id":1,"text":"<mark>Ok... ^500 C'etait quoi ça?</mark>","speed":30,"skip":null}
+        {"id":1,"text":"<mark>Ok... ^500 What the hell was that?</mark>","speed":30,"skip":null}
       ],
       "actions":[
         {
@@ -294,12 +294,44 @@
       "who":"SPHINX",
       "whoID":3,
       "sentences":[
-        {"id":1,"text":"Qui ose entrer dans ma demeure ?...","speed":40,"skip":null}
+        {"id":1,"text":"HOLD IT RIGHT THERE...","speed":40,"skip":null},
+        {"id":2,"text":"WHO DARE DISTURB MY SLEEP!","speed":40,"skip":null},
+        {"id":3,"text":"YOU SHALL NOW PAY FOR YOUR CRIME INTRUDER!","speed":40,"skip":null},
+        {"id":4,"text":"MAY YOU MEET DEA-","speed":40,"skip":0}
       ],
       "actions":[
         {
           "id":1,
           "nextDialog":11,
+          "nextStage":null,
+          "choice":null,
+          "fadeIn":null,
+          "fadeOut":null,
+          "showCharacter":null,
+          "hideCharacter":null,
+          "changeCharacter":null,
+          "showScenery":null,
+          "hideScenery":false,
+          "addItem":null,
+          "removeItem":null,
+          "pause":null,
+          "stopTalk":false
+        }
+      ]
+    },
+    {
+      "id":12,
+      "tag":true,
+      "showName":false,
+      "who":"TERRIL",
+      "whoID":1,
+      "sentences":[
+        {"id":1,"text":"Argh! ^250 Not this again <mark class='bis'>SPHINX</mark>!","speed":15,"skip":500}
+      ],
+      "actions":[
+        {
+          "id":1,
+          "nextDialog":12,
           "nextStage":null,
           "choice":null,
           "fadeIn":null,
@@ -317,13 +349,14 @@
       ]
     },
     {
-      "id":12,
+      "id":13,
       "tag":true,
-      "showName":false,
+      "showName":true,
       "who":"TERRIL",
       "whoID":1,
       "sentences":[
-        {"id":1,"text":"Oh c'est bon... Tu vas pas recommencer !","speed":15,"skip":null}
+        {"id":1,"text":"Look. ^500 It's me, ^250 <mark class='bis'>TERRIL</mark>!","speed":15,"skip":null},
+        {"id":2,"text":"Now, let us pass ^250 please?","speed":15,"skip":500}
       ],
       "actions":[
         {
@@ -348,11 +381,13 @@
     {
       "id":13,
       "tag":true,
-      "showName":false,
+      "showName":true,
       "who":"SPHINX",
       "whoID":3,
       "sentences":[
-        {"id":1,"text":"Je suis le <mark class='bis'>SPHINX</mark>...","speed":40,"skip":null}
+        {"id":1,"text":". ^500 . ^500 .","speed":40,"skip":500},
+        {"id":1,"text":". ^500 . ^500 .","speed":40,"skip":500},
+        {"id":1,"text":"No.","speed":40,"skip":500}
       ],
       "actions":[
         {
@@ -364,12 +399,12 @@
           "fadeOut":null,
           "showCharacter":null,
           "hideCharacter":null,
-          "changeCharacter":1,
+          "changeCharacter":null,
           "showScenery":null,
           "hideScenery":false,
           "addItem":null,
           "removeItem":null,
-          "pause":2500,
+          "pause":null,
           "stopTalk":false
         }
       ]
