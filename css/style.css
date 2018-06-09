@@ -227,7 +227,6 @@ mark{
 }
 #HUD #item{
   cursor:pointer;
-  width:100%;
 }
 #HUD #description{
   background-image:url("../img/denim.png");
@@ -236,7 +235,6 @@ mark{
   border-radius:.25vw;
   align-items:center;
   text-align:center;
-  width:100%;
 }
 #HUD #description img{
   margin:10px 0 0;
@@ -288,10 +286,8 @@ mark{
 }
 #dialog .vue{
   grid-template-columns:1fr 2fr 1fr;
-  align-items:center;
+  align-items:end;
   display:grid;
-}
-#dialog #dialogBox{
 }
 #dialog #dialogName{
   border-radius:.25vw .25vw 0 0;
@@ -329,27 +325,28 @@ mark{
   display:block;
 }
 #dialog #buttonBoxLeft,#dialog #buttonBoxRight{
-  background:rgba(21,21,21,.75);
-  border:.25vw solid #f1f1f1;
-  color:#f1f1f1;
-  height:10vw;
+  height:12.5vw;
+  padding:.5vw;
   opacity:0;
 }
 #dialog #choice{
+  background:rgba(21,21,21,.5);
+  border:.25vw solid #f1f1f1;
   border-radius:.25vw;
-  background:#ffa500;
-  text-align:center;
   margin:.5vw auto;
+  text-align:left;
   transition:.2s;
   cursor:pointer;
   display:block;
   font-size:2vw;
+  color:#f1f1f1;
   padding:.5vw;
-  border:none;
-  width:90%;
+  width:100%;
 }
 #dialog #choice:hover{
-  background:#963200;
+  background:rgba(21,21,21,.75);
+  border:.25vw solid #f9f5a8;
+  color:#f9f5a8;
 }
 #dialog #choice:active{
   font-size:1.75vw;

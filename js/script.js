@@ -220,11 +220,11 @@ function doTalk(){
           if(talkStep.dialogs[currentDialog].actions[i].choice!=null){
             if(i<=1){
               document.getElementById("buttonBoxLeft").style.opacity="1";
-              document.getElementById("buttonBoxLeft").innerHTML += "<button id=\"choice\" onclick=\"selectedAction=" + i + ",doAction(" + i + ")\">" + dialog.actions[i].choice + "</button>";
+              document.getElementById("buttonBoxLeft").innerHTML += "<button id=\"choice\" onclick=\"selectedAction=" + i + ",doAction(" + i + ")\">-" + dialog.actions[i].choice + "</button>";
             }
             else{
               document.getElementById("buttonBoxRight").style.opacity="1";
-              document.getElementById("buttonBoxRight").innerHTML += "<button id=\"choice\" onclick=\"selectedAction=" + i + ",doAction(" + i + ")\">" + dialog.actions[i].choice + "</button>";
+              document.getElementById("buttonBoxRight").innerHTML += "<button id=\"choice\" onclick=\"selectedAction=" + i + ",doAction(" + i + ")\">-" + dialog.actions[i].choice + "</button>";
             }
           }
           else{
@@ -631,7 +631,7 @@ function doCheckStage(){
   }
   if(currentStage==4 && currentArea==3){
     setTimeout(function(){
-      currentDialog=20;
+      currentDialog=10;
       doTalk();
     },2750);
   }
