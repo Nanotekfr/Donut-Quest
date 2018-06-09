@@ -6,7 +6,7 @@
       "who":"PLAYER",
       "whoID":null,
       "sentences":[
-        {"id":1,"text":"It's locked. I can't go there...","speed":15,"skip":null}
+        {"id":1,"text":"<mark>It's locked. ^500 I can't go there...</mark>","speed":15,"skip":null}
       ],
       "actions":[
         {
@@ -236,7 +236,7 @@
       "whoID":1,
       "sentences":[
         {"id":1,"text":"Yea, ^250 I know what you're gonna say: ^500 <br>\"A talking mouse! Bla ^250 bla ^250 bla...\"","speed":20,"skip":500},
-        {"id":2,"text":"Look, ^250 I don't time have to explain, ^500 just do as I say ^250 ok?","speed":20,"skip":500},
+        {"id":2,"text":"Look, ^250 I don't time have to explain, ^500 <br>just do as I say ^250 ok?","speed":20,"skip":500},
         {"id":2,"text":"Follow me to the next room, ^500 let's go!","speed":20,"skip":500}
       ],
       "actions":[
@@ -295,8 +295,8 @@
       "whoID":3,
       "sentences":[
         {"id":1,"text":"HOLD IT RIGHT THERE...","speed":40,"skip":null},
-        {"id":2,"text":"WHO DARE DISTURB MY SLEEP!","speed":40,"skip":null},
-        {"id":3,"text":"YOU SHALL NOW PAY FOR YOUR CRIME INTRUDER!","speed":40,"skip":null},
+        {"id":2,"text":"WHO DARE DISTURB ME IN MY SLEEP!","speed":40,"skip":null},
+        {"id":3,"text":"YOU SHALL NOW PAY FOR YOUR CRIME<br>INTRUDER!","speed":40,"skip":null},
         {"id":4,"text":"MAY YOU MEET DEA-","speed":40,"skip":0}
       ],
       "actions":[
@@ -326,7 +326,7 @@
       "who":"TERRIL",
       "whoID":1,
       "sentences":[
-        {"id":1,"text":"Argh! ^250 Not this again <mark class='bis'>SPHINX</mark>!","speed":15,"skip":500}
+        {"id":1,"text":"Argh! ^250 Not this again <mark class='bis'>SPHINX</mark>!","speed":15,"skip":1000}
       ],
       "actions":[
         {
@@ -361,7 +361,7 @@
       "actions":[
         {
           "id":1,
-          "nextDialog":12,
+          "nextDialog":13,
           "nextStage":null,
           "choice":null,
           "fadeIn":null,
@@ -379,44 +379,16 @@
       ]
     },
     {
-      "id":13,
+      "id":14,
       "tag":true,
       "showName":true,
       "who":"SPHINX",
       "whoID":3,
       "sentences":[
-        {"id":1,"text":". ^500 . ^500 .","speed":40,"skip":500},
-        {"id":1,"text":". ^500 . ^500 .","speed":40,"skip":500},
-        {"id":1,"text":"No.","speed":40,"skip":500}
-      ],
-      "actions":[
-        {
-          "id":1,
-          "nextDialog":13,
-          "nextStage":null,
-          "choice":null,
-          "fadeIn":null,
-          "fadeOut":null,
-          "showCharacter":null,
-          "hideCharacter":false,
-          "changeCharacter":null,
-          "showScenery":null,
-          "hideScenery":false,
-          "addItem":null,
-          "removeItem":null,
-          "pause":null,
-          "stopTalk":false
-        }
-      ]
-    },
-    {
-      "id":14,
-      "tag":true,
-      "showName":false,
-      "who":"TERRIL",
-      "whoID":1,
-      "sentences":[
-        {"id":1,"text":"Bon... La seule solution pour passer c'est de répondre aux éngimes... ","speed":15,"skip":null}
+        {"id":1,"text":". ^500 . ^500 .","speed":40,"skip":1000},
+        {"id":2,"text":". ^500 . ^500 .","speed":40,"skip":1000},
+        {"id":3,"text":". ^500 . ^500 .","speed":40,"skip":1000},
+        {"id":4,"text":"No.","speed":40,"skip":500}
       ],
       "actions":[
         {
@@ -428,7 +400,7 @@
           "fadeOut":null,
           "showCharacter":null,
           "hideCharacter":false,
-          "changeCharacter":3,
+          "changeCharacter":1,
           "showScenery":null,
           "hideScenery":false,
           "addItem":null,
@@ -442,12 +414,11 @@
       "id":15,
       "tag":true,
       "showName":true,
-      "who":"SPHINX",
-      "whoID":3,
+      "who":"TERRIL",
+      "whoID":1,
       "sentences":[
-        {"id":1,"text":"Résous mes énigmes... Et tu auras accès à cette pièce...  ","speed":40,"skip":null},
-        {"id":2,"text":"Commençons...","speed":40,"skip":null},
-        {"id":3,"text":"\"Quel est l'être qui marche sur quatre pattes au ma-\"","speed":40,"skip":250}
+        {"id":1,"text":"Dammit! ^1000 <br>Ok, ^500 we really need to pass.","speed":15,"skip":1000},
+        {"id":2,"text":"Tell me what you want and you'll get it... ^1000 <br>Deal?","speed":15,"skip":null}
       ],
       "actions":[
         {
@@ -459,12 +430,12 @@
           "fadeOut":null,
           "showCharacter":null,
           "hideCharacter":false,
-          "changeCharacter":null,
+          "changeCharacter":3,
           "showScenery":null,
           "hideScenery":false,
           "addItem":null,
           "removeItem":null,
-          "pause":null,
+          "pause":2500,
           "stopTalk":false
         }
       ]
@@ -472,11 +443,13 @@
     {
       "id":16,
       "tag":true,
-      "showName":false,
-      "who":"TERRIL",
-      "whoID":1,
+      "showName":true,
+      "who":"SPHINX",
+      "whoID":3,
       "sentences":[
-        {"id":1,"text":"Ah ! ^500 Je connais la réponse ! ^500 C'est \"REPONSE BIDON\"","speed":15,"skip":500}
+        {"id":1,"text":"... ^1000 Fine.","speed":40,"skip":null},
+        {"id":2,"text":"Answer my riddles, ^500 and access of... ^500 <br>Whatever you came here for, ^250 will be granted.","speed":40,"skip":null},
+        {"id":3,"text":"First riddle, ^500 <br>\"What goes on four feet in the mor-\"","speed":40,"skip":500}
       ],
       "actions":[
         {
@@ -502,19 +475,135 @@
       "id":17,
       "tag":true,
       "showName":true,
+      "who":"TERRIL",
+      "whoID":1,
+      "sentences":[
+        {"id":1,"text":"Hey, ^250 I know that one! ^500 <br>It's a <mark class='bis'>MOUSE<mark>!","speed":15,"skip":500}
+      ],
+      "actions":[
+        {
+          "id":1,
+          "nextDialog":17,
+          "nextStage":null,
+          "choice":null,
+          "fadeIn":null,
+          "fadeOut":null,
+          "showCharacter":null,
+          "hideCharacter":false,
+          "changeCharacter":null,
+          "showScenery":null,
+          "hideScenery":false,
+          "addItem":null,
+          "removeItem":null,
+          "pause":null,
+          "stopTalk":false
+        }
+      ]
+    },
+    {
+      "id":18,
+      "tag":true,
+      "showName":true,
       "who":"SPHINX",
       "whoID":3,
       "sentences":[
-        {"id":1,"text":"...  ^1000 Je repète.","speed":40,"skip":null},
-        {"id":2,"text":"\"Quel est l'être qui marche sur quatre pattes au matin, sur deux à midi et sur trois le soir ?\"","speed":40,"skip":null}
-
+        {"id":1,"text":". ^250 . ^250 . ^250 <br>WRONG!","speed":40,"skip":500}
+      ],
+      "actions":[
+        {
+          "id":1,
+          "nextDialog":18,
+          "nextStage":null,
+          "choice":null,
+          "fadeIn":null,
+          "fadeOut":null,
+          "showCharacter":null,
+          "hideCharacter":false,
+          "changeCharacter":null,
+          "showScenery":null,
+          "hideScenery":false,
+          "addItem":null,
+          "removeItem":null,
+          "pause":2500,
+          "stopTalk":false
+        }
+      ]
+    },
+    {
+      "id":19,
+      "tag":true,
+      "showName":true,
+      "who":"TERRIL",
+      "whoID":1,
+      "sentences":[
+        {"id":1,"text":". ^250 . ^250 .","speed":15,"skip":1000}
+      ],
+      "actions":[
+        {
+          "id":1,
+          "nextDialog":19,
+          "nextStage":null,
+          "choice":null,
+          "fadeIn":null,
+          "fadeOut":null,
+          "showCharacter":null,
+          "hideCharacter":false,
+          "changeCharacter":3,
+          "showScenery":null,
+          "hideScenery":false,
+          "addItem":null,
+          "removeItem":null,
+          "pause":2500,
+          "stopTalk":false
+        }
+      ]
+    },
+    {
+      "id":20,
+      "tag":true,
+      "showName":true,
+      "who":"SPHINX",
+      "whoID":3,
+      "sentences":[
+        {"id":1,"text":"Hrm... ^500 <br>Maybe your friend here will be worth my time.","speed":40,"skip":1000},
+        {"id":2,"text":"You there... ^500 <br>I'll repeat my riddle for you...","speed":40,"skip":1000}
       ],
       "actions":[
         {
           "id":1,
           "nextDialog":20,
           "nextStage":null,
-          "choice":" L'HYDRE",
+          "choice":null,
+          "fadeIn":null,
+          "fadeOut":null,
+          "showCharacter":null,
+          "hideCharacter":false,
+          "changeCharacter":null,
+          "showScenery":null,
+          "hideScenery":false,
+          "addItem":null,
+          "removeItem":null,
+          "pause":null,
+          "stopTalk":false
+        }
+      ]
+    },
+    {
+      "id":21,
+      "tag":true,
+      "showName":true,
+      "who":"SPHINX",
+      "whoID":3,
+      "sentences":[
+        {"id":1,"text":"\"What goes on four feet in the morning, two feet at noon, and three feet in the evening?\"","speed":40,"skip":null}
+
+      ],
+      "actions":[
+        {
+          "id":1,
+          "nextDialog":21,
+          "nextStage":null,
+          "choice":"It's the Hydra, or something?",
           "fadeIn":null,
           "fadeOut":null,
           "showCharacter":null,
@@ -529,9 +618,9 @@
         },
         {
           "id":2,
-          "nextDialog":21,
+          "nextDialog":22,
           "nextStage":null,
-          "choice":" L'HOMME",
+          "choice":"I think that's the Human",
           "fadeIn":null,
           "fadeOut":null,
           "showCharacter":null,
@@ -546,9 +635,9 @@
         },
         {
           "id":3,
-          "nextDialog":17,
+          "nextDialog":21,
           "nextStage":null,
-          "choice":"REPONSE BIDON",
+          "choice":"A lizard, I guess.",
           "fadeIn":null,
           "fadeOut":null,
           "showCharacter":null,
@@ -563,9 +652,9 @@
         },
         {
           "id":4,
-          "nextDialog":20,
+          "nextDialog":21,
           "nextStage":null,
-          "choice":"LEZARD",
+          "choice":"Let me check my phone...",
           "fadeIn":null,
           "fadeOut":null,
           "showCharacter":null,

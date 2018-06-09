@@ -1,17 +1,29 @@
 {
   "id":1,
-  "nextDialog":null,
-  "nextStage":null,
-  "choice":null,
-  "fadeIn":null,
-  "fadeOut":null,
-  "showCharacter":null,
-  "hideCharacter":null,
-  "changeCharacter":null,
-  "showScenery":null,
-  "hideScenery":false,
-  "addItem":null,
-  "removeItem":null,
-  "pause":null,
-  "stopTalk":false
+  "tag":false,
+  "showName":false,
+  "who":null,
+  "whoID":null,
+  "sentences":[
+    {"id":1,"text":null,"speed":null,"skip":null}
+  ],
+  "actions":[
+    {
+      "id":1,
+      "nextDialog":null,
+      "nextStage":null,
+      "choice":null,
+      "fadeIn":null,
+      "fadeOut":null,
+      "showCharacter":null,
+      "hideCharacter":false,
+      "changeCharacter":null,
+      "showScenery":null,
+      "hideScenery":false,
+      "addItem":null,
+      "removeItem":null,
+      "pause":null,
+      "stopTalk":false
+    }
+  ]
 }

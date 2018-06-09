@@ -286,6 +286,13 @@ mark{
   z-index:60;
   width:100%;
 }
+#dialog .vue{
+  grid-template-columns:1fr 2fr 1fr;
+  align-items:center;
+  display:grid;
+}
+#dialog #dialogBox{
+}
 #dialog #dialogName{
   border-radius:.25vw .25vw 0 0;
   background:rgba(21,21,21,.75);
@@ -293,13 +300,12 @@ mark{
   border-width:.25vw .25vw 0;
   text-align:center;
   border-bottom:0;
-  margin-left:25%;
+  font-size:2.5vw;
   padding:0 .25vw;
   cursor:default;
-  font-size:2vw;
   display:block;
   color:#f1f1f1;
-  width:15%;
+  width:25%;
 }
 #dialog #dialogText{
   border-radius:0 .5vw .5vw .5vw;
@@ -309,8 +315,6 @@ mark{
   height:12.5vw;
   color:#f1f1f1;
   padding:.5vw;
-  margin:0 25%;
-  width:50%;
 }
 #dialog #dialogSentence{
   cursor:default;
@@ -319,38 +323,35 @@ mark{
 #dialog #nextButton{
   -webkit-animation:horizontal 2s ease infinite;
   animation:horizontal 2s ease infinite;
-  pointer-events:fill;
   text-align:right;
-  display:block;
   cursor:pointer;
   font-size:5vw;
+  display:block;
 }
-#dialog #buttonBox{
-  border-radius:.5vw .5vw .5vw .5vw;
+#dialog #buttonBoxLeft,#dialog #buttonBoxRight{
   background:rgba(21,21,21,.75);
   border:.25vw solid #f1f1f1;
-  margin:.5vw 25% 0;
-  display:none;
   color:#f1f1f1;
-  padding:.5vw;
-  width:50%;
+  height:10vw;
+  opacity:0;
 }
-#dialog #button{
+#dialog #choice{
   border-radius:.25vw;
   background:#ffa500;
-  max-height:12.5%;
-  margin:.5vw .5vw;
+  text-align:center;
+  margin:.5vw auto;
   transition:.2s;
   cursor:pointer;
   display:block;
   font-size:2vw;
   padding:.5vw;
   border:none;
+  width:90%;
 }
-#dialog #button:hover{
+#dialog #choice:hover{
   background:#963200;
 }
-#dialog #button:active{
+#dialog #choice:active{
   font-size:1.75vw;
 }
 /* MASK */

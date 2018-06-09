@@ -44,7 +44,7 @@
 
   <section id="dialog">
     <div class="vue">
-      <div></div>
+      <div id="buttonBoxLeft"></div>
       <div id="dialogBox">
         <div id="dialogName"></div>
         <div id="dialogText">
@@ -52,10 +52,7 @@
           <div id="dialogButtonBox"></div>
         </div>
       </div>
-      <div></div>
-      <div></div>
-      <div id="buttonBox">
-      </div>
+      <div id="buttonBoxRight"></div>
     </div>
   </section>
 
