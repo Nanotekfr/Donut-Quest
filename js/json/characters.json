@@ -1,8 +1,8 @@
 {
   "characters":[
-    {"id":1,"name":"Tom","img":"tomStageXX","isGhost":false},
-    {"id":2,"name":"Terril","img":"terrilStage03","isGhost":false},
-    {"id":3,"name":"Djar","img":"djarStageXX","isGhost":false},
-    {"id":4,"name":"Sphynx","img":"sphinxStageXX","isGhost":false}
+    {"id":1,"name":"Tom","img":"tomStageXX","ghost":false},
+    {"id":2,"name":"Terril","img":"terrilStage03","ghost":false},
+    {"id":3,"name":"Djar","img":"djarStageXX","ghost":false},
+    {"id":4,"name":"Sphinx","img":"sphinxStage05","ghost":false}
   ]
 }

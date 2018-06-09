@@ -10,10 +10,10 @@
 <body onload="doLoad()">
 
   <section id="homeScreen">
-    <h1>DONUT-QUEST</h1>
-    <h2>/!\ GAME UNDER DEVELOPMENT /!\</h2>
+    <h1>"DONUT-QUEST"</h1>
     <button id="newGame" onclick="doNewGame()">NEW GAME</button>
     <button id="continue" onclick="doContinue()">CONTINUE</button>
+    <h1>WORK IN PROGRESS<br>GAME UNDER DEVELOPMENT</h1>
   </section>
 
   <section id="blackScreen"></section>
@@ -70,7 +70,7 @@
         <img id="tomStageXX" src="/img/template.png" onclick=""/>
         <img id="terrilStage03" src="/img/terril.png" onclick="currentDialog=11,doTalk()"/>
         <img id="djarStageXX" src="/img/template.png" onclick=""/>
-        <img id="sphinxStageXX" src="/img/template.png" onclick=""/>
+        <img id="sphinxStage05" src="/img/template.png" onclick="currentDialog=23,doTalk()"/>
       </div>
     </div>
   </section>

@@ -3,10 +3,10 @@
     {
       "id":1,
       "tag":false,
+      "showName":false,
       "who":"PLAYER",
-      "whoID":null,
       "sentences":[
-        {"id":1,"text":"<mark>It's locked. ^500 I can't go there...</mark>","speed":15,"skip":null}
+        {"id":1,"text":"<mark>It's locked.^500 I can't go there...</mark>","speed":15,"skip":null}
       ],
       "actions":[
         {
@@ -31,10 +31,10 @@
     {
       "id":2,
       "tag":false,
+      "showName":false,
       "who":"PLAYER",
-      "whoID":null,
       "sentences":[
-        {"id":1,"text":"<mark>Hmm... ^1000 <br>It's locked.</mark>","speed":15,"skip":null}
+        {"id":1,"text":"<mark>Hmm...^1000 <br>It's locked.</mark>","speed":15,"skip":null}
       ],
       "actions":[
         {
@@ -60,9 +60,8 @@
       "id":3,
       "tag":false,
       "who":"SPEAKER",
-      "whoID":null,
       "sentences":[
-        {"id":1,"text":"Dear visitors... ^500 <br>The <mark class='bis'>MUSEUM</mark> will close very soon.","speed":15,"skip":null}
+        {"id":1,"text":"Dear visitors...^500 <br>The <mark class='bis'>MUSEUM</mark> will close very soon.","speed":15,"skip":null}
       ],
       "actions":[
         {
@@ -88,9 +87,8 @@
       "id":4,
       "tag":false,
       "who":"SPEAKER",
-      "whoID":null,
       "sentences":[
-        {"id":1,"text":"Please, ^250 proceed to the nearest <mark class='bis'>EXIT</mark>.","speed":15,"skip":null}
+        {"id":1,"text":"Please,^250 proceed to the nearest <mark class='bis'>EXIT</mark>.","speed":15,"skip":null}
       ],
       "actions":[
         {
@@ -115,10 +113,10 @@
     {
       "id":5,
       "tag":false,
+      "showName":false,
       "who":"PLAYER",
-      "whoID":null,
       "sentences":[
-        {"id":1,"text":"<mark>Well, ^250 better hurry... ^500 <br>I should check the <mark class='bis'>MAP</mark> to find my way.</mark>","speed":15,"skip":null}
+        {"id":1,"text":"<mark>Well,^250 better hurry...^500 <br>I should check the <mark class='bis'>MAP</mark> to find my way.</mark>","speed":15,"skip":null}
       ],
       "actions":[
         {
@@ -143,10 +141,10 @@
     {
       "id":6,
       "tag":false,
+      "showName":false,
       "who":"PLAYER",
-      "whoID":null,
       "sentences":[
-        {"id":1,"text":"<mark>Weird, ^500 it's quiet all of a sudden...</mark>","speed":15,"skip":null}
+        {"id":1,"text":"<mark>Weird,^500 it's quiet all of a sudden...</mark>","speed":15,"skip":null}
       ],
       "actions":[
         {
@@ -173,9 +171,8 @@
       "tag":true,
       "showName":false,
       "who":"TERRIL",
-      "whoID":1,
       "sentences":[
-        {"id":1,"text":"Hey there! ^250 Wait!","speed":15,"skip":500},
+        {"id":1,"text":"Hey there!^250 Wait!","speed":15,"skip":500},
         {"id":2,"text":"Behind you...","speed":15,"skip":null}
       ],
       "actions":[
@@ -203,7 +200,6 @@
       "tag":true,
       "showName":false,
       "who":"TERRIL",
-      "whoID":1,
       "sentences":[
         {"id":1,"text":"...","speed":30,"skip":500},
         {"id":2,"text":"Look at your feet!","speed":15,"skip":500}
@@ -233,11 +229,10 @@
       "tag":true,
       "showName":false,
       "who":"TERRIL",
-      "whoID":1,
       "sentences":[
-        {"id":1,"text":"Yea, ^250 I know what you're gonna say: ^500 <br>\"A talking mouse! Bla ^250 bla ^250 bla...\"","speed":20,"skip":500},
-        {"id":2,"text":"Look, ^250 I don't time have to explain, ^500 <br>just do as I say ^250 ok?","speed":20,"skip":500},
-        {"id":2,"text":"Follow me to the next room, ^500 let's go!","speed":20,"skip":500}
+        {"id":1,"text":"Yea,^250 I know what you're gonna say:^500 <br>\"A talking mouse! Bla^250 bla^250 bla...\"","speed":20,"skip":500},
+        {"id":2,"text":"Look,^250 I don't time have to explain,^500 <br>just do as I say^250 ok?","speed":20,"skip":500},
+        {"id":2,"text":"Follow me to the next room,^500 let's go!","speed":20,"skip":500}
       ],
       "actions":[
         {
@@ -262,10 +257,10 @@
     {
       "id":10,
       "tag":false,
+      "showName":false,
       "who":"PLAYER",
-      "whoID":null,
       "sentences":[
-        {"id":1,"text":"<mark>Ok... ^500 What the hell was that?</mark>","speed":30,"skip":null}
+        {"id":1,"text":"<mark>Ok...^500 What the hell was that?</mark>","speed":30,"skip":null}
       ],
       "actions":[
         {
@@ -292,12 +287,10 @@
       "tag":true,
       "showName":false,
       "who":"SPHINX",
-      "whoID":3,
       "sentences":[
         {"id":1,"text":"HOLD IT RIGHT THERE...","speed":40,"skip":null},
-        {"id":2,"text":"WHO DARE DISTURB ME IN MY SLEEP!","speed":40,"skip":null},
-        {"id":3,"text":"YOU SHALL NOW PAY FOR YOUR CRIME<br>INTRUDER!","speed":40,"skip":null},
-        {"id":4,"text":"MAY YOU MEET DEA-","speed":40,"skip":0}
+        {"id":2,"text":"WHO DARE COME IN THIS SACRED PLACE!","speed":40,"skip":null},
+        {"id":3,"text":"YOU SHALL NOT PASS!","speed":40,"skip":0}
       ],
       "actions":[
         {
@@ -324,9 +317,8 @@
       "tag":true,
       "showName":false,
       "who":"TERRIL",
-      "whoID":1,
       "sentences":[
-        {"id":1,"text":"Argh! ^250 Not this again <mark class='bis'>SPHINX</mark>!","speed":15,"skip":1000}
+        {"id":1,"text":"Argh!^250 Not this again <mark class='bis'>SPHINX</mark>!","speed":15,"skip":1000}
       ],
       "actions":[
         {
@@ -343,7 +335,7 @@
           "hideScenery":false,
           "addItem":null,
           "removeItem":null,
-          "pause":2500,
+          "pause":1500,
           "stopTalk":false
         }
       ]
@@ -353,10 +345,9 @@
       "tag":true,
       "showName":true,
       "who":"TERRIL",
-      "whoID":1,
       "sentences":[
-        {"id":1,"text":"Look. ^500 It's me, ^250 <mark class='bis'>TERRIL</mark>!","speed":15,"skip":null},
-        {"id":2,"text":"Now, let us pass ^250 please?","speed":15,"skip":500}
+        {"id":1,"text":"Look.^500 It's me,^250 <mark class='bis'>TERRIL</mark>!","speed":15,"skip":null},
+        {"id":2,"text":"Now let us pass,^250 please?","speed":15,"skip":500}
       ],
       "actions":[
         {
@@ -373,7 +364,7 @@
           "hideScenery":false,
           "addItem":null,
           "removeItem":null,
-          "pause":2500,
+          "pause":1500,
           "stopTalk":false
         }
       ]
@@ -383,11 +374,10 @@
       "tag":true,
       "showName":true,
       "who":"SPHINX",
-      "whoID":3,
       "sentences":[
-        {"id":1,"text":". ^500 . ^500 .","speed":40,"skip":1000},
-        {"id":2,"text":". ^500 . ^500 .","speed":40,"skip":1000},
-        {"id":3,"text":". ^500 . ^500 .","speed":40,"skip":1000},
+        {"id":1,"text":".^500.^500.","speed":40,"skip":1000},
+        {"id":2,"text":".^500.^500.","speed":40,"skip":1000},
+        {"id":3,"text":".^500.^500.","speed":40,"skip":1000},
         {"id":4,"text":"No.","speed":40,"skip":500}
       ],
       "actions":[
@@ -405,7 +395,7 @@
           "hideScenery":false,
           "addItem":null,
           "removeItem":null,
-          "pause":2500,
+          "pause":1500,
           "stopTalk":false
         }
       ]
@@ -415,10 +405,9 @@
       "tag":true,
       "showName":true,
       "who":"TERRIL",
-      "whoID":1,
       "sentences":[
-        {"id":1,"text":"Dammit! ^1000 <br>Ok, ^500 we really need to pass.","speed":15,"skip":1000},
-        {"id":2,"text":"Tell me what you want and you'll get it... ^1000 <br>Deal?","speed":15,"skip":null}
+        {"id":1,"text":"Dammit!^1000 <br>Ok,^500 we really need to pass.","speed":15,"skip":1000},
+        {"id":2,"text":"Tell me what you want and you'll get it...^1000 <br>Deal?","speed":15,"skip":null}
       ],
       "actions":[
         {
@@ -435,7 +424,7 @@
           "hideScenery":false,
           "addItem":null,
           "removeItem":null,
-          "pause":2500,
+          "pause":1500,
           "stopTalk":false
         }
       ]
@@ -445,11 +434,10 @@
       "tag":true,
       "showName":true,
       "who":"SPHINX",
-      "whoID":3,
       "sentences":[
-        {"id":1,"text":"... ^1000 Fine.","speed":40,"skip":null},
-        {"id":2,"text":"Answer my riddles, ^500 and access of... ^500 <br>Whatever you came here for, ^250 will be granted.","speed":40,"skip":null},
-        {"id":3,"text":"First riddle, ^500 <br>\"What goes on four feet in the mor-\"","speed":40,"skip":500}
+        {"id":1,"text":"...^1000Fine.","speed":40,"skip":null},
+        {"id":2,"text":"Answer my riddle,^500 and access of...^500 <br>Whatever you came here for will be granted.","speed":40,"skip":null},
+        {"id":3,"text":"Here you go,^500 <br>\"What goes on four feet in the mor-","speed":40,"skip":500}
       ],
       "actions":[
         {
@@ -476,9 +464,8 @@
       "tag":true,
       "showName":true,
       "who":"TERRIL",
-      "whoID":1,
       "sentences":[
-        {"id":1,"text":"Hey, ^250 I know that one! ^500 <br>It's a <mark class='bis'>MOUSE<mark>!","speed":15,"skip":500}
+        {"id":1,"text":"Hey,^250 I know that one!^500 <br>It's a <mark class='bis'>MOUSE</mark>!","speed":15,"skip":1000}
       ],
       "actions":[
         {
@@ -505,9 +492,8 @@
       "tag":true,
       "showName":true,
       "who":"SPHINX",
-      "whoID":3,
       "sentences":[
-        {"id":1,"text":". ^250 . ^250 . ^250 <br>WRONG!","speed":40,"skip":500}
+        {"id":1,"text":".^250.^250.^250 <br>WRONG!","speed":40,"skip":500}
       ],
       "actions":[
         {
@@ -519,12 +505,12 @@
           "fadeOut":null,
           "showCharacter":null,
           "hideCharacter":false,
-          "changeCharacter":null,
+          "changeCharacter":1,
           "showScenery":null,
           "hideScenery":false,
           "addItem":null,
           "removeItem":null,
-          "pause":2500,
+          "pause":1500,
           "stopTalk":false
         }
       ]
@@ -534,9 +520,8 @@
       "tag":true,
       "showName":true,
       "who":"TERRIL",
-      "whoID":1,
       "sentences":[
-        {"id":1,"text":". ^250 . ^250 .","speed":15,"skip":1000}
+        {"id":1,"text":".^250.^250.","speed":15,"skip":1000}
       ],
       "actions":[
         {
@@ -553,7 +538,7 @@
           "hideScenery":false,
           "addItem":null,
           "removeItem":null,
-          "pause":2500,
+          "pause":1500,
           "stopTalk":false
         }
       ]
@@ -563,10 +548,9 @@
       "tag":true,
       "showName":true,
       "who":"SPHINX",
-      "whoID":3,
       "sentences":[
-        {"id":1,"text":"Hrm... ^500 <br>Maybe your friend here will be worth my time.","speed":40,"skip":1000},
-        {"id":2,"text":"You there... ^500 <br>I'll repeat my riddle for you...","speed":40,"skip":1000}
+        {"id":1,"text":"Hrm...^500 <br>Maybe your friend here will be worth my time.","speed":40,"skip":1000},
+        {"id":2,"text":"You there...^500 <br>I'll repeat my riddle for you...","speed":40,"skip":1000}
       ],
       "actions":[
         {
@@ -593,9 +577,8 @@
       "tag":true,
       "showName":true,
       "who":"SPHINX",
-      "whoID":3,
       "sentences":[
-        {"id":1,"text":"\"What goes on four feet in the morning, two feet at noon, and three feet in the evening?\"","speed":40,"skip":null}
+        {"id":1,"text":"\"What goes on four feet in the morning,^500 two feet at noon,^500 <br>and three feet in the evening?\"","speed":40,"skip":null}
 
       ],
       "actions":[
@@ -618,9 +601,9 @@
         },
         {
           "id":2,
-          "nextDialog":22,
+          "nextDialog":null,
           "nextStage":null,
-          "choice":"I think that's the Human",
+          "choice":"I think that's the Human.",
           "fadeIn":null,
           "fadeOut":null,
           "showCharacter":null,
@@ -670,18 +653,17 @@
       ]
     },
     {
-      "id":18,
+      "id":22,
       "tag":true,
       "showName":true,
       "who":"SPHINX",
-      "whoID":3,
       "sentences":[
-        {"id":1,"text":"Ce n'est pas la bonne réponse...","speed":40,"skip":null}
+        {"id":1,"text":".^250.^250.^250 <br>WRONG!","speed":40,"skip":null}
       ],
       "actions":[
         {
           "id":1,
-          "nextDialog":18,
+          "nextDialog":22,
           "nextStage":null,
           "choice":null,
           "fadeIn":null,
@@ -693,25 +675,25 @@
           "hideScenery":false,
           "addItem":null,
           "removeItem":null,
-          "pause":2500,
+          "pause":1500,
           "stopTalk":false
         }
       ]
     },
     {
-      "id":19,
+      "id":23,
       "tag":true,
-      "showName":false,
+      "showName":true,
       "who":"TERRIL",
-      "whoID":1,
       "sentences":[
-        {"id":1,"text":"Tu croyais vraiment que c'etait la bonne réponse?... ^500 <br>Quel idiot... ","speed":15,"skip":null}
+        {"id":1,"text":"He won't let up pass until we've answered his riddle!","speed":15,"skip":null},
+        {"id":2,"text":"Talk to him to try again.","speed":15,"skip":null}
       ],
       "actions":[
         {
           "id":1,
-          "nextDialog":19,
-          "nextStage":null,
+          "nextDialog":null,
+          "nextStage":5,
           "choice":null,
           "fadeIn":null,
           "fadeOut":null,
@@ -722,26 +704,25 @@
           "hideScenery":false,
           "addItem":null,
           "removeItem":null,
-          "pause":2500,
-          "stopTalk":false
+          "pause":null,
+          "stopTalk":true
         }
       ]
     },
     {
-      "id":20,
+      "id":24,
       "tag":true,
       "showName":true,
       "who":"SPHINX",
-      "whoID":3,
       "sentences":[
-        {"id":1,"text":"\"Quel est l'être qui marche sur quatre pattes au matin, sur deux à midi et sur trois le soir ?\"  ","speed":40,"skip":null}
+        {"id":1,"text":"\"What goes on four feet in the morning,^500 two feet at noon,^500 <br>and three feet in the evening?\"","speed":40,"skip":null}
       ],
       "actions":[
         {
           "id":1,
-          "nextDialog":20,
+          "nextDialog":22,
           "nextStage":null,
-          "choice":" L'HYDRE",
+          "choice":"A Human.",
           "fadeIn":null,
           "fadeOut":null,
           "showCharacter":null,
@@ -756,9 +737,9 @@
         },
         {
           "id":2,
-          "nextDialog":21,
+          "nextDialog":24,
           "nextStage":null,
-          "choice":" L'HOMME",
+          "choice":"A lizard?",
           "fadeIn":null,
           "fadeOut":null,
           "showCharacter":null,
@@ -773,9 +754,9 @@
         },
         {
           "id":3,
-          "nextDialog":20,
+          "nextDialog":24,
           "nextStage":null,
-          "choice":"REPONSE BIDON",
+          "choice":"The Hydra.",
           "fadeIn":null,
           "fadeOut":null,
           "showCharacter":null,
@@ -790,9 +771,9 @@
         },
         {
           "id":4,
-          "nextDialog":20,
+          "nextDialog":21,
           "nextStage":null,
-          "choice":"LEZARD",
+          "choice":"Let me check my phone...",
           "fadeIn":null,
           "fadeOut":null,
           "showCharacter":null,
@@ -808,24 +789,51 @@
       ]
     },
     {
-      "id":21,
+      "id":25,
       "tag":true,
       "showName":true,
       "who":"SPHINX",
-      "whoID":3,
       "sentences":[
-        {"id":1,"text":"Ce n'est pas la bonne réponse...","speed":40,"skip":null}
+        {"id":1,"text":".^250.^250.^250 <br>WRONG!","speed":40,"skip":null}
       ],
       "actions":[
         {
           "id":1,
-          "nextDialog":17,
+          "nextDialog":25,
           "nextStage":null,
           "choice":null,
           "fadeIn":null,
           "fadeOut":null,
           "showCharacter":null,
           "hideCharacter":false,
+          "changeCharacter":1,
+          "showScenery":null,
+          "hideScenery":false,
+          "addItem":null,
+          "removeItem":null,
+          "pause":1500,
+          "stopTalk":false
+        }
+      ]
+    },
+    {
+      "id":26,
+      "tag":true,
+      "showName":true,
+      "who":"TERRIL",
+      "sentences":[
+        {"id":1,"text":"Come on...^500 We can't stay here all day!","speed":15,"skip":null}
+      ],
+      "actions":[
+        {
+          "id":1,
+          "nextDialog":26,
+          "nextStage":null,
+          "choice":null,
+          "fadeIn":null,
+          "fadeOut":null,
+          "showCharacter":null,
+          "hideCharacter":true,
           "changeCharacter":null,
           "showScenery":null,
           "hideScenery":false,
@@ -833,35 +841,34 @@
           "removeItem":null,
           "pause":null,
           "stopTalk":false
-        },
+        }
+      ]
+    },
+    {
+      "id":27,
+      "tag":false,
+      "showName":false,
+      "who":"PLAYER",
+      "sentences":[
+        {"id":1,"text":"<mark>That mouse got some nerve!^500 <br>I shouldn't even be doing this in the first place...</mark>","speed":15,"skip":null}
+      ],
+      "actions":[
         {
-          "id":22,
-          "tag":true,
-          "showName":true,
-          "who":"SPHINX",
-          "whoID":3,
-          "sentences":[
-            {"id":1,"text":"Tu as trouvé la bonne réponse...","speed":40,"skip":null}
-          ],
-          "actions":[
-            {
-              "id":1,
-              "nextDialog":17,
-              "nextStage":null,
-              "choice":null,
-              "fadeIn":null,
-              "fadeOut":null,
-              "showCharacter":null,
-              "hideCharacter":false,
-              "changeCharacter":null,
-              "showScenery":null,
-              "hideScenery":false,
-              "addItem":null,
-              "removeItem":null,
-              "pause":null,
-              "stopTalk":false
-            }
-          ]
+          "id":1,
+          "nextDialog":null,
+          "nextStage":null,
+          "choice":null,
+          "fadeIn":null,
+          "fadeOut":null,
+          "showCharacter":3,
+          "hideCharacter":false,
+          "changeCharacter":null,
+          "showScenery":null,
+          "hideScenery":false,
+          "addItem":null,
+          "removeItem":null,
+          "pause":null,
+          "stopTalk":true
         }
       ]
     }

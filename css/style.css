@@ -1,9 +1,13 @@
 @font-face{
-  src:url("../fonts/Ace-Attorney.ttf");
-  font-family:"attorney";
+  src:url("../fonts/insomniac_comic.ttf");
+  font-family:"insomniac";
 }
 @font-face{
-  src:url("../fonts/Sketchy.ttf");
+  src:url("../fonts/monofonto.otf");
+  font-family:"monofonto";
+}
+@font-face{
+  src:url("../fonts/sketchy_comic.ttf");
   font-family:"sketchy";
 }
 @-webkit-keyframes horizontal{
@@ -67,7 +71,7 @@
   }
 }
 *{
-  font-family:"attorney";
+  font-family:"monofonto";
   color:#f1f1f1;
 }
 body{
@@ -98,15 +102,9 @@ mark{
   opacity:0;
 }
 #homeScreen h1{
+  text-align: center;
   font-size:2.5vw;
   cursor:default;
-}
-#homeScreen h2{
-  font-size:1.5vw;
-  position:fixed;
-  cursor:default;
-  bottom:.5vw;
-  left:1vw;
 }
 #homeScreen button{
   justify-content:center;
@@ -125,9 +123,6 @@ mark{
 }
 #homeScreen button:hover{
   background:#000;
-}
-#homeScreen button:active{
-  font-size:1.75vw;
 }
 #homeScreen #continue{
   opacity:0;
@@ -278,7 +273,6 @@ mark{
 /* DIALOG */
 #dialog{
   position:fixed;
-  font-size:3vw;
   display:none;
   bottom:.5vw;
   z-index:60;
@@ -308,11 +302,14 @@ mark{
   background:rgba(21,21,21,.75);
   border:.25vw solid #f1f1f1;
   transition:2s;
+  max-width:97%;
+  min-width:97%;
   height:12.5vw;
   color:#f1f1f1;
   padding:.5vw;
 }
 #dialog #dialogSentence{
+  font-size:1.5vw;
   cursor:default;
   height:66%;
 }
@@ -325,31 +322,44 @@ mark{
   display:block;
 }
 #dialog #buttonBoxLeft,#dialog #buttonBoxRight{
-  height:12.5vw;
-  padding:.5vw;
-  opacity:0;
+  flex-direction:column;
+  position:relative;
+  transition:.5s;
+  display:flex;
 }
-#dialog #choice{
-  background:rgba(21,21,21,.5);
+#dialog #buttonBoxLeft{
+  padding:0 .5vw 0 0;
+  left:-100%;
+}
+#dialog #buttonBoxRight{
+  padding:0 0 0 .5vw;
+  right:-100%;
+}
+#dialog .choice{
+  background:rgba(21,21,21,.75);
   border:.25vw solid #f1f1f1;
-  border-radius:.25vw;
-  margin:.5vw auto;
+  white-space:nowrap;
+  margin:.5vw auto 0;
   text-align:left;
+  font-size:1.5vw;
   transition:.2s;
   cursor:pointer;
-  display:block;
-  font-size:2vw;
   color:#f1f1f1;
-  padding:.5vw;
+  height:5vw;
   width:100%;
 }
-#dialog #choice:hover{
-  background:rgba(21,21,21,.75);
+#dialog .choice:hover{
+  background:rgba(21,21,21,1);
   border:.25vw solid #f9f5a8;
-  color:#f9f5a8;
+  color:#FFFA96;
 }
-#dialog #choice:active{
-  font-size:1.75vw;
+#dialog .choice.left{
+  border-radius:0 .5vw .5vw 0;
+  border-left:none;
+}
+#dialog .choice.right{
+  border-radius:.5vw 0 0 .5vw;
+  border-right:none;
 }
 /* MASK */
 #mask{
