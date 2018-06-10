@@ -2,51 +2,58 @@
   "characters":[
     {
       "id":1,
-      "name":"Tom",
+      "name":"You",
+      "voice":"../audio/sfx_blip_male.wav",
       "img":[
-        {
-          "id":1,
-          "url":"tomStageXX"
-        }
+        {"id":1,"url":null}
       ],
-      "ghost":false},
+      "ghost":false
+    },
     {
       "id":2,
-      "name":"Terril",
+      "name":"Speaker",
+      "voice":"../audio/sfx_blip_female.wav",
       "img":[
-        {
-          "id":1,
-          "url":"terrilStageXX"
-        }
+        {"id":1,"url":null}
       ],
-      "ghost":false},
+      "ghost":false
+    },
     {
       "id":3,
-      "name":"Djar",
+      "name":"Tom",
+      "voice":"../audio/sfx_blip_female.wav",
       "img":[
-        {
-          "id":1,
-          "url":"djarStageXX"
-        }
+        {"id":1,"url":"tomStageXX"}
       ],
-      "ghost":false},
+      "ghost":false
+    },
     {
       "id":4,
-      "name":"Sphinx",
+      "name":"Terril",
+      "voice":"../audio/sfx_blip_female.wav",
       "img":[
-        {
-          "id":1,
-          "url":"sphinxStageXX"
-        },
-        {
-          "id":2,
-          "url":"sphinxStage05"
-        },
-        {
-          "id":3,
-          "url":"sphinxStage06"
-        }
+        {"id":1,"url":"terrilStageXX"}
       ],
-      "ghost":false}
+      "ghost":false
+    },
+    {
+      "id":5,
+      "name":"Djar",
+      "voice":"../audio/sfx_blip_male.wav",
+      "img":[{"id":1,"url":"djarStageXX"}
+      ],
+      "ghost":false
+    },
+    {
+      "id":6,
+      "name":"Sphinx",
+      "voice":"../audio/sfx_blip_male.wav",
+      "img":[
+        {"id":1,"url":"sphinxStageXX"},
+        {"id":2,"url":"sphinxStage05"},
+        {"id":3,"url":"sphinxStage06"}
+      ],
+      "ghost":false
+    }
   ]
 }

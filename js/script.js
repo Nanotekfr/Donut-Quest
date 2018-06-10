@@ -34,18 +34,6 @@ fetch('/js/json/scenery.json')
     sceneryStep=sceneryJSON;
   });
 
-var sfx_blip_male=new Howl({
-  src:['../audio/sfx_blip_male.wav'],
-  preload:true,
-  volume:.1,
-  loop:true
-});
-var sfx_blip_female=new Howl({
-  src:['../audio/sfx_blip_female.wav'],
-  preload:true,
-  volume:.1,
-  loop:true
-});
 var sfx_blip_select=new Howl({
   src:['../audio/sfx_blip_select.wav'],
   preload:true,
@@ -87,6 +75,7 @@ var currentSentence=0;
 var selectedAction=0;
 var currentDialog=0;
 var currentItem=0;
+var hasControl=false;
 
 function doLoad(){
   document.getElementById('homeScreen').style.opacity='1';
@@ -173,7 +162,7 @@ function doContinue(){
       localStorage.setItem('savedArea',0);
     }
     localStorage.setItem('savedCharacter',null);
-    areaStep.areas[3].presentCharacter[0].character=3;
+    areaStep.areas[3].presentCharacter[0].character=5;
     areaStep.areas[3].presentCharacter[0].img=0;
     areaStep.areas[3].available=true;
     areaStep.areas[3].locked=false;
@@ -181,7 +170,7 @@ function doContinue(){
     areaStep.areas[9].locked=true;
   }
   if(currentStage>=5){
-    localStorage.setItem('savedCharacter',3);
+    localStorage.setItem('savedCharacter',5);
     localStorage.setItem('savedCharacterId',1);
   }
   if(currentStage>=6){
@@ -198,6 +187,7 @@ function doContinue(){
   vueArea.img=areaStep.areas[currentArea].url;
   setTimeout(function(){
     document.getElementById('blackScreen').style.opacity="0";
+    hasControl=true;
   },1500);
 }
 function doQuit(){
@@ -207,6 +197,7 @@ function doQuit(){
 function doTalk(){
   doCloseMap();
   doCloseBag();
+  hasControl=false;
   dialog=talkStep.dialogs[currentDialog];
   document.getElementById("HUD").style.marginTop="-100%";
   document.getElementById("dialogSentence").innerHTML="";
@@ -224,7 +215,7 @@ function doTalk(){
     document.getElementById("dialogText").style.borderRadius="0 .5vw .5vw .5vw";
     document.getElementById("dialogName").style.opacity="1";
     if(dialog.showName==true){
-      document.getElementById("dialogName").innerHTML=dialog.who;
+      document.getElementById("dialogName").innerHTML=characterStep.characters[dialog.who].name;
     }
     else{
       document.getElementById("dialogName").innerHTML="? ? ?";
@@ -236,16 +227,22 @@ function doTalk(){
     document.getElementById("dialogName").innerHTML="";
   }
   document.getElementById("dialogBox").style.opacity="1";
-  sfx_blip_male.play();
+  var voice=new Howl({
+    src:[characterStep.characters[dialog.who].voice],
+    preload:true,
+    volume:.1,
+    loop:true
+  });
+  voice.play();
   speechtext= dialog.sentences[currentSentence].text;
   new Typed('#dialogSentence',{
     strings:[speechtext],
     typeSpeed:dialog.sentences[currentSentence].speed,
     showCursor:false,
-    onTypingPaused(){sfx_blip_male.stop();},
-    onTypingResumed(){sfx_blip_male.play();},
+    onTypingPaused(){voice.stop();},
+    onTypingResumed(){voice.play();},
     onComplete(){
-      sfx_blip_male.stop();
+      voice.stop();
       if(currentSentence==(dialog.sentences.length-1)){
         document.getElementById("buttonBoxLeft").innerHTML="";
         document.getElementById("buttonBoxRight").innerHTML="";
@@ -270,6 +267,7 @@ function doTalk(){
               document.getElementById("dialogButtonBox").innerHTML += "<i id=\"nextButton\" class=\"fas fa-caret-right\"onclick=\"selectedAction=" + i + ",sfx_blip_next.play(),doAction(" + i + ")\"></i>";
               document.getElementById("nextButton").style.pointerEvents="auto";
               document.getElementById("nextButton").style.opacity="1";
+              hasControl=true;
             }
           }
         }
@@ -284,6 +282,7 @@ function doTalk(){
           document.getElementById("dialogButtonBox").innerHTML += "<i id=\"nextButton\" class=\"fas fa-caret-right\" onclick=\"sfx_blip_next.play(),doTalk()\"></i>";
           document.getElementById("nextButton").style.pointerEvents="auto";
           document.getElementById("nextButton").style.opacity="1";
+          hasControl=true;
         }
       }
       if(dialog.sentences[currentSentence].skip!=null){
@@ -294,6 +293,7 @@ function doTalk(){
       }
       else{
         currentSentence++;
+        hasControl=true;
       }
     }
   });
@@ -433,6 +433,7 @@ function doHideScenery(){
 }
 function doChangeArea(selectedArea){
   sfx_footsteps.play();
+  hasControl=false;
   currentCharacter=JSON.parse(localStorage.getItem('savedCharacter'));
   currentCharacterId=JSON.parse(localStorage.getItem('savedCharacterId'));
   document.getElementById('mapWindow').style.left="-100%";
@@ -478,6 +479,7 @@ function doChangeArea(selectedArea){
   },1000);
   setTimeout(function(){
     document.getElementById('blackScreen').style.opacity="0";
+    hasControl=true;
   },2000);
 }
 function doAddItem(){
@@ -513,8 +515,15 @@ function doStopTalk(){
   }
   document.getElementById("dialogBox").style.opacity="0";
   document.getElementById("HUD").style.marginTop="0";
-  sfx_blip_male.stop();
+  var voice=new Howl({
+    src:[characterStep.characters[dialog.who].voice],
+    preload:true,
+    volume:.1,
+    loop:true
+  });
+  voice.stop();
   setTimeout(function(){
+    hasControl=true;
     doTrigger();
   },250);
 }
@@ -583,6 +592,7 @@ function doShowDescription(){
   document.getElementById('description').innerHTML=icon + description;
 }
 function doOpenMask(){
+  hasControl=false;
   if(maskOpened==0){
     document.getElementById("blackScreen").style.transition=".15s";
     document.getElementById('maskIcon').innerHTML='<img src="/img/opened-mask.png"/>';
@@ -600,6 +610,7 @@ function doOpenMask(){
     setTimeout(function(){
       document.getElementById('blackScreen').style.opacity="0";
     },700);
+    hasControl=true;
     maskOpened=1;
   }
   else{
@@ -626,6 +637,7 @@ function doCloseMask(){
   setTimeout(function(){
     document.getElementById('blackScreen').style.opacity="0";
   },700);
+  hasControl=true;
   maskOpened=0;
 }
 function doOpenPhone(){
@@ -669,14 +681,14 @@ function doNextStage(){
     areaStep.areas[2].locked=true;
   }
   if(action.nextStage==4){
-    areaStep.areas[3].presentCharacter[0].character=3;
+    areaStep.areas[3].presentCharacter[0].character=5;
     areaStep.areas[3].presentCharacter[0].img=0;
     areaStep.areas[3].available=true;
     areaStep.areas[3].locked=false;
     areaStep.areas[9].available=false;
     areaStep.areas[9].locked=true;
   }
-  if(action.nextStage==6){
+  if(action.nextStage==5){
     areaStep.areas[3].presentCharacter[0].img=1;
   }
   if(action.nextStage==6){
@@ -719,24 +731,26 @@ function doTrigger(){
 }
 
 document.body.addEventListener('keyup', function(e) {
-  if(document.getElementById("nextButton")!=null){
-    if(e.keyCode==69||e.keyCode==39){
-      document.getElementById("nextButton").click();
+  if(hasControl==true){
+    if(document.getElementById("nextButton")!=null){
+      if(e.keyCode==69||e.keyCode==39){
+        document.getElementById("nextButton").click();
+      }
     }
+    if(e.keyCode==77){
+      doOpenMap();
+    }
+    if(e.keyCode==66){
+      doOpenBag();
+    }
+    if(e.keyCode==70){
+      doOpenMask();
+    }
+    if(e.keyCode==27){
+      doOpenPhone();
+    }
+    // if(e.keyCode==123){
+    //   location.href = 'https://youtu.be/dQw4w9WgXcQ';
+    // }
   }
-  if(e.keyCode==77){
-    doOpenMap();
-  }
-  if(e.keyCode==66){
-    doOpenBag();
-  }
-  if(e.keyCode==70){
-    doOpenMask();
-  }
-  if(e.keyCode==27){
-    doOpenPhone();
-  }
-  // if(e.keyCode==123){
-  //   location.href = 'https://youtu.be/dQw4w9WgXcQ';
-  // }
 });
