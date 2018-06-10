@@ -91,7 +91,6 @@ function doNewGame(){
   document.getElementById('homeScreen').style.pointerEvents='none';
   sfx_ambient_museum.play();
   localStorage.clear();
-  localStorage.setItem('canContinue',true);
   localStorage.setItem('karmaScore',0);
   localStorage.setItem('savedStage',0);
   localStorage.setItem('savedArea',2);
@@ -150,14 +149,17 @@ function doContinue(){
   if(currentStage>=2){
     areaStep.areas[1].locked=true;
     areaStep.areas[2].locked=true;
+    if(currentArea==0){
+      document.getElementById("scenery").style.opacity="1";
+      vueScenery.url=sceneryStep.sceneries[0].url;
+    }
   }
   if(currentStage==3){
-    document.getElementById("scenery").style.opacity="1";
-    vueScenery.url=sceneryStep.sceneries[0].url;
     localStorage.setItem('savedCharacter',null);
     currentStage=2;
   }
   if(currentStage>=4){
+    document.getElementById("scenery").style.opacity="0";
     if(currentStage==4&&JSON.parse(localStorage.getItem('savedArea'))!=0){
       localStorage.setItem('savedArea',0);
     }
@@ -200,6 +202,14 @@ function doTalk(){
   hasControl=false;
   dialog=talkStep.dialogs[currentDialog];
   document.getElementById("HUD").style.marginTop="-100%";
+  if(document.getElementById("scenery").style.opacity=="1"){
+    document.getElementById("blackScreen02").style.opacity=".75";
+    document.getElementById("blackScreen03").style.opacity="0";
+  }
+  else{
+    document.getElementById("blackScreen02").style.opacity="0";
+    document.getElementById("blackScreen03").style.opacity=".75";
+  }
   document.getElementById("dialogSentence").innerHTML="";
   document.getElementById("dialogButtonBox").innerHTML="";
   document.getElementById("buttonBoxLeft").style.left="-100%";
@@ -504,6 +514,8 @@ function doPause(){
 function doStopTalk(){
   currentDialog=0;
   currentSentence=0;
+  document.getElementById("blackScreen02").style.opacity="0";
+  document.getElementById("blackScreen03").style.opacity="0";
   document.getElementById("buttonBoxLeft").style.left="-100%";
   document.getElementById("buttonBoxRight").style.right="-100%";
   var nodes=document.getElementById('characterBox').childNodes;
@@ -675,6 +687,7 @@ function doNextStage(){
     document.getElementById('phoneIcon').style.pointerEvents='auto';
     document.getElementById('mapIcon').innerHTML='<img src="/img/closed-map.png"/>';
     document.getElementById('phoneIcon').innerHTML='<img src="/img/closed-phone.png"/>';
+    localStorage.setItem('canContinue',true);
   }
   if(action.nextStage==2){
     areaStep.areas[1].locked=true;

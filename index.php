@@ -35,8 +35,6 @@
       </div>
       <div id="phoneWindow">
         <div id="screen">
-          <a>EFFECTS VOLUME</a>
-          <a>MUSIC VOLUME</a>
           <a onclick="doQuit()">QUIT GAME</a>
         </div>
       </div>
@@ -59,6 +57,7 @@
   <section id="mask"><img src="/img/mask.png"></section>
 
   <section id="scenery" onclick="doCloseAll()">
+    <div id="blackScreen02"></div>
     <img :src="url">
   </section>
 
@@ -70,14 +69,15 @@
         <img id="tomStageXX" src="/img/template.png"/>
         <img id="terrilStageXX" src="/img/terril.png"/>
         <img id="djarStageXX" src="/img/template.png"/>
-        <img id="sphinxStageXX" src="/img/template.png"/>
-        <img id="sphinxStage05" src="/img/template.png" onclick="currentDialog=23,doTalk()"/>
-        <img id="sphinxStage06" src="/img/template.png" onclick="currentDialog=36,doTalk()"/>
+        <img id="sphinxStageXX" src="/img/sphinx.png"/>
+        <img id="sphinxStage05" src="/img/sphinx.png" onclick="currentDialog=23,doTalk()"/>
+        <img id="sphinxStage06" src="/img/sphinx.png" onclick="currentDialog=36,doTalk()"/>
       </div>
     </div>
   </section>
 
   <section id="area" onclick="doCloseAll()">
+    <div id="blackScreen03"></div>
     <img :src="img">
   </section>
 

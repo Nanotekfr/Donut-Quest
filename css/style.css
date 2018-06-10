@@ -382,6 +382,16 @@ mark.distant{
 #scenery{
   opacity:0;
 }
+#scenery #blackScreen02{
+  pointer-events:none;
+  background:#000;
+  transition:.5s;
+  position:fixed;
+  height:100%;
+  z-index:21;
+  width:100%;
+  opacity:0;
+}
 #scenery img{
   position:fixed;
   overflow:auto;
@@ -414,6 +424,20 @@ mark.distant{
   opacity:0;
 }
 /* AREA */
+#area{
+  transition:.5s;
+  z-index:0;
+}
+#area #blackScreen03{
+  pointer-events:none;
+  background:#000;
+  transition:.5s;
+  position:fixed;
+  height:100%;
+  width:100%;
+  z-index:1;
+  opacity:0;
+}
 #area img{
   position:fixed;
   overflow:auto;
