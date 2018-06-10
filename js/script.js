@@ -149,17 +149,15 @@ function doContinue(){
   if(currentStage>=2){
     areaStep.areas[1].locked=true;
     areaStep.areas[2].locked=true;
-    if(currentArea==0){
+    if(currentStage==2||currentStage==3&&currentArea==0){
       document.getElementById("scenery").style.opacity="1";
       vueScenery.url=sceneryStep.sceneries[0].url;
     }
   }
   if(currentStage==3){
     localStorage.setItem('savedCharacter',null);
-    currentStage=2;
   }
   if(currentStage>=4){
-    document.getElementById("scenery").style.opacity="0";
     if(currentStage==4&&JSON.parse(localStorage.getItem('savedArea'))!=0){
       localStorage.setItem('savedArea',0);
     }
@@ -520,10 +518,16 @@ function doStopTalk(){
   document.getElementById("buttonBoxRight").style.right="-100%";
   var nodes=document.getElementById('characterBox').childNodes;
   for(var i=0;i<nodes.length;i++){
-    if(nodes[i].nodeName.toLowerCase() == 'img'){
+    if(nodes[i].nodeName.toLowerCase()=='img'){
       nodes[i].style.transform="translateX(0)";
-      nodes[i].style.pointerEvents="auto";
+      nodes[i].style.pointerEvents="none";
     }
+  }
+  currentCharacter=JSON.parse(localStorage.getItem('savedCharacter'));
+  currentCharacterId=JSON.parse(localStorage.getItem('savedCharacterId'));
+  if(currentCharacter!=null){
+    character=characterStep.characters[currentCharacter];
+    document.getElementById(character.img[currentCharacterId].url).style.pointerEvents="none";
   }
   document.getElementById("dialogBox").style.opacity="0";
   document.getElementById("HUD").style.marginTop="0";
