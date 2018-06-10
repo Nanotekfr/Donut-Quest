@@ -3,9 +3,8 @@
   "tag":false,
   "showName":false,
   "who":null,
-  "whoID":null,
   "sentences":[
-    {"id":1,"text":null,"speed":null,"skip":null}
+    {"id":1,"text":null,"speed":15,"skip":null}
   ],
   "actions":[
     {
@@ -15,13 +14,19 @@
       "choice":null,
       "fadeIn":null,
       "fadeOut":null,
-      "showCharacter":null,
+      "showCharacter":[
+        {"id":1,"character":null,"img":null}
+      ],
       "hideCharacter":false,
-      "changeCharacter":null,
+      "changeCharacter":[
+        {"id":1,"character":null,"img":null}
+      ],
       "showScenery":null,
       "hideScenery":false,
       "addItem":null,
       "removeItem":null,
+      "addScore":false,
+      "removeScore":false,
       "pause":null,
       "stopTalk":false
     }

@@ -34,17 +34,29 @@ fetch('/js/json/scenery.json')
     sceneryStep=sceneryJSON;
   });
 
-var sfx_blipmale=new Howl({
-  src:['../audio/sfx_blipmale.wav'],
+var sfx_blip_male=new Howl({
+  src:['../audio/sfx_blip_male.wav'],
   preload:true,
   volume:.1,
   loop:true
 });
-var sfx_blipfemale=new Howl({
-  src:['../audio/sfx_blipfemale.wav'],
+var sfx_blip_female=new Howl({
+  src:['../audio/sfx_blip_female.wav'],
   preload:true,
   volume:.1,
   loop:true
+});
+var sfx_blip_select=new Howl({
+  src:['../audio/sfx_blip_select.wav'],
+  preload:true,
+  volume:.25,
+  loop:false
+});
+var sfx_blip_next=new Howl({
+  src:['../audio/sfx_blip_next.wav'],
+  preload:true,
+  volume:.5,
+  loop:false
 });
 var sfx_ambient_museum=new Howl({
   src:['../audio/sfx_ambient_museum.wav'],
@@ -65,6 +77,7 @@ var sfx_footsteps=new Howl({
   preload:true,
   volume:.25
 });
+
 var karmaScore=JSON.parse(localStorage.getItem('karmaScore'));
 var currentCharacter=JSON.parse(localStorage.getItem('savedCharacter'));
 var currentCharacterId=JSON.parse(localStorage.getItem('savedCharacterId'));
@@ -223,37 +236,38 @@ function doTalk(){
     document.getElementById("dialogName").innerHTML="";
   }
   document.getElementById("dialogBox").style.opacity="1";
-  sfx_blipmale.play();
+  sfx_blip_male.play();
   speechtext= dialog.sentences[currentSentence].text;
   new Typed('#dialogSentence',{
     strings:[speechtext],
     typeSpeed:dialog.sentences[currentSentence].speed,
     showCursor:false,
-    onTypingPaused(){sfx_blipmale.stop();},
-    onTypingResumed(){sfx_blipmale.play();},
+    onTypingPaused(){sfx_blip_male.stop();},
+    onTypingResumed(){sfx_blip_male.play();},
     onComplete(){
-      sfx_blipmale.stop();
+      sfx_blip_male.stop();
       if(currentSentence==(dialog.sentences.length-1)){
         document.getElementById("buttonBoxLeft").innerHTML="";
         document.getElementById("buttonBoxRight").innerHTML="";
         for(i=0;i<dialog.actions.length;i++){
           if(talkStep.dialogs[currentDialog].actions[i].choice!=null){
             if(i<=1){
-              document.getElementById("buttonBoxLeft").innerHTML += "<button class=\"choice left\" onclick=\"selectedAction=" + i + ",doAction(" + i + ")\">-" + dialog.actions[i].choice + "</button>";
+              document.getElementById("buttonBoxLeft").innerHTML += "<button class=\"choice left\" onclick=\"selectedAction=" + i + ",sfx_blip_next.play(),doAction(" + i + ")\">-" + dialog.actions[i].choice + "</button>";
             }
             else{
-              document.getElementById("buttonBoxRight").innerHTML += "<button class=\"choice right\" onclick=\"selectedAction=" + i + ",doAction(" + i + ")\">-" + dialog.actions[i].choice + "</button>";
+              document.getElementById("buttonBoxRight").innerHTML += "<button class=\"choice right\" onclick=\"selectedAction=" + i + ",sfx_blip_next.play(),doAction(" + i + ")\">-" + dialog.actions[i].choice + "</button>";
             }
             document.getElementById("buttonBoxLeft").style.left="0";
             document.getElementById("buttonBoxRight").style.right="0";
           }
           else{
-            document.getElementById("dialogButtonBox").innerHTML += "<i id=\"nextButton\" class=\"fas fa-caret-right\"onclick=\"selectedAction=" + i + ",doAction(" + i + ")\"></i>";
             if(dialog.sentences[currentSentence].skip!=null){
+              document.getElementById("dialogButtonBox").innerHTML += "<i id=\"nextButton\" class=\"fas fa-caret-right\"onclick=\"selectedAction=" + i + ",doAction(" + i + ")\"></i>";
               document.getElementById("nextButton").style.pointerEvents="none";
               document.getElementById("nextButton").style.opacity="0";
             }
             else{
+              document.getElementById("dialogButtonBox").innerHTML += "<i id=\"nextButton\" class=\"fas fa-caret-right\"onclick=\"selectedAction=" + i + ",sfx_blip_next.play(),doAction(" + i + ")\"></i>";
               document.getElementById("nextButton").style.pointerEvents="auto";
               document.getElementById("nextButton").style.opacity="1";
             }
@@ -261,12 +275,13 @@ function doTalk(){
         }
       }
       else{
-        document.getElementById("dialogButtonBox").innerHTML += "<i id=\"nextButton\" class=\"fas fa-caret-right\" onclick=\"doTalk()\"></i>";
         if(dialog.sentences[currentSentence].skip!=null){
+          document.getElementById("dialogButtonBox").innerHTML += "<i id=\"nextButton\" class=\"fas fa-caret-right\" onclick=\"doTalk()\"></i>";
           document.getElementById("nextButton").style.pointerEvents="none";
           document.getElementById("nextButton").style.opacity="0";
         }
         else{
+          document.getElementById("dialogButtonBox").innerHTML += "<i id=\"nextButton\" class=\"fas fa-caret-right\" onclick=\"sfx_blip_next.play(),doTalk()\"></i>";
           document.getElementById("nextButton").style.pointerEvents="auto";
           document.getElementById("nextButton").style.opacity="1";
         }
@@ -498,7 +513,7 @@ function doStopTalk(){
   }
   document.getElementById("dialogBox").style.opacity="0";
   document.getElementById("HUD").style.marginTop="0";
-  sfx_blipmale.stop();
+  sfx_blip_male.stop();
   setTimeout(function(){
     doTrigger();
   },250);

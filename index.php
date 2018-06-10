@@ -11,8 +11,8 @@
 
   <section id="homeScreen">
     <h1>"DONUT-QUEST"<br>DEMO</h1>
-    <button id="newGame" onclick="doNewGame()">NEW GAME</button>
-    <button id="continue" onclick="doContinue()">CONTINUE</button>
+    <button id="newGame" onclick="sfx_blip_select.play(),doNewGame()">NEW GAME</button>
+    <button id="continue" onclick="sfx_blip_select.play(),doContinue()">CONTINUE</button>
     <h1>WORK IN PROGRESS</h1>
   </section>
 
