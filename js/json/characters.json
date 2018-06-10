@@ -1,8 +1,52 @@
 {
   "characters":[
-    {"id":1,"name":"Tom","img":"tomStageXX","ghost":false},
-    {"id":2,"name":"Terril","img":"terrilStage03","ghost":false},
-    {"id":3,"name":"Djar","img":"djarStageXX","ghost":false},
-    {"id":4,"name":"Sphinx","img":"sphinxStage05","ghost":false}
+    {
+      "id":1,
+      "name":"Tom",
+      "img":[
+        {
+          "id":1,
+          "url":"tomStageXX"
+        }
+      ],
+      "ghost":false},
+    {
+      "id":2,
+      "name":"Terril",
+      "img":[
+        {
+          "id":1,
+          "url":"terrilStageXX"
+        }
+      ],
+      "ghost":false},
+    {
+      "id":3,
+      "name":"Djar",
+      "img":[
+        {
+          "id":1,
+          "url":"djarStageXX"
+        }
+      ],
+      "ghost":false},
+    {
+      "id":4,
+      "name":"Sphinx",
+      "img":[
+        {
+          "id":1,
+          "url":"sphinxStageXX"
+        },
+        {
+          "id":2,
+          "url":"sphinxStage05"
+        },
+        {
+          "id":3,
+          "url":"sphinxStage06"
+        }
+      ],
+      "ghost":false}
   ]
 }

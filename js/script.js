@@ -65,7 +65,9 @@ var sfx_footsteps=new Howl({
   preload:true,
   volume:.25
 });
+var karmaScore=JSON.parse(localStorage.getItem('karmaScore'));
 var currentCharacter=JSON.parse(localStorage.getItem('savedCharacter'));
+var currentCharacterId=JSON.parse(localStorage.getItem('savedCharacterId'));
 var currentStage=JSON.parse(localStorage.getItem('savedStage'));
 var currentArea=JSON.parse(localStorage.getItem('savedArea'));
 var currentSentence=0;
@@ -86,10 +88,13 @@ function doNewGame(){
   document.getElementById('homeScreen').style.opacity='0';
   document.getElementById('homeScreen').style.pointerEvents='none';
   sfx_ambient_museum.play();
+  localStorage.clear();
   localStorage.setItem('canContinue',true);
+  localStorage.setItem('karmaScore',0);
   localStorage.setItem('savedStage',0);
   localStorage.setItem('savedArea',2);
   localStorage.setItem('savedCharacter',null);
+  localStorage.setItem('savedCharacterId',null);
   localStorage.setItem('gotMap',false);
   localStorage.setItem('gotBag',false);
   localStorage.setItem('gotMask',false);
@@ -102,6 +107,7 @@ function doNewGame(){
   currentStage=JSON.parse(localStorage.getItem('savedStage'));
   currentArea=JSON.parse(localStorage.getItem('savedArea'));
   currentCharacter=JSON.parse(localStorage.getItem('savedCharacter'));
+  currentCharacterId=JSON.parse(localStorage.getItem('savedCharacterId'));
   vueArea.img=areaStep.areas[currentArea].url;
   document.getElementById("HUD").style.marginTop="0";
   setTimeout(function(){
@@ -154,19 +160,25 @@ function doContinue(){
       localStorage.setItem('savedArea',0);
     }
     localStorage.setItem('savedCharacter',null);
-    areaStep.areas[3].presentCharacter=3;
+    areaStep.areas[3].presentCharacter[0].character=3;
+    areaStep.areas[3].presentCharacter[0].img=0;
     areaStep.areas[3].available=true;
     areaStep.areas[3].locked=false;
     areaStep.areas[9].available=false;
     areaStep.areas[9].locked=true;
   }
   if(currentStage>=5){
-      localStorage.setItem('savedCharacter',3);
-    }
+    localStorage.setItem('savedCharacter',3);
+    localStorage.setItem('savedCharacterId',1);
+  }
+  if(currentStage>=6){
+    localStorage.setItem('savedCharacterId',2);
+  }
   currentCharacter=JSON.parse(localStorage.getItem('savedCharacter'));
+  currentCharacterId=JSON.parse(localStorage.getItem('savedCharacterId'));
   if(currentCharacter!=null){
     character=characterStep.characters[currentCharacter];
-    document.getElementById(character.img).style.pointerEvents="auto";
+    document.getElementById(character.img[currentCharacterId].url).style.pointerEvents="auto";
     doShowCharacter();
   }
   currentArea=JSON.parse(localStorage.getItem('savedArea'));
@@ -197,7 +209,7 @@ function doTalk(){
   }
   if(dialog.tag==true){
     document.getElementById("dialogText").style.borderRadius="0 .5vw .5vw .5vw";
-    document.getElementById("dialogName").style.display="block";
+    document.getElementById("dialogName").style.opacity="1";
     if(dialog.showName==true){
       document.getElementById("dialogName").innerHTML=dialog.who;
     }
@@ -207,10 +219,10 @@ function doTalk(){
   }
   else{
     document.getElementById("dialogText").style.borderRadius=".5vw .5vw .5vw .5vw";
-    document.getElementById("dialogName").style.display="none";
+    document.getElementById("dialogName").style.opacity="0";
     document.getElementById("dialogName").innerHTML="";
   }
-  document.getElementById("dialog").style.display="block";
+  document.getElementById("dialogBox").style.opacity="1";
   sfx_blipmale.play();
   speechtext= dialog.sentences[currentSentence].text;
   new Typed('#dialogSentence',{
@@ -286,14 +298,15 @@ function doAction(selectedAction){
   if(action.fadeOut!=null){
     doFadeOut();
   }
-  if(action.showCharacter!=null){
-    currentCharacter=action.showCharacter;
+  if(action.showCharacter[0].character!=null){
+    currentCharacter=action.showCharacter[0].character;
+    currentCharacterId=action.showCharacter[0].img;
     doShowCharacter();
   }
   if(action.hideCharacter!=false){
     doHideCharacter();
   }
-  if(action.changeCharacter!=null){
+  if(action.changeCharacter[0].character!=null){
     doChangeCharacter();
   }
   if(action.showScenery!=null){
@@ -308,6 +321,16 @@ function doAction(selectedAction){
   }
   if(action.removeItem!=null){
     doRemoveItem();
+  }
+  if(action.addScore!=false){
+    karmaScore=JSON.parse(localStorage.getItem('karmaScore'));
+    karmaScore++;
+    localStorage.setItem('karmaScore',karmaScore);
+  }
+  if(action.removeScore!=false){
+    karmaScore=JSON.parse(localStorage.getItem('karmaScore'));
+    karmaScore--;
+    localStorage.setItem('karmaScore',karmaScore);
   }
   if(action.pause!=null){
     doPause();
@@ -333,39 +356,44 @@ function doFadeOut(){
   },action.fadeOut);
 }
 function doShowCharacter(){
-  localStorage.setItem('savedCharacter',currentCharacter);
   character=characterStep.characters[currentCharacter];
   setTimeout(function(){
     if(character.ghost==true){
-      document.getElementById(character.img).style.pointerEvents="none";
-      document.getElementById(character.img).style.opacity="0";
+      document.getElementById(character.img[currentCharacterId].url).style.pointerEvents="none";
+      document.getElementById(character.img[currentCharacterId].url).style.opacity="0";
     }
     else{
-      document.getElementById(character.img).style.opacity="1";
+      document.getElementById(character.img[currentCharacterId].url).style.opacity="1";
     }
   },1000);
+  localStorage.setItem('savedCharacter',currentCharacter);
+  localStorage.setItem('savedCharacterId',currentCharacterId);
 }
 function doHideCharacter(){
-  character=characterStep.characters[currentCharacter];
-  document.getElementById(character.img).style.opacity="0";
-  document.getElementById(character.img).style.pointerEvents="none";
-  document.getElementById(character.img).style.transform="translateX(0)";
+  var nodes=document.getElementById('characterBox').childNodes;
+  for(var i=0;i<nodes.length;i++){
+    if(nodes[i].nodeName.toLowerCase() == 'img'){
+      nodes[i].style.opacity="0";
+      nodes[i].style.transform="translateX(25%)";
+      nodes[i].style.pointerEvents="none";
+    }
+  }
   localStorage.setItem('savedCharacter',null);
+  localStorage.setItem('savedCharacterId',null);
 }
 function doChangeCharacter(){
   currentCharacter=JSON.parse(localStorage.getItem('savedCharacter'));
+  currentCharacterId=JSON.parse(localStorage.getItem('savedCharacterId'));
   character=characterStep.characters[currentCharacter];
-  document.getElementById(character.img).style.opacity="0";
+  document.getElementById(character.img[currentCharacterId].url).style.opacity="0";
   setTimeout(function(){
-    document.getElementById(character.img).style.display="none";
-    currentCharacter=action.changeCharacter;
+    currentCharacter=action.changeCharacter[0].character;
+    currentCharacterId=action.changeCharacter[0].img;
     character=characterStep.characters[currentCharacter];
-    document.getElementById(character.img).style.display="block";
+    document.getElementById(character.img[currentCharacterId].url).style.opacity="1";
+    localStorage.setItem('savedCharacter',action.changeCharacter[0].character);
+    localStorage.setItem('savedCharacterId',action.changeCharacter[0].img);
   },525);
-  setTimeout(function(){
-    document.getElementById(character.img).style.opacity="1";
-    localStorage.setItem('savedCharacter',action.changeCharacter);
-  },550);
 }
 function doShowScenery(){
   document.getElementById("blackScreen").style.transition=".5s";
@@ -390,49 +418,52 @@ function doHideScenery(){
 }
 function doChangeArea(selectedArea){
   sfx_footsteps.play();
+  currentCharacter=JSON.parse(localStorage.getItem('savedCharacter'));
+  currentCharacterId=JSON.parse(localStorage.getItem('savedCharacterId'));
   document.getElementById('mapWindow').style.left="-100%";
   document.getElementById("blackScreen").style.transition=".5s";
   document.getElementById('blackScreen').style.opacity="1";
   currentArea=areaStep.areas[currentArea].canGoTo[selectedArea].nextArea;
-  presentCharacter=areaStep.areas[currentArea].presentCharacter;
+  presentCharacter=areaStep.areas[currentArea].presentCharacter[0].character;
+  presentCharacterId=areaStep.areas[currentArea].presentCharacter[0].img;
   setTimeout(function(){
     doCloseMap();
     vueArea.img=areaStep.areas[currentArea].url;
     localStorage.setItem('savedArea',currentArea);
     if(currentCharacter!=null){
       character=characterStep.characters[currentCharacter];
-      document.getElementById(character.img).style.display="none";
+      document.getElementById(character.img[currentCharacterId]).style.opacity="0";
     }
     if(presentCharacter!=null){
       currentCharacter=presentCharacter;
+      currentCharacterId=presentCharacterId;
       character=characterStep.characters[currentCharacter];
-      document.getElementById(character.img).style.display="block";
-      if(characterStep.characters[currentCharacter].ghost==true){
+      if(character.ghost==true){
         if(maskOpened==1){
-          document.getElementById(character.img).style.pointerEvents="auto";
-          document.getElementById(character.img).style.opacity="1";
+          document.getElementById(character.img[currentCharacterId].url).style.pointerEvents="auto";
+          document.getElementById(character.img[currentCharacterId].url).style.opacity="1";
         }
         else{
-          document.getElementById(character.img).style.pointerEvents="none";
-          document.getElementById(character.img).style.opacity="0";
+          document.getElementById(character.img[currentCharacterId].url).style.pointerEvents="none";
+          document.getElementById(character.img[currentCharacterId].url).style.opacity="0";
         }
       }
       else{
-        document.getElementById(character.img).style.pointerEvents="auto";
-        document.getElementById(character.img).style.opacity="1";
+        document.getElementById(character.img[currentCharacterId].url).style.pointerEvents="auto";
+        document.getElementById(character.img[currentCharacterId].url).style.opacity="1";
       }
       localStorage.setItem('savedCharacter',currentCharacter);
+      localStorage.setItem('savedCharacterId',currentCharacterId);
     }
     else{
       localStorage.setItem('savedCharacter',null);
+      localStorage.setItem('savedCharacterId',null);
     }
+    doTrigger();
   },1000);
   setTimeout(function(){
     document.getElementById('blackScreen').style.opacity="0";
   },2000);
-  setTimeout(function(){
-    doCheckStage();
-  },2250);
 }
 function doAddItem(){
   bag=inventoryStep.bag;
@@ -448,12 +479,16 @@ function doRemoveItem(){
   localStorage.setItem(item,true);
 }
 function doPause(){
-  document.getElementById("dialog").style.display="none";
+  document.getElementById("dialogBox").style.opacity="0";
+  document.getElementById("buttonBoxLeft").style.left="-100%";
+  document.getElementById("buttonBoxRight").style.right="-100%";
   setTimeout(doTalk,action.pause);
 }
 function doStopTalk(){
   currentDialog=0;
   currentSentence=0;
+  document.getElementById("buttonBoxLeft").style.left="-100%";
+  document.getElementById("buttonBoxRight").style.right="-100%";
   var nodes=document.getElementById('characterBox').childNodes;
   for(var i=0;i<nodes.length;i++){
     if(nodes[i].nodeName.toLowerCase() == 'img'){
@@ -461,11 +496,11 @@ function doStopTalk(){
       nodes[i].style.pointerEvents="auto";
     }
   }
-  document.getElementById("dialog").style.display="none";
+  document.getElementById("dialogBox").style.opacity="0";
   document.getElementById("HUD").style.marginTop="0";
   sfx_blipmale.stop();
   setTimeout(function(){
-    doCheckStage();
+    doTrigger();
   },250);
 }
 
@@ -539,7 +574,7 @@ function doOpenMask(){
     document.getElementById('blackScreen').style.opacity="1";
     setTimeout(function(){
       document.getElementById('mask').style.opacity="1";
-      if(areaStep.areas[currentArea].presentCharacter!=null){
+      if(areaStep.areas[currentArea].presentCharacter[0].character!=null){
         character=characterStep.characters[currentCharacter];
         if(characterStep.characters[currentCharacter].ghost==true){
           document.getElementById(character.img).style.pointerEvents="auto";
@@ -565,7 +600,7 @@ function doCloseMask(){
   document.getElementById('blackScreen').style.opacity="1";
   setTimeout(function(){
     document.getElementById('mask').style.opacity="0";
-    if(areaStep.areas[currentArea].presentCharacter!=null){
+    if(areaStep.areas[currentArea].presentCharacter[0].character!=null){
       character=characterStep.characters[currentCharacter];
       if(characterStep.characters[currentCharacter].ghost==true){
         document.getElementById(character.img).style.pointerEvents="none";
@@ -619,14 +654,22 @@ function doNextStage(){
     areaStep.areas[2].locked=true;
   }
   if(action.nextStage==4){
-    areaStep.areas[3].presentCharacter=3;
+    areaStep.areas[3].presentCharacter[0].character=3;
+    areaStep.areas[3].presentCharacter[0].img=0;
     areaStep.areas[3].available=true;
     areaStep.areas[3].locked=false;
     areaStep.areas[9].available=false;
     areaStep.areas[9].locked=true;
   }
+  if(action.nextStage==6){
+    areaStep.areas[3].presentCharacter[0].img=1;
+  }
+  if(action.nextStage==6){
+    areaStep.areas[3].presentCharacter[0].img=2;
+  }
 }
-function doCheckStage(){
+function doTrigger(){
+  // minimum 1000 for setTimeOut
   if(currentStage==1 && currentArea==1){
     setTimeout(function(){
       sfx_ambient_museum.fade(1,0,1000);
@@ -635,13 +678,11 @@ function doCheckStage(){
       sfx_ambient_museum.stop();
       currentDialog=5;
       doTalk();
-    },5000);
+    },3000);
   }
   if(currentStage==2 && currentArea==0){
-    setTimeout(function(){
-      document.getElementById("scenery").style.opacity="1";
-      vueScenery.url=sceneryStep.sceneries[0].url;
-    },550);
+    document.getElementById("scenery").style.opacity="1";
+    vueScenery.url=sceneryStep.sceneries[0].url;
   }
   if(currentStage==3 && currentArea==0){
     setTimeout(function(){
@@ -653,7 +694,12 @@ function doCheckStage(){
     setTimeout(function(){
       currentDialog=10;
       doTalk();
-    },1000);
+    },2000);
+  }
+  if(currentStage==7){
+    setTimeout(function(){
+      document.getElementById('blackScreen').style.opacity="1";
+    },3000);
   }
 }
 

@@ -4,30 +4,9 @@
     "item":[
       {
         "id":1,
-        "name":"DONUTS",
-        "icon":"<img id='item' src='/img/donut.png'/>",
-        "description":"<p>This is a fucking Donuts.</p>",
-        "price":5,
-        "weight":0.2
-      },
-      {
-        "id":2,
-        "name":"armor",
-        "description":"This is an armor made of leather.",
-        "price":300,
-        "weight":50},
-      {
-        "id":3,
-        "name":"shield",
-        "description":"This is a shield made of iron.",
-        "price":500,
-        "weight":50},
-      {
-        "id":4,
-        "name":"potion",
-        "description":"Hell yeah ! This is a fucking potion fucking usefull ! Fuck !",
-        "price":1000,
-        "weight": 2
+        "name":"MASK",
+        "icon":"<img id='item' src='/img/closed-mask.png'/>",
+        "description":"<p>Weird Mask</p>"
       }
     ]
   }

@@ -77,10 +77,15 @@ body{
 }
 mark{
   background:none;
-  color:#6fc1eb;
 }
-.bis{
+mark.inner{
+  color:#6496C8;
+}
+mark.clue{
   color:#c05e3d;
+}
+mark.distant{
+  color:#23FF1E;
 }
 /* HOME SCREEN */
 #homeScreen{
@@ -174,7 +179,7 @@ mark{
   border-left:0;
   transition:1s;
   font-size:2vw;
-  color:#6d6d6d;
+  color:#003264;
   padding:1vw;
   height:100%;
   left:-100%;
@@ -269,7 +274,6 @@ mark{
 /* DIALOG */
 #dialog{
   position:fixed;
-  display:none;
   bottom:.5vw;
   z-index:60;
   width:100%;
@@ -278,6 +282,9 @@ mark{
   grid-template-columns:1fr 2fr 1fr;
   align-items:end;
   display:grid;
+}
+#dialog #dialogBox{
+  opacity:0;
 }
 #dialog #dialogName{
   border-radius:.25vw .25vw 0 0;

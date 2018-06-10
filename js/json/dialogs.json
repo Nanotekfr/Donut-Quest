@@ -4,9 +4,9 @@
       "id":1,
       "tag":false,
       "showName":false,
-      "who":"PLAYER",
+      "who":"YOU",
       "sentences":[
-        {"id":1,"text":"<mark>It's locked.^500 I can't go there...</mark>","speed":15,"skip":null}
+        {"id":1,"text":"<mark class='inner'>(It's locked.^500 I can't go there...)</mark>","speed":15,"skip":null}
       ],
       "actions":[
         {
@@ -16,13 +16,19 @@
           "choice":null,
           "fadeIn":null,
           "fadeOut":null,
-          "showCharacter":null,
+          "showCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
           "hideCharacter":false,
-          "changeCharacter":null,
+          "changeCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
           "showScenery":null,
           "hideScenery":false,
           "addItem":null,
           "removeItem":null,
+          "addScore":false,
+          "removeScore":false,
           "pause":null,
           "stopTalk":true
         }
@@ -32,9 +38,9 @@
       "id":2,
       "tag":false,
       "showName":false,
-      "who":"PLAYER",
+      "who":"YOU",
       "sentences":[
-        {"id":1,"text":"<mark>Hmm...^1000 <br>It's locked.</mark>","speed":15,"skip":null}
+        {"id":1,"text":"<mark class='inner'>(Hmm...^1000 <br>It's locked.)</mark>","speed":15,"skip":null}
       ],
       "actions":[
         {
@@ -44,13 +50,19 @@
           "choice":null,
           "fadeIn":null,
           "fadeOut":null,
-          "showCharacter":null,
+          "showCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
           "hideCharacter":false,
-          "changeCharacter":null,
+          "changeCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
           "showScenery":null,
           "hideScenery":false,
           "addItem":null,
           "removeItem":null,
+          "addScore":false,
+          "removeScore":false,
           "pause":null,
           "stopTalk":true
         }
@@ -61,7 +73,7 @@
       "tag":false,
       "who":"SPEAKER",
       "sentences":[
-        {"id":1,"text":"Dear visitors...^500 <br>The <mark class='bis'>MUSEUM</mark> will close very soon.","speed":15,"skip":null}
+        {"id":1,"text":"<mark class='distant'>(Dear visitors...^500 <br>The <mark class='clue'>MUSEUM</mark> will close very soon.)</mark>","speed":15,"skip":null}
       ],
       "actions":[
         {
@@ -71,13 +83,19 @@
           "choice":null,
           "fadeIn":null,
           "fadeOut":1500,
-          "showCharacter":null,
+          "showCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
           "hideCharacter":false,
-          "changeCharacter":null,
+          "changeCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
           "showScenery":null,
           "hideScenery":false,
           "addItem":null,
           "removeItem":null,
+          "addScore":false,
+          "removeScore":false,
           "pause":3000,
           "stopTalk":false
         }
@@ -88,7 +106,7 @@
       "tag":false,
       "who":"SPEAKER",
       "sentences":[
-        {"id":1,"text":"Please,^250 proceed to the nearest <mark class='bis'>EXIT</mark>.","speed":15,"skip":null}
+        {"id":1,"text":"<mark class='distant'>(Please,^250 proceed to the nearest <mark class='clue'>EXIT</mark>.)</mark>","speed":15,"skip":null}
       ],
       "actions":[
         {
@@ -98,13 +116,19 @@
           "choice":null,
           "fadeIn":null,
           "fadeOut":null,
-          "showCharacter":null,
+          "showCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
           "hideCharacter":false,
-          "changeCharacter":null,
+          "changeCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
           "showScenery":null,
           "hideScenery":false,
           "addItem":null,
           "removeItem":null,
+          "addScore":false,
+          "removeScore":false,
           "pause":2000,
           "stopTalk":false
         }
@@ -114,9 +138,9 @@
       "id":5,
       "tag":false,
       "showName":false,
-      "who":"PLAYER",
+      "who":"YOU",
       "sentences":[
-        {"id":1,"text":"<mark>Well,^250 better hurry...^500 <br>I should check the <mark class='bis'>MAP</mark> to find my way.</mark>","speed":15,"skip":null}
+        {"id":1,"text":"<mark class='inner'>(Well,^250 better hurry...^500 <br>I should check the <mark class='clue'>MAP</mark> to find my way.)</mark>","speed":15,"skip":null}
       ],
       "actions":[
         {
@@ -126,13 +150,19 @@
           "choice":null,
           "fadeIn":null,
           "fadeOut":null,
-          "showCharacter":null,
+          "showCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
           "hideCharacter":false,
-          "changeCharacter":null,
+          "changeCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
           "showScenery":null,
           "hideScenery":false,
           "addItem":null,
           "removeItem":null,
+          "addScore":false,
+          "removeScore":false,
           "pause":null,
           "stopTalk":true
         }
@@ -142,9 +172,9 @@
       "id":6,
       "tag":false,
       "showName":false,
-      "who":"PLAYER",
+      "who":"YOU",
       "sentences":[
-        {"id":1,"text":"<mark>Weird,^500 it's quiet all of a sudden...</mark>","speed":15,"skip":null}
+        {"id":1,"text":"<mark class='inner'>(Weird,^500 it's quiet all of a sudden...)</mark>","speed":15,"skip":null}
       ],
       "actions":[
         {
@@ -154,13 +184,19 @@
           "choice":null,
           "fadeIn":null,
           "fadeOut":null,
-          "showCharacter":null,
+          "showCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
           "hideCharacter":false,
-          "changeCharacter":null,
+          "changeCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
           "showScenery":null,
           "hideScenery":false,
           "addItem":null,
           "removeItem":null,
+          "addScore":false,
+          "removeScore":false,
           "pause":null,
           "stopTalk":true
         }
@@ -172,8 +208,7 @@
       "showName":false,
       "who":"TERRIL",
       "sentences":[
-        {"id":1,"text":"Hey there!^250 Wait!","speed":15,"skip":500},
-        {"id":2,"text":"Behind you...","speed":15,"skip":null}
+        {"id":1,"text":"<mark class='distant'>(Hey there!^250 Wait!^1000 <br>Behind you...)</mark>","speed":15,"skip":null}
       ],
       "actions":[
         {
@@ -183,13 +218,19 @@
           "choice":null,
           "fadeIn":null,
           "fadeOut":null,
-          "showCharacter":null,
+          "showCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
           "hideCharacter":false,
-          "changeCharacter":null,
+          "changeCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
           "showScenery":null,
           "hideScenery":true,
           "addItem":null,
           "removeItem":null,
+          "addScore":false,
+          "removeScore":false,
           "pause":2000,
           "stopTalk":false
         }
@@ -201,8 +242,8 @@
       "showName":false,
       "who":"TERRIL",
       "sentences":[
-        {"id":1,"text":"...","speed":30,"skip":500},
-        {"id":2,"text":"Look at your feet!","speed":15,"skip":500}
+        {"id":1,"text":"<mark class='distant'>(...)</mark>","speed":30,"skip":500},
+        {"id":2,"text":"<mark class='distant'>(Look at your feet!)</mark>","speed":15,"skip":500}
       ],
       "actions":[
         {
@@ -212,13 +253,19 @@
           "choice":null,
           "fadeIn":null,
           "fadeOut":null,
-          "showCharacter":1,
+          "showCharacter":[
+            {"id":1,"character":1,"img":0}
+          ],
           "hideCharacter":false,
-          "changeCharacter":null,
+          "changeCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
           "showScenery":null,
           "hideScenery":false,
           "addItem":null,
           "removeItem":null,
+          "addScore":false,
+          "removeScore":false,
           "pause":2000,
           "stopTalk":false
         }
@@ -231,7 +278,7 @@
       "who":"TERRIL",
       "sentences":[
         {"id":1,"text":"Yea,^250 I know what you're gonna say:^500 <br>\"A talking mouse! Bla^250 bla^250 bla...\"","speed":20,"skip":500},
-        {"id":2,"text":"Look,^250 I don't time have to explain,^500 <br>just do as I say^250 ok?","speed":20,"skip":500},
+        {"id":2,"text":"Look,^250 I don't have time have to explain,^500 <br>just do as I say^250 ok?","speed":20,"skip":500},
         {"id":2,"text":"Follow me to the next room,^500 let's go!","speed":20,"skip":500}
       ],
       "actions":[
@@ -242,13 +289,19 @@
           "choice":null,
           "fadeIn":null,
           "fadeOut":null,
-          "showCharacter":null,
+          "showCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
           "hideCharacter":true,
-          "changeCharacter":null,
+          "changeCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
           "showScenery":null,
           "hideScenery":false,
           "addItem":null,
           "removeItem":null,
+          "addScore":false,
+          "removeScore":false,
           "pause":2000,
           "stopTalk":false
         }
@@ -258,9 +311,9 @@
       "id":10,
       "tag":false,
       "showName":false,
-      "who":"PLAYER",
+      "who":"YOU",
       "sentences":[
-        {"id":1,"text":"<mark>Ok...^500 What the hell was that?</mark>","speed":30,"skip":null}
+        {"id":1,"text":"<mark class='inner'>(Ok...^500 What the hell was that?)</mark>","speed":30,"skip":null}
       ],
       "actions":[
         {
@@ -270,13 +323,19 @@
           "choice":null,
           "fadeIn":null,
           "fadeOut":null,
-          "showCharacter":null,
+          "showCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
           "hideCharacter":false,
-          "changeCharacter":null,
+          "changeCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
           "showScenery":null,
           "hideScenery":false,
           "addItem":null,
           "removeItem":null,
+          "addScore":false,
+          "removeScore":false,
           "pause":null,
           "stopTalk":true
         }
@@ -300,13 +359,19 @@
           "choice":null,
           "fadeIn":null,
           "fadeOut":null,
-          "showCharacter":null,
+          "showCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
           "hideCharacter":false,
-          "changeCharacter":null,
+          "changeCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
           "showScenery":null,
           "hideScenery":false,
           "addItem":null,
           "removeItem":null,
+          "addScore":false,
+          "removeScore":false,
           "pause":null,
           "stopTalk":false
         }
@@ -318,7 +383,7 @@
       "showName":false,
       "who":"TERRIL",
       "sentences":[
-        {"id":1,"text":"Argh!^250 Not this again <mark class='bis'>SPHINX</mark>!","speed":15,"skip":1000}
+        {"id":1,"text":"<mark class='distant'>(Argh!^250 Not this again <mark class='clue'>SPHINX</mark>!)</mark>","speed":15,"skip":1000}
       ],
       "actions":[
         {
@@ -328,13 +393,19 @@
           "choice":null,
           "fadeIn":null,
           "fadeOut":null,
-          "showCharacter":null,
+          "showCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
           "hideCharacter":false,
-          "changeCharacter":1,
+          "changeCharacter":[
+            {"id":1,"character":1,"img":0}
+          ],
           "showScenery":null,
           "hideScenery":false,
           "addItem":null,
           "removeItem":null,
+          "addScore":false,
+          "removeScore":false,
           "pause":1500,
           "stopTalk":false
         }
@@ -346,7 +417,7 @@
       "showName":true,
       "who":"TERRIL",
       "sentences":[
-        {"id":1,"text":"Look.^500 It's me,^250 <mark class='bis'>TERRIL</mark>!","speed":15,"skip":null},
+        {"id":1,"text":"Look.^500 It's me,^250 <mark class='clue'>TERRIL</mark>!","speed":15,"skip":null},
         {"id":2,"text":"Now let us pass,^250 please?","speed":15,"skip":500}
       ],
       "actions":[
@@ -357,13 +428,19 @@
           "choice":null,
           "fadeIn":null,
           "fadeOut":null,
-          "showCharacter":null,
+          "showCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
           "hideCharacter":false,
-          "changeCharacter":3,
+          "changeCharacter":[
+            {"id":1,"character":3,"img":0}
+          ],
           "showScenery":null,
           "hideScenery":false,
           "addItem":null,
           "removeItem":null,
+          "addScore":false,
+          "removeScore":false,
           "pause":1500,
           "stopTalk":false
         }
@@ -388,13 +465,19 @@
           "choice":null,
           "fadeIn":null,
           "fadeOut":null,
-          "showCharacter":null,
+          "showCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
           "hideCharacter":false,
-          "changeCharacter":1,
+          "changeCharacter":[
+            {"id":1,"character":1,"img":0}
+          ],
           "showScenery":null,
           "hideScenery":false,
           "addItem":null,
           "removeItem":null,
+          "addScore":false,
+          "removeScore":false,
           "pause":1500,
           "stopTalk":false
         }
@@ -417,13 +500,19 @@
           "choice":null,
           "fadeIn":null,
           "fadeOut":null,
-          "showCharacter":null,
+          "showCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
           "hideCharacter":false,
-          "changeCharacter":3,
+          "changeCharacter":[
+            {"id":1,"character":3,"img":0}
+          ],
           "showScenery":null,
           "hideScenery":false,
           "addItem":null,
           "removeItem":null,
+          "addScore":false,
+          "removeScore":false,
           "pause":1500,
           "stopTalk":false
         }
@@ -436,7 +525,7 @@
       "who":"SPHINX",
       "sentences":[
         {"id":1,"text":"...^1000Fine.","speed":40,"skip":null},
-        {"id":2,"text":"Answer my riddle,^500 and access of...^500 <br>Whatever you came here for will be granted.","speed":40,"skip":null},
+        {"id":2,"text":"Answer my riddle,^500 and the access of...^500 <br>Whatever you came here for^250 will be granted.","speed":40,"skip":null},
         {"id":3,"text":"Here you go,^500 <br>\"What goes on four feet in the mor-","speed":40,"skip":500}
       ],
       "actions":[
@@ -447,13 +536,19 @@
           "choice":null,
           "fadeIn":null,
           "fadeOut":null,
-          "showCharacter":null,
+          "showCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
           "hideCharacter":false,
-          "changeCharacter":null,
+          "changeCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
           "showScenery":null,
           "hideScenery":false,
           "addItem":null,
           "removeItem":null,
+          "addScore":false,
+          "removeScore":false,
           "pause":null,
           "stopTalk":false
         }
@@ -465,7 +560,7 @@
       "showName":true,
       "who":"TERRIL",
       "sentences":[
-        {"id":1,"text":"Hey,^250 I know that one!^500 <br>It's a <mark class='bis'>MOUSE</mark>!","speed":15,"skip":1000}
+        {"id":1,"text":"<mark class='distant'>(Hey,^250 I know that one!^500 <br>It's a <mark class='clue'>MOUSE</mark>!)</mark>","speed":15,"skip":1000}
       ],
       "actions":[
         {
@@ -475,13 +570,19 @@
           "choice":null,
           "fadeIn":null,
           "fadeOut":null,
-          "showCharacter":null,
+          "showCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
           "hideCharacter":false,
-          "changeCharacter":null,
+          "changeCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
           "showScenery":null,
           "hideScenery":false,
           "addItem":null,
           "removeItem":null,
+          "addScore":false,
+          "removeScore":false,
           "pause":null,
           "stopTalk":false
         }
@@ -503,13 +604,19 @@
           "choice":null,
           "fadeIn":null,
           "fadeOut":null,
-          "showCharacter":null,
+          "showCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
           "hideCharacter":false,
-          "changeCharacter":1,
+          "changeCharacter":[
+            {"id":1,"character":1,"img":0}
+          ],
           "showScenery":null,
           "hideScenery":false,
           "addItem":null,
           "removeItem":null,
+          "addScore":false,
+          "removeScore":false,
           "pause":1500,
           "stopTalk":false
         }
@@ -531,13 +638,19 @@
           "choice":null,
           "fadeIn":null,
           "fadeOut":null,
-          "showCharacter":null,
+          "showCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
           "hideCharacter":false,
-          "changeCharacter":3,
+          "changeCharacter":[
+            {"id":1,"character":3,"img":0}
+          ],
           "showScenery":null,
           "hideScenery":false,
           "addItem":null,
           "removeItem":null,
+          "addScore":false,
+          "removeScore":false,
           "pause":1500,
           "stopTalk":false
         }
@@ -560,13 +673,19 @@
           "choice":null,
           "fadeIn":null,
           "fadeOut":null,
-          "showCharacter":null,
+          "showCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
           "hideCharacter":false,
-          "changeCharacter":null,
+          "changeCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
           "showScenery":null,
           "hideScenery":false,
           "addItem":null,
           "removeItem":null,
+          "addScore":false,
+          "removeScore":false,
           "pause":null,
           "stopTalk":false
         }
@@ -589,30 +708,42 @@
           "choice":"It's the Hydra, or something?",
           "fadeIn":null,
           "fadeOut":null,
-          "showCharacter":null,
+          "showCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
           "hideCharacter":false,
-          "changeCharacter":null,
+          "changeCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
           "showScenery":null,
           "hideScenery":false,
           "addItem":null,
           "removeItem":null,
+          "addScore":false,
+          "removeScore":false,
           "pause":null,
           "stopTalk":false
         },
         {
           "id":2,
-          "nextDialog":null,
+          "nextDialog":42,
           "nextStage":null,
-          "choice":"I think that's the Human.",
+          "choice":"I think that's the Man.",
           "fadeIn":null,
           "fadeOut":null,
-          "showCharacter":null,
+          "showCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
           "hideCharacter":false,
-          "changeCharacter":null,
+          "changeCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
           "showScenery":null,
           "hideScenery":false,
           "addItem":null,
           "removeItem":null,
+          "addScore":true,
+          "removeScore":false,
           "pause":null,
           "stopTalk":false
         },
@@ -625,29 +756,39 @@
           "fadeOut":null,
           "showCharacter":null,
           "hideCharacter":false,
-          "changeCharacter":null,
+          "changeCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
           "showScenery":null,
           "hideScenery":false,
           "addItem":null,
           "removeItem":null,
+          "addScore":false,
+          "removeScore":false,
           "pause":null,
           "stopTalk":false
         },
         {
           "id":4,
-          "nextDialog":21,
+          "nextDialog":27,
           "nextStage":null,
           "choice":"Let me check my phone...",
           "fadeIn":null,
           "fadeOut":null,
-          "showCharacter":null,
+          "showCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
           "hideCharacter":false,
-          "changeCharacter":null,
+          "changeCharacter":[
+            {"id":1,"character":1,"img":0}
+          ],
           "showScenery":null,
           "hideScenery":false,
           "addItem":null,
           "removeItem":null,
-          "pause":null,
+          "addScore":false,
+          "removeScore":true,
+          "pause":1500,
           "stopTalk":false
         }
       ]
@@ -668,13 +809,19 @@
           "choice":null,
           "fadeIn":null,
           "fadeOut":null,
-          "showCharacter":null,
+          "showCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
           "hideCharacter":false,
-          "changeCharacter":1,
+          "changeCharacter":[
+            {"id":1,"character":1,"img":0}
+          ],
           "showScenery":null,
           "hideScenery":false,
           "addItem":null,
           "removeItem":null,
+          "addScore":false,
+          "removeScore":false,
           "pause":1500,
           "stopTalk":false
         }
@@ -697,13 +844,19 @@
           "choice":null,
           "fadeIn":null,
           "fadeOut":null,
-          "showCharacter":null,
+          "showCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
           "hideCharacter":false,
-          "changeCharacter":3,
+          "changeCharacter":[
+            {"id":1,"character":3,"img":1}
+          ],
           "showScenery":null,
           "hideScenery":false,
           "addItem":null,
           "removeItem":null,
+          "addScore":false,
+          "removeScore":false,
           "pause":null,
           "stopTalk":true
         }
@@ -720,18 +873,24 @@
       "actions":[
         {
           "id":1,
-          "nextDialog":22,
+          "nextDialog":42,
           "nextStage":null,
-          "choice":"A Human.",
+          "choice":"A Man.",
           "fadeIn":null,
           "fadeOut":null,
-          "showCharacter":null,
+          "showCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
           "hideCharacter":false,
-          "changeCharacter":null,
+          "changeCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
           "showScenery":null,
           "hideScenery":false,
           "addItem":null,
           "removeItem":null,
+          "addScore":false,
+          "removeScore":false,
           "pause":null,
           "stopTalk":false
         },
@@ -742,13 +901,19 @@
           "choice":"A lizard?",
           "fadeIn":null,
           "fadeOut":null,
-          "showCharacter":null,
+          "showCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
           "hideCharacter":false,
-          "changeCharacter":null,
+          "changeCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
           "showScenery":null,
           "hideScenery":false,
           "addItem":null,
           "removeItem":null,
+          "addScore":false,
+          "removeScore":false,
           "pause":null,
           "stopTalk":false
         },
@@ -759,31 +924,43 @@
           "choice":"The Hydra.",
           "fadeIn":null,
           "fadeOut":null,
-          "showCharacter":null,
+          "showCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
           "hideCharacter":false,
-          "changeCharacter":null,
+          "changeCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
           "showScenery":null,
           "hideScenery":false,
           "addItem":null,
           "removeItem":null,
+          "addScore":false,
+          "removeScore":false,
           "pause":null,
           "stopTalk":false
         },
         {
           "id":4,
-          "nextDialog":21,
+          "nextDialog":27,
           "nextStage":null,
           "choice":"Let me check my phone...",
           "fadeIn":null,
           "fadeOut":null,
-          "showCharacter":null,
+          "showCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
           "hideCharacter":false,
-          "changeCharacter":null,
+          "changeCharacter":[
+            {"id":1,"character":1,"img":0}
+          ],
           "showScenery":null,
           "hideScenery":false,
           "addItem":null,
           "removeItem":null,
-          "pause":null,
+          "addScore":false,
+          "removeScore":true,
+          "pause":1500,
           "stopTalk":false
         }
       ]
@@ -804,13 +981,19 @@
           "choice":null,
           "fadeIn":null,
           "fadeOut":null,
-          "showCharacter":null,
+          "showCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
           "hideCharacter":false,
-          "changeCharacter":1,
+          "changeCharacter":[
+            {"id":1,"character":1,"img":0}
+          ],
           "showScenery":null,
           "hideScenery":false,
           "addItem":null,
           "removeItem":null,
+          "addScore":false,
+          "removeScore":false,
           "pause":1500,
           "stopTalk":false
         }
@@ -832,13 +1015,19 @@
           "choice":null,
           "fadeIn":null,
           "fadeOut":null,
-          "showCharacter":null,
+          "showCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
           "hideCharacter":true,
-          "changeCharacter":null,
+          "changeCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
           "showScenery":null,
           "hideScenery":false,
           "addItem":null,
           "removeItem":null,
+          "addScore":false,
+          "removeScore":false,
           "pause":null,
           "stopTalk":false
         }
@@ -848,9 +1037,9 @@
       "id":27,
       "tag":false,
       "showName":false,
-      "who":"PLAYER",
+      "who":"YOU",
       "sentences":[
-        {"id":1,"text":"<mark>That mouse got some nerve!^500 <br>I shouldn't even be doing this in the first place...</mark>","speed":15,"skip":null}
+        {"id":1,"text":"<mark class='inner'>(That mouse got some nerve!^500 <br>I shouldn't even be doing this in the first place...)</mark>","speed":15,"skip":null}
       ],
       "actions":[
         {
@@ -860,13 +1049,740 @@
           "choice":null,
           "fadeIn":null,
           "fadeOut":null,
-          "showCharacter":3,
+          "showCharacter":[
+            {"id":1,"character":3,"img":1}
+          ],
           "hideCharacter":false,
-          "changeCharacter":null,
+          "changeCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
           "showScenery":null,
           "hideScenery":false,
           "addItem":null,
           "removeItem":null,
+          "addScore":false,
+          "removeScore":false,
+          "pause":null,
+          "stopTalk":true
+        }
+      ]
+    },
+    {
+      "id":28,
+      "tag":true,
+      "showName":true,
+      "who":"TERRIL",
+      "sentences":[
+        {"id":1,"text":"Wait,^250 is this allowed?","speed":15,"skip":null}
+      ],
+      "actions":[
+        {
+          "id":1,
+          "nextDialog":28,
+          "nextStage":null,
+          "choice":null,
+          "fadeIn":null,
+          "fadeOut":null,
+          "showCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
+          "hideCharacter":false,
+          "changeCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
+          "showScenery":null,
+          "hideScenery":false,
+          "addItem":null,
+          "removeItem":null,
+          "addScore":false,
+          "removeScore":false,
+          "pause":null,
+          "stopTalk":false
+        }
+      ]
+    },
+    {
+      "id":29,
+      "tag":true,
+      "showName":true,
+      "who":"YOU",
+      "sentences":[
+        {"id":1,"text":"Hey,^250 as long as it works.^1000 <br><mark class='inner'>(So,^250 let's see...)</mark>","speed":15,"skip":null}
+      ],
+      "actions":[
+        {
+          "id":1,
+          "nextDialog":29,
+          "nextStage":null,
+          "choice":"The answer is: \"Man.\"",
+          "fadeIn":null,
+          "fadeOut":null,
+          "showCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
+          "hideCharacter":false,
+          "changeCharacter":[
+            {"id":1,"character":3,"img":0}
+          ],
+          "showScenery":null,
+          "hideScenery":false,
+          "addItem":null,
+          "removeItem":null,
+          "addScore":false,
+          "removeScore":false,
+          "pause":1500,
+          "stopTalk":false
+        },
+        {
+          "id":2,
+          "nextDialog":29,
+          "nextStage":null,
+          "choice":"It's a Man.",
+          "fadeIn":null,
+          "fadeOut":null,
+          "showCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
+          "hideCharacter":false,
+          "changeCharacter":[
+            {"id":1,"character":3,"img":0}
+          ],
+          "showScenery":null,
+          "hideScenery":false,
+          "addItem":null,
+          "removeItem":null,
+          "addScore":false,
+          "removeScore":false,
+          "pause":1500,
+          "stopTalk":false
+        },
+        {
+          "id":3,
+          "nextDialog":29,
+          "nextStage":null,
+          "choice":"\"Man.\"",
+          "fadeIn":null,
+          "fadeOut":null,
+          "showCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
+          "hideCharacter":false,
+          "changeCharacter":[
+            {"id":1,"character":3,"img":0}
+          ],
+          "showScenery":null,
+          "hideScenery":false,
+          "addItem":null,
+          "removeItem":null,
+          "addScore":false,
+          "removeScore":false,
+          "pause":1500,
+          "stopTalk":false
+        },
+        {
+          "id":4,
+          "nextDialog":29,
+          "nextStage":null,
+          "choice":"\"Man\" is the answer.",
+          "fadeIn":null,
+          "fadeOut":null,
+          "showCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
+          "hideCharacter":false,
+          "changeCharacter":[
+            {"id":1,"character":3,"img":0}
+          ],
+          "showScenery":null,
+          "hideScenery":false,
+          "addItem":null,
+          "removeItem":null,
+          "addScore":false,
+          "removeScore":false,
+          "pause":1500,
+          "stopTalk":false
+        }
+      ]
+    },
+    {
+      "id":30,
+      "tag":true,
+      "showName":true,
+      "who":"SPHINX",
+      "sentences":[
+        {"id":1,"text":".^250.^250.^250 <br>CORRECT!","speed":40,"skip":500},
+        {"id":2,"text":".^250.^250.^250 <br>WAIT!^500 You cheated!","speed":15,"skip":250}
+      ],
+      "actions":[
+        {
+          "id":1,
+          "nextDialog":30,
+          "nextStage":null,
+          "choice":null,
+          "fadeIn":null,
+          "fadeOut":null,
+          "showCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
+          "hideCharacter":false,
+          "changeCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
+          "showScenery":null,
+          "hideScenery":false,
+          "addItem":null,
+          "removeItem":null,
+          "addScore":false,
+          "removeScore":false,
+          "pause":null,
+          "stopTalk":false
+        }
+      ]
+    },
+    {
+      "id":31,
+      "tag":true,
+      "showName":true,
+      "who":"TERRIL",
+      "sentences":[
+        {"id":1,"text":"<mark class='distant'>(No I didn't.)</mark>","speed":15,"skip":null}
+      ],
+      "actions":[
+        {
+          "id":1,
+          "nextDialog":31,
+          "nextStage":null,
+          "choice":null,
+          "fadeIn":null,
+          "fadeOut":null,
+          "showCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
+          "hideCharacter":false,
+          "changeCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
+          "showScenery":null,
+          "hideScenery":false,
+          "addItem":null,
+          "removeItem":null,
+          "addScore":false,
+          "removeScore":false,
+          "pause":null,
+          "stopTalk":false
+        }
+      ]
+    },
+    {
+      "id":32,
+      "tag":true,
+      "showName":true,
+      "who":"SPHINX",
+      "sentences":[
+        {"id":1,"text":"Not you idiot! <br>Your friend there^250 with this strange^500 artifact of his...","speed":15,"skip":null}
+      ],
+      "actions":[
+        {
+          "id":1,
+          "nextDialog":32,
+          "nextStage":null,
+          "choice":null,
+          "fadeIn":null,
+          "fadeOut":null,
+          "showCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
+          "hideCharacter":false,
+          "changeCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
+          "showScenery":null,
+          "hideScenery":false,
+          "addItem":null,
+          "removeItem":null,
+          "addScore":false,
+          "removeScore":false,
+          "pause":null,
+          "stopTalk":false
+        }
+      ]
+    },
+    {
+      "id":33,
+      "tag":true,
+      "showName":true,
+      "who":"YOU",
+      "sentences":[
+        {"id":1,"text":"It's called a phone.","speed":15,"skip":null}
+      ],
+      "actions":[
+        {
+          "id":1,
+          "nextDialog":33,
+          "nextStage":null,
+          "choice":null,
+          "fadeIn":null,
+          "fadeOut":null,
+          "showCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
+          "hideCharacter":false,
+          "changeCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
+          "showScenery":null,
+          "hideScenery":false,
+          "addItem":null,
+          "removeItem":null,
+          "addScore":false,
+          "removeScore":false,
+          "pause":null,
+          "stopTalk":false
+        }
+      ]
+    },
+    {
+      "id":34,
+      "tag":true,
+      "showName":true,
+      "who":"SPHINX",
+      "sentences":[
+        {"id":1,"text":"I DON'T CARE WHAT IT'S CALLED!^500 <br>You cheated and I will not let you pass through!","speed":15,"skip":null}
+      ],
+      "actions":[
+        {
+          "id":1,
+          "nextDialog":34,
+          "nextStage":null,
+          "choice":null,
+          "fadeIn":null,
+          "fadeOut":null,
+          "showCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
+          "hideCharacter":false,
+          "changeCharacter":[
+            {"id":1,"character":1,"img":0}
+          ],
+          "showScenery":null,
+          "hideScenery":false,
+          "addItem":null,
+          "removeItem":null,
+          "addScore":false,
+          "removeScore":false,
+          "pause":null,
+          "stopTalk":false
+        }
+      ]
+    },
+    {
+      "id":35,
+      "tag":true,
+      "showName":true,
+      "who":"TERRIL",
+      "sentences":[
+        {"id":1,"text":"Come on friend,^500 remember the Alamo.^500 <br>Everything we did together...","speed":15,"skip":null}
+      ],
+      "actions":[
+        {
+          "id":1,
+          "nextDialog":35,
+          "nextStage":null,
+          "choice":null,
+          "fadeIn":null,
+          "fadeOut":null,
+          "showCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
+          "hideCharacter":false,
+          "changeCharacter":[
+            {"id":1,"character":3,"img":0}
+          ],
+          "showScenery":null,
+          "hideScenery":false,
+          "addItem":null,
+          "removeItem":null,
+          "addScore":false,
+          "removeScore":false,
+          "pause":null,
+          "stopTalk":false
+        }
+      ]
+    },
+    {
+      "id":36,
+      "tag":true,
+      "showName":true,
+      "who":"SPHINX",
+      "sentences":[
+        {"id":1,"text":".^250.^250.^500Alright.^1000 <br>One more.","speed":40,"skip":null},
+        {"id":2,"text":"One more riddle,^500 get it right^250 and I will let you go through.","speed":40,"skip":null},
+        {"id":3,"text":"No cheating this time!^500 <br>I'm watching you!","speed":40,"skip":null}
+      ],
+      "actions":[
+        {
+          "id":1,
+          "nextDialog":36,
+          "nextStage":null,
+          "choice":null,
+          "fadeIn":null,
+          "fadeOut":null,
+          "showCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
+          "hideCharacter":false,
+          "changeCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
+          "showScenery":null,
+          "hideScenery":false,
+          "addItem":null,
+          "removeItem":null,
+          "addScore":false,
+          "removeScore":false,
+          "pause":null,
+          "stopTalk":false
+        }
+      ]
+    },
+    {
+      "id":37,
+      "tag":true,
+      "showName":true,
+      "who":"SPHINX",
+      "sentences":[
+        {"id":1,"text":"\"They are two sisters.^500 <br>One gives birth to the other,^250 who in turn gives birth <br>to the first.^500 <br>What are the two sisters?\"","speed":40,"skip":null}
+      ],
+      "actions":[
+        {
+          "id":1,
+          "nextDialog":37,
+          "nextStage":null,
+          "choice":"The Moon and the Sun, simple.",
+          "fadeIn":null,
+          "fadeOut":null,
+          "showCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
+          "hideCharacter":false,
+          "changeCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
+          "showScenery":null,
+          "hideScenery":false,
+          "addItem":null,
+          "removeItem":null,
+          "addScore":false,
+          "removeScore":false,
+          "pause":null,
+          "stopTalk":false
+        },
+        {
+          "id":2,
+          "nextDialog":37,
+          "nextStage":null,
+          "choice":"Some freaky aliens?",
+          "fadeIn":null,
+          "fadeOut":null,
+          "showCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
+          "hideCharacter":false,
+          "changeCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
+          "showScenery":null,
+          "hideScenery":false,
+          "addItem":null,
+          "removeItem":null,
+          "addScore":false,
+          "removeScore":true,
+          "pause":null,
+          "stopTalk":false
+        },
+        {
+          "id":3,
+          "nextDialog":37,
+          "nextStage":null,
+          "choice":"Radio and Television.",
+          "fadeIn":null,
+          "fadeOut":null,
+          "showCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
+          "hideCharacter":false,
+          "changeCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
+          "showScenery":null,
+          "hideScenery":false,
+          "addItem":null,
+          "removeItem":null,
+          "addScore":false,
+          "removeScore":false,
+          "pause":null,
+          "stopTalk":false
+        },
+        {
+          "id":4,
+          "nextDialog":39,
+          "nextStage":null,
+          "choice":"I'd say, Night and Day.",
+          "fadeIn":null,
+          "fadeOut":null,
+          "showCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
+          "hideCharacter":false,
+          "changeCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
+          "showScenery":null,
+          "hideScenery":false,
+          "addItem":null,
+          "removeItem":null,
+          "addScore":true,
+          "removeScore":false,
+          "pause":null,
+          "stopTalk":false
+        }
+      ]
+    },
+    {
+      "id":38,
+      "tag":true,
+      "showName":true,
+      "who":"SPHINX",
+      "sentences":[
+        {"id":1,"text":".^250.^250.^250 <br>WRONG!","speed":40,"skip":null}
+      ],
+      "actions":[
+        {
+          "id":1,
+          "nextDialog":38,
+          "nextStage":null,
+          "choice":null,
+          "fadeIn":null,
+          "fadeOut":null,
+          "showCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
+          "hideCharacter":false,
+          "changeCharacter":[
+            {"id":1,"character":1,"img":0}
+          ],
+          "showScenery":null,
+          "hideScenery":false,
+          "addItem":null,
+          "removeItem":null,
+          "addScore":false,
+          "removeScore":false,
+          "pause":1500,
+          "stopTalk":false
+        }
+      ]
+    },
+    {
+      "id":39,
+      "tag":true,
+      "showName":true,
+      "who":"TERRIL",
+      "sentences":[
+        {"id":1,"text":"It's alright.^250 Just try again!","speed":15,"skip":null}
+      ],
+      "actions":[
+        {
+          "id":1,
+          "nextDialog":null,
+          "nextStage":6,
+          "choice":null,
+          "fadeIn":null,
+          "fadeOut":null,
+          "showCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
+          "hideCharacter":false,
+          "changeCharacter":[
+            {"id":1,"character":3,"img":2}
+          ],
+          "showScenery":null,
+          "hideScenery":false,
+          "addItem":null,
+          "removeItem":null,
+          "addScore":false,
+          "removeScore":false,
+          "pause":null,
+          "stopTalk":true
+        }
+      ]
+    },
+    {
+      "id":40,
+      "tag":true,
+      "showName":true,
+      "who":"SPHINX",
+      "sentences":[
+        {"id":1,"text":".^250.^250.^250 <br>CORRECT!","speed":40,"skip":null}
+      ],
+      "actions":[
+        {
+          "id":1,
+          "nextDialog":40,
+          "nextStage":null,
+          "choice":null,
+          "fadeIn":null,
+          "fadeOut":null,
+          "showCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
+          "hideCharacter":false,
+          "changeCharacter":[
+            {"id":1,"character":1,"img":0}
+          ],
+          "showScenery":null,
+          "hideScenery":false,
+          "addItem":null,
+          "removeItem":null,
+          "addScore":false,
+          "removeScore":false,
+          "pause":1500,
+          "stopTalk":false
+        }
+      ]
+    },
+    {
+      "id":41,
+      "tag":true,
+      "showName":true,
+      "who":"TERRIL",
+      "sentences":[
+        {"id":1,"text":"YES!^500 <br>Huh,^250 can we go now?","speed":15,"skip":null}
+      ],
+      "actions":[
+        {
+          "id":1,
+          "nextDialog":41,
+          "nextStage":null,
+          "choice":null,
+          "fadeIn":null,
+          "fadeOut":null,
+          "showCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
+          "hideCharacter":false,
+          "changeCharacter":[
+            {"id":1,"character":3,"img":0}
+          ],
+          "showScenery":null,
+          "hideScenery":false,
+          "addItem":null,
+          "removeItem":null,
+          "addScore":false,
+          "removeScore":false,
+          "pause":1500,
+          "stopTalk":false
+        }
+      ]
+    },
+    {
+      "id":42,
+      "tag":true,
+      "showName":true,
+      "who":"SPHINX",
+      "sentences":[
+        {"id":1,"text":".^250.^250.^250Sure...^500 <br>Go now,^250 out of my sight!","speed":40,"skip":null}
+      ],
+      "actions":[
+        {
+          "id":1,
+          "nextDialog":43,
+          "nextStage":null,
+          "choice":null,
+          "fadeIn":null,
+          "fadeOut":null,
+          "showCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
+          "hideCharacter":false,
+          "changeCharacter":[
+            {"id":1,"character":1,"img":0}
+          ],
+          "showScenery":null,
+          "hideScenery":false,
+          "addItem":null,
+          "removeItem":null,
+          "addScore":false,
+          "removeScore":false,
+          "pause":1500,
+          "stopTalk":false
+        }
+      ]
+    },
+    {
+      "id":43,
+      "tag":true,
+      "showName":true,
+      "who":"SPHINX",
+      "sentences":[
+        {"id":1,"text":".^250.^250.^250 <br>CORRECT!","speed":40,"skip":null},
+        {"id":2,"text":"You may pass^250 now.","speed":40,"skip":null}
+      ],
+      "actions":[
+        {
+          "id":1,
+          "nextDialog":43,
+          "nextStage":null,
+          "choice":null,
+          "fadeIn":null,
+          "fadeOut":null,
+          "showCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
+          "hideCharacter":false,
+          "changeCharacter":[
+            {"id":1,"character":1,"img":0}
+          ],
+          "showScenery":null,
+          "hideScenery":false,
+          "addItem":null,
+          "removeItem":null,
+          "addScore":false,
+          "removeScore":false,
+          "pause":1500,
+          "stopTalk":false
+        }
+      ]
+    },
+    {
+      "id":44,
+      "tag":true,
+      "showName":true,
+      "who":"TERRIL",
+      "sentences":[
+        {"id":1,"text":"GREAT!^250 About time. <br>Hey,^500 good job^250 by the way.","speed":15,"skip":null},
+        {"id":2,"text":"Ok,^250 follow me now!","speed":15,"skip":null}
+      ],
+      "actions":[
+        {
+          "id":1,
+          "nextDialog":null,
+          "nextStage":7,
+          "choice":null,
+          "fadeIn":null,
+          "fadeOut":null,
+          "showCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
+          "hideCharacter":true,
+          "changeCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
+          "showScenery":null,
+          "hideScenery":false,
+          "addItem":null,
+          "removeItem":null,
+          "addScore":false,
+          "removeScore":false,
           "pause":null,
           "stopTalk":true
         }
