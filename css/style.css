@@ -172,8 +172,11 @@ mark.distant{
 #homeScreen #continue{
   opacity:0;
 }
-#homeScreen #creditsButton{
-  z-index: 91;
+#homeScreen #manual{
+  position:fixed;
+  margin:2.5vw;
+  left:0;
+  top:0;
 }
 /* BLACK SCREEN */
 #blackScreen{

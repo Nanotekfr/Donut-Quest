@@ -77,6 +77,17 @@ var currentDialog=0;
 var currentItem=0;
 var hasControl=false;
 
+var manual=false;
+function doShowManual(){
+  if(manual==false){
+    document.getElementById("manual").innerHTML="CLOSE";
+    manual=true;
+  }
+  else{
+    document.getElementById("manual").innerHTML="MANUAL";
+    manual=false;
+  }
+}
 function doLoad(){
   document.getElementById('homeScreen').style.opacity='1';
   if(JSON.parse(localStorage.getItem('canContinue'))==true){
