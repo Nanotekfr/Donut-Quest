@@ -175,6 +175,20 @@ mark.distant{
 #homeScreen #manual{
   position:fixed;
   margin:2.5vw;
+  z-index:100;
+  left:0;
+  top:0;
+}
+#homeScreen #manualUrl{
+  position:fixed;
+  transition:1s;
+  overflow:auto;
+  margin:auto;
+  z-index:99;
+  width:100%;
+  opacity:0;
+  bottom:0;
+  right:0;
   left:0;
   top:0;
 }

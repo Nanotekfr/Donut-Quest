@@ -11,7 +11,7 @@
 
   <section id="homeScreen">
     <button id="manual" onclick="sfx_blip_select.play(),doShowManual()">MANUAL</button>
-    <img src="/img/manual.jpg"/>
+    <img id="manualUrl" src="/img/manual.png"/>
     <h1>"DONUT-QUEST"<br>PRE-ALPHA DEMO</h1>
     <button id="newGame" onclick="sfx_blip_select.play(),doNewGame()">NEW GAME</button>
     <button id="continue" onclick="sfx_blip_select.play(),doContinue()">CONTINUE</button>

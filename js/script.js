@@ -81,10 +81,16 @@ var manual=false;
 function doShowManual(){
   if(manual==false){
     document.getElementById("manual").innerHTML="CLOSE";
+    document.getElementById("manual").style.background="#f1f1f1";
+    document.getElementById("manual").style.color="#333";
+    document.getElementById("manualUrl").style.opacity="1";
     manual=true;
   }
   else{
     document.getElementById("manual").innerHTML="MANUAL";
+    document.getElementById("manual").style.background="#333";
+    document.getElementById("manual").style.color="#f1f1f1";
+    document.getElementById("manualUrl").style.opacity="0";
     manual=false;
   }
 }
