@@ -109,7 +109,7 @@ function doNewGame(){
   currentArea=JSON.parse(localStorage.getItem('savedArea'));
   currentCharacter=JSON.parse(localStorage.getItem('savedCharacter'));
   currentCharacterId=JSON.parse(localStorage.getItem('savedCharacterId'));
-  vueArea.img=areaStep.areas[currentArea].url;
+  vueArea.url=areaStep.areas[currentArea].url;
   document.getElementById("HUD").style.marginTop="0";
   setTimeout(function(){
     currentDialog=2;
@@ -143,7 +143,7 @@ function doContinue(){
     icon=bag.item[i].icon;
     savedItem=JSON.parse(localStorage.getItem(item));
     if(savedItem==true){
-      document.getElementById('items').innerHTML += "<div id='item" + i + "' class='boxItem' onclick=\"selectedItem='" + i + "',doShowDescription()\">"+ icon + "</div>";
+      document.getElementById('items').innerHTML += "<div class='item"+i+"' class='boxItem' onclick=\"selectedItem='"+i+"',doShowDescription()\"><img class='item' src='"+icon+"'/></div>";
     }
   }
   if(currentStage>=2){
@@ -184,7 +184,7 @@ function doContinue(){
     doShowCharacter();
   }
   currentArea=JSON.parse(localStorage.getItem('savedArea'));
-  vueArea.img=areaStep.areas[currentArea].url;
+  vueArea.url=areaStep.areas[currentArea].url;
   setTimeout(function(){
     document.getElementById('blackScreen').style.opacity="0";
     hasControl=true;
@@ -257,22 +257,22 @@ function doTalk(){
         for(i=0;i<dialog.actions.length;i++){
           if(talkStep.dialogs[currentDialog].actions[i].choice!=null){
             if(i<=1){
-              document.getElementById("buttonBoxLeft").innerHTML += "<button class=\"choice left\" onclick=\"selectedAction=" + i + ",sfx_blip_next.play(),doAction(" + i + ")\">-" + dialog.actions[i].choice + "</button>";
+              document.getElementById("buttonBoxLeft").innerHTML += "<button class=\"choice left\" onclick=\"selectedAction="+i+",sfx_blip_next.play(),doAction("+i+")\">-"+dialog.actions[i].choice+"</button>";
             }
             else{
-              document.getElementById("buttonBoxRight").innerHTML += "<button class=\"choice right\" onclick=\"selectedAction=" + i + ",sfx_blip_next.play(),doAction(" + i + ")\">-" + dialog.actions[i].choice + "</button>";
+              document.getElementById("buttonBoxRight").innerHTML += "<button class=\"choice right\" onclick=\"selectedAction="+i+",sfx_blip_next.play(),doAction("+i+")\">-"+dialog.actions[i].choice+"</button>";
             }
             document.getElementById("buttonBoxLeft").style.left="0";
             document.getElementById("buttonBoxRight").style.right="0";
           }
           else{
             if(dialog.sentences[currentSentence].skip!=null){
-              document.getElementById("dialogButtonBox").innerHTML += "<i id=\"nextButton\" class=\"fas fa-caret-right\"onclick=\"selectedAction=" + i + ",doAction(" + i + ")\"></i>";
+              document.getElementById("dialogButtonBox").innerHTML += "<i id=\"nextButton\" class=\"fas fa-caret-right\"onclick=\"selectedAction="+i+",doAction("+i+")\"></i>";
               document.getElementById("nextButton").style.pointerEvents="none";
               document.getElementById("nextButton").style.opacity="0";
             }
             else{
-              document.getElementById("dialogButtonBox").innerHTML += "<i id=\"nextButton\" class=\"fas fa-caret-right\"onclick=\"selectedAction=" + i + ",sfx_blip_next.play(),doAction(" + i + ")\"></i>";
+              document.getElementById("dialogButtonBox").innerHTML += "<i id=\"nextButton\" class=\"fas fa-caret-right\"onclick=\"selectedAction="+i+",sfx_blip_next.play(),doAction("+i+")\"></i>";
               document.getElementById("nextButton").style.pointerEvents="auto";
               document.getElementById("nextButton").style.opacity="1";
               hasControl=true;
@@ -453,7 +453,7 @@ function doChangeArea(selectedArea){
     doCloseMap();
     doHideCharacter();
     currentArea=areaStep.areas[currentArea].canGoTo[selectedArea].nextArea;
-    vueArea.img=areaStep.areas[currentArea].url;
+    vueArea.url=areaStep.areas[currentArea].url;
     localStorage.setItem('savedArea',currentArea);
     presentCharacter=areaStep.areas[currentArea].presentCharacter[0].character;
     presentCharacterId=areaStep.areas[currentArea].presentCharacter[0].img;
@@ -493,12 +493,12 @@ function doAddItem(){
   bag=inventoryStep.bag;
   item=bag.item[currentItem].name;
   icon=bag.item[currentItem].icon;
-  document.getElementById('items').innerHTML += "<div id='item" + currentItem + "' onclick=\"selectedItem='" + currentItem + "',doShowDescription()\">"+ icon + "</div>";
+  document.getElementById('items').innerHTML += "<div class='item"+currentItem+"' onclick=\"selectedItem='"+currentItem+"',doShowDescription()\"><img class='item' src='"+icon+"'/></div>";
   localStorage.setItem(item,true);
 }
 function doRemoveItem(){
   currentItem=action.removeItem;
-  var remove=document.getElementById('item' + currentItem + '');
+  var remove=document.getElementById('item'+currentItem+'');
   remove.parentNode.removeChild(remove);
   localStorage.setItem(item,true);
 }
@@ -555,12 +555,12 @@ function doOpenMap(){
       var area=areaStep.areas[areaStep.areas[currentArea].canGoTo[i].nextArea];
       if(area.available==true){
         if(area.locked==false){
-          document.getElementById('mapWindow').innerHTML += "" + area.name + "<img id='selectArea' onclick='doChangeArea(" + i + ")' src='" + area.url + "'/>";
+          document.getElementById('mapWindow').innerHTML += ""+area.name+"<img id='selectArea' onclick='doChangeArea("+i+")' src='"+area.url+"'/>";
           document.getElementById('mapIcon').innerHTML='<img src="/img/opened-map.png"/>';
         }
         else{
           document.getElementById('mapIcon').innerHTML='<img src="/img/opened-map.png"/>';
-          document.getElementById('mapWindow').innerHTML += "" + area.name + "<img id='selectArea' onclick='sfx_locked_door.play(),currentDialog=" + area.trigger + ",setTimeout(function(){doTalk()},2000)' src='" + area.url + "'/>";
+          document.getElementById('mapWindow').innerHTML += ""+area.name+"<img id='selectArea' onclick='sfx_locked_door.play(),currentDialog="+area.trigger+",setTimeout(function(){doTalk()},2000)' src='"+area.url+"'/>";
         }
       }
     }
@@ -603,7 +603,7 @@ function doShowDescription(){
   currentItem=selectedItem;
   icon=bag.item[currentItem].icon;
   description=bag.item[currentItem].description;
-  document.getElementById('description').innerHTML=icon + description;
+  document.getElementById('description').innerHTML="<img class='item' src='"+icon+"'/></div><p>"+description+"</p>";
 }
 function doOpenMask(){
   hasControl=false;

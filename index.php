@@ -19,38 +19,11 @@
   <section id="blackScreen"></section>
 
   <section id="HUD">
-    <!-- <hud></hud> -->
-    <div class="vue">
-      <div id="icons">
-        <div id="mapIcon" onclick="doOpenMap()"></div>
-        <div id="bagIcon" onclick="doOpenBag()"></div>
-        <div id="maskIcon" onclick="doOpenMask()"></div>
-        <div id="phoneIcon" onclick="doOpenPhone()"></div>
-      </div>
-      <div id="mapWindow"></div>
-      <div id="bagWindow">
-        <div id="items"></div>
-        <div id="description"></div>
-      </div>
-      <div id="phoneWindow">
-        <div id="screen">
-          <a onclick="doQuit()">QUIT GAME</a>
-        </div>
-      </div>
+    <hud></hud>
   </section>
 
   <section id="dialog">
-    <div class="vue">
-      <div id="buttonBoxLeft"></div>
-      <div id="dialogBox">
-        <div id="dialogName"></div>
-        <div id="dialogText">
-          <div id="dialogSentence"></div>
-          <div id="dialogButtonBox"></div>
-        </div>
-      </div>
-      <div id="buttonBoxRight"></div>
-    </div>
+    <dialog></dialog>
   </section>
 
   <section id="mask"><img src="/img/mask.png"></section>
@@ -61,23 +34,12 @@
   </section>
 
   <section id="character">
-    <!-- <characters></characters> -->
-    <div class="vue">
-      <div></div>
-      <div id="characterBox">
-        <img id="tomStageXX" src="/img/template.png"/>
-        <img id="terrilStageXX" src="/img/terril.png"/>
-        <img id="djarStageXX" src="/img/template.png"/>
-        <img id="sphinxStageXX" src="/img/sphinx.png"/>
-        <img id="sphinxStage05" src="/img/sphinx.png" onclick="currentDialog=23,doTalk()"/>
-        <img id="sphinxStage06" src="/img/sphinx.png" onclick="currentDialog=36,doTalk()"/>
-      </div>
-    </div>
+    <character></character>
   </section>
 
   <section id="area" onclick="doCloseAll()">
     <div id="blackScreen03"></div>
-    <img :src="img">
+    <img :src="url">
   </section>
 
   <script src="/js/libraries/howler.js"></script>

@@ -221,7 +221,7 @@ mark.distant{
   padding:.25vw;
   display:grid;
 }
-#HUD #item{
+#HUD .item{
   cursor:pointer;
 }
 #HUD #description{

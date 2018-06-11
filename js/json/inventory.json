@@ -5,8 +5,8 @@
       {
         "id":1,
         "name":"MASK",
-        "icon":"<img id='item' src='/img/closed-mask.png'/>",
-        "description":"<p>Weird Mask</p>"
+        "icon":"/img/closed-mask.png",
+        "description":"Weird Mask."
       }
     ]
   }

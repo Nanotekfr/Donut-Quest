@@ -2,10 +2,10 @@ Vue.component('hud', {
   template:`
   <div class="vue">
     <div id="icons">
-      <div id="mapIcon" onclick="doOpenMap()"><img src="/img/closed-map.png"/></div>
+      <div id="mapIcon" onclick="doOpenMap()"></div>
       <div id="bagIcon" onclick="doOpenBag()"></div>
       <div id="maskIcon" onclick="doOpenMask()"></div>
-      <div id="phoneIcon" onclick="doOpenPhone()"><img src="/img/closed-phone.png"/></div>
+      <div id="phoneIcon" onclick="doOpenPhone()"></div>
     </div>
     <div id="mapWindow"></div>
     <div id="bagWindow">
@@ -14,20 +14,35 @@ Vue.component('hud', {
     </div>
     <div id="phoneWindow">
       <div id="screen">
-        <a>EFFECTS VOLUME</a>
-        <a>MUSIC VOLUME</a>
         <a onclick="doQuit()">QUIT GAME</a>
       </div>
     </div>`
 });
-Vue.component('characters', {
+Vue.component('dialog', {
+  template:`
+  <div class="vue">
+    <div id="buttonBoxLeft"></div>
+    <div id="dialogBox">
+      <div id="dialogName"></div>
+      <div id="dialogText">
+        <div id="dialogSentence"></div>
+        <div id="dialogButtonBox"></div>
+      </div>
+    </div>
+    <div id="buttonBoxRight"></div>
+  </div>`
+});
+Vue.component('character', {
   template:`
   <div class="vue">
     <div></div>
     <div id="characterBox">
-      <img id="tomStageXX" src="/img/character-homer.png" onclick="currentDialog=14,doTalk()"/>
-      <img id="terrilStage03" src="/img/character-homer.png" onclick="currentDialog=11,doTalk()"/>
-      <img id="djarStageXX" src="/img/character-marge.png" onclick="currentDialog=4,doTalk()"/>
+      <img id="tomStageXX" src="/img/template.png"/>
+      <img id="terrilStageXX" src="/img/terril.png"/>
+      <img id="djarStageXX" src="/img/template.png"/>
+      <img id="sphinxStageXX" src="/img/sphinx.png"/>
+      <img id="sphinxStage05" src="/img/sphinx.png" onclick="currentDialog=23,doTalk()"/>
+      <img id="sphinxStage06" src="/img/sphinx.png" onclick="currentDialog=36,doTalk()"/>
     </div>
   </div>`
 });
@@ -44,7 +59,7 @@ var vueCharacter = new Vue({
 var vueArea = new Vue({
   el: '#area',
   data: {
-    img: '',
+    url: '',
   }
 });
 var vueScenery = new Vue({
