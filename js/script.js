@@ -777,3 +777,16 @@ document.body.addEventListener('keyup', function(e) {
     // }
   }
 });
+var credits=0;
+function doShowCredits(){
+  if(credits==0){
+    document.getElementById("credits").style.opacity="1";
+    document.getElementById("creditsButton").innerHTML="HIDE";
+    credits==1;
+  }
+  else{
+    document.getElementById("credits").style.opacity="0";
+    document.getElementById("creditsButton").innerHTML="CREDITS LIST";
+    credits=0;
+  }
+}

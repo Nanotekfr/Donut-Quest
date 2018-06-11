@@ -16,7 +16,8 @@ Vue.component('hud', {
       <div id="screen">
         <a onclick="doQuit()">QUIT GAME</a>
       </div>
-    </div>`
+    </div>
+  </div>`
 });
 Vue.component('dialog', {
   template:`

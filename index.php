@@ -10,10 +10,15 @@
 <body onload="doLoad()">
 
   <section id="homeScreen">
-    <h1>"DONUT-QUEST"<br>DEMO</h1>
+    <img id="credits" src="/img/credits.png"/>
+    <h1>"DONUT-QUEST"<br>PRE-ALPHA DEMO</h1>
     <button id="newGame" onclick="sfx_blip_select.play(),doNewGame()">NEW GAME</button>
     <button id="continue" onclick="sfx_blip_select.play(),doContinue()">CONTINUE</button>
     <h1>WORK IN PROGRESS</h1>
+    <p>The current aspect is not definitive. Elements such as areas, characters and sound effects will be changed and improved as the development progress.</p>
+    <h1>CREDITS</h1>
+    <div class="credits"><div>FLORIAN LUDOWICZ<a href="http://nehred.com/">NEHRED.COM</a><a href="http://cv.nehred.com/en-US/">CV.NEHRED.COM</a></div><div>JIMMY HENOCQ<a href="">CV</a></div></div>
+    <button id="creditsButton"onclick="sfx_blip_select.play(),doShowCredits()">CREDITS LIST</button>
   </section>
 
   <section id="blackScreen"></section>

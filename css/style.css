@@ -95,6 +95,7 @@ mark.distant{
   background:#9e0e10;
   transition:.5s;
   position:fixed;
+  cursor:default;
   display:flex;
   height:100%;
   color:black;
@@ -102,10 +103,49 @@ mark.distant{
   width:100%;
   opacity:0;
 }
+#homeScreen img{
+  pointer-events:none;
+  position:fixed;
+  transition:1s;
+  overflow:auto;
+  margin:auto;
+  width:100%;
+  z-index:90;
+  opacity:0;
+  bottom:0;
+  right:0;
+  left:0;
+  top:0;
+}
 #homeScreen h1{
-  text-align: center;
+  text-align:center;
   font-size:2.5vw;
   cursor:default;
+}
+#homeScreen p{
+  margin-top:-1vw;
+}
+#homeScreen .credits{
+  grid-template-columns:1fr 1fr;
+  text-align:center;
+  display:grid;
+}
+#homeScreen a{
+  justify-content:center;
+  text-decoration:none;
+  border-radius:.5vw;
+  align-items:center;
+  background:#ccc;
+  font-size:1.5vw;
+  transition:.1s;
+  cursor:pointer;
+  padding:.25vw;
+  display:flex;
+  margin:.25vw;
+  color:#333;
+}
+#homeScreen a:hover{
+  background:#f1f1f1;
 }
 #homeScreen button{
   justify-content:center;
@@ -127,6 +167,9 @@ mark.distant{
 }
 #homeScreen #continue{
   opacity:0;
+}
+#homeScreen #creditsButton{
+  z-index: 91;
 }
 /* BLACK SCREEN */
 #blackScreen{
