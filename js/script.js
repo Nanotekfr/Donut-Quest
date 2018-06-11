@@ -750,8 +750,6 @@ function doNextStage(){
     localStorage.setItem('canContinue',true);
   }
   if(action.nextStage==2){
-    areas.area[1].presentCharacter[0].character=3;
-    areas.area[1].presentCharacter[0].img=0;
     areas.area[1].locked=true;
     areas.area[2].locked=true;
   }
@@ -800,11 +798,8 @@ function doTrigger(){
   }
   if(currentStage==7){
     setTimeout(function(){
-      doShowCredits();
-    },4000);
-    setTimeout(function(){
       doQuit();
-    },8000);
+    },6000);
   }
 }
 
