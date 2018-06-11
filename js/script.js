@@ -149,7 +149,7 @@ function doContinue(){
   if(currentStage>=2){
     areaStep.areas[1].locked=true;
     areaStep.areas[2].locked=true;
-    if(currentStage==2||currentStage==3&&currentArea==0){
+    if(currentStage==2&&currentArea==0||currentStage==3&&currentArea==0){
       document.getElementById("scenery").style.opacity="1";
       vueScenery.url=sceneryStep.sceneries[0].url;
     }
@@ -384,6 +384,8 @@ function doShowCharacter(){
     if(character.ghost==true){
       document.getElementById(character.img[currentCharacterId].url).style.pointerEvents="none";
       document.getElementById(character.img[currentCharacterId].url).style.opacity="0";
+      areaStep.areas[currentArea].presentCharacter[0].character=currentCharacter;
+      areaStep.areas[currentArea].presentCharacter[0].img=currentCharacterId;
     }
     else{
       document.getElementById(character.img[currentCharacterId].url).style.opacity="1";
@@ -397,10 +399,12 @@ function doHideCharacter(){
   for(var i=0;i<nodes.length;i++){
     if(nodes[i].nodeName.toLowerCase() == 'img'){
       nodes[i].style.opacity="0";
-      nodes[i].style.transform="translateX(25%)";
+      nodes[i].style.transform="translateX(0)";
       nodes[i].style.pointerEvents="none";
     }
   }
+  areaStep.areas[currentArea].presentCharacter[0].character=null;
+  areaStep.areas[currentArea].presentCharacter[0].img=null;
   localStorage.setItem('savedCharacter',null);
   localStorage.setItem('savedCharacterId',null);
 }
@@ -442,22 +446,17 @@ function doHideScenery(){
 function doChangeArea(selectedArea){
   sfx_footsteps.play();
   hasControl=false;
-  currentCharacter=JSON.parse(localStorage.getItem('savedCharacter'));
-  currentCharacterId=JSON.parse(localStorage.getItem('savedCharacterId'));
   document.getElementById('mapWindow').style.left="-100%";
   document.getElementById("blackScreen").style.transition=".5s";
   document.getElementById('blackScreen').style.opacity="1";
-  currentArea=areaStep.areas[currentArea].canGoTo[selectedArea].nextArea;
-  presentCharacter=areaStep.areas[currentArea].presentCharacter[0].character;
-  presentCharacterId=areaStep.areas[currentArea].presentCharacter[0].img;
   setTimeout(function(){
     doCloseMap();
+    doHideCharacter();
+    currentArea=areaStep.areas[currentArea].canGoTo[selectedArea].nextArea;
     vueArea.img=areaStep.areas[currentArea].url;
     localStorage.setItem('savedArea',currentArea);
-    if(currentCharacter!=null){
-      character=characterStep.characters[currentCharacter];
-      document.getElementById(character.img[currentCharacterId]).style.opacity="0";
-    }
+    presentCharacter=areaStep.areas[currentArea].presentCharacter[0].character;
+    presentCharacterId=areaStep.areas[currentArea].presentCharacter[0].img;
     if(presentCharacter!=null){
       currentCharacter=presentCharacter;
       currentCharacterId=presentCharacterId;
@@ -523,11 +522,9 @@ function doStopTalk(){
       nodes[i].style.pointerEvents="none";
     }
   }
-  currentCharacter=JSON.parse(localStorage.getItem('savedCharacter'));
-  currentCharacterId=JSON.parse(localStorage.getItem('savedCharacterId'));
   if(currentCharacter!=null){
     character=characterStep.characters[currentCharacter];
-    document.getElementById(character.img[currentCharacterId].url).style.pointerEvents="none";
+    document.getElementById(character.img[currentCharacterId].url).style.pointerEvents="auto";
   }
   document.getElementById("dialogBox").style.opacity="0";
   document.getElementById("HUD").style.marginTop="0";
@@ -618,8 +615,8 @@ function doOpenMask(){
       if(areaStep.areas[currentArea].presentCharacter[0].character!=null){
         character=characterStep.characters[currentCharacter];
         if(characterStep.characters[currentCharacter].ghost==true){
-          document.getElementById(character.img).style.pointerEvents="auto";
-          document.getElementById(character.img).style.opacity="1";
+          document.getElementById(character.img[currentCharacterId].url).style.pointerEvents="auto";
+          document.getElementById(character.img[currentCharacterId].url).style.opacity="1";
         }
       }
     },175);
@@ -645,8 +642,8 @@ function doCloseMask(){
     if(areaStep.areas[currentArea].presentCharacter[0].character!=null){
       character=characterStep.characters[currentCharacter];
       if(characterStep.characters[currentCharacter].ghost==true){
-        document.getElementById(character.img).style.pointerEvents="none";
-        document.getElementById(character.img).style.opacity="0";
+        document.getElementById(character.img[currentCharacterId].url).style.pointerEvents="none";
+        document.getElementById(character.img[currentCharacterId].url).style.opacity="0";
       }
     }
   },175);
@@ -754,17 +751,25 @@ document.body.addEventListener('keyup', function(e) {
         document.getElementById("nextButton").click();
       }
     }
-    if(e.keyCode==77){
-      doOpenMap();
+    if(JSON.parse(localStorage.getItem('gotMap'))==true){
+      if(e.keyCode==77){
+        doOpenMap();
+      }
     }
-    if(e.keyCode==66){
-      doOpenBag();
+    if(JSON.parse(localStorage.getItem('gotBag'))==true){
+      if(e.keyCode==66){
+        doOpenBag();
+      }
     }
-    if(e.keyCode==70){
-      doOpenMask();
+    if(JSON.parse(localStorage.getItem('gotMask'))==true){
+      if(e.keyCode==70){
+        doOpenMask();
+      }
     }
-    if(e.keyCode==27){
-      doOpenPhone();
+    if(JSON.parse(localStorage.getItem('gotPhone'))==true){
+      if(e.keyCode==27){
+        doOpenPhone();
+      }
     }
     // if(e.keyCode==123){
     //   location.href = 'https://youtu.be/dQw4w9WgXcQ';

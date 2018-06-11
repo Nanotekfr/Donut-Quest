@@ -53,7 +53,7 @@
         {"id":2,"url":"sphinxStage05"},
         {"id":3,"url":"sphinxStage06"}
       ],
-      "ghost":false
+      "ghost":true
     }
   ]
 }

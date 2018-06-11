@@ -756,7 +756,9 @@
           "choice":"A lizard, I guess.",
           "fadeIn":null,
           "fadeOut":null,
-          "showCharacter":null,
+          "showCharacter":[
+            {"id":1,"character":null,"img":null}
+          ],
           "hideCharacter":false,
           "changeCharacter":[
             {"id":1,"character":null,"img":null}
