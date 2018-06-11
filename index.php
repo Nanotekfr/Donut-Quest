@@ -14,15 +14,32 @@
     <button id="newGame" onclick="sfx_blip_select.play(),doNewGame()">NEW GAME</button>
     <button id="continue" onclick="sfx_blip_select.play(),doContinue()">CONTINUE</button>
     <h1>WORK IN PROGRESS</h1>
-    <p>The current aspect is not definitive. Elements such as areas, characters and sound effects will change and be improved as the development progress.</p>
+    <p>The current aspect is not definitive.<br>Elements such as areas, characters and sound effects will change and will be improved as the development progress.</p>
     <h1>CREDITS</h1>
-    <div class="credits"><div>FLORIAN LUDOWICZ<a href="http://nehred.com/">NEHRED.COM</a><a href="http://cv.nehred.com/en-US/">CV.NEHRED.COM</a></div><div>JIMMY HENOCQ<a href="">CV</a></div></div>
+    <div class="credits"><div>FLORIAN LUDOWICZ<a href="http://nehred.com/">NEHRED.COM</a><a href="http://cv.nehred.com/en-US/">CV.NEHRED.COM</a></div><div>JIMMY HENOCQ<a href="http://cv.henocq.fr/">CV.HENOCQ.FR</a></div></div>
   </section>
 
   <section id="blackScreen"></section>
 
   <section id="HUD">
-    <vhud></vhud>
+    <div class="vue">
+      <div id="icons">
+        <div id="mapIcon" onclick="doOpenMap()"></div>
+        <div id="bagIcon" onclick="doOpenBag()"></div>
+        <div id="maskIcon" onclick="doOpenMask()"></div>
+        <div id="phoneIcon" onclick="doOpenPhone()"></div>
+      </div>
+      <div id="mapWindow"></div>
+      <div id="bagWindow">
+        <div id="items"></div>
+        <div id="description"></div>
+      </div>
+      <div id="phoneWindow">
+        <div id="screen">
+          <a onclick="doQuit()">QUIT GAME</a>
+        </div>
+      </div>
+    </div>
   </section>
 
   <section id="dialog">
