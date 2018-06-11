@@ -123,6 +123,7 @@ mark.distant{
   cursor:default;
 }
 #homeScreen p{
+  text-align:center;
   margin-top:-1vw;
 }
 #homeScreen .credits{

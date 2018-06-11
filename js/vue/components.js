@@ -1,4 +1,4 @@
-Vue.component('hud', {
+Vue.component('vhud', {
   template:`
   <div class="vue">
     <div id="icons">
@@ -19,7 +19,7 @@ Vue.component('hud', {
     </div>
   </div>`
 });
-Vue.component('dialog', {
+Vue.component('vdialog', {
   template:`
   <div class="vue">
     <div id="buttonBoxLeft"></div>
@@ -33,7 +33,7 @@ Vue.component('dialog', {
     <div id="buttonBoxRight"></div>
   </div>`
 });
-Vue.component('character', {
+Vue.component('vcharacter', {
   template:`
   <div class="vue">
     <div></div>

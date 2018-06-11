@@ -541,14 +541,14 @@ function doStopTalk(){
   },250);
 }
 
-var mapOpened=0;
-var bagOpened=0;
-var maskOpened=0;
-var phoneOpened=0;
+var mapOpened=false;
+var bagOpened=false;
+var maskOpened=false;
+var phoneOpened=false;
 function doOpenMap(){
   doCloseBag();
   doClosePhone();
-  if(mapOpened==0){
+  if(mapOpened==false){
     document.getElementById('mapWindow').innerHTML="";
     document.getElementById('mapWindow').style.left="0";
     for(i=0;i<areaStep.areas[currentArea].canGoTo.length;i++){
@@ -564,7 +564,7 @@ function doOpenMap(){
         }
       }
     }
-    mapOpened=1;
+    mapOpened=true;
   }
   else{
     doCloseMap();
@@ -576,16 +576,16 @@ function doCloseMap(){
   if(hasMap==true){
     document.getElementById('mapIcon').innerHTML='<img src="/img/closed-map.png"/>';
   }
-  mapOpened=0;
+  mapOpened=false;
 }
 function doOpenBag(){
   doCloseMap();
   doClosePhone();
-  if(bagOpened==0){
+  if(bagOpened==false){
     document.getElementById('description').innerHTML="";
     document.getElementById('bagWindow').style.bottom='0';
     document.getElementById('bagIcon').innerHTML='<img src="/img/opened-bag.png"/>';
-    bagOpened=1;
+    bagOpened=true;
   }
   else{
     doCloseBag();
@@ -597,7 +597,7 @@ function doCloseBag(){
   if(hasBag==true){
     document.getElementById('bagIcon').innerHTML='<img src="/img/closed-bag.png"/>';
   }
-  bagOpened=0;
+  bagOpened=false;
 }
 function doShowDescription(){
   currentItem=selectedItem;
@@ -607,7 +607,7 @@ function doShowDescription(){
 }
 function doOpenMask(){
   hasControl=false;
-  if(maskOpened==0){
+  if(maskOpened==false){
     document.getElementById("blackScreen").style.transition=".15s";
     document.getElementById('maskIcon').innerHTML='<img src="/img/opened-mask.png"/>';
     document.getElementById('blackScreen').style.opacity="1";
@@ -625,7 +625,7 @@ function doOpenMask(){
       document.getElementById('blackScreen').style.opacity="0";
     },700);
     hasControl=true;
-    maskOpened=1;
+    maskOpened=true;
   }
   else{
     doCloseMask();
@@ -634,7 +634,7 @@ function doOpenMask(){
 function doCloseMask(){
   document.getElementById("blackScreen").style.transition=".15s";
   hasMask=JSON.parse(localStorage.getItem('gotMask'));
-  if(hasMask==1){
+  if(hasMask==true){
     document.getElementById('maskIcon').innerHTML='<img src="/img/closed-mask.png"/>';
   }
   document.getElementById('blackScreen').style.opacity="1";
@@ -652,15 +652,15 @@ function doCloseMask(){
     document.getElementById('blackScreen').style.opacity="0";
   },700);
   hasControl=true;
-  maskOpened=0;
+  maskOpened=false;
 }
 function doOpenPhone(){
   doCloseMap();
   doCloseBag();
-  if(phoneOpened==0){
+  if(phoneOpened==false){
     document.getElementById('phoneWindow').style.right='1vw';
     document.getElementById('phoneIcon').innerHTML='<img src="/img/opened-phone.png"/>';
-    phoneOpened=1;
+    phoneOpened=true;
   }
   else{
     doClosePhone();
@@ -671,8 +671,8 @@ function doClosePhone(){
   hasPhone=JSON.parse(localStorage.getItem('gotPhone'));
   if(hasPhone==true){
     document.getElementById('phoneIcon').innerHTML='<img src="/img/closed-phone.png"/>';
-  }
-  phoneOpened=0;
+}
+  phoneOpened=false;
 }
 function doCloseAll(){
   doCloseMap();
