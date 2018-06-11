@@ -552,14 +552,15 @@ function doOpenMap(){
     document.getElementById('mapWindow').innerHTML="";
     document.getElementById('mapWindow').style.left="0";
     for(i=0;i<areaStep.areas[currentArea].canGoTo.length;i++){
-      if(areaStep.areas[areaStep.areas[currentArea].canGoTo[i].nextArea].available==true){
-        if(areaStep.areas[areaStep.areas[currentArea].canGoTo[i].nextArea].locked==false){
-          document.getElementById('mapWindow').innerHTML += "" + areaStep.areas[currentArea].canGoTo[i].area + "<img id='selectArea' onclick='doChangeArea(" + i + ")' src='" + areaStep.areas[currentArea].canGoTo[i].url + "'/>";
+      var area=areaStep.areas[areaStep.areas[currentArea].canGoTo[i].nextArea];
+      if(area.available==true){
+        if(area.locked==false){
+          document.getElementById('mapWindow').innerHTML += "" + area.name + "<img id='selectArea' onclick='doChangeArea(" + i + ")' src='" + area.url + "'/>";
           document.getElementById('mapIcon').innerHTML='<img src="/img/opened-map.png"/>';
         }
         else{
           document.getElementById('mapIcon').innerHTML='<img src="/img/opened-map.png"/>';
-          document.getElementById('mapWindow').innerHTML += "" + areaStep.areas[currentArea].canGoTo[i].area + "<img id='selectArea' onclick='sfx_locked_door.play(),currentDialog=" + areaStep.areas[currentArea].canGoTo[i].trigger + ",setTimeout(function(){doTalk()},2000)' src='" + areaStep.areas[currentArea].canGoTo[i].url + "'/>";
+          document.getElementById('mapWindow').innerHTML += "" + area.name + "<img id='selectArea' onclick='sfx_locked_door.play(),currentDialog=" + area.trigger + ",setTimeout(function(){doTalk()},2000)' src='" + area.url + "'/>";
         }
       }
     }

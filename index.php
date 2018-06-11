@@ -18,7 +18,6 @@
 
   <section id="blackScreen"></section>
 
-
   <section id="HUD">
     <!-- <hud></hud> -->
     <div class="vue">
