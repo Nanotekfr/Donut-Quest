@@ -3,10 +3,10 @@
   "tag":false,
   "showName":false,
   "who":null,
-  "sentences":[
+  "sentence":[
     {"id":1,"text":null,"speed":15,"skip":null}
   ],
-  "actions":[
+  "action":[
     {
       "id":1,
       "nextDialog":null,

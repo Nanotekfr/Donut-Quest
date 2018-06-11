@@ -525,7 +525,9 @@ function doStopTalk(){
   }
   if(currentCharacter!=null){
     character=characters.character[currentCharacter];
-    document.getElementById(character.img[currentCharacterId].url).style.pointerEvents="auto";
+    if(action.hideCharacter==false){
+      document.getElementById(character.img[currentCharacterId].url).style.pointerEvents="auto";
+    }
   }
   document.getElementById("dialogBox").style.opacity="0";
   document.getElementById("HUD").style.marginTop="0";
@@ -738,11 +740,6 @@ function doTrigger(){
       currentDialog=10;
       doTalk();
     },2000);
-  }
-  if(currentStage==7){
-    setTimeout(function(){
-      document.getElementById('blackScreen').style.opacity="1";
-    },3000);
   }
 }
 

@@ -1772,7 +1772,7 @@
           "nextDialog":null,
           "nextStage":7,
           "choice":null,
-          "fadeIn":null,
+          "fadeIn":2000,
           "fadeOut":null,
           "showCharacter":[
             {"id":1,"character":null,"img":null}

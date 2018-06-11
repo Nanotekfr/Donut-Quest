@@ -22,24 +22,7 @@
   <section id="blackScreen"></section>
 
   <section id="HUD">
-    <div class="vue">
-      <div id="icons">
-        <div id="mapIcon" onclick="doOpenMap()"></div>
-        <div id="bagIcon" onclick="doOpenBag()"></div>
-        <div id="maskIcon" onclick="doOpenMask()"></div>
-        <div id="phoneIcon" onclick="doOpenPhone()"></div>
-      </div>
-      <div id="mapWindow"></div>
-      <div id="bagWindow">
-        <div id="items"></div>
-        <div id="description"></div>
-      </div>
-      <div id="phoneWindow">
-        <div id="screen">
-          <a onclick="doQuit()">QUIT GAME</a>
-        </div>
-      </div>
-    </div>
+    <vhud></vhud>
   </section>
 
   <section id="dialog">
