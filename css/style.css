@@ -131,6 +131,7 @@ mark.distant{
   grid-template-columns:1fr 1fr;
   text-align:center;
   font-size:1.25vw;
+  margin-top:-2vw;
   display:grid;
   grid-gap:10%;
 }
@@ -179,7 +180,14 @@ mark.distant{
   left:0;
   top:0;
 }
-#homeScreen #manualUrl{
+#homeScreen #credits{
+  position:fixed;
+  margin:2.5vw;
+  z-index:100;
+  right:0;
+  top:0;
+}
+#homeScreen #manualUrl, #homeScreen #creditsUrl{
   position:fixed;
   transition:1s;
   overflow:auto;

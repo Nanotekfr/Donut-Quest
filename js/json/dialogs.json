@@ -161,7 +161,7 @@
           ],
           "showScenery":null,
           "hideScenery":false,
-          "addItem":null,
+          "addItem":0,
           "removeItem":null,
           "addScore":false,
           "removeScore":false,

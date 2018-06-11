@@ -78,7 +78,9 @@ var currentItem=0;
 var hasControl=false;
 
 var manual=false;
+var credits=false;
 function doShowManual(){
+  doHideCredits();
   if(manual==false){
     document.getElementById("manual").innerHTML="CLOSE";
     document.getElementById("manual").style.background="#f1f1f1";
@@ -87,13 +89,37 @@ function doShowManual(){
     manual=true;
   }
   else{
-    document.getElementById("manual").innerHTML="MANUAL";
-    document.getElementById("manual").style.background="#333";
-    document.getElementById("manual").style.color="#f1f1f1";
-    document.getElementById("manualUrl").style.opacity="0";
-    manual=false;
+    doHideManual();
   }
 }
+function doHideManual(){
+  document.getElementById("manual").innerHTML="MANUAL";
+  document.getElementById("manual").style.background="#333";
+  document.getElementById("manual").style.color="#f1f1f1";
+  document.getElementById("manualUrl").style.opacity="0";
+  manual=false;
+}
+function doShowCredits(){
+  doHideManual();
+  if(credits==false){
+    document.getElementById("credits").innerHTML="CLOSE";
+    document.getElementById("credits").style.background="#f1f1f1";
+    document.getElementById("credits").style.color="#333";
+    document.getElementById("creditsUrl").style.opacity="1";
+    credits=true;
+  }
+  else{
+    doHideCredits();
+  }
+}
+function doHideCredits(){
+  document.getElementById("credits").innerHTML="CREDITS";
+  document.getElementById("credits").style.background="#333";
+  document.getElementById("credits").style.color="#f1f1f1";
+  document.getElementById("creditsUrl").style.opacity="0";
+  credits=false;
+}
+
 function doLoad(){
   document.getElementById('homeScreen').style.opacity='1';
   if(JSON.parse(localStorage.getItem('canContinue'))==true){
@@ -101,6 +127,12 @@ function doLoad(){
   }
   else{
     document.getElementById('continue').style.pointerEvents='none';
+    setTimeout(function(){
+      doShowManual();
+    },2000);
+    setTimeout(function(){
+      doHideManual();
+    },12000);
   }
 }
 function doNewGame(){
@@ -704,14 +736,22 @@ function doNextStage(){
   localStorage.setItem('savedStage',action.nextStage);
   if(action.nextStage==1){
     localStorage.setItem('gotMap',true);
+    localStorage.setItem('gotBag',true);
+    localStorage.setItem('gotMask',true);
     localStorage.setItem('gotPhone',true);
     document.getElementById('mapIcon').style.pointerEvents='auto';
+    document.getElementById('bagIcon').style.pointerEvents='auto';
+    document.getElementById('maskIcon').style.pointerEvents='auto';
     document.getElementById('phoneIcon').style.pointerEvents='auto';
     document.getElementById('mapIcon').innerHTML='<img src="/img/closed-map.png"/>';
+    document.getElementById('bagIcon').innerHTML='<img src="/img/closed-bag.png"/>';
+    document.getElementById('maskIcon').innerHTML='<img src="/img/closed-mask.png"/>';
     document.getElementById('phoneIcon').innerHTML='<img src="/img/closed-phone.png"/>';
     localStorage.setItem('canContinue',true);
   }
   if(action.nextStage==2){
+    areas.area[1].presentCharacter[0].character=3;
+    areas.area[1].presentCharacter[0].img=0;
     areas.area[1].locked=true;
     areas.area[2].locked=true;
   }
@@ -757,6 +797,14 @@ function doTrigger(){
       currentDialog=10;
       doTalk();
     },2000);
+  }
+  if(currentStage==7){
+    setTimeout(function(){
+      doShowCredits();
+    },4000);
+    setTimeout(function(){
+      doQuit();
+    },8000);
   }
 }
 

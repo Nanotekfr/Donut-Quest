@@ -34,7 +34,7 @@
       "img":[
         {"id":1,"url":"terrilStageXX"}
       ],
-      "ghost":false
+      "ghost":true
     },
     {
       "id":5,
