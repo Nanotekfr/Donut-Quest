@@ -74,51 +74,9 @@ var currentArea=JSON.parse(localStorage.getItem('savedArea'));
 var currentSentence=0;
 var selectedAction=0;
 var currentDialog=0;
+var currentPart=0;
 var currentItem=0;
 var hasControl=false;
-
-var manual=false;
-var credits=false;
-function doShowManual(){
-  doHideCredits();
-  if(manual==false){
-    document.getElementById("manual").innerHTML="CLOSE";
-    document.getElementById("manual").style.background="#f1f1f1";
-    document.getElementById("manual").style.color="#333";
-    document.getElementById("manualUrl").style.opacity="1";
-    manual=true;
-  }
-  else{
-    doHideManual();
-  }
-}
-function doHideManual(){
-  document.getElementById("manual").innerHTML="MANUAL";
-  document.getElementById("manual").style.background="#333";
-  document.getElementById("manual").style.color="#f1f1f1";
-  document.getElementById("manualUrl").style.opacity="0";
-  manual=false;
-}
-function doShowCredits(){
-  doHideManual();
-  if(credits==false){
-    document.getElementById("credits").innerHTML="CLOSE";
-    document.getElementById("credits").style.background="#f1f1f1";
-    document.getElementById("credits").style.color="#333";
-    document.getElementById("creditsUrl").style.opacity="1";
-    credits=true;
-  }
-  else{
-    doHideCredits();
-  }
-}
-function doHideCredits(){
-  document.getElementById("credits").innerHTML="CREDITS";
-  document.getElementById("credits").style.background="#333";
-  document.getElementById("credits").style.color="#f1f1f1";
-  document.getElementById("creditsUrl").style.opacity="0";
-  credits=false;
-}
 
 function doLoad(){
   document.getElementById('homeScreen').style.opacity='1';
@@ -127,12 +85,6 @@ function doLoad(){
   }
   else{
     document.getElementById('continue').style.pointerEvents='none';
-    setTimeout(function(){
-      doShowManual();
-    },2000);
-    setTimeout(function(){
-      doHideManual();
-    },12000);
   }
 }
 function doNewGame(){
@@ -161,7 +113,8 @@ function doNewGame(){
   vueArea.url=areas.area[currentArea].url;
   document.getElementById("HUD").style.marginTop="0";
   setTimeout(function(){
-    currentDialog=2;
+    currentDialog=1;
+    currentPart=0;
     doTalk();
   },5000);
 }
@@ -247,7 +200,7 @@ function doTalk(){
   doCloseMap();
   doCloseBag();
   hasControl=false;
-  dialog=dialogs.dialog[currentDialog];
+  dialog=dialogs[currentDialog].dialog[currentPart];
   document.getElementById("dialog").style.pointerEvents="none";
   document.getElementById("HUD").style.marginTop="-100%";
   if(document.getElementById("scenery").style.opacity=="1"){
@@ -305,7 +258,7 @@ function doTalk(){
         document.getElementById("buttonBoxLeft").innerHTML="";
         document.getElementById("buttonBoxRight").innerHTML="";
         for(i=0;i<dialog.action.length;i++){
-          if(dialogs.dialog[currentDialog].action[i].choice!=null){
+          if(dialogs[currentDialog].dialog[currentPart].action[i].choice!=null){
             if(i<=1){
               document.getElementById("buttonBoxLeft").innerHTML += "<button class=\"choice left\" onclick=\"selectedAction="+i+",sfx_blip_next.play(),doAction("+i+")\">-"+dialog.action[i].choice+"</button>";
             }
@@ -356,10 +309,10 @@ function doTalk(){
   });
 }
 function doAction(selectedAction){
-  dialog=dialogs.dialog[currentDialog];
+  dialog=dialogs[currentDialog].dialog[currentPart];
   action=dialog.action[selectedAction];
   currentStage=action.nextStage;
-  currentDialog=action.nextDialog;
+  currentPart=action.nextDialog;
   currentSentence=0;
   if(action.nextStage!=null){
     doNextStage();
@@ -614,7 +567,7 @@ function doOpenMap(){
         }
         else{
           document.getElementById('mapIcon').innerHTML='<img src="/img/opened-map.png"/>';
-          document.getElementById('mapWindow').innerHTML += ""+area.name+"<img id='selectArea' onclick='sfx_locked_door.play(),currentDialog="+area.trigger+",setTimeout(function(){doTalk()},2000)' src='"+area.url+"'/>";
+          document.getElementById('mapWindow').innerHTML += ""+area.name+"<img id='selectArea' onclick='sfx_locked_door.play(),currentDialog=0,currentPart="+area.trigger+",setTimeout(function(){doTalk()},2000)' src='"+area.url+"'/>";
         }
       }
     }
@@ -738,16 +691,10 @@ function doNextStage(){
   localStorage.setItem('savedStage',action.nextStage);
   if(action.nextStage==1){
     localStorage.setItem('gotMap',true);
-    localStorage.setItem('gotBag',true);
-    localStorage.setItem('gotMask',true);
     localStorage.setItem('gotPhone',true);
     document.getElementById('mapIcon').style.pointerEvents='auto';
-    document.getElementById('bagIcon').style.pointerEvents='auto';
-    document.getElementById('maskIcon').style.pointerEvents='auto';
     document.getElementById('phoneIcon').style.pointerEvents='auto';
     document.getElementById('mapIcon').innerHTML='<img src="/img/closed-map.png"/>';
-    document.getElementById('bagIcon').innerHTML='<img src="/img/closed-bag.png"/>';
-    document.getElementById('maskIcon').innerHTML='<img src="/img/closed-mask.png"/>';
     document.getElementById('phoneIcon').innerHTML='<img src="/img/closed-phone.png"/>';
     localStorage.setItem('canContinue',true);
   }
@@ -778,7 +725,8 @@ function doTrigger(){
     },2000);
     setTimeout(function(){
       sfx_ambient_museum.stop();
-      currentDialog=5;
+      currentDialog=1;
+      currentPart=3;
       doTalk();
     },3000);
   }
@@ -788,20 +736,17 @@ function doTrigger(){
   }
   if(currentStage==3 && currentArea==0){
     setTimeout(function(){
-      currentDialog=6;
+      currentDialog=2;
+      currentPart=0;
       doTalk();
     },1500);
   }
   if(currentStage==4 && currentArea==3){
     setTimeout(function(){
-      currentDialog=10;
+      currentDialog=3;
+      currentPart=0;
       doTalk();
     },2000);
-  }
-  if(currentStage==7){
-    setTimeout(function(){
-      doQuit();
-    },6000);
   }
 }
 

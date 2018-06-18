@@ -42,8 +42,8 @@ Vue.component('vcharacter', {
       <img id="terrilStageXX" src="/img/terril.png"/>
       <img id="djarStageXX" src="/img/template.png"/>
       <img id="sphinxStageXX" src="/img/sphinx.png"/>
-      <img id="sphinxStage05" src="/img/sphinx.png" onclick="currentDialog=23,doTalk()"/>
-      <img id="sphinxStage06" src="/img/sphinx.png" onclick="currentDialog=36,doTalk()"/>
+      <img id="sphinxStage05" src="/img/sphinx.png" onclick="currentDialog=3,currentPart=13,doTalk()"/>
+      <img id="sphinxStage06" src="/img/sphinx.png" onclick="currentDialog=3,currentPart=26,doTalk()"/>
     </div>
   </div>`
 });
