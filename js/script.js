@@ -572,12 +572,6 @@ function doStopTalk(){
       nodes[i].style.pointerEvents="none";
     }
   }
-  if(currentCharacter!=null){
-    character=characters.character[currentCharacter];
-    if(action.hideCharacter==false){
-      document.getElementById(character.img[currentCharacterId].url).style.pointerEvents="auto";
-    }
-  }
   document.getElementById("dialogBox").style.opacity="0";
   document.getElementById("HUD").style.marginTop="0";
   var voice=new Howl({
@@ -588,9 +582,17 @@ function doStopTalk(){
   });
   voice.stop();
   setTimeout(function(){
+    if(currentCharacter!=null){
+      character=characters.character[currentCharacter];
+      if(action.hideCharacter==false){
+        document.getElementById(character.img[currentCharacterId].url).style.pointerEvents="auto";
+      }
+    }
+  },550);
+  setTimeout(function(){
     hasControl=true;
     doTrigger();
-  },250);
+  },575);
 }
 
 var mapOpened=false;
