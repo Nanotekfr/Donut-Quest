@@ -17,8 +17,10 @@
     <img id="floatMask" onclick="flash()" src="img/float-mask.png" alt="">
     <div id="flashScreen"></div>
     <img class="flash-img" id="img1" src="img/terril.png">
+    <p id="title">LE COULOIR DU TEMPS</p>
     <button id="newGame" onclick="sfx_blip_select.play(),doNewGame()">NEW GAME</button>
     <button id="continue" onclick="sfx_blip_select.play(),doContinue()">CONTINUE</button>
+    <p id="copyright">Copyright © 2018. All rights reserved.</p>
   </section>
 
   <section id="blackScreen"></section>

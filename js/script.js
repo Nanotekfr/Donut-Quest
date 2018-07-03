@@ -135,6 +135,7 @@ function flash(){
     hasControl=false;
     document.getElementById('flashScreen').style.opacity=('1');
     setTimeout(function(){
+      document.getElementById('title').style.opacity=('1');
       document.getElementById('flashScreen').style.transition=('2.5s');
       document.getElementById('flashScreen').style.opacity=('0');
       document.getElementById("img" + i + "").style.opacity=('1');

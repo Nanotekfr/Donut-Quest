@@ -3,8 +3,12 @@
   font-family:"monofonto";
 }
 @font-face{
-  src:url("../fonts/sketchy_comic.ttf");
+  src:url("../fonts/sketchy.ttf");
   font-family:"sketchy";
+}
+@font-face{
+  src:url("../fonts/space.ttf");
+  font-family:"space";
 }
 @keyframes horizontal{
   0%{transform:translate(0,0);}
@@ -51,8 +55,8 @@ mark.distant{
   position:fixed;
   cursor:default;
   display:flex;
+  color:050505;
   height:100%;
-  color:black;
   z-index:70;
   width:100%;
   opacity:0;
@@ -72,7 +76,7 @@ mark.distant{
   top:0;
 }
 #homeScreen #floatMask{
-  height:75%;
+  height:50%;
   animation:float 5s ease-in-out infinite;
 }
 #homeScreen #flashScreen{
@@ -89,12 +93,19 @@ mark.distant{
   pointer-events:none;
   position:fixed;
   opacity:0;
+  left:0;
+}
+#homeScreen #title{
+  font-family:space;
+  font-size:5vw;
+  margin:.5vw;
+  opacity:0;
 }
 #homeScreen button{
   justify-content:center;
   border-radius:.5vw;
   align-items:center;
-  background:#333;
+  background:#081939;
   transition:.1s;
   cursor:pointer;
   font-size:2vw;
@@ -106,7 +117,7 @@ mark.distant{
   width:15%;
 }
 #homeScreen button:hover{
-  background:#000;
+  background:#2b64cf;
 }
 #homeScreen #manual{
   position:fixed;
@@ -124,6 +135,10 @@ mark.distant{
 }
 #homeScreen #continue{
   opacity:0;
+}
+#homeScreen #copyright{
+  position:fixed;
+  bottom:0;
 }
 /* BLACK SCREEN */
 #blackScreen{
