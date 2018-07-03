@@ -680,7 +680,6 @@ function doOpenMask(){
   hasControl=false;
   if(maskOpened==false){
     document.getElementById("blackScreen").style.transition=".15s";
-    document.getElementById('maskIcon').innerHTML='<img src="/img/opened-mask.png"/>';
     document.getElementById('blackScreen').style.opacity="1";
     setTimeout(function(){
       document.getElementById('mask').style.opacity="1";
@@ -693,6 +692,7 @@ function doOpenMask(){
       }
     },175);
     setTimeout(function(){
+      document.getElementById('maskIcon').innerHTML='<img src="/img/opened-mask.png"/>';
       document.getElementById('blackScreen').style.opacity="0";
     },700);
     hasControl=true;
@@ -706,7 +706,6 @@ function doCloseMask(){
   document.getElementById("blackScreen").style.transition=".15s";
   hasMask=JSON.parse(localStorage.getItem('gotMask'));
   if(hasMask==true){
-    document.getElementById('maskIcon').innerHTML='<img src="/img/closed-mask.png"/>';
   }
   document.getElementById('blackScreen').style.opacity="1";
   setTimeout(function(){
@@ -720,6 +719,7 @@ function doCloseMask(){
     }
   },175);
   setTimeout(function(){
+    document.getElementById('maskIcon').innerHTML='<img src="/img/closed-mask.png"/>';
     document.getElementById('blackScreen').style.opacity="0";
   },700);
   hasControl=true;
