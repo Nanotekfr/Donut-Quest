@@ -108,9 +108,6 @@ mark.distant{
 #homeScreen button:hover{
   background:#000;
 }
-#homeScreen #continue{
-  opacity:0;
-}
 #homeScreen #manual{
   position:fixed;
   margin:2.5vw;
@@ -124,6 +121,9 @@ mark.distant{
   z-index:100;
   right:0;
   top:0;
+}
+#homeScreen #continue{
+  opacity:0;
 }
 /* BLACK SCREEN */
 #blackScreen{

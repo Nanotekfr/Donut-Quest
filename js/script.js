@@ -76,7 +76,7 @@ var selectedAction=0;
 var currentDialog=0;
 var currentPart=0;
 var currentItem=0;
-var hasControl=true;
+var hasControl=false;
 
 var manual=false;
 var credits=false;
@@ -84,8 +84,6 @@ function doShowManual(){
   doHideCredits();
   if(manual==false){
     document.getElementById("manual").innerHTML="CLOSE";
-    document.getElementById("manual").style.background="#f1f1f1";
-    document.getElementById("manual").style.color="#333";
     document.getElementById("manualUrl").style.opacity="1";
     manual=true;
   }
@@ -95,8 +93,6 @@ function doShowManual(){
 }
 function doHideManual(){
   document.getElementById("manual").innerHTML="MANUAL";
-  document.getElementById("manual").style.background="#333";
-  document.getElementById("manual").style.color="#f1f1f1";
   document.getElementById("manualUrl").style.opacity="0";
   manual=false;
 }
@@ -104,8 +100,6 @@ function doShowCredits(){
   doHideManual();
   if(credits==false){
     document.getElementById("credits").innerHTML="CLOSE";
-    document.getElementById("credits").style.background="#f1f1f1";
-    document.getElementById("credits").style.color="#333";
     document.getElementById("creditsUrl").style.opacity="1";
     credits=true;
   }
@@ -115,13 +109,12 @@ function doShowCredits(){
 }
 function doHideCredits(){
   document.getElementById("credits").innerHTML="CREDITS";
-  document.getElementById("credits").style.background="#333";
-  document.getElementById("credits").style.color="#f1f1f1";
   document.getElementById("creditsUrl").style.opacity="0";
   credits=false;
 }
 
 function doLoad(){
+  hasControl=true;
   document.getElementById('homeScreen').style.opacity='1';
   if(JSON.parse(localStorage.getItem('canContinue'))==true){
     document.getElementById('continue').style.opacity='1';
