@@ -11,16 +11,14 @@
 
   <section id="homeScreen">
     <button id="manual" onclick="sfx_blip_select.play(),doShowManual()">MANUAL</button>
+    <img id="manualUrl" src="img/manual.png"/>
     <button id="credits" onclick="sfx_blip_select.play(),doShowCredits()">CREDITS</button>
-    <img id="manualUrl" src="/img/manual.png"/>
-    <img id="creditsUrl" src="/img/credits.png"/>
-    <h1>"DONUT-QUEST"<br>PRE-ALPHA DEMO</h1>
+    <img id="creditsUrl" src="img/credits.png"/>
+    <img id="floatMask" onclick="flash()" src="img/float-mask.png" alt="">
+    <div id="flashScreen"></div>
+    <img class="flash-img" id="img1" src="img/terril.png">
     <button id="newGame" onclick="sfx_blip_select.play(),doNewGame()">NEW GAME</button>
     <button id="continue" onclick="sfx_blip_select.play(),doContinue()">CONTINUE</button>
-    <h1>WORK IN PROGRESS</h1>
-    <p>The current aspect is not definitive.<br>Elements such as areas, characters and sound effects will change and will be improved as the development progress.</p>
-    <h1>GAME BY</h1>
-    <div class="credits"><div>FLORIAN LUDOWICZ<a href="http://nehred.com/">NEHRED.COM</a><a href="http://cv.nehred.com/en-US/">CV.NEHRED.COM</a></div><div>JIMMY HENOCQ<a href="http://cv.henocq.fr/">CV.HENOCQ.FR</a></div></div>
   </section>
 
   <section id="blackScreen"></section>
@@ -33,7 +31,7 @@
     <vdialog></vdialog>
   </section>
 
-  <section id="mask"><img src="/img/mask.png"></section>
+  <section id="mask"><img src="img/mask.png"></section>
 
   <section id="scenery" onclick="doCloseAll()">
     <div id="blackScreen02"></div>
@@ -49,10 +47,10 @@
     <img :src="url">
   </section>
 
-  <script src="/js/libraries/howler.js"></script>
-  <script src="/js/libraries/typed.js"></script>
-  <script src="/js/libraries/vue.js"></script>
-  <script src="/js/vue/components.js"></script>
-  <script src="/js/script.js"></script>
+  <script src="js/libraries/howler.js"></script>
+  <script src="js/libraries/typed.js"></script>
+  <script src="js/libraries/vue.js"></script>
+  <script src="js/vue/components.js"></script>
+  <script src="js/script.js"></script>
 </body>
 </html>

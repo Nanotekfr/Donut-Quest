@@ -4,9 +4,9 @@
     "dialog":[
       {
         "id":1,
+        "who":0,
         "tag":false,
         "showName":false,
-        "who":0,
         "sentence":[
           {"id":1,"text":"<mark class='inner'>(It's locked.^500 I can't go there...)</mark>","speed":15,"skip":null}
         ],

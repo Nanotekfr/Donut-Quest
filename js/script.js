@@ -76,7 +76,50 @@ var selectedAction=0;
 var currentDialog=0;
 var currentPart=0;
 var currentItem=0;
-var hasControl=false;
+var hasControl=true;
+
+var manual=false;
+var credits=false;
+function doShowManual(){
+  doHideCredits();
+  if(manual==false){
+    document.getElementById("manual").innerHTML="CLOSE";
+    document.getElementById("manual").style.background="#f1f1f1";
+    document.getElementById("manual").style.color="#333";
+    document.getElementById("manualUrl").style.opacity="1";
+    manual=true;
+  }
+  else{
+    doHideManual();
+  }
+}
+function doHideManual(){
+  document.getElementById("manual").innerHTML="MANUAL";
+  document.getElementById("manual").style.background="#333";
+  document.getElementById("manual").style.color="#f1f1f1";
+  document.getElementById("manualUrl").style.opacity="0";
+  manual=false;
+}
+function doShowCredits(){
+  doHideManual();
+  if(credits==false){
+    document.getElementById("credits").innerHTML="CLOSE";
+    document.getElementById("credits").style.background="#f1f1f1";
+    document.getElementById("credits").style.color="#333";
+    document.getElementById("creditsUrl").style.opacity="1";
+    credits=true;
+  }
+  else{
+    doHideCredits();
+  }
+}
+function doHideCredits(){
+  document.getElementById("credits").innerHTML="CREDITS";
+  document.getElementById("credits").style.background="#333";
+  document.getElementById("credits").style.color="#f1f1f1";
+  document.getElementById("creditsUrl").style.opacity="0";
+  credits=false;
+}
 
 function doLoad(){
   document.getElementById('homeScreen').style.opacity='1';
@@ -85,8 +128,36 @@ function doLoad(){
   }
   else{
     document.getElementById('continue').style.pointerEvents='none';
+    setTimeout(function(){
+      doShowManual();
+    },2000);
+    setTimeout(function(){
+      doHideManual();
+    },12000);
   }
 }
+function flash(){
+  var i =1;
+  if(hasControl==true){
+    hasControl=false;
+    document.getElementById('flashScreen').style.opacity=('1');
+    setTimeout(function(){
+      document.getElementById('flashScreen').style.transition=('2.5s');
+      document.getElementById('flashScreen').style.opacity=('0');
+      document.getElementById("img" + i + "").style.opacity=('1');
+    }, 100);
+    setTimeout(function(){
+      document.getElementById("img" + i + "").style.transition=('2.5s');
+      document.getElementById("img" + i + "").style.opacity=('0');
+    }, 150);
+    setTimeout(function(){
+      document.getElementById('flashScreen').style.transition=('.1s');
+      document.getElementById("img" + i + "").style.transition=('0s');
+      hasControl=true;
+    }, 2650);
+  }
+}
+
 function doNewGame(){
   document.getElementById('homeScreen').style.opacity='0';
   document.getElementById('homeScreen').style.pointerEvents='none';
@@ -691,10 +762,16 @@ function doNextStage(){
   localStorage.setItem('savedStage',action.nextStage);
   if(action.nextStage==1){
     localStorage.setItem('gotMap',true);
+    localStorage.setItem('gotBag',true);
+    localStorage.setItem('gotMask',true);
     localStorage.setItem('gotPhone',true);
     document.getElementById('mapIcon').style.pointerEvents='auto';
+    document.getElementById('bagIcon').style.pointerEvents='auto';
+    document.getElementById('maskIcon').style.pointerEvents='auto';
     document.getElementById('phoneIcon').style.pointerEvents='auto';
     document.getElementById('mapIcon').innerHTML='<img src="/img/closed-map.png"/>';
+    document.getElementById('bagIcon').innerHTML='<img src="/img/closed-bag.png"/>';
+    document.getElementById('maskIcon').innerHTML='<img src="/img/closed-mask.png"/>';
     document.getElementById('phoneIcon').innerHTML='<img src="/img/closed-phone.png"/>';
     localStorage.setItem('canContinue',true);
   }
@@ -747,6 +824,11 @@ function doTrigger(){
       currentPart=0;
       doTalk();
     },2000);
+  }
+  if(currentStage==7){
+    setTimeout(function(){
+      doQuit();
+    },6000);
   }
 }
 
