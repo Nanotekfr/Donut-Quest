@@ -121,12 +121,12 @@ function doLoad(){
   }
   else{
     document.getElementById('continue').style.pointerEvents='none';
-    setTimeout(function(){
-      doShowManual();
-    },2000);
-    setTimeout(function(){
-      doHideManual();
-    },12000);
+    // setTimeout(function(){
+    //   doShowManual();
+    // },2000);
+    // setTimeout(function(){
+    //   doHideManual();
+    // },12000);
   }
 }
 function flash(){
@@ -139,16 +139,16 @@ function flash(){
       document.getElementById('flashScreen').style.transition=('2.5s');
       document.getElementById('flashScreen').style.opacity=('0');
       document.getElementById("img" + i + "").style.opacity=('1');
-    }, 100);
+    }, 250);
     setTimeout(function(){
       document.getElementById("img" + i + "").style.transition=('2.5s');
       document.getElementById("img" + i + "").style.opacity=('0');
-    }, 150);
+    }, 300);
     setTimeout(function(){
       document.getElementById('flashScreen').style.transition=('.1s');
       document.getElementById("img" + i + "").style.transition=('0s');
       hasControl=true;
-    }, 2650);
+    }, 2800);
   }
 }
 
@@ -529,7 +529,7 @@ function doChangeArea(selectedArea){
       currentCharacterId=presentCharacterId;
       character=characters.character[currentCharacter];
       if(character.ghost==true){
-        if(maskOpened==1){
+        if(maskOpened==true){
           document.getElementById(character.img[currentCharacterId].url).style.pointerEvents="auto";
           document.getElementById(character.img[currentCharacterId].url).style.opacity="1";
         }
@@ -678,6 +678,9 @@ function doShowDescription(){
   document.getElementById('description').innerHTML="<img class='item' src='"+icon+"'/></div><p>"+description+"</p>";
 }
 function doOpenMask(){
+  doCloseMap();
+  doCloseBag();
+  doClosePhone();
   hasControl=false;
   if(maskOpened==false){
     document.getElementById("blackScreen").style.transition=".15s";

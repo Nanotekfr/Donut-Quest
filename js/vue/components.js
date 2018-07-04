@@ -40,7 +40,7 @@ Vue.component('vcharacter', {
     <div id="characterBox">
       <img id="tomStageXX" src="/img/template.png"/>
       <img id="terrilStageXX" src="/img/terril.png"/>
-      <img id="djarStageXX" src="/img/template.png"/>
+      <img id="djarStageXX" class="float" src="/img/djar.png"/>
       <img id="sphinxStageXX" src="/img/sphinx.png"/>
       <img id="sphinxStage05" src="/img/sphinx.png" onclick="currentDialog=3,currentPart=13,doTalk()"/>
       <img id="sphinxStage06" src="/img/sphinx.png" onclick="currentDialog=3,currentPart=26,doTalk()"/>

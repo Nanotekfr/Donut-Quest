@@ -42,7 +42,7 @@
       "voice":"../audio/sfx_blip_male.wav",
       "img":[{"id":1,"url":"djarStageXX"}
       ],
-      "ghost":false
+      "ghost":true
     },
     {
       "id":6,

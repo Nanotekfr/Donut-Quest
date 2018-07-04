@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'/>
-  <link rel="stylesheet" href="/css/fontawesome-all.css">
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="css/fontawesome-all.css">
+  <link rel="stylesheet" href="css/style.css">
   <title>Donut-Quest</title>
 </head>
 <body onload="doLoad()">
@@ -14,7 +14,7 @@
     <img id="manualUrl" src="img/manual.png"/>
     <button id="credits" onclick="sfx_blip_select.play(),doShowCredits()">CREDITS</button>
     <img id="creditsUrl" src="img/credits.png"/>
-    <img id="floatMask" onclick="flash()" src="img/float-mask.png" alt="">
+    <img id="floatMask" class="float" onclick="flash()" src="img/float-mask.png" alt="">
     <div id="flashScreen"></div>
     <img class="flash-img" id="img1" src="img/terril.png">
     <p id="title">LE COULOIR DU TEMPS</p>

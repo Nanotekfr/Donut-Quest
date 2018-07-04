@@ -28,7 +28,7 @@
         {"id":4,"nextArea":0}
       ],
       "presentCharacter":[
-        {"id":1,"character":null,"img":null}
+        {"id":1,"character":4,"img":0}
       ],
       "available":true,
       "locked":false,
